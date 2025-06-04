@@ -1,0 +1,773 @@
+{
+  "active": false,
+  "connections": {
+    "OpenAI Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "БИЗНЕС АССИСТЕНТ",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Window Buffer Memory": {
+      "ai_memory": [
+        [
+          {
+            "node": "БИЗНЕС АССИСТЕНТ",
+            "type": "ai_memory",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Calculator": {
+      "ai_tool": [
+        [
+          {
+            "node": "БИЗНЕС АССИСТЕНТ",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Calendar Agent": {
+      "ai_tool": [
+        [
+          {
+            "node": "БИЗНЕС АССИСТЕНТ",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Switch": {
+      "main": [
+        [
+          {
+            "node": "Download File",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Set Text",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Transcribe1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Download File": {
+      "main": [
+        [
+          {
+            "node": "Transcribe",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Transcribe": {
+      "main": [
+        [
+          {
+            "node": "Set Text (voice)",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "БИЗНЕС АССИСТЕНТ": {
+      "main": [
+        [
+          {
+            "node": "Response",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI": {
+      "main": [
+        [
+          {
+            "node": "Switch1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Switch1": {
+      "main": [
+        [
+          {
+            "node": "календарь",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "транскрибация",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "общее",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "общее": {
+      "main": [
+        [
+          {
+            "node": "БИЗНЕС АССИСТЕНТ",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Set Text": {
+      "main": [
+        [
+          {
+            "node": "Set Text (final)",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Set Text (voice)": {
+      "main": [
+        [
+          {
+            "node": "Set Text (final)",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Set Text (final)": {
+      "main": [
+        [
+          {
+            "node": "OpenAI",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Telegram Trigger1": {
+      "main": [
+        [
+          {
+            "node": "Switch",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "транскрибация": {
+      "main": [
+        [
+          {
+            "node": "БИЗНЕС АССИСТЕНТ",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "календарь": {
+      "main": [
+        [
+          {
+            "node": "БИЗНЕС АССИСТЕНТ",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Transcribe1": {
+      "main": [
+        [
+          {
+            "node": "Response",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2025-05-25T20:07:12.223Z",
+  "id": "jvnUN9ywx5u1gKgv",
+  "meta": null,
+  "name": "ИИ-транскрибатор",
+  "nodes": [
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "value": "gpt-4o-mini-2024-07-18",
+          "mode": "list",
+          "cachedResultName": "gpt-4o-mini-2024-07-18"
+        },
+        "options": {
+          "frequencyPenalty": 0
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.2,
+      "position": [
+        200,
+        440
+      ],
+      "id": "74c25256-4338-4c01-9d3c-7110ae9eaf84",
+      "name": "OpenAI Chat Model"
+    },
+    {
+      "parameters": {
+        "sessionIdType": "customKey",
+        "sessionKey": "={{ $('Telegram Trigger1').item.json.message.chat.id }}",
+        "contextWindowLength": 1
+      },
+      "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
+      "typeVersion": 1.3,
+      "position": [
+        320,
+        440
+      ],
+      "id": "8b76ec01-1fe5-4c40-b25e-56d928c5312f",
+      "name": "Window Buffer Memory"
+    },
+    {
+      "parameters": {},
+      "type": "@n8n/n8n-nodes-langchain.toolCalculator",
+      "typeVersion": 1,
+      "position": [
+        440,
+        440
+      ],
+      "id": "502acfcd-65e7-4eea-940f-3be50c241be2",
+      "name": "Calculator"
+    },
+    {
+      "parameters": {
+        "name": "calendarAgent",
+        "description": "Call this tool for any calendar action.",
+        "workflowId": {
+          "__rl": true,
+          "value": "uGFvdoswI002nLpP",
+          "mode": "list",
+          "cachedResultName": "GC"
+        },
+        "workflowInputs": {
+          "mappingMode": "defineBelow",
+          "value": {},
+          "matchingColumns": [],
+          "schema": [],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.toolWorkflow",
+      "typeVersion": 2,
+      "position": [
+        560,
+        440
+      ],
+      "id": "9dd3600b-2e1a-4089-941b-9ba1caddc8ea",
+      "name": "Calendar Agent"
+    },
+    {
+      "parameters": {
+        "rules": {
+          "values": [
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "leftValue": "={{ $json.message.voice.file_id }}",
+                    "rightValue": "",
+                    "operator": {
+                      "type": "string",
+                      "operation": "exists",
+                      "singleValue": true
+                    },
+                    "id": "6fa3be01-4959-425b-8c19-ae2e4bb0fbdc"
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "Voice"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "8c844924-b2ed-48b0-935c-c66a8fd0c778",
+                    "leftValue": "={{ $json.message.text }}",
+                    "rightValue": "",
+                    "operator": {
+                      "type": "string",
+                      "operation": "exists",
+                      "singleValue": true
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "Text"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "166bcc2e-49ca-4fc5-a817-3317e905e7d3",
+                    "leftValue": "={{ $json.message.video }}",
+                    "rightValue": "",
+                    "operator": {
+                      "type": "object",
+                      "operation": "exists",
+                      "singleValue": true
+                    }
+                  }
+                ],
+                "combinator": "and"
+              }
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "3a6ecf79-f554-45fd-b18d-45dde2d90619",
+      "name": "Switch",
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 3.2,
+      "position": [
+        -1720,
+        220
+      ]
+    },
+    {
+      "parameters": {
+        "chatId": "={{ $('Telegram Trigger1').item.json.message.chat.id }}",
+        "text": "={{ $json.output }}",
+        "additionalFields": {
+          "appendAttribution": false
+        }
+      },
+      "id": "d93d246b-cd90-44ee-ae2b-bd1c86c763a3",
+      "name": "Response",
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1.2,
+      "position": [
+        760,
+        220
+      ],
+      "webhookId": "5dced4b9-5066-4036-a4d4-14fc07edd53c"
+    },
+    {
+      "parameters": {
+        "resource": "file",
+        "fileId": "={{ $json.message.voice.file_id }}"
+      },
+      "id": "bc1cec08-6f2f-41e7-9e58-4f9ab5336d90",
+      "name": "Download File",
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1.2,
+      "position": [
+        -1500,
+        120
+      ],
+      "webhookId": "83bb7385-33f6-4105-8294-1a91c0ebbee5"
+    },
+    {
+      "parameters": {
+        "resource": "audio",
+        "operation": "transcribe",
+        "options": {}
+      },
+      "id": "85061793-6605-4970-987c-80ec464cd86d",
+      "name": "Transcribe",
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "typeVersion": 1.6,
+      "position": [
+        -1280,
+        120
+      ]
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "={{ $json.prompt }} {{ $json.text }}",
+        "options": {
+          "systemMessage": "=# Overview\nYou are an expert assistant that helps with content generation, post editing, theme suggestions, and other content-related tasks. You also handle calendar tasks when needed.\n\n## Language\nAlways respond in Russian using a professional, clear, and friendly tone.\n\n## Content Rules\nYou are allowed to generate and edit text content including posts, articles, and ideas for social media. Follow the tone and goals described in the prompt.\n\n## Tools\n- calendarAgent: Use this tool to take actions in calendar\n\n## Final Reminder\nAlways complete the task clearly and concisely. Do not refuse content generation.\nCurrent date/time: {{ $now }}"
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 1.7,
+      "position": [
+        300,
+        220
+      ],
+      "id": "44dd8514-ccab-45fa-8214-01461b74c95a",
+      "name": "БИЗНЕС АССИСТЕНТ"
+    },
+    {
+      "parameters": {
+        "modelId": {
+          "__rl": true,
+          "value": "gpt-4o-mini",
+          "mode": "list",
+          "cachedResultName": "GPT-4O-MINI"
+        },
+        "messages": {
+          "values": [
+            {
+              "content": "Ты классификатор команд. Ответь в формате JSON:\n{\n  \"команда\": \"календарь | транскрибация | общее\"\n}\n\nТипы команд:\n- \"календарь\" — если пользователь просит создать, изменить, переместетить и тд задачу или мероприятие. Также если спрашивает про график или другие данные.\n- \"транскрибация\" — если пользователь просит транскрибировать, извлечь текст и тд.\n- \"общее\" — если команда не подходит ни под одну из категорий",
+              "role": "system"
+            },
+            {
+              "content": "={{ $json.text }}"
+            }
+          ]
+        },
+        "jsonOutput": true,
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "typeVersion": 1.8,
+      "position": [
+        -540,
+        220
+      ],
+      "id": "7883896d-fceb-4b33-91ff-0ba200d1bae3",
+      "name": "OpenAI"
+    },
+    {
+      "parameters": {
+        "rules": {
+          "values": [
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "leftValue": "={{$json[\"message\"][\"content\"][\"команда\"]}}",
+                    "rightValue": "календарь",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals"
+                    },
+                    "id": "027a606a-f5ff-4466-977b-4584081cb9c7"
+                  }
+                ],
+                "combinator": "and"
+              }
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "153401ed-088c-4de8-a8f1-2c4cce6a49f3",
+                    "leftValue": "={{ $json[\"message\"][\"content\"][\"команда\"] }}",
+                    "rightValue": "транскрибация",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              }
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "24187032-471d-47df-a555-bb804a5e3759",
+                    "leftValue": "={{$json[\"message\"][\"content\"][\"команда\"]}}",
+                    "rightValue": "общее",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              }
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 3.2,
+      "position": [
+        -220,
+        220
+      ],
+      "id": "3a46a959-bb1c-4af5-bd96-74276b87c248",
+      "name": "Switch1"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "4c54f89c-3770-469c-896a-a4e3d3c5bb12",
+              "name": "text",
+              "value": "={{ $node[\"Set Text (final)\"].json[\"text\"] }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        0,
+        440
+      ],
+      "id": "3d8367db-c6f2-470e-b949-6db2b5de13c8",
+      "name": "общее"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "fe7ecc99-e1e8-4a5e-bdd6-6fce9757b234",
+              "name": "text",
+              "value": "={{ $json.message.text }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "d9c871bc-8bf8-47cb-a192-9e4787a0f978",
+      "name": "Set Text",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -1060,
+        320
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "2b2ff60e-9772-4dc6-8dad-7de37ec83103",
+              "name": "text",
+              "value": "={{ $json.text }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -1060,
+        120
+      ],
+      "id": "94391b58-17db-4bfb-a032-9952f18194a5",
+      "name": "Set Text (voice)"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "2b2ff60e-9772-4dc6-8dad-7de37ec83103",
+              "name": "text",
+              "value": "={{ $json.text }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -680,
+        220
+      ],
+      "id": "c3fc2fa3-2cab-45b1-aad2-63ae63aa6682",
+      "name": "Set Text (final)"
+    },
+    {
+      "parameters": {
+        "updates": [
+          "message"
+        ],
+        "additionalFields": {}
+      },
+      "id": "10bc63b3-a744-44fe-a74d-7832f065daaa",
+      "name": "Telegram Trigger1",
+      "type": "n8n-nodes-base.telegramTrigger",
+      "typeVersion": 1.1,
+      "position": [
+        -2180,
+        220
+      ],
+      "webhookId": "99eab1a0-569d-4f0f-a49e-578a02abfe63"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "72ac8133-34e7-4f08-bbb3-4b387c286c64",
+              "name": "prompt",
+              "value": "You are a copywriter and content marketer. Your task is to revise an existing social media post to improve its clarity, tone, and effectiveness while maintaining a friendly and motivating style. The goal is to adapt it for Telegram, VK, Instagram, and Yandex Zen. Include up to 5 relevant hashtags and emojis if natural. End with a strong call to action.",
+              "type": "string"
+            },
+            {
+              "id": "9a880348-9dad-49bb-9436-6faf65fb8cdd",
+              "name": "text",
+              "value": "={{ $node[\"Set Text (final)\"].json[\"text\"] }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        0,
+        0
+      ],
+      "id": "e8d61ee5-9627-4e18-ad3c-7f803c88eee0",
+      "name": "календарь"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "72ac8133-34e7-4f08-bbb3-4b387c286c64",
+              "name": "prompt",
+              "value": "You are a copywriter and content marketer. Your task is to revise an existing social media post to improve its clarity, tone, and effectiveness while maintaining a friendly and motivating style. The goal is to adapt it for Telegram, VK, Instagram, and Yandex Zen. Include up to 5 relevant hashtags and emojis if natural. End with a strong call to action.",
+              "type": "string"
+            },
+            {
+              "id": "9a880348-9dad-49bb-9436-6faf65fb8cdd",
+              "name": "text",
+              "value": "={{ $node[\"Set Text (final)\"].json[\"text\"] }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        0,
+        220
+      ],
+      "id": "f3d13a92-1344-48f2-b0ef-2b1a968fd24b",
+      "name": "транскрибация"
+    },
+    {
+      "parameters": {
+        "resource": "file",
+        "options": {}
+      },
+      "id": "b82185bf-271d-4308-b145-322316ef08d3",
+      "name": "Transcribe1",
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "typeVersion": 1.6,
+      "position": [
+        -1400,
+        500
+      ]
+    }
+  ],
+  "pinData": {},
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2025-05-25T20:08:06.000Z",
+  "versionId": "7aee496f-0ce6-47f8-ab79-7b9f5bda0cdb"
+}
