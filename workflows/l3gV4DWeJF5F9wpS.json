@@ -1,0 +1,1104 @@
+{
+  "active": false,
+  "connections": {
+    "Set Guideline": {
+      "main": [
+        [
+          {
+            "node": "Airtable1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Wait": {
+      "main": [
+        [
+          {
+            "node": "Set Prompt",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Set Prompt": {
+      "main": [
+        [
+          {
+            "node": "Gemini - Ask Questions",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Gemini - Generate Upload URL": {
+      "main": [
+        [
+          {
+            "node": "Download File",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Gemini - Upload File": {
+      "main": [
+        [
+          {
+            "node": "Save Values",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Gemini - Ask Questions": {
+      "main": [
+        [
+          {
+            "node": "Set Guideline",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Save Values": {
+      "main": [
+        [
+          {
+            "node": "Wait",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Apify - Fetch Reels": {
+      "main": [
+        [
+          {
+            "node": "Save Fields",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Sort": {
+      "main": [
+        [
+          {
+            "node": "Limit",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Limit": {
+      "main": [
+        [
+          {
+            "node": "Create Video2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Save Fields": {
+      "main": [
+        [
+          {
+            "node": "Sort",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Loop Over Items": {
+      "main": [
+        [],
+        [
+          {
+            "node": "Apify - Fetch Reels",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Download File": {
+      "main": [
+        [
+          {
+            "node": "Gemini - Upload File",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Create Video2": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Items",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Get Video",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get Video": {
+      "main": [
+        [
+          {
+            "node": "Gemini - Generate Upload URL",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Search Creators": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Items",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Schedule Trigger": {
+      "main": [
+        [
+          {
+            "node": "Search Creators",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Airtable1": {
+      "main": [
+        [
+          {
+            "node": "OpenAI1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI1": {
+      "main": [
+        [
+          {
+            "node": "Create Video3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Create Video3": {
+      "main": [
+        [
+          {
+            "node": "Telegram1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2025-06-01T10:52:56.733Z",
+  "id": "l3gV4DWeJF5F9wpS",
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "errday Danya",
+  "nodes": [
+    {
+      "parameters": {
+        "operation": "update",
+        "base": {
+          "__rl": true,
+          "value": "appk2LYt9HzpP8YVw",
+          "mode": "list",
+          "cachedResultName": "MyBase.csv",
+          "cachedResultUrl": "https://airtable.com/appk2LYt9HzpP8YVw"
+        },
+        "table": {
+          "__rl": true,
+          "value": "tblArXzgCLa1xq7iU",
+          "mode": "list",
+          "cachedResultName": "Videos",
+          "cachedResultUrl": "https://airtable.com/appk2LYt9HzpP8YVw/tblArXzgCLa1xq7iU"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "Guideline": "={{ $json.candidates[0].content.parts[0].text }}",
+            "id": "={{ $('Save Values').item.json.airtable_rec_id }}"
+          },
+          "matchingColumns": [
+            "id"
+          ],
+          "schema": [
+            {
+              "id": "id",
+              "displayName": "id",
+              "required": false,
+              "defaultMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": false
+            },
+            {
+              "id": "Video",
+              "displayName": "Video",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Views",
+              "displayName": "Views",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "number",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Caption",
+              "displayName": "Caption",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Creator",
+              "displayName": "Creator",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Transcribe",
+              "displayName": "Transcribe",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Guideline",
+              "displayName": "Guideline",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Creation Date",
+              "displayName": "Creation Date",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "id",
+              "displayName": "id",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "id": "8c5474b5-9d0e-496b-b0dc-f0107cdd3b96",
+      "name": "Set Guideline",
+      "type": "n8n-nodes-base.airtable",
+      "position": [
+        1720,
+        320
+      ],
+      "typeVersion": 2.1,
+      "credentials": {
+        "airtableTokenApi": {
+          "id": "ADpcCzbUJLsCJQap",
+          "name": "lubov"
+        }
+      }
+    },
+    {
+      "parameters": {},
+      "id": "b33f6473-1f9f-443d-8394-3b346bb61a84",
+      "name": "Wait",
+      "type": "n8n-nodes-base.wait",
+      "position": [
+        1200,
+        320
+      ],
+      "webhookId": "2126ffb5-dcff-4328-85f7-aff6470bffd1",
+      "typeVersion": 1.1
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "a21fe2d1-533b-4f09-94aa-9312c3dd05b8",
+              "name": "prompt",
+              "type": "string",
+              "value": "=Analyze reels: 1. How it starts  2. How it ends 3. What is going on video.  For us important to understand main params of the video to be able reproduct it. Params: 1. Background 2. Pose 3. Text 4. Clothes 5. Context 6. People/participants/roles  Example of result: Example 1: - Girl in the frame in evening dress - Party - Text: “Let's already admit that the most important ponte of a man is a gorgeous wife by his side” - Formatting: White text in the center on the background of a dynamic frame.  Example 2: - Behind-the-scenes moments from the shooting of the video - A girl with a beautiful figure, large breasts in a swimsuit and bathing skirt - Text below “When at 35 you explain to your man that you need a hand in the frame for the strongest part”. Write all this in Russian in the end."
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "50e3b454-a705-4d28-acf1-b9e73bebba23",
+      "name": "Set Prompt",
+      "type": "n8n-nodes-base.set",
+      "position": [
+        1360,
+        320
+      ],
+      "typeVersion": 3.4
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://generativelanguage.googleapis.com/upload/v1beta/files",
+        "sendQuery": true,
+        "queryParameters": {
+          "parameters": [
+            {
+              "name": "key",
+              "value": "AIzaSyCviCi2v3IH8gMB6euGmJyz1gIuxqhHMPY"
+            }
+          ]
+        },
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "X-Goog-Upload-Protocol",
+              "value": "resumable"
+            },
+            {
+              "name": "X-Goog-Upload-Command",
+              "value": "start"
+            },
+            {
+              "name": "X-Goog-Upload-Header-Content-Length",
+              "value": "={{ $json.Video[0].size }}"
+            },
+            {
+              "name": "X-Goog-Upload-Header-Content-Type",
+              "value": "={{ $json.Video[0].type }}"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n\"file\": {\n\"display_name\": \"{{ $json.Video[0].filename }}\"\n}\n}",
+        "options": {
+          "response": {
+            "response": {
+              "fullResponse": true
+            }
+          }
+        }
+      },
+      "id": "08652eaa-7d07-4462-a5b8-2b24cc9de3a3",
+      "name": "Gemini - Generate Upload URL",
+      "type": "n8n-nodes-base.httpRequest",
+      "position": [
+        520,
+        320
+      ],
+      "typeVersion": 4.2
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "={{ $('Gemini - Generate Upload URL').item.json.headers['x-goog-upload-url'] }}",
+        "sendQuery": true,
+        "queryParameters": {
+          "parameters": [
+            {
+              "name": "key",
+              "value": "<AIzaSyCviCi2v3IH8gMB6euGmJyz1gIuxqhHMPY>"
+            }
+          ]
+        },
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Content-Length",
+              "value": "={{ $('Get Video').item.json.Video[0].size }}"
+            },
+            {
+              "name": "X-Goog-Upload-Offset",
+              "value": "0"
+            },
+            {
+              "name": "X-Goog-Upload-Command",
+              "value": "upload, finalize"
+            }
+          ]
+        },
+        "sendBody": true,
+        "contentType": "binaryData",
+        "inputDataFieldName": "data",
+        "options": {
+          "response": {}
+        }
+      },
+      "id": "59d1924d-0eb7-4d05-b9a7-72dd1cdb2845",
+      "name": "Gemini - Upload File",
+      "type": "n8n-nodes-base.httpRequest",
+      "position": [
+        860,
+        320
+      ],
+      "typeVersion": 4.2
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent",
+        "sendQuery": true,
+        "queryParameters": {
+          "parameters": [
+            {
+              "name": "key",
+              "value": "AIzaSyCviCi2v3IH8gMB6euGmJyz1gIuxqhHMPY"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n   \"contents\": [\n      {\n         \"parts\": [\n            {\n               \"text\": \"{{ $json.prompt }}\"\n            },\n            {\n               \"file_data\": {\n                  \"mime_type\": \"{{ $('Save Values').item.json.mimeType }}\",\n                  \"file_uri\": \"{{ $('Save Values').item.json.gemini_file_url }}\"\n               }\n            }\n         ]\n      }\n   ]\n}\n",
+        "options": {
+          "response": {}
+        }
+      },
+      "id": "b46c37e6-f3c5-45c1-8617-ed977b85d40c",
+      "name": "Gemini - Ask Questions",
+      "type": "n8n-nodes-base.httpRequest",
+      "position": [
+        1560,
+        320
+      ],
+      "typeVersion": 4.2
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "4fb7b732-17f9-41a2-986d-5d62b1331242",
+              "name": "gemini_file_url",
+              "type": "string",
+              "value": "={{ $json.file.uri }}"
+            },
+            {
+              "id": "5f3018b4-571f-433c-a07b-2fb86f63b9b6",
+              "name": "mimeType",
+              "type": "string",
+              "value": "={{ $json.file.mimeType }}"
+            },
+            {
+              "id": "c5532f11-ec31-49f8-aa26-7f42b7d24fa4",
+              "name": "airtable_rec_id",
+              "type": "string",
+              "value": "={{ $('Get Video').item.json.id }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "4e43ec88-f7b3-4c3b-8b06-7a4806e7bc2b",
+      "name": "Save Values",
+      "type": "n8n-nodes-base.set",
+      "position": [
+        1040,
+        320
+      ],
+      "typeVersion": 3.4
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.apify.com/v2/acts/apify~instagram-scraper/run-sync-get-dataset-items",
+        "sendQuery": true,
+        "queryParameters": {
+          "parameters": [
+            {
+              "name": "token",
+              "value": "apify_api_xeBjFHCloAgPgEkgDoIyLP0z2Jj2ot2kcYB0"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n    \"addParentData\": false,\n    \"directUrls\": [\n        \"https://www.instagram.com/{{ $('Search Creators').item.json['Instagram Username'] }}/\"\n    ],\n    \"enhanceUserSearchWithFacebookPage\": false,\n    \"isUserReelFeedURL\": false,\n    \"isUserTaggedFeedURL\": false,\n    \"resultsLimit\": 2,\n    \"resultsType\": \"stories\",\n    \"searchLimit\": 1,\n    \"searchType\": \"hashtag\"\n}",
+        "options": {}
+      },
+      "id": "de60d76d-5a80-4ae6-8684-2da2f9e66ba8",
+      "name": "Apify - Fetch Reels",
+      "type": "n8n-nodes-base.httpRequest",
+      "position": [
+        700,
+        0
+      ],
+      "typeVersion": 4.2
+    },
+    {
+      "parameters": {
+        "sortFieldsUi": {
+          "sortField": [
+            {
+              "fieldName": "views",
+              "order": "descending"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "9d2294cc-f274-48bf-b48a-7f419d998d3f",
+      "name": "Sort",
+      "type": "n8n-nodes-base.sort",
+      "position": [
+        1120,
+        0
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {},
+      "id": "f7795965-5fe3-45ea-8e81-f30b7e894b05",
+      "name": "Limit",
+      "type": "n8n-nodes-base.limit",
+      "position": [
+        1320,
+        0
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "mode": "raw",
+        "jsonOutput": "={\n  \"url\": {{ JSON.stringify($json.videoUrl) }}\n,\n  \"views\": {{ $json.videoViewCount }},\n\"caption\": {{ JSON.stringify($json.caption) }}\n,\n\"creator\": \"{{ $('Loop Over Items').item.json.Name }}\"\n}",
+        "options": {}
+      },
+      "id": "8efff936-4e6b-447c-8d2f-1bce9608277d",
+      "name": "Save Fields",
+      "type": "n8n-nodes-base.set",
+      "position": [
+        900,
+        0
+      ],
+      "typeVersion": 3.4
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "id": "f454d372-b7bc-434c-aae4-bed7dd7bc35b",
+      "name": "Loop Over Items",
+      "type": "n8n-nodes-base.splitInBatches",
+      "position": [
+        440,
+        0
+      ],
+      "typeVersion": 3
+    },
+    {
+      "parameters": {
+        "url": "={{ JSON.parse($('Get Video').item.json.Video)[0].url }}",
+        "options": {
+          "response": {
+            "response": {
+              "responseFormat": "file"
+            }
+          }
+        }
+      },
+      "id": "40f49d1a-7ed9-4412-b890-62bad7b8baec",
+      "name": "Download File",
+      "type": "n8n-nodes-base.httpRequest",
+      "position": [
+        700,
+        320
+      ],
+      "typeVersion": 4.2
+    },
+    {
+      "parameters": {
+        "operation": "create",
+        "base": {
+          "__rl": true,
+          "value": "appk2LYt9HzpP8YVw",
+          "mode": "list",
+          "cachedResultName": "MyBase.csv",
+          "cachedResultUrl": "https://airtable.com/appk2LYt9HzpP8YVw"
+        },
+        "table": {
+          "__rl": true,
+          "value": "tblArXzgCLa1xq7iU",
+          "mode": "list",
+          "cachedResultName": "Videos",
+          "cachedResultUrl": "https://airtable.com/appk2LYt9HzpP8YVw/tblArXzgCLa1xq7iU"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "Creator": "={{ [$json.creator] }}",
+            "Video": "={{ [ {\"url\":$json.url} ] }}",
+            "Caption": "={{ $json.caption }}",
+            "Views": "={{ $json.views }}"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "Video",
+              "displayName": "Video",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Views",
+              "displayName": "Views",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Caption",
+              "displayName": "Caption",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Creator",
+              "displayName": "Creator",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Transcribe",
+              "displayName": "Transcribe",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Guideline",
+              "displayName": "Guideline",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Creation Date",
+              "displayName": "Creation Date",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "id",
+              "displayName": "id",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {
+          "typecast": true
+        }
+      },
+      "id": "2e8bfc89-4df1-449d-a1a9-4005da536453",
+      "name": "Create Video2",
+      "type": "n8n-nodes-base.airtable",
+      "position": [
+        1580,
+        0
+      ],
+      "typeVersion": 2.1,
+      "credentials": {
+        "airtableTokenApi": {
+          "id": "ADpcCzbUJLsCJQap",
+          "name": "lubov"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "base": {
+          "__rl": true,
+          "value": "appk2LYt9HzpP8YVw",
+          "mode": "list",
+          "cachedResultName": "MyBase.csv",
+          "cachedResultUrl": "https://airtable.com/appk2LYt9HzpP8YVw"
+        },
+        "table": {
+          "__rl": true,
+          "value": "tblArXzgCLa1xq7iU",
+          "mode": "list",
+          "cachedResultName": "Videos",
+          "cachedResultUrl": "https://airtable.com/appk2LYt9HzpP8YVw/tblArXzgCLa1xq7iU"
+        },
+        "id": "={{ $json.id }}",
+        "options": {}
+      },
+      "id": "542f12b4-75aa-4e5d-b213-19f2400e25da",
+      "name": "Get Video",
+      "type": "n8n-nodes-base.airtable",
+      "position": [
+        320,
+        320
+      ],
+      "typeVersion": 2.1,
+      "credentials": {
+        "airtableTokenApi": {
+          "id": "ADpcCzbUJLsCJQap",
+          "name": "lubov"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "search",
+        "base": {
+          "__rl": true,
+          "value": "appk2LYt9HzpP8YVw",
+          "mode": "list",
+          "cachedResultName": "MyBase.csv",
+          "cachedResultUrl": "https://airtable.com/appk2LYt9HzpP8YVw"
+        },
+        "table": {
+          "__rl": true,
+          "value": "tbliTwQjJm8G4K0kW",
+          "mode": "list",
+          "cachedResultName": "Creators",
+          "cachedResultUrl": "https://airtable.com/appk2LYt9HzpP8YVw/tbliTwQjJm8G4K0kW"
+        },
+        "returnAll": false,
+        "limit": null,
+        "options": {}
+      },
+      "id": "26e23db1-8c14-4424-9a53-d9c2b2d85080",
+      "name": "Search Creators",
+      "type": "n8n-nodes-base.airtable",
+      "position": [
+        220,
+        0
+      ],
+      "typeVersion": 2.1,
+      "credentials": {
+        "airtableTokenApi": {
+          "id": "ADpcCzbUJLsCJQap",
+          "name": "lubov"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "field": "months"
+            }
+          ]
+        }
+      },
+      "id": "f70bdce1-9ba1-457c-8b08-c2e7e1fdb43a",
+      "name": "Schedule Trigger",
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "position": [
+        0,
+        0
+      ],
+      "typeVersion": 1.2
+    },
+    {
+      "parameters": {
+        "operation": "search",
+        "base": {
+          "__rl": true,
+          "value": "appk2LYt9HzpP8YVw",
+          "mode": "list",
+          "cachedResultName": "MyBase.csv",
+          "cachedResultUrl": "https://airtable.com/appk2LYt9HzpP8YVw"
+        },
+        "table": {
+          "__rl": true,
+          "value": "tblArXzgCLa1xq7iU",
+          "mode": "list",
+          "cachedResultName": "Videos",
+          "cachedResultUrl": "https://airtable.com/appk2LYt9HzpP8YVw/tblArXzgCLa1xq7iU"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.airtable",
+      "typeVersion": 2.1,
+      "position": [
+        320,
+        540
+      ],
+      "id": "e8991d3c-2b37-4d2c-9c10-69b22e2bd1e1",
+      "name": "Airtable1",
+      "credentials": {
+        "airtableTokenApi": {
+          "id": "ADpcCzbUJLsCJQap",
+          "name": "lubov"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "modelId": {
+          "__rl": true,
+          "value": "gpt-4o-mini",
+          "mode": "list",
+          "cachedResultName": "GPT-4O-MINI"
+        },
+        "messages": {
+          "values": [
+            {
+              "content": "=Действуй, как профессиональный сценарист вирусных reels и tiktok роликов. Твоя задача придумывать сценарии для роликов, которые будут вовлекать с первых секунд, удерживать внимание и заставлять людей подписываться на аккаунт. Я хочу, чтобы ты был моим ассистентом в составлении сценариев. Используй следующую информацию:\n{{ $json.id }}\n{{ $json.createdTime }}\n{{ $json.Video }}\n{{ $json.Caption }}\n{{ $json.Guideline }}\n\n\nСоздай подробный сценарий для рилса с описанием фона, позы, текста, одежды, контекста и ролей участников."
+            }
+          ]
+        },
+        "options": {
+          "maxTokens": 10000
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "typeVersion": 1.8,
+      "position": [
+        540,
+        540
+      ],
+      "id": "79e65b05-3943-4d5f-bce3-1b514d8f17d5",
+      "name": "OpenAI1",
+      "credentials": {
+        "openAiApi": {
+          "id": "IPY97T0IVM7WZtzu",
+          "name": "OpenAi account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "create",
+        "base": {
+          "__rl": true,
+          "value": "appk2LYt9HzpP8YVw",
+          "mode": "list",
+          "cachedResultName": "MyBase.csv",
+          "cachedResultUrl": "https://airtable.com/appk2LYt9HzpP8YVw"
+        },
+        "table": {
+          "__rl": true,
+          "value": "tblBwdgCulLLPn8CJ",
+          "mode": "list",
+          "cachedResultName": "Scenarios",
+          "cachedResultUrl": "https://airtable.com/appk2LYt9HzpP8YVw/tblBwdgCulLLPn8CJ"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "Scenario Text": "={{ $json.message.content }}",
+            "Based On Video": "={{ $('Airtable1').item.json.Video }}",
+            "Created At": "={{ $now }}"
+          },
+          "matchingColumns": [
+            "Name"
+          ],
+          "schema": [
+            {
+              "id": "Scenario Text",
+              "displayName": "Scenario Text",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Based On Video",
+              "displayName": "Based On Video",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Created At",
+              "displayName": "Created At",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {
+          "typecast": true
+        }
+      },
+      "id": "1ac819cc-9e4c-49df-b18c-0192f826679e",
+      "name": "Create Video3",
+      "type": "n8n-nodes-base.airtable",
+      "position": [
+        880,
+        540
+      ],
+      "typeVersion": 2.1,
+      "credentials": {
+        "airtableTokenApi": {
+          "id": "ADpcCzbUJLsCJQap",
+          "name": "lubov"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "chatId": "477076152",
+        "text": "=Сценарии созданы✅:\n{{ $json.fields['Scenario Text'] }}",
+        "additionalFields": {
+          "appendAttribution": false
+        }
+      },
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1.2,
+      "position": [
+        1180,
+        540
+      ],
+      "id": "5af3cce3-9b02-418d-891a-d77736f1062f",
+      "name": "Telegram1",
+      "webhookId": "e5776695-e68d-4a22-98ee-74f431973ddf",
+      "executeOnce": false,
+      "credentials": {
+        "telegramApi": {
+          "id": "jZD7r1TCQ02rnaWn",
+          "name": "msr_jarvis_bot"
+        }
+      }
+    }
+  ],
+  "pinData": {},
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2025-06-02T16:07:56.000Z",
+  "versionId": "f6dfbdf1-6237-4186-8a38-ea7b620858b1"
+}
