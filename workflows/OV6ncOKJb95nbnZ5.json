@@ -1,0 +1,1805 @@
+{
+  "active": false,
+  "connections": {
+    "Airtable": {
+      "main": [
+        [
+          {
+            "node": "Switch",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Switch": {
+      "main": [
+        [
+          {
+            "node": "Extract Link",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "OpenAI1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI1": {
+      "main": [
+        [
+          {
+            "node": "Create Video",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Download File": {
+      "main": [
+        [
+          {
+            "node": "Transcribe",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Transcribe": {
+      "main": [
+        [
+          {
+            "node": "Set Text (voice)",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Set Text": {
+      "main": [
+        [
+          {
+            "node": "Set Text (final)",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Set Text (voice)": {
+      "main": [
+        [
+          {
+            "node": "Set Text (final)",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Set Text (final)": {
+      "main": [
+        [
+          {
+            "node": "OpenAI2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Telegram Trigger1": {
+      "main": [
+        [
+          {
+            "node": "Switch1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Switch1": {
+      "main": [
+        [
+          {
+            "node": "Download File",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Set Text",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI2": {
+      "main": [
+        [
+          {
+            "node": "Airtable",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Create Video": {
+      "main": [
+        [
+          {
+            "node": "Telegram",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Extract Link": {
+      "main": [
+        [
+          {
+            "node": "OpenAI4",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Create Video1": {
+      "main": [
+        [
+          {
+            "node": "Get Video1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Apify - Fetch Reels": {
+      "main": [
+        [
+          {
+            "node": "Code",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Sort": {
+      "main": [
+        [
+          {
+            "node": "Limit",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Limit": {
+      "main": [
+        [
+          {
+            "node": "Create Video1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Save Fields": {
+      "main": [
+        [
+          {
+            "node": "Sort",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI4": {
+      "main": [
+        [
+          {
+            "node": "Apify - Fetch username",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Apify - Fetch username": {
+      "main": [
+        [
+          {
+            "node": "Apify - Fetch Reels",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If": {
+      "main": [
+        [
+          {
+            "node": "Save Fields",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code": {
+      "main": [
+        [
+          {
+            "node": "If",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Set Guideline": {
+      "main": [
+        [
+          {
+            "node": "Airtable2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Wait": {
+      "main": [
+        [
+          {
+            "node": "Set Prompt",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Set Prompt": {
+      "main": [
+        [
+          {
+            "node": "Gemini - Ask Questions",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Gemini - Generate Upload URL": {
+      "main": [
+        [
+          {
+            "node": "Download File2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Gemini - Upload File": {
+      "main": [
+        [
+          {
+            "node": "Save Values",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Gemini - Ask Questions": {
+      "main": [
+        [
+          {
+            "node": "Set Guideline",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Save Values": {
+      "main": [
+        [
+          {
+            "node": "Wait",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Download File2": {
+      "main": [
+        [
+          {
+            "node": "Gemini - Upload File",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get Video1": {
+      "main": [
+        [
+          {
+            "node": "Gemini - Generate Upload URL",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Airtable2": {
+      "main": [
+        [
+          {
+            "node": "OpenAI3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI3": {
+      "main": [
+        [
+          {
+            "node": "Create Video3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Create Video3": {
+      "main": [
+        [
+          {
+            "node": "Telegram1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2025-06-01T16:54:15.410Z",
+  "id": "OV6ncOKJb95nbnZ5",
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "tg Danya",
+  "nodes": [
+    {
+      "parameters": {
+        "operation": "search",
+        "base": {
+          "__rl": true,
+          "value": "appk2LYt9HzpP8YVw",
+          "mode": "list",
+          "cachedResultName": "MyBase.csv",
+          "cachedResultUrl": "https://airtable.com/appk2LYt9HzpP8YVw"
+        },
+        "table": {
+          "__rl": true,
+          "value": "tblGzpzNYLyF8WeOJ",
+          "mode": "list",
+          "cachedResultName": "Company info",
+          "cachedResultUrl": "https://airtable.com/appk2LYt9HzpP8YVw/tblGzpzNYLyF8WeOJ"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.airtable",
+      "typeVersion": 2.1,
+      "position": [
+        1160,
+        200
+      ],
+      "id": "0171185e-5bae-4210-a390-ea3f2b54ab3b",
+      "name": "Airtable",
+      "credentials": {
+        "airtableTokenApi": {
+          "id": "ADpcCzbUJLsCJQap",
+          "name": "lubov"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "chatId": "={{ $('Telegram Trigger1').item.json.message.chat.id }}",
+        "text": "=Сценарий создан✅\n{{ $json.fields['Scenario Text'] }}",
+        "additionalFields": {
+          "appendAttribution": false
+        }
+      },
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1.2,
+      "position": [
+        0,
+        720
+      ],
+      "id": "bee729e0-5136-4dad-9672-8671527cbd5e",
+      "name": "Telegram",
+      "webhookId": "e5776695-e68d-4a22-98ee-74f431973ddf",
+      "executeOnce": true,
+      "credentials": {
+        "telegramApi": {
+          "id": "jZD7r1TCQ02rnaWn",
+          "name": "msr_jarvis_bot"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "rules": {
+          "values": [
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "dc0d7a3c-8e18-457d-9bfa-01af13c36e75",
+                    "leftValue": "={{ $('OpenAI2').item.json.message.content['команда'] }}",
+                    "rightValue": "давай придумаем",
+                    "operator": {
+                      "type": "string",
+                      "operation": "contains"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              }
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "81bd2edc-3ad9-47c8-aecd-efc087352184",
+                    "leftValue": "={{ $('OpenAI2').item.json.message.content['команда'] }}",
+                    "rightValue": "хочу рилс по теме",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              }
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 3.2,
+      "position": [
+        -460,
+        500
+      ],
+      "id": "3db6102a-6ec0-4841-af6e-af41bed47bcf",
+      "name": "Switch"
+    },
+    {
+      "parameters": {
+        "modelId": {
+          "__rl": true,
+          "value": "gpt-4o-mini",
+          "mode": "list",
+          "cachedResultName": "GPT-4O-MINI"
+        },
+        "messages": {
+          "values": [
+            {
+              "content": "=Действуй, как профессиональный сценарист вирусных reels и tiktok роликов. Твоя задача придумывать сценарии для роликов, которые будут вовлекать с первых секунд, удерживать внимание и заставлять людей подписываться на аккаунт. Я хочу, чтобы ты был моим ассистентом в составлении сценариев. Используй следующую информацию о компании и ее тон оф войс:\n{{ $('Airtable').item.json.Information }}\n{{ $('Airtable').item.json['Tone of voice'] }}\n\nСоздай подробный сценарий для рилса с описанием фона, позы, текста, одежды, контекста и ролей участников. По теме которую просит пользователь в сообщении:\n{{ $('Set Text (final)').item.json.text }}"
+            }
+          ]
+        },
+        "options": {
+          "maxTokens": 1000
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "typeVersion": 1.8,
+      "position": [
+        -460,
+        720
+      ],
+      "id": "edcd4150-651c-4470-963b-c4a35ca40735",
+      "name": "OpenAI1",
+      "credentials": {
+        "openAiApi": {
+          "id": "IPY97T0IVM7WZtzu",
+          "name": "OpenAi account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "resource": "file",
+        "fileId": "={{ $json.message.voice.file_id }}"
+      },
+      "id": "cf7dc555-94e4-4e0a-bdd2-20c6bb1405d9",
+      "name": "Download File",
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1.2,
+      "position": [
+        0,
+        0
+      ],
+      "webhookId": "a3686e43-6d4c-4381-8143-9605333c1852",
+      "credentials": {
+        "telegramApi": {
+          "id": "jZD7r1TCQ02rnaWn",
+          "name": "msr_jarvis_bot"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "resource": "audio",
+        "operation": "transcribe",
+        "options": {}
+      },
+      "id": "dd5d8938-b543-48b3-864a-f1360ee93b8f",
+      "name": "Transcribe",
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "typeVersion": 1.6,
+      "position": [
+        220,
+        0
+      ],
+      "credentials": {
+        "openAiApi": {
+          "id": "IPY97T0IVM7WZtzu",
+          "name": "OpenAi account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "fe7ecc99-e1e8-4a5e-bdd6-6fce9757b234",
+              "name": "text",
+              "value": "={{ $json.message.text }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "a52daecf-3b03-4f7e-9407-40a2e47165cd",
+      "name": "Set Text",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        440,
+        200
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "2b2ff60e-9772-4dc6-8dad-7de37ec83103",
+              "name": "text",
+              "value": "={{ $json.text }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        440,
+        0
+      ],
+      "id": "d08e8b5c-19a4-469e-aae6-b58717d9e886",
+      "name": "Set Text (voice)"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "2b2ff60e-9772-4dc6-8dad-7de37ec83103",
+              "name": "text",
+              "value": "={{ $json.text }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        660,
+        100
+      ],
+      "id": "68043cc5-f145-4719-b39b-890e6b968d47",
+      "name": "Set Text (final)"
+    },
+    {
+      "parameters": {
+        "updates": [
+          "message"
+        ],
+        "additionalFields": {}
+      },
+      "id": "8a0a25f4-fbb1-4a0b-978c-069756ef0376",
+      "name": "Telegram Trigger1",
+      "type": "n8n-nodes-base.telegramTrigger",
+      "typeVersion": 1.1,
+      "position": [
+        -440,
+        100
+      ],
+      "webhookId": "1c3628b9-7be8-43da-ba03-5ff12a480da4",
+      "credentials": {
+        "telegramApi": {
+          "id": "jZD7r1TCQ02rnaWn",
+          "name": "msr_jarvis_bot"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "rules": {
+          "values": [
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "leftValue": "={{ $json.message.voice.file_id }}",
+                    "rightValue": "",
+                    "operator": {
+                      "type": "string",
+                      "operation": "exists",
+                      "singleValue": true
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "Voice"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "8c844924-b2ed-48b0-935c-c66a8fd0c778",
+                    "leftValue": "={{ $json.message.text }}",
+                    "rightValue": "",
+                    "operator": {
+                      "type": "string",
+                      "operation": "exists",
+                      "singleValue": true
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "Text"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "8f2025ba-600c-42db-b3ba-e06aa066ed9d",
+      "name": "Switch1",
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 3.2,
+      "position": [
+        -220,
+        100
+      ]
+    },
+    {
+      "parameters": {
+        "modelId": {
+          "__rl": true,
+          "value": "gpt-4o-mini",
+          "mode": "list",
+          "cachedResultName": "GPT-4O-MINI"
+        },
+        "messages": {
+          "values": [
+            {
+              "content": "Ты классификатор команд. Ответь в формате JSON:\n{\n  \"команда\": \"давай придумаем | хочу рилс по теме\"\n}\n\nТипы команд:\n— \"давай придумаем\" — если пользователь просит придумать, создать или сгенерировать новый рилс/сценарий, не указывая конкретную тему или ссылаясь на ролик вне базы (например, «давай придумаем», «предложи идею», «вот ролик — сделай по нему»). Выбирай ТОЛЬКО если пользователь прикрепил ссылку\n\n— \"хочу рилс по теме\" — если пользователь указывает тему, идею или направление и просит сделать рилс по ней (например, «сделай рилс про стартапы», «хочу рилс на тему ИИ в образовании»). Выбирай ТОЛЬКО если пользователь не прикрепил ссылку",
+              "role": "system"
+            },
+            {
+              "content": "={{ $json.text }}"
+            }
+          ]
+        },
+        "jsonOutput": true,
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "typeVersion": 1.8,
+      "position": [
+        820,
+        100
+      ],
+      "id": "5f97d39d-452f-494a-b90f-e419351eb744",
+      "name": "OpenAI2",
+      "credentials": {
+        "openAiApi": {
+          "id": "IPY97T0IVM7WZtzu",
+          "name": "OpenAi account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "create",
+        "base": {
+          "__rl": true,
+          "value": "appk2LYt9HzpP8YVw",
+          "mode": "list",
+          "cachedResultName": "MyBase.csv",
+          "cachedResultUrl": "https://airtable.com/appk2LYt9HzpP8YVw"
+        },
+        "table": {
+          "__rl": true,
+          "value": "tblBwdgCulLLPn8CJ",
+          "mode": "list",
+          "cachedResultName": "Scenarios",
+          "cachedResultUrl": "https://airtable.com/appk2LYt9HzpP8YVw/tblBwdgCulLLPn8CJ"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "Scenario Text": "={{ $json.message.content }}",
+            "Based On Video": "={{ $('Airtable').item.json.Video }}",
+            "Created At": "={{ $now }}"
+          },
+          "matchingColumns": [
+            "Name"
+          ],
+          "schema": [
+            {
+              "id": "Scenario Text",
+              "displayName": "Scenario Text",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Based On Video",
+              "displayName": "Based On Video",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Created At",
+              "displayName": "Created At",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {
+          "typecast": true
+        }
+      },
+      "id": "e23d2122-1b4a-46a2-b301-4d23553dab00",
+      "name": "Create Video",
+      "type": "n8n-nodes-base.airtable",
+      "position": [
+        -140,
+        720
+      ],
+      "typeVersion": 2.1,
+      "credentials": {
+        "airtableTokenApi": {
+          "id": "ADpcCzbUJLsCJQap",
+          "name": "lubov"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "803b1071-8d31-4b55-b8a0-3cfb3faffc8c",
+              "name": "url",
+              "value": "={{ $('Set Text').item.json.text.match(/https?:\\/\\/\\S+/g)?.[0] || '' }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "f24ad6dc-785e-4b8a-94c0-f85d77e12ac5",
+      "name": "Extract Link",
+      "type": "n8n-nodes-base.set",
+      "position": [
+        -200,
+        480
+      ],
+      "typeVersion": 3.4
+    },
+    {
+      "parameters": {
+        "operation": "create",
+        "base": {
+          "__rl": true,
+          "value": "appk2LYt9HzpP8YVw",
+          "mode": "list",
+          "cachedResultName": "MyBase.csv",
+          "cachedResultUrl": "https://airtable.com/appk2LYt9HzpP8YVw"
+        },
+        "table": {
+          "__rl": true,
+          "value": "tblArXzgCLa1xq7iU",
+          "mode": "list",
+          "cachedResultName": "Videos",
+          "cachedResultUrl": "https://airtable.com/appk2LYt9HzpP8YVw/tblArXzgCLa1xq7iU"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "Creator": "={{ [$json.creator] }}",
+            "Video": "={{ [ {\"url\":$json.url} ] }}",
+            "Caption": "={{ $json.caption }}",
+            "Views": "={{ $json.views }}"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "Video",
+              "displayName": "Video",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Views",
+              "displayName": "Views",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Caption",
+              "displayName": "Caption",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Creator",
+              "displayName": "Creator",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Transcribe",
+              "displayName": "Transcribe",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Guideline",
+              "displayName": "Guideline",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Creation Date",
+              "displayName": "Creation Date",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "id",
+              "displayName": "id",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {
+          "typecast": true
+        }
+      },
+      "id": "cc60f08c-783a-480a-b8f0-c0530f8dcc9d",
+      "name": "Create Video1",
+      "type": "n8n-nodes-base.airtable",
+      "position": [
+        1560,
+        480
+      ],
+      "typeVersion": 2.1,
+      "credentials": {
+        "airtableTokenApi": {
+          "id": "ADpcCzbUJLsCJQap",
+          "name": "lubov"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.apify.com/v2/acts/apify~instagram-scraper/run-sync-get-dataset-items",
+        "sendQuery": true,
+        "queryParameters": {
+          "parameters": [
+            {
+              "name": "token",
+              "value": "apify_api_xeBjFHCloAgPgEkgDoIyLP0z2Jj2ot2kcYB0"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n    \"addParentData\": false,\n    \"directUrls\": [\n        \"https://www.instagram.com/{{ $json.ownerUsername }}/\"\n    ],\n    \"enhanceUserSearchWithFacebookPage\": false,\n    \"isUserReelFeedURL\": false,\n    \"isUserTaggedFeedURL\": false,\n    \"resultsLimit\": 50,\n    \"resultsType\": \"stories\",\n    \"searchLimit\": 1,\n    \"searchType\": \"hashtag\"\n}",
+        "options": {}
+      },
+      "id": "9dd2a392-b1e4-4e62-ab83-48f2f991ef07",
+      "name": "Apify - Fetch Reels",
+      "type": "n8n-nodes-base.httpRequest",
+      "position": [
+        480,
+        480
+      ],
+      "typeVersion": 4.2
+    },
+    {
+      "parameters": {
+        "sortFieldsUi": {
+          "sortField": [
+            {
+              "fieldName": "views",
+              "order": "descending"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "401d7b83-4ea3-4390-904a-efe9e5babcad",
+      "name": "Sort",
+      "type": "n8n-nodes-base.sort",
+      "position": [
+        1240,
+        480
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {},
+      "id": "059c4171-1852-416a-a170-067f77d721f2",
+      "name": "Limit",
+      "type": "n8n-nodes-base.limit",
+      "position": [
+        1400,
+        480
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "mode": "raw",
+        "jsonOutput": "={\n  \"url\": \"{{ $json.url }}\",\n  \"views\": {{ $json.videoViewCount }},\n  \"caption\": \"{{ $json.caption }}\",\n  \"creator\": \"{{ $json.ownerFullName }}\"\n}",
+        "options": {}
+      },
+      "id": "c601ae2f-08a7-4778-8dc6-5daff5c6f2c6",
+      "name": "Save Fields",
+      "type": "n8n-nodes-base.set",
+      "position": [
+        1080,
+        480
+      ],
+      "typeVersion": 3.4
+    },
+    {
+      "parameters": {
+        "modelId": {
+          "__rl": true,
+          "value": "gpt-4o-mini",
+          "mode": "list",
+          "cachedResultName": "GPT-4O-MINI"
+        },
+        "messages": {
+          "values": [
+            {
+              "content": "=Извлеки username (имя аккаунта) из следующей ссылки Instagram:\n{{ $json.url }}\n\nОтветь ТОЛЬКО username без @ и других символов."
+            }
+          ]
+        },
+        "options": {
+          "maxTokens": 1000
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "typeVersion": 1.8,
+      "position": [
+        -20,
+        480
+      ],
+      "id": "aaa2727c-d9bc-4e54-8a05-5f5a48c565a7",
+      "name": "OpenAI4",
+      "credentials": {
+        "openAiApi": {
+          "id": "IPY97T0IVM7WZtzu",
+          "name": "OpenAi account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.apify.com/v2/acts/RB9HEZitC8hIUXAha/run-sync-get-dataset-items",
+        "sendQuery": true,
+        "queryParameters": {
+          "parameters": [
+            {
+              "name": "token",
+              "value": "apify_api_xeBjFHCloAgPgEkgDoIyLP0z2Jj2ot2kcYB0"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n    \"addParentData\": false,\n    \"directUrls\": [\n        \"{{ $('Extract Link').item.json.url }}\"\n    ],\n    \"enhanceUserSearchWithFacebookPage\": false,\n    \"isUserReelFeedURL\": false,\n    \"isUserTaggedFeedURL\": false,\n    \"resultsLimit\": 1,\n    \"resultsType\": \"stories\",\n    \"searchLimit\": 1,\n    \"searchType\": \"hashtag\"\n}",
+        "options": {}
+      },
+      "id": "74669227-2d96-4d6f-b7b1-f7f3b766c9b1",
+      "name": "Apify - Fetch username",
+      "type": "n8n-nodes-base.httpRequest",
+      "position": [
+        320,
+        480
+      ],
+      "typeVersion": 4.2
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "2638265c-c888-488c-aa64-8f5bab0d7553",
+              "leftValue": "={{ $json.reelId }}",
+              "rightValue": "={{ $json.userReelId }}",
+              "operator": {
+                "type": "string",
+                "operation": "equals",
+                "name": "filter.operator.equals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        840,
+        480
+      ],
+      "id": "0511f3d9-c33f-4b27-871c-8cad5c0a207a",
+      "name": "If"
+    },
+    {
+      "parameters": {
+        "jsCode": "const inputUrl = $('Extract Link').item.json.url;\n\nconst extractId = (url) => {\n  // Удаляем UTM-параметры и хвосты\n  const cleanUrl = url.split('?')[0];\n  // Вытаскиваем ID\n  const match = cleanUrl.match(/(?:reel|p)\\/([a-zA-Z0-9_-]+)/);\n  return match ? match[1] : null;\n};\n\nconst userId = extractId(inputUrl);\n\nreturn items.map(item => {\n  const itemId = extractId(item.json.url);\n  item.json.reelId = itemId;\n  item.json.userReelId = userId;\n  return item;\n});\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        660,
+        480
+      ],
+      "id": "b70768d7-c2a4-4cf3-b14b-841793e9839b",
+      "name": "Code"
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "base": {
+          "__rl": true,
+          "value": "appk2LYt9HzpP8YVw",
+          "mode": "list",
+          "cachedResultName": "MyBase.csv",
+          "cachedResultUrl": "https://airtable.com/appk2LYt9HzpP8YVw"
+        },
+        "table": {
+          "__rl": true,
+          "value": "tblArXzgCLa1xq7iU",
+          "mode": "list",
+          "cachedResultName": "Videos",
+          "cachedResultUrl": "https://airtable.com/appk2LYt9HzpP8YVw/tblArXzgCLa1xq7iU"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "Guideline": "={{ $json.candidates[0].content.parts[0].text }}",
+            "id": "={{ $('Save Values').item.json.airtable_rec_id }}"
+          },
+          "matchingColumns": [
+            "id"
+          ],
+          "schema": [
+            {
+              "id": "id",
+              "displayName": "id",
+              "required": false,
+              "defaultMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": false
+            },
+            {
+              "id": "Video",
+              "displayName": "Video",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Views",
+              "displayName": "Views",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "number",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Caption",
+              "displayName": "Caption",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Creator",
+              "displayName": "Creator",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Transcribe",
+              "displayName": "Transcribe",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Guideline",
+              "displayName": "Guideline",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Creation Date",
+              "displayName": "Creation Date",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "id",
+              "displayName": "id",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "id": "0c200fea-1e31-4305-a1eb-ff2cafc017e7",
+      "name": "Set Guideline",
+      "type": "n8n-nodes-base.airtable",
+      "position": [
+        1780,
+        780
+      ],
+      "typeVersion": 2.1,
+      "credentials": {
+        "airtableTokenApi": {
+          "id": "ADpcCzbUJLsCJQap",
+          "name": "lubov"
+        }
+      }
+    },
+    {
+      "parameters": {},
+      "id": "f40a41b1-0715-4a7e-bb91-e62f0c56741a",
+      "name": "Wait",
+      "type": "n8n-nodes-base.wait",
+      "position": [
+        1260,
+        780
+      ],
+      "webhookId": "2126ffb5-dcff-4328-85f7-aff6470bffd1",
+      "typeVersion": 1.1
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "a21fe2d1-533b-4f09-94aa-9312c3dd05b8",
+              "name": "prompt",
+              "type": "string",
+              "value": "=Analyze reels: 1. How it starts  2. How it ends 3. What is going on video.  For us important to understand main params of the video to be able reproduct it. Params: 1. Background 2. Pose 3. Text 4. Clothes 5. Context 6. People/participants/roles  Example of result: Example 1: - Girl in the frame in evening dress - Party - Text: “Let's already admit that the most important ponte of a man is a gorgeous wife by his side” - Formatting: White text in the center on the background of a dynamic frame.  Example 2: - Behind-the-scenes moments from the shooting of the video - A girl with a beautiful figure, large breasts in a swimsuit and bathing skirt - Text below “When at 35 you explain to your man that you need a hand in the frame for the strongest part”. Write all this in Russian in the end."
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "13ad8933-616c-4d34-abc8-8c4df1124924",
+      "name": "Set Prompt",
+      "type": "n8n-nodes-base.set",
+      "position": [
+        1420,
+        780
+      ],
+      "typeVersion": 3.4
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://generativelanguage.googleapis.com/upload/v1beta/files",
+        "sendQuery": true,
+        "queryParameters": {
+          "parameters": [
+            {
+              "name": "key",
+              "value": "AIzaSyCviCi2v3IH8gMB6euGmJyz1gIuxqhHMPY"
+            }
+          ]
+        },
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "X-Goog-Upload-Protocol",
+              "value": "resumable"
+            },
+            {
+              "name": "X-Goog-Upload-Command",
+              "value": "start"
+            },
+            {
+              "name": "X-Goog-Upload-Header-Content-Length",
+              "value": "={{ $json.Video[0].size }}"
+            },
+            {
+              "name": "X-Goog-Upload-Header-Content-Type",
+              "value": "={{ $json.Video[0].type }}"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n\"file\": {\n\"display_name\": \"{{ $json.Video[0].filename }}\"\n}\n}",
+        "options": {
+          "response": {
+            "response": {
+              "fullResponse": true
+            }
+          }
+        }
+      },
+      "id": "7b97ba08-9aac-49a5-899e-ab62cc6b6d45",
+      "name": "Gemini - Generate Upload URL",
+      "type": "n8n-nodes-base.httpRequest",
+      "position": [
+        580,
+        780
+      ],
+      "typeVersion": 4.2
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "={{ $('Gemini - Generate Upload URL').item.json.headers['x-goog-upload-url'] }}",
+        "sendQuery": true,
+        "queryParameters": {
+          "parameters": [
+            {
+              "name": "key",
+              "value": "<AIzaSyCviCi2v3IH8gMB6euGmJyz1gIuxqhHMPY>"
+            }
+          ]
+        },
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Content-Length",
+              "value": "={{ $('Get Video1').item.json.Video[0].size }}"
+            },
+            {
+              "name": "X-Goog-Upload-Offset",
+              "value": "0"
+            },
+            {
+              "name": "X-Goog-Upload-Command",
+              "value": "upload, finalize"
+            }
+          ]
+        },
+        "sendBody": true,
+        "contentType": "binaryData",
+        "inputDataFieldName": "data",
+        "options": {
+          "response": {}
+        }
+      },
+      "id": "edde2aae-9224-4cb8-9542-e4ce481cd7f0",
+      "name": "Gemini - Upload File",
+      "type": "n8n-nodes-base.httpRequest",
+      "position": [
+        920,
+        780
+      ],
+      "typeVersion": 4.2
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent",
+        "sendQuery": true,
+        "queryParameters": {
+          "parameters": [
+            {
+              "name": "key",
+              "value": "AIzaSyCviCi2v3IH8gMB6euGmJyz1gIuxqhHMPY"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n   \"contents\": [\n      {\n         \"parts\": [\n            {\n               \"text\": \"{{ $json.prompt }}\"\n            },\n            {\n               \"file_data\": {\n                  \"mime_type\": \"{{ $('Save Values').item.json.mimeType }}\",\n                  \"file_uri\": \"{{ $('Save Values').item.json.gemini_file_url }}\"\n               }\n            }\n         ]\n      }\n   ]\n}\n",
+        "options": {
+          "response": {}
+        }
+      },
+      "id": "b4c79402-61ad-44f4-a154-0c776117d8ce",
+      "name": "Gemini - Ask Questions",
+      "type": "n8n-nodes-base.httpRequest",
+      "position": [
+        1620,
+        780
+      ],
+      "typeVersion": 4.2
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "4fb7b732-17f9-41a2-986d-5d62b1331242",
+              "name": "gemini_file_url",
+              "type": "string",
+              "value": "={{ $json.file.uri }}"
+            },
+            {
+              "id": "5f3018b4-571f-433c-a07b-2fb86f63b9b6",
+              "name": "mimeType",
+              "type": "string",
+              "value": "={{ $json.file.mimeType }}"
+            },
+            {
+              "id": "c5532f11-ec31-49f8-aa26-7f42b7d24fa4",
+              "name": "airtable_rec_id",
+              "type": "string",
+              "value": "={{ $('Get Video1').item.json.id }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "a4e1f0e7-3a3e-4d3e-a2f3-6548a0426323",
+      "name": "Save Values",
+      "type": "n8n-nodes-base.set",
+      "position": [
+        1100,
+        780
+      ],
+      "typeVersion": 3.4
+    },
+    {
+      "parameters": {
+        "operation": "create",
+        "base": {
+          "__rl": true,
+          "value": "appk2LYt9HzpP8YVw",
+          "mode": "list",
+          "cachedResultName": "MyBase.csv",
+          "cachedResultUrl": "https://airtable.com/appk2LYt9HzpP8YVw"
+        },
+        "table": {
+          "__rl": true,
+          "value": "tblBwdgCulLLPn8CJ",
+          "mode": "list",
+          "cachedResultName": "Scenarios",
+          "cachedResultUrl": "https://airtable.com/appk2LYt9HzpP8YVw/tblBwdgCulLLPn8CJ"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "Scenario Text": "={{ $json.message.content }}",
+            "Based On Video": "={{ $('Airtable2').item.json.Video }}",
+            "Created At": "={{ $now }}"
+          },
+          "matchingColumns": [
+            "Name"
+          ],
+          "schema": [
+            {
+              "id": "Scenario Text",
+              "displayName": "Scenario Text",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Based On Video",
+              "displayName": "Based On Video",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Created At",
+              "displayName": "Created At",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {
+          "typecast": true
+        }
+      },
+      "id": "8d917003-5678-47b7-819c-05dd3799b41c",
+      "name": "Create Video3",
+      "type": "n8n-nodes-base.airtable",
+      "position": [
+        940,
+        1000
+      ],
+      "typeVersion": 2.1,
+      "credentials": {
+        "airtableTokenApi": {
+          "id": "ADpcCzbUJLsCJQap",
+          "name": "lubov"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "url": "={{ JSON.parse($('Get Video1').item.json.Video)[0].url }}",
+        "options": {
+          "response": {
+            "response": {
+              "responseFormat": "file"
+            }
+          }
+        }
+      },
+      "id": "f6d708ad-4dd6-48be-8a48-12fe9bb5b2f7",
+      "name": "Download File2",
+      "type": "n8n-nodes-base.httpRequest",
+      "position": [
+        760,
+        780
+      ],
+      "typeVersion": 4.2
+    },
+    {
+      "parameters": {
+        "base": {
+          "__rl": true,
+          "value": "appk2LYt9HzpP8YVw",
+          "mode": "list",
+          "cachedResultName": "MyBase.csv",
+          "cachedResultUrl": "https://airtable.com/appk2LYt9HzpP8YVw"
+        },
+        "table": {
+          "__rl": true,
+          "value": "tblArXzgCLa1xq7iU",
+          "mode": "list",
+          "cachedResultName": "Videos",
+          "cachedResultUrl": "https://airtable.com/appk2LYt9HzpP8YVw/tblArXzgCLa1xq7iU"
+        },
+        "id": "={{ $json.id }}",
+        "options": {}
+      },
+      "id": "3ec1e5f1-97c9-42dd-a26d-3f29826ce795",
+      "name": "Get Video1",
+      "type": "n8n-nodes-base.airtable",
+      "position": [
+        380,
+        780
+      ],
+      "typeVersion": 2.1,
+      "credentials": {
+        "airtableTokenApi": {
+          "id": "ADpcCzbUJLsCJQap",
+          "name": "lubov"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "search",
+        "base": {
+          "__rl": true,
+          "value": "appk2LYt9HzpP8YVw",
+          "mode": "list",
+          "cachedResultName": "MyBase.csv",
+          "cachedResultUrl": "https://airtable.com/appk2LYt9HzpP8YVw"
+        },
+        "table": {
+          "__rl": true,
+          "value": "tblArXzgCLa1xq7iU",
+          "mode": "list",
+          "cachedResultName": "Videos",
+          "cachedResultUrl": "https://airtable.com/appk2LYt9HzpP8YVw/tblArXzgCLa1xq7iU"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.airtable",
+      "typeVersion": 2.1,
+      "position": [
+        380,
+        1000
+      ],
+      "id": "3b490480-1de9-4f1c-8c90-92aa011a8caa",
+      "name": "Airtable2",
+      "credentials": {
+        "airtableTokenApi": {
+          "id": "ADpcCzbUJLsCJQap",
+          "name": "lubov"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "modelId": {
+          "__rl": true,
+          "value": "gpt-4o-mini",
+          "mode": "list",
+          "cachedResultName": "GPT-4O-MINI"
+        },
+        "messages": {
+          "values": [
+            {
+              "content": "=Действуй, как профессиональный сценарист вирусных reels и tiktok роликов. Твоя задача придумывать сценарии для роликов, которые будут вовлекать с первых секунд, удерживать внимание и заставлять людей подписываться на аккаунт. Я хочу, чтобы ты был моим ассистентом в составлении сценариев. Используй следующую информацию:\n{{ $json.id }}\n{{ $json.createdTime }}\n{{ $json.Video }}\n{{ $json.Caption }}\n{{ $json.Guideline }}\n\n\nСоздай подробный сценарий для рилса с описанием фона, позы, текста, одежды, контекста и ролей участников. "
+            }
+          ]
+        },
+        "options": {
+          "maxTokens": 1000
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "typeVersion": 1.8,
+      "position": [
+        600,
+        1000
+      ],
+      "id": "0fc5178a-90ab-465d-83aa-f0e9c69f8a29",
+      "name": "OpenAI3",
+      "credentials": {
+        "openAiApi": {
+          "id": "IPY97T0IVM7WZtzu",
+          "name": "OpenAi account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "chatId": "={{ $('Telegram Trigger1').item.json.message.chat.id }}",
+        "text": "=Сценарий создан✅\n{{ $json.fields['Scenario Text'] }}",
+        "additionalFields": {
+          "appendAttribution": false
+        }
+      },
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1.2,
+      "position": [
+        1120,
+        1000
+      ],
+      "id": "7750bc75-c2d4-4563-a952-1d1ebfae17db",
+      "name": "Telegram1",
+      "webhookId": "e5776695-e68d-4a22-98ee-74f431973ddf",
+      "executeOnce": true,
+      "credentials": {
+        "telegramApi": {
+          "id": "jZD7r1TCQ02rnaWn",
+          "name": "msr_jarvis_bot"
+        }
+      }
+    }
+  ],
+  "pinData": {},
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2025-06-02T16:23:33.000Z",
+  "versionId": "dd99710c-c507-4515-a078-838decc22beb"
+}
