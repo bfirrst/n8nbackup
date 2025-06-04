@@ -1,0 +1,2140 @@
+{
+  "active": true,
+  "connections": {
+    "Telegram Trigger": {
+      "main": [
+        [
+          {
+            "node": "Switch",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "HTTP typing...",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Switch": {
+      "main": [
+        [],
+        [
+          {
+            "node": "Get ready",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Parse dish_YES",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Parse dish_NO",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Parse alt",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Split weight",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Parse cancel",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "tg_text",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Parse alt": {
+      "main": [
+        [
+          {
+            "node": "GET 3",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "DEL await_alt",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "GET 3": {
+      "main": [
+        [
+          {
+            "node": "WEIGHT 3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "GET 2": {
+      "main": [
+        [
+          {
+            "node": "MORE",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "GET 1": {
+      "main": [
+        [
+          {
+            "node": "WEIGHT 1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Split weight": {
+      "main": [
+        [
+          {
+            "node": "DEL await_weight",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "GET await_dish",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "GET await_weight",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "WEIGHT 3": {
+      "main": [
+        [
+          {
+            "node": "UPDATE 3",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "await_weight 3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "WEIGHT 1": {
+      "main": [
+        [
+          {
+            "node": "await_weight 1",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "UPDATE 1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "MORE": {
+      "main": [
+        [
+          {
+            "node": "await_alt",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "UPDATE 2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Parse dish_YES": {
+      "main": [
+        [
+          {
+            "node": "GET 1",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "DEL dish_yes",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Parse dish_NO": {
+      "main": [
+        [
+          {
+            "node": "GET 2",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "DEL dish_no",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Parse macros": {
+      "main": [
+        [
+          {
+            "node": "UPDATE  4",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "CREATE meals",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Merge": {
+      "main": [
+        [
+          {
+            "node": "NUTRION",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get Image": {
+      "main": [
+        [
+          {
+            "node": "Extract",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Convert": {
+      "main": [
+        [
+          {
+            "node": "VISION",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Parse Vision": {
+      "main": [
+        [
+          {
+            "node": "EDIT candidates",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "dish YES or NO",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get ready": {
+      "main": [
+        [
+          {
+            "node": "Get Image",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "EDIT candidates": {
+      "main": [
+        [
+          {
+            "node": "CREATE candidates",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Extract": {
+      "main": [
+        [
+          {
+            "node": "Convert",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Parse cancel": {
+      "main": [
+        [
+          {
+            "node": "UPDATE meals",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "UPDATE meals": {
+      "main": [
+        [
+          {
+            "node": "GET meals",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "GET meals": {
+      "main": [
+        [
+          {
+            "node": "build cancel",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "build cancel": {
+      "main": [
+        [
+          {
+            "node": "EDITED",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "CREATE meals": {
+      "main": [
+        [
+          {
+            "node": "DONE",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "VISION": {
+      "main": [
+        [
+          {
+            "node": "Parse Vision",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "NUTRION": {
+      "main": [
+        [
+          {
+            "node": "Parse macros",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "GET await_dish": {
+      "main": [
+        [
+          {
+            "node": "Merge",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "GET await_weight": {
+      "main": [
+        [
+          {
+            "node": "Merge",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2025-05-30T18:39:41.708Z",
+  "id": "YJBHBf8qw8HlXVTE",
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "callbaks",
+  "nodes": [
+    {
+      "parameters": {
+        "content": "# нажал ДА = ВЫБЕРИ ВЕС",
+        "height": 292,
+        "width": 1178,
+        "color": 4
+      },
+      "id": "bb231ef2-055d-4caa-bd0d-3a6ac918b873",
+      "name": "Sticky Note5",
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        0,
+        440
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "updates": [
+          "*"
+        ],
+        "additionalFields": {}
+      },
+      "type": "n8n-nodes-base.telegramTrigger",
+      "typeVersion": 1.2,
+      "position": [
+        -620,
+        1140
+      ],
+      "id": "fd8e22ab-4252-4992-8bc0-fe9023af32cc",
+      "name": "Telegram Trigger",
+      "webhookId": "e4d6b058-dc8c-4130-9abd-41243518e824",
+      "credentials": {
+        "telegramApi": {
+          "id": "X1k6RG1pbS0aVKey",
+          "name": "AI_Consultant_01p1_bot"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "rules": {
+          "values": [
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "52493568-0b68-46b8-b18a-894cf77bcac1",
+                    "leftValue": "={{$json.callback_query.data}}",
+                    "rightValue": "manual_",
+                    "operator": {
+                      "type": "string",
+                      "operation": "startsWith"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "manual"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "5eeb9b3f-d4ce-45f6-bb62-32244fd9a99a",
+                    "leftValue": "={{ $json.message.photo[0] }}",
+                    "rightValue": "",
+                    "operator": {
+                      "type": "object",
+                      "operation": "exists",
+                      "singleValue": true
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "image"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "2f1495ad-2eb2-4729-af5a-23c949adce8c",
+                    "leftValue": "={{$json.callback_query.data}}",
+                    "rightValue": "dish_yes_",
+                    "operator": {
+                      "type": "string",
+                      "operation": "startsWith"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "dish_yes"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "leftValue": "={{$json.callback_query.data}}",
+                    "rightValue": "dish_no_",
+                    "operator": {
+                      "type": "string",
+                      "operation": "startsWith"
+                    },
+                    "id": "c9ead52e-1b81-453a-bd9b-1d18dcbd82bb"
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "dish_no"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "646db5d3-3518-4edf-9374-cef371fa7ba9",
+                    "leftValue": "={{$json.callback_query.data}}",
+                    "rightValue": "alt_",
+                    "operator": {
+                      "type": "string",
+                      "operation": "startsWith"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "alt"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "1bcf1e75-3e73-465b-8bbb-2665b845e7e9",
+                    "leftValue": "={{$json.callback_query.data}}",
+                    "rightValue": "weight_",
+                    "operator": {
+                      "type": "string",
+                      "operation": "startsWith"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "weight"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "90573faf-164a-418f-a4a8-b69d3e7aaf3d",
+                    "leftValue": "={{$json.callback_query.data}}",
+                    "rightValue": "cancel_",
+                    "operator": {
+                      "type": "string",
+                      "operation": "startsWith"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "cancel"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "6166763a-38e9-494a-aea0-20bdc9626314",
+                    "leftValue": "={{ $json.message.text }}",
+                    "rightValue": "/",
+                    "operator": {
+                      "type": "string",
+                      "operation": "exists",
+                      "singleValue": true
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "text_cmd"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 3.2,
+      "position": [
+        -420,
+        1040
+      ],
+      "id": "12027c9a-2b31-4ea8-abef-a3e5cb0661bd",
+      "name": "Switch"
+    },
+    {
+      "parameters": {
+        "jsCode": "// alt_0_7  →  parts = ['alt','0','7']\nconst [, idx, id] = $json.callback_query.data.split('_');\n\nreturn [{\n  json: {\n    chat_id    : $json.callback_query.message.chat.id,   // ID чата, где лежит сообщение-клавиатура\n    draft_id   : Number(id),                             // 7\n    alt_idx    : Number(idx),                            // 0 / 1 / 2\n    del_msg_id : $json.callback_query.message.message_id // ID сообщения, которое надо удалить\n  }\n}];\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        60,
+        1160
+      ],
+      "id": "7911eccb-1880-4d8f-8f66-d6f6d0c270d0",
+      "name": "Parse alt"
+    },
+    {
+      "parameters": {
+        "operation": "get",
+        "tableId": "meals_draft",
+        "filters": {
+          "conditions": [
+            {
+              "keyName": "chat_id",
+              "keyValue": "={{$json.chat_id}}"
+            },
+            {
+              "keyName": "message_id",
+              "keyValue": "={{$json.draft_id}}"
+            },
+            {
+              "keyName": "status",
+              "keyValue": "await_alt"
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.supabase",
+      "typeVersion": 1,
+      "position": [
+        440,
+        1160
+      ],
+      "id": "5f9cd7d3-9aac-4965-b536-0c1d4e2e60cb",
+      "name": "GET 3",
+      "credentials": {
+        "supabaseApi": {
+          "id": "yLNMKO5SE6aB5I2Y",
+          "name": "Supabase account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "tableId": "meals_draft",
+        "filters": {
+          "conditions": [
+            {
+              "keyName": "chat_id",
+              "condition": "eq",
+              "keyValue": "={{ $json.chat_id }}"
+            },
+            {
+              "keyName": "message_id",
+              "condition": "eq",
+              "keyValue": "={{$json.draft_id}}"
+            }
+          ]
+        },
+        "fieldsUi": {
+          "fieldValues": [
+            {
+              "fieldId": "chosen_name",
+              "fieldValue": "={{$json.dish_ru}}"
+            },
+            {
+              "fieldId": "grams_pred",
+              "fieldValue": "={{$json.grams_est}}"
+            },
+            {
+              "fieldId": "status",
+              "fieldValue": "await_weight"
+            },
+            {
+              "fieldId": "updated_at",
+              "fieldValue": "={{ new Date().toISOString() }}"
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.supabase",
+      "typeVersion": 1,
+      "position": [
+        760,
+        1180
+      ],
+      "id": "97961916-b556-4166-8d79-4063ab9eb391",
+      "name": "UPDATE 3",
+      "credentials": {
+        "supabaseApi": {
+          "id": "yLNMKO5SE6aB5I2Y",
+          "name": "Supabase account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "content": "# нажал НЕТ + ЕЩЕ 2 варианта",
+        "height": 292,
+        "width": 1178,
+        "color": 3
+      },
+      "id": "9f9a6cc5-baf3-4554-b0e8-76edb7a54dfa",
+      "name": "Sticky Note",
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        0,
+        760
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "content": "# нажал на 1/2 = ВЫБЕРИ ВЕС",
+        "height": 292,
+        "width": 1178,
+        "color": 3
+      },
+      "id": "295fe83d-46f9-42c7-9de3-72226355bda1",
+      "name": "Sticky Note1",
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        0,
+        1080
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "content": "# РЕЗУЛЬТАТ\n\n",
+        "height": 392,
+        "width": 1758,
+        "color": 4
+      },
+      "id": "3b630d1b-7550-499c-a551-39bd2f69098f",
+      "name": "Sticky Note2",
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        0,
+        1400
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "tableId": "meals_draft",
+        "filters": {
+          "conditions": [
+            {
+              "keyName": "chat_id",
+              "condition": "eq",
+              "keyValue": "={{ $json.chat_id }}"
+            },
+            {
+              "keyName": "message_id",
+              "condition": "eq",
+              "keyValue": "={{$json.draft_id}}"
+            }
+          ]
+        },
+        "fieldsUi": {
+          "fieldValues": [
+            {
+              "fieldId": "grams_pred",
+              "fieldValue": "={{$json.grams}}"
+            },
+            {
+              "fieldId": "status",
+              "fieldValue": "done"
+            },
+            {
+              "fieldId": "updated_at",
+              "fieldValue": "={{ new Date().toISOString() }}"
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.supabase",
+      "typeVersion": 1,
+      "position": [
+        1380,
+        1620
+      ],
+      "id": "c2d4eb88-4c91-45b6-825e-dfcee35019cb",
+      "name": "UPDATE  4",
+      "credentials": {
+        "supabaseApi": {
+          "id": "yLNMKO5SE6aB5I2Y",
+          "name": "Supabase account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "chatId": "={{$json.chat_id}}",
+        "text": "=*{{ $json.dish }} – {{ $json.grams }} г*\n\n*Калорий:* {{ $json.kcal }}\n*Б:* {{ $json.prot }} *Ж:* {{ $json.fat }} *У:* {{ $json.carb }}\n\n✔️ _сохранил в память_",
+        "replyMarkup": "inlineKeyboard",
+        "inlineKeyboard": {
+          "rows": [
+            {
+              "row": {
+                "buttons": [
+                  {
+                    "text": "🚫 не сохранять",
+                    "additionalFields": {
+                      "callback_data": "=cancel_{{ $json.id }}"
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        "additionalFields": {
+          "appendAttribution": false,
+          "parse_mode": "Markdown"
+        }
+      },
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1.2,
+      "position": [
+        1560,
+        1440
+      ],
+      "id": "d5a0718d-8af2-4258-89d1-e61c84f6c5c8",
+      "name": "DONE",
+      "webhookId": "54ba5fcc-0866-4f93-aa38-bad03e1710e6",
+      "credentials": {
+        "telegramApi": {
+          "id": "X1k6RG1pbS0aVKey",
+          "name": "AI_Consultant_01p1_bot"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "get",
+        "tableId": "meals_draft",
+        "filters": {
+          "conditions": [
+            {
+              "keyName": "chat_id",
+              "keyValue": "={{$json.chat_id}}"
+            },
+            {
+              "keyName": "message_id",
+              "keyValue": "={{$json.draft_id}}"
+            },
+            {
+              "keyName": "status",
+              "keyValue": "await_dish"
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.supabase",
+      "typeVersion": 1,
+      "position": [
+        440,
+        840
+      ],
+      "id": "f6700cff-d04b-4674-9018-c0c55cf6b795",
+      "name": "GET 2",
+      "credentials": {
+        "supabaseApi": {
+          "id": "yLNMKO5SE6aB5I2Y",
+          "name": "Supabase account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "tableId": "meals_draft",
+        "filters": {
+          "conditions": [
+            {
+              "keyName": "chat_id",
+              "condition": "eq",
+              "keyValue": "={{ $json.chat_id }}"
+            },
+            {
+              "keyName": "message_id",
+              "condition": "eq",
+              "keyValue": "={{$json.draft_id}}"
+            }
+          ]
+        },
+        "fieldsUi": {
+          "fieldValues": [
+            {
+              "fieldId": "status",
+              "fieldValue": "await_alt"
+            },
+            {
+              "fieldId": "updated_at",
+              "fieldValue": "={{ new Date().toISOString() }}"
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.supabase",
+      "typeVersion": 1,
+      "position": [
+        760,
+        860
+      ],
+      "id": "0220bacd-a135-4456-8dda-af8053040189",
+      "name": "UPDATE 2",
+      "credentials": {
+        "supabaseApi": {
+          "id": "yLNMKO5SE6aB5I2Y",
+          "name": "Supabase account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "tableId": "meals_draft",
+        "filters": {
+          "conditions": [
+            {
+              "keyName": "chat_id",
+              "condition": "eq",
+              "keyValue": "={{ $json.chat_id }}"
+            },
+            {
+              "keyName": "message_id",
+              "condition": "eq",
+              "keyValue": "={{$json.draft_id}}"
+            }
+          ]
+        },
+        "fieldsUi": {
+          "fieldValues": [
+            {
+              "fieldId": "chosen_name",
+              "fieldValue": "={{$json.dish_ru}}"
+            },
+            {
+              "fieldId": "status",
+              "fieldValue": "await_weight"
+            },
+            {
+              "fieldId": "updated_at",
+              "fieldValue": "={{ new Date().toISOString() }}"
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.supabase",
+      "typeVersion": 1,
+      "position": [
+        760,
+        540
+      ],
+      "id": "5540dba7-9b27-46df-917b-3a646ca1dcad",
+      "name": "UPDATE 1",
+      "credentials": {
+        "supabaseApi": {
+          "id": "yLNMKO5SE6aB5I2Y",
+          "name": "Supabase account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "get",
+        "tableId": "meals_draft",
+        "filters": {
+          "conditions": [
+            {
+              "keyName": "chat_id",
+              "keyValue": "={{$json.chat_id}}"
+            },
+            {
+              "keyName": "message_id",
+              "keyValue": "={{$json.draft_id}}"
+            },
+            {
+              "keyName": "status",
+              "keyValue": "await_dish"
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.supabase",
+      "typeVersion": 1,
+      "position": [
+        440,
+        520
+      ],
+      "id": "452b5d4b-c634-4c85-8d48-c31c67c01b45",
+      "name": "GET 1",
+      "credentials": {
+        "supabaseApi": {
+          "id": "yLNMKO5SE6aB5I2Y",
+          "name": "Supabase account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "chatId": "={{$json.chat_id}}",
+        "text": "Выбери массу порции:",
+        "replyMarkup": "inlineKeyboard",
+        "inlineKeyboard": {
+          "rows": [
+            {
+              "row": {
+                "buttons": [
+                  {
+                    "text": "={{$json.buttons[0].text}}",
+                    "additionalFields": {
+                      "callback_data": "={{$json.buttons[0].data}}"
+                    }
+                  },
+                  {
+                    "text": "={{$json.buttons[1].text}}",
+                    "additionalFields": {
+                      "callback_data": "={{$json.buttons[1].data}}"
+                    }
+                  },
+                  {
+                    "text": "={{$json.buttons[2].text}}",
+                    "additionalFields": {
+                      "callback_data": "={{$json.buttons[2].data}}"
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        "additionalFields": {
+          "appendAttribution": false
+        }
+      },
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1.2,
+      "position": [
+        960,
+        1160
+      ],
+      "id": "030167c0-62f2-4788-b2f1-e903df239759",
+      "name": "await_weight 3",
+      "webhookId": "d3d32e66-ff1c-42d9-9bfe-cf7f223f745b",
+      "credentials": {
+        "telegramApi": {
+          "id": "X1k6RG1pbS0aVKey",
+          "name": "AI_Consultant_01p1_bot"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "chatId": "={{ $json.chat_id }}",
+        "text": "Выбери массу порции:",
+        "replyMarkup": "inlineKeyboard",
+        "inlineKeyboard": {
+          "rows": [
+            {
+              "row": {
+                "buttons": [
+                  {
+                    "text": "={{ $json.buttons[0].text }}",
+                    "additionalFields": {
+                      "callback_data": "={{ $json.buttons[0].data }}"
+                    }
+                  },
+                  {
+                    "text": "={{ $json.buttons[1].text }}",
+                    "additionalFields": {
+                      "callback_data": "={{ $json.buttons[1].data }}"
+                    }
+                  },
+                  {
+                    "text": "={{ $json.buttons[2].text }}",
+                    "additionalFields": {
+                      "callback_data": "={{ $json.buttons[2].data }}"
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        "additionalFields": {
+          "appendAttribution": false
+        }
+      },
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1.2,
+      "position": [
+        960,
+        520
+      ],
+      "id": "97eb62e7-3b4b-4776-a682-d86341d89f43",
+      "name": "await_weight 1",
+      "webhookId": "d3d32e66-ff1c-42d9-9bfe-cf7f223f745b",
+      "credentials": {
+        "telegramApi": {
+          "id": "X1k6RG1pbS0aVKey",
+          "name": "AI_Consultant_01p1_bot"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "chatId": "={{$json.chat_id}}",
+        "text": "=*Выберите альтернативу:*\n\n{{ $json.alt_lines.join('\\n') }}\n",
+        "replyMarkup": "inlineKeyboard",
+        "inlineKeyboard": {
+          "rows": [
+            {
+              "row": {
+                "buttons": [
+                  {
+                    "text": "={{$json.buttons[0].text}}",
+                    "additionalFields": {
+                      "callback_data": "={{$json.buttons[0].data}}"
+                    }
+                  },
+                  {
+                    "text": "={{$json.buttons[1].text}}",
+                    "additionalFields": {
+                      "callback_data": "={{$json.buttons[1].data}}"
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        "additionalFields": {
+          "appendAttribution": false
+        }
+      },
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1.2,
+      "position": [
+        960,
+        840
+      ],
+      "id": "a864dbfb-de9a-41f9-b2cb-fe1a2c15137c",
+      "name": "await_alt",
+      "webhookId": "d3d32e66-ff1c-42d9-9bfe-cf7f223f745b",
+      "credentials": {
+        "telegramApi": {
+          "id": "X1k6RG1pbS0aVKey",
+          "name": "AI_Consultant_01p1_bot"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "// weight_200_7  →  parts = ['weight','200','7']\nconst [, grams, id] = $json.callback_query.data.split('_');\n\nreturn [{\n  json: {\n    chat_id    : $json.callback_query.message.chat.id,   // тот же chat_id\n    draft_id   : Number(id),                             // 7\n    grams      : Number(grams),                          // 200\n    del_msg_id : $json.callback_query.message.message_id // ID клавиатуры веса\n  }\n}];"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        80,
+        1500
+      ],
+      "id": "40fed661-3b22-471e-8604-b3c9c6bd1464",
+      "name": "Split weight"
+    },
+    {
+      "parameters": {
+        "operation": "deleteMessage",
+        "chatId": "={{ $json.chat_id }}",
+        "messageId": "={{ $json.del_msg_id }}"
+      },
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1.2,
+      "position": [
+        260,
+        1620
+      ],
+      "id": "922ec1e4-7bae-4df1-a5b5-7b4cee3ecfc6",
+      "name": "DEL await_weight",
+      "webhookId": "182771d4-324c-4a5e-9b6b-cb35d00a0a98",
+      "credentials": {
+        "telegramApi": {
+          "id": "X1k6RG1pbS0aVKey",
+          "name": "AI_Consultant_01p1_bot"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "deleteMessage",
+        "chatId": "={{ $json.chat_id }}",
+        "messageId": "={{ $json.del_msg_id }}"
+      },
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1.2,
+      "position": [
+        240,
+        1180
+      ],
+      "id": "077aa5e0-37d8-44c4-a7b0-e275735df080",
+      "name": "DEL await_alt",
+      "webhookId": "182771d4-324c-4a5e-9b6b-cb35d00a0a98",
+      "credentials": {
+        "telegramApi": {
+          "id": "X1k6RG1pbS0aVKey",
+          "name": "AI_Consultant_01p1_bot"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "deleteMessage",
+        "chatId": "={{ $json.chat_id }}",
+        "messageId": "={{ $json.del_msg_id }}"
+      },
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1.2,
+      "position": [
+        240,
+        860
+      ],
+      "id": "569f28b1-745f-4c53-a819-fc25c4589f48",
+      "name": "DEL dish_no",
+      "webhookId": "182771d4-324c-4a5e-9b6b-cb35d00a0a98",
+      "credentials": {
+        "telegramApi": {
+          "id": "X1k6RG1pbS0aVKey",
+          "name": "AI_Consultant_01p1_bot"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "deleteMessage",
+        "chatId": "={{ $json.chat_id }}",
+        "messageId": "={{ $json.del_msg_id }}"
+      },
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1.2,
+      "position": [
+        240,
+        540
+      ],
+      "id": "47982152-9dae-4d69-b5c4-31d8de79ad39",
+      "name": "DEL dish_yes",
+      "webhookId": "182771d4-324c-4a5e-9b6b-cb35d00a0a98",
+      "credentials": {
+        "telegramApi": {
+          "id": "X1k6RG1pbS0aVKey",
+          "name": "AI_Consultant_01p1_bot"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "/**\n * INPUT ожидает:\n *   • items[0].json  — строка-row из Supabase (`draft`)\n *   • $json.alt_idx  — 0 / 1 / 2  (пришло из «alt_0_<id>»)\n *\n * Правка: alt_idx указывает на элемент candidates[1…3],\n * поэтому делаем сдвиг +1.\n */\n\n// 0. Достаём draft: бывает либо объектом, либо массивом с одним элементом\nconst draft = Array.isArray(items[0].json)\n  ? items[0].json[0]\n  : items[0].json;\n\n// 1. candidates: если это строка — парсим\nconst candidates = typeof draft.candidates === 'string'\n  ? JSON.parse(draft.candidates)\n  : draft.candidates || [];\n\n// 2. выбираем нужную альтернативу (alt_idx + 1)\nconst offs = ($json.alt_idx ?? 0) + 1;\nconst cand = candidates[offs] || {\n  dish  : '(не найдено)',\n  grams : draft.grams_pred || 200,\n};\n\n// 3. считаем три варианта массы\nconst g    = Number(cand.grams) || 200;\nconst step = g < 120 ? 20 : 50;\nconst btns = [g - step, g, g + step].filter(x => x > 0);\n\nreturn [{\n  json: {\n    chat_id   : draft.chat_id,\n    draft_id  : draft.message_id,           // пригодится для UPDATE\n    dish_ru   : cand.dish,\n    grams_est : g,\n    buttons   : btns.map(x => ({\n      text : `${x} г`,\n      data : `weight_${x}_${draft.message_id}`,\n    })),\n  },\n}];\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        580,
+        1160
+      ],
+      "id": "e73282cb-1c4d-4d23-af1f-aa862ba0e3c7",
+      "name": "WEIGHT 3"
+    },
+    {
+      "parameters": {
+        "jsCode": "/** INPUT ожидает:\n *  • items[0].json  ← строка из Supabase (`draft`)\n *  • $json.alt_idx  ← 0 / 1 / 2  (пришло из «alt_0_id»)\n */\n\n/* 0. draft может лежать либо прямо в .json, либо в .json[0]\n      (зависит от Always Output Data) */\nconst draft = Array.isArray(items[0].json)\n  ? items[0].json[0]\n  : items[0].json;\n\n/* 1. candidates: если строка → JSON.parse */\nconst candidates = typeof draft.candidates === 'string'\n  ? JSON.parse(draft.candidates)\n  : draft.candidates || [];\n\n/* 2. индекс альтернативы */\nconst idx = $json.alt_idx ?? 0;\nconst cand = candidates[idx] || { dish:'(не найдено)', grams: draft.grams_pred || 200 };\n\n/* 3. считаем кнопки веса */\nconst g    = cand.grams;\nconst step = g < 120 ? 20 : 50;\nconst btns = [g-step, g, g+step].filter(x=>x>0);\n\nreturn [{\n  json:{\n    chat_id   : draft.chat_id,\n    draft_id  : draft.message_id,        // пригодится для UPDATE\n    dish_ru   : cand.dish,\n    grams_est : g,\n    buttons   : btns.map(x=>({\n                  text : `${x} г`,\n                  data : `weight_${x}_${draft.message_id}`\n               }))\n  }\n}];\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        580,
+        520
+      ],
+      "id": "6d52d43e-450e-473b-84ee-f5652c95e51a",
+      "name": "WEIGHT 1",
+      "alwaysOutputData": true
+    },
+    {
+      "parameters": {
+        "jsCode": "/**\n *  Упрощаем: код лишь формирует данные,\n *  а финальный текст собираем прямо в Telegram-узле.\n */\n\n// 0. Достаём draft (учёт Always-Output Data)\nconst raw = items[0].json[0] ?? items[0].json;\n\n// 1. Парсим candidates, если пришла строкой\nconst candidates = typeof raw.candidates === 'string'\n  ? JSON.parse(raw.candidates)\n  : raw.candidates || [];\n\n// 2. Берём альтернативы (макс. 3) — без первого\nconst alts = candidates.slice(1, 4);\n\n// 3. Подготовим «красивые» строки для списка\nconst altLines = alts.map((c, i) => `${i + 1}. ${c.dish}`);\n\n// 4. Кнопки 1-2-3\nconst buttons = alts.map((_, i) => ({\n  text : String(i + 1),\n  data : `alt_${i}_${raw.message_id}`,\n}));\n\nreturn [{\n  json: {\n    chat_id   : raw.chat_id,\n    draft_id  : raw.message_id,\n\n    // для Telegram-узла\n    alt_lines : altLines,   // массив ['1. …', '2. …', …]\n    buttons,                // inline-кнопки\n  },\n}];\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        580,
+        840
+      ],
+      "id": "2b108730-d14b-4a15-b319-aa94aaf36707",
+      "name": "MORE",
+      "alwaysOutputData": true
+    },
+    {
+      "parameters": {
+        "tableId": "meals",
+        "fieldsUi": {
+          "fieldValues": [
+            {
+              "fieldId": "chat_id",
+              "fieldValue": "={{$json.chat_id}}"
+            },
+            {
+              "fieldId": "dish",
+              "fieldValue": "={{ $json.dish }}"
+            },
+            {
+              "fieldId": "grams",
+              "fieldValue": "={{ $json.grams }}"
+            },
+            {
+              "fieldId": "eaten_at",
+              "fieldValue": "={{ $json.eaten_at }}"
+            },
+            {
+              "fieldId": "kcal",
+              "fieldValue": "={{ $json.kcal }}"
+            },
+            {
+              "fieldId": "fat",
+              "fieldValue": "={{ $json.fat }}"
+            },
+            {
+              "fieldId": "carb",
+              "fieldValue": "={{ $json.carb }}"
+            },
+            {
+              "fieldId": "prot",
+              "fieldValue": "={{ $json.prot }}"
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.supabase",
+      "typeVersion": 1,
+      "position": [
+        1380,
+        1440
+      ],
+      "id": "c391c9a1-b398-43d1-8b9f-87f93bc630d8",
+      "name": "CREATE meals",
+      "credentials": {
+        "supabaseApi": {
+          "id": "yLNMKO5SE6aB5I2Y",
+          "name": "Supabase account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "// Пример callback_data:  dish_yes_7\nconst parts   = $json.callback_query.data.split('_');\nconst draftId = parts.pop();                        // '7'\n\n// ID сообщения с кнопками «Да / Нет»,\n// которое нужно удалить после обработки\nconst delMsgId = $json.callback_query.message.message_id;\n\nreturn [{\n  json: {\n    draft_id   : Number(draftId),                 // 7\n    chat_id    : $json.callback_query.from.id,    // 7758…\n    del_msg_id : delMsgId                         // для Delete-узла\n  }\n}];\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        60,
+        520
+      ],
+      "id": "30db6e3c-dc2c-476d-a65c-599dd534426a",
+      "name": "Parse dish_YES"
+    },
+    {
+      "parameters": {
+        "jsCode": "// Пример callback_data:  dish_yes_7\nconst parts   = $json.callback_query.data.split('_');\nconst draftId = parts.pop();                        // '7'\n\n// ID сообщения с кнопками «Да / Нет»,\n// которое нужно удалить после обработки\nconst delMsgId = $json.callback_query.message.message_id;\n\nreturn [{\n  json: {\n    draft_id   : Number(draftId),                 // 7\n    chat_id    : $json.callback_query.from.id,    // 7758…\n    del_msg_id : delMsgId                         // для Delete-узла\n  }\n}];\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        60,
+        840
+      ],
+      "id": "971b7218-1650-46d2-9acb-a96a1359c6fe",
+      "name": "Parse dish_NO"
+    },
+    {
+      "parameters": {
+        "jsCode": "// Parse macros  (замена текущего кода)\nconst sw = $items('Split weight')[0].json;   // chat_id, grams, draft_id …\n\n// assistant.content уже объект: dish, kcal, prot, …\nconst gpt = $json.message?.content ?? $json; // на случай, если jsonOutput=false\n\nconst toMsk = () => {\n  const msk = new Date(new Date().toLocaleString('en-US',{timeZone:'Europe/Moscow'}));\n  const p = n => String(n).padStart(2,'0');\n  return `${msk.getFullYear()}-${p(msk.getMonth()+1)}-${p(msk.getDate())}` +\n         `T${p(msk.getHours())}:${p(msk.getMinutes())}:00+03:00`;\n};\n\nreturn [{\n  json: {\n    ...sw,          // chat_id, grams …\n    ...gpt,         // dish, kcal, prot …\n    eaten_at: toMsk()\n  }\n}];\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1160,
+        1520
+      ],
+      "id": "75d1a5b8-1d66-462b-bd96-6a5748c444a5",
+      "name": "Parse macros"
+    },
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 3.1,
+      "position": [
+        660,
+        1520
+      ],
+      "id": "a8481834-9fba-41d2-86cb-a7a67fd8e8f7",
+      "name": "Merge"
+    },
+    {
+      "parameters": {
+        "resource": "file",
+        "fileId": "={{ $json.photo_file_id }}"
+      },
+      "id": "605aa59a-39a8-4362-9ae4-6332feae11ab",
+      "name": "Get Image",
+      "type": "n8n-nodes-base.telegram",
+      "position": [
+        220,
+        120
+      ],
+      "typeVersion": 1.2,
+      "webhookId": "8b210039-e135-420d-a5f1-53fc3ca1e836",
+      "retryOnFail": false,
+      "maxTries": 2,
+      "credentials": {
+        "telegramApi": {
+          "id": "X1k6RG1pbS0aVKey",
+          "name": "AI_Consultant_01p1_bot"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "toBinary",
+        "sourceProperty": "data",
+        "options": {
+          "fileName": "={{ $json.result.file_path }}"
+        }
+      },
+      "id": "fb6ba5b3-7a9d-48b5-8d60-053735a66cb4",
+      "name": "Convert",
+      "type": "n8n-nodes-base.convertToFile",
+      "position": [
+        620,
+        120
+      ],
+      "typeVersion": 1.1
+    },
+    {
+      "parameters": {
+        "jsCode": "/**\n * Берём исходный update из триггера\n */\nconst upd = $items(\"Telegram Trigger\")[0].json.message;\nconst chatId  = upd.chat.id;\nconst msgId   = upd.message_id;\nconst photoId = upd.photo[upd.photo.length - 1].file_id;\n\n/**\n * Русский JSON от Vision\n */\nconst vision = JSON.parse(($json.content || '').replace(/```/g, '').trim());\nconst candidates = vision.candidates || [];\nconst first      = candidates[0] || { dish:'блюдо', grams:0 };\n\n/**\n * Draft‑объект\n */\nreturn [{\n  json: {\n    chat_id       : chatId,\n    message_id    : msgId,\n    photo_file_id : photoId,\n\n    candidates,              // массив на русском\n    grams_pred : first.grams,\n    status     : 'await_dish',\n\n    text   : `Это *${first.dish}*?`,\n    cb_yes : `dish_yes_${msgId}`,\n    cb_no  : `dish_no_${msgId}`\n  }\n}];\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1020,
+        120
+      ],
+      "id": "171701b5-5d4e-4de1-b542-982d3ba93369",
+      "name": "Parse Vision"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "bd8a8c20-939e-49b0-93d0-bb58b8719ebb",
+              "name": "chat_id",
+              "value": "={{ $json.message.chat.id }}",
+              "type": "string"
+            },
+            {
+              "id": "f89d0646-9f73-4067-bbf7-af9913b5f688",
+              "name": "message_id",
+              "value": "={{$json.message.message_id}}",
+              "type": "string"
+            },
+            {
+              "id": "07282534-971f-4430-8d45-5f3e15d3c167",
+              "name": "photo_file_id",
+              "value": "={{$json.message.photo[$json.message.photo.length - 1].file_id}}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        60,
+        120
+      ],
+      "id": "614bf23f-0108-419f-ad14-b9948dec6fbd",
+      "name": "Get ready"
+    },
+    {
+      "parameters": {
+        "chatId": "={{ $json.chat_id }}",
+        "text": "={{ $json.text }}",
+        "replyMarkup": "inlineKeyboard",
+        "inlineKeyboard": {
+          "rows": [
+            {
+              "row": {
+                "buttons": [
+                  {
+                    "text": "Да",
+                    "additionalFields": {
+                      "callback_data": "={{$json.cb_yes}}"
+                    }
+                  },
+                  {
+                    "text": "Нет",
+                    "additionalFields": {
+                      "callback_data": "={{$json.cb_no}}"
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        "additionalFields": {
+          "appendAttribution": false
+        }
+      },
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1.2,
+      "position": [
+        1440,
+        220
+      ],
+      "id": "30360b76-7b0f-4950-bc98-bef521cc1d2a",
+      "name": "dish YES or NO",
+      "webhookId": "dc6a9f65-91bd-46e4-8c95-17b2ebe68d7c",
+      "credentials": {
+        "telegramApi": {
+          "id": "X1k6RG1pbS0aVKey",
+          "name": "AI_Consultant_01p1_bot"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "tableId": "meals_draft",
+        "fieldsUi": {
+          "fieldValues": [
+            {
+              "fieldId": "chat_id",
+              "fieldValue": "={{ $json.chat_id }}"
+            },
+            {
+              "fieldId": "message_id",
+              "fieldValue": "={{ $json.message_id }}"
+            },
+            {
+              "fieldId": "photo_file_id",
+              "fieldValue": "={{ $json.photo_file_id }}"
+            },
+            {
+              "fieldId": "candidates",
+              "fieldValue": "={{ $json.candidates }}"
+            },
+            {
+              "fieldId": "grams_pred",
+              "fieldValue": "={{ $json.grams_pred }}"
+            },
+            {
+              "fieldId": "status",
+              "fieldValue": "={{ $json.status }}"
+            },
+            {
+              "fieldId": "created_at",
+              "fieldValue": "={{ new Date().toISOString() }}"
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.supabase",
+      "typeVersion": 1,
+      "position": [
+        1440,
+        40
+      ],
+      "id": "e17880a0-7a41-476c-9afe-39c69890b04b",
+      "name": "CREATE candidates",
+      "credentials": {
+        "supabaseApi": {
+          "id": "yLNMKO5SE6aB5I2Y",
+          "name": "Supabase account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "360c7be2-b049-4c62-bb83-5fafd0850722",
+              "name": "chat_id",
+              "value": "={{$json.chat_id}}",
+              "type": "string"
+            },
+            {
+              "id": "584b9ab5-5ba9-42f9-a9d9-7bb9bb115361",
+              "name": "message_id",
+              "value": "={{$json.message_id}}",
+              "type": "string"
+            },
+            {
+              "id": "8d7a3167-4cbb-4051-8c23-a0b88438c815",
+              "name": "photo_file_id",
+              "value": "={{$json.photo_file_id}}",
+              "type": "string"
+            },
+            {
+              "id": "246a834e-e731-4239-aa92-60eb7c75d79f",
+              "name": "candidates",
+              "value": "={{$json.candidates}}",
+              "type": "string"
+            },
+            {
+              "id": "69f21e55-55ef-4cf0-b73d-b3e39144e057",
+              "name": "grams_pred",
+              "value": "={{$json.grams_pred}}",
+              "type": "string"
+            },
+            {
+              "id": "1b41e033-b7ce-47b0-8f57-0f8dc109ecab",
+              "name": "status",
+              "value": "={{$json.status}}",
+              "type": "string"
+            }
+          ]
+        },
+        "includeOtherFields": true,
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        1260,
+        40
+      ],
+      "id": "03bef091-9525-4480-82db-4bfc8c49e68c",
+      "name": "EDIT candidates"
+    },
+    {
+      "parameters": {
+        "content": "# ФОТО БЛЮДА = 1 ВАРИАНТ",
+        "height": 392,
+        "width": 1698,
+        "color": 6
+      },
+      "id": "a16e95b2-7fb3-4f0f-86c1-630be2abb75f",
+      "name": "Sticky Note3",
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        0,
+        0
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.telegram.org/bot7216585101:AAFJKJORiTH_Z-439l_helue06Dy0E5ZbJM/sendChatAction",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "chat_id",
+              "value": "={{ $json.message.from.id }}"
+            },
+            {
+              "name": "action",
+              "value": "typing"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        -420,
+        840
+      ],
+      "id": "38a0135e-43df-47e6-8cd6-ef41d78e0ba6",
+      "name": "HTTP typing...",
+      "alwaysOutputData": true,
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "operation": "binaryToPropery",
+        "options": {}
+      },
+      "id": "05650f6f-bf88-4578-ac65-ffe325f455d1",
+      "name": "Extract",
+      "type": "n8n-nodes-base.extractFromFile",
+      "position": [
+        460,
+        120
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "workflowId": {
+          "__rl": true,
+          "value": "oYpTfpAMQiO9dyKM",
+          "mode": "list",
+          "cachedResultName": "text"
+        },
+        "workflowInputs": {
+          "mappingMode": "defineBelow",
+          "value": {},
+          "matchingColumns": [],
+          "schema": [],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": true
+        },
+        "options": {
+          "waitForSubWorkflow": true
+        }
+      },
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1.2,
+      "position": [
+        100,
+        2280
+      ],
+      "id": "64ce5625-cb55-454a-98d5-bb29093f28b4",
+      "name": "tg_text"
+    },
+    {
+      "parameters": {
+        "content": "# ТЕКСТ и /\n",
+        "height": 312,
+        "width": 318,
+        "color": 7
+      },
+      "id": "f3954b0d-ab9c-4258-8378-f3cfc6df7a96",
+      "name": "Sticky Note4",
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        0,
+        2180
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "content": "# НЕ СОХРАНЯТЬ\n",
+        "height": 312,
+        "width": 958,
+        "color": 7
+      },
+      "id": "f1a06dc2-5507-4a83-a912-bbd14084e2a6",
+      "name": "Sticky Note6",
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        0,
+        1840
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "jsCode": "// cancel_62\nconst mealId = Number($json.callback_query.data.split('_').pop());\n\nreturn [{\n  json:{\n    meal_id : mealId,\n    chat_id : $json.callback_query.from.id,\n    msg_id  : $json.callback_query.message.message_id\n  }\n}];\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        60,
+        1940
+      ],
+      "id": "b786a8eb-fc3b-49a1-b737-25bd53206e68",
+      "name": "Parse cancel"
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "tableId": "meals",
+        "matchType": "allFilters",
+        "filters": {
+          "conditions": [
+            {
+              "keyName": "id",
+              "condition": "eq",
+              "keyValue": "={{ $json.meal_id }}"
+            },
+            {
+              "keyName": "chat_id",
+              "condition": "eq",
+              "keyValue": "={{$json.chat_id}}"
+            }
+          ]
+        },
+        "fieldsUi": {
+          "fieldValues": [
+            {
+              "fieldId": "deleted",
+              "fieldValue": "true"
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.supabase",
+      "typeVersion": 1,
+      "position": [
+        240,
+        1940
+      ],
+      "id": "ba037a88-432d-4ff2-9327-26dc6ec8924f",
+      "name": "UPDATE meals",
+      "alwaysOutputData": true,
+      "credentials": {
+        "supabaseApi": {
+          "id": "yLNMKO5SE6aB5I2Y",
+          "name": "Supabase account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "get",
+        "tableId": "meals",
+        "filters": {
+          "conditions": [
+            {
+              "keyName": "chat_id",
+              "keyValue": "={{ $json.chat_id }}"
+            },
+            {
+              "keyName": "id",
+              "keyValue": "={{ $json.id }}"
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.supabase",
+      "typeVersion": 1,
+      "position": [
+        400,
+        1940
+      ],
+      "id": "f478be25-acd6-4bcb-a9f4-ffa3020a29a0",
+      "name": "GET meals",
+      "alwaysOutputData": true,
+      "credentials": {
+        "supabaseApi": {
+          "id": "yLNMKO5SE6aB5I2Y",
+          "name": "Supabase account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "const row = $items('GET meals')[0].json;      // dish, grams, kcal …\nconst ctx = $items('Parse cancel')[0].json;   // chat_id, msg_id\n\nreturn [{\n  json: {\n    chat_id : ctx.chat_id,\n    msg_id  : ctx.msg_id,\n\n    // что пойдёт в текст\n    dish  : row.dish,\n    grams : row.grams,\n    kcal  : row.kcal,\n    prot  : row.prot,\n    fat   : row.fat,\n    carb  : row.carb\n  }\n}];\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        560,
+        1940
+      ],
+      "id": "dbf84de3-172b-4652-97c4-acb9834ff1ae",
+      "name": "build cancel"
+    },
+    {
+      "parameters": {
+        "operation": "editMessageText",
+        "chatId": "={{ $json.chat_id }}",
+        "messageId": "={{ $json.msg_id }}",
+        "text": "=*{{ $json.dish }} – {{ $json.grams }} г*\n\n*Калорий:* {{ $json.kcal }}\n*Б:* {{ $json.prot }} *Ж:* {{ $json.fat }} *У:* {{ $json.carb }}\n\n🚫 _не сохранил_\n",
+        "additionalFields": {
+          "parse_mode": "Markdown"
+        }
+      },
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1.2,
+      "position": [
+        740,
+        1940
+      ],
+      "id": "78494815-7c00-4c8b-8517-30f01c535f8c",
+      "name": "EDITED",
+      "webhookId": "d03fb55d-8c26-4782-92a9-d0c9c351a440",
+      "credentials": {
+        "telegramApi": {
+          "id": "X1k6RG1pbS0aVKey",
+          "name": "AI_Consultant_01p1_bot"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "resource": "image",
+        "operation": "analyze",
+        "modelId": {
+          "__rl": true,
+          "value": "chatgpt-4o-latest",
+          "mode": "list",
+          "cachedResultName": "CHATGPT-4O-LATEST"
+        },
+        "text": "\nТы пищевой классификатор.\nВерни JSON ТОЛЬКО на русском, без ``` :\n\n{\n  \"candidates\": [\n    { \"dish\": \"строка\", \"grams\": число, \"confidence\": 0‑1 },\n    … максимум 3\n  ]\n}\n",
+        "inputType": "base64",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "typeVersion": 1.8,
+      "position": [
+        860,
+        120
+      ],
+      "id": "e6ec265d-6cd6-43ef-884e-eed2561b507c",
+      "name": "VISION",
+      "retryOnFail": true,
+      "notesInFlow": false,
+      "executeOnce": false,
+      "credentials": {
+        "openAiApi": {
+          "id": "IPY97T0IVM7WZtzu",
+          "name": "OpenAi account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "modelId": {
+          "__rl": true,
+          "value": "chatgpt-4o-latest",
+          "mode": "list",
+          "cachedResultName": "CHATGPT-4O-LATEST"
+        },
+        "messages": {
+          "values": [
+            {
+              "content": "=Ты нутри-калькулятор.  \nНа вход получаешь JSON  \n{ \"dish\":\"строка\", \"grams\":число }. \n\nОтвечай строго JSON одной строкой:\n\n{\n \"dish\":\"строка\",\n \"kcal\":число,\n \"prot\":число,\n \"fat\":число,\n \"carb\":число\n}\n\nБез пояснений, без ```.",
+              "role": "system"
+            },
+            {
+              "content": "={{ $json.chosen_name }}, {{ $json.grams_pred }}"
+            }
+          ]
+        },
+        "jsonOutput": true,
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "typeVersion": 1.8,
+      "position": [
+        820,
+        1520
+      ],
+      "id": "da017c59-6666-4761-a3f5-40ea56e64870",
+      "name": "NUTRION",
+      "credentials": {
+        "openAiApi": {
+          "id": "IPY97T0IVM7WZtzu",
+          "name": "OpenAi account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "get",
+        "tableId": "meals_draft",
+        "filters": {
+          "conditions": [
+            {
+              "keyName": "chat_id",
+              "keyValue": "={{$json.chat_id}}"
+            },
+            {
+              "keyName": "message_id",
+              "keyValue": "={{$json.draft_id}}"
+            },
+            {
+              "keyName": "status",
+              "keyValue": "=await_dish"
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.supabase",
+      "typeVersion": 1,
+      "position": [
+        440,
+        1600
+      ],
+      "id": "57aa67eb-83e5-4096-9f0a-726d6576fdce",
+      "name": "GET await_dish",
+      "alwaysOutputData": false,
+      "credentials": {
+        "supabaseApi": {
+          "id": "yLNMKO5SE6aB5I2Y",
+          "name": "Supabase account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "get",
+        "tableId": "meals_draft",
+        "filters": {
+          "conditions": [
+            {
+              "keyName": "chat_id",
+              "keyValue": "={{$json.chat_id}}"
+            },
+            {
+              "keyName": "message_id",
+              "keyValue": "={{$json.draft_id}}"
+            },
+            {
+              "keyName": "status",
+              "keyValue": "await_weight"
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.supabase",
+      "typeVersion": 1,
+      "position": [
+        440,
+        1440
+      ],
+      "id": "a56f999e-18c4-47cb-82e1-24b2d5b132e0",
+      "name": "GET await_weight",
+      "alwaysOutputData": false,
+      "credentials": {
+        "supabaseApi": {
+          "id": "yLNMKO5SE6aB5I2Y",
+          "name": "Supabase account"
+        }
+      }
+    }
+  ],
+  "pinData": {},
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [
+    {
+      "createdAt": "2025-05-30T18:35:59.292Z",
+      "updatedAt": "2025-05-30T18:35:59.292Z",
+      "id": "bZ8nPZNqM7yjBzFV",
+      "name": "ИИздец"
+    }
+  ],
+  "triggerCount": 1,
+  "updatedAt": "2025-05-31T11:12:29.000Z",
+  "versionId": "47d42578-8161-4d41-82c4-32f360e1f73a"
+}
