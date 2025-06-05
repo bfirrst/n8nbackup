@@ -261,7 +261,7 @@
   "meta": {
     "templateCredsSetupCompleted": true
   },
-  "name": "My workflow 3",
+  "name": "Backup workflou",
   "nodes": [
     {
       "parameters": {},
@@ -839,6 +839,6 @@
     }
   ],
   "triggerCount": 0,
-  "updatedAt": "2025-06-04T11:14:39.000Z",
-  "versionId": "131f8b75-ae6b-4ebb-aa83-c03bf6be1ca0"
+  "updatedAt": "2025-06-05T10:40:44.000Z",
+  "versionId": "5d794829-f8d1-4ee3-b085-145f84c1294c"
 }
