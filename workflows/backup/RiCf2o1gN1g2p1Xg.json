@@ -1,0 +1,211 @@
+{
+  "active": true,
+  "connections": {
+    "Set Vars": {
+      "main": [
+        [
+          {
+            "node": "Prepare Repo",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Prepare Repo": {
+      "main": [
+        [
+          {
+            "node": "Export Credentials",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Export Credentials": {
+      "main": [
+        [
+          {
+            "node": "Git Add & Push",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "On clicking 'execute'": {
+      "main": [
+        [
+          {
+            "node": "Set Vars",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Schedule Trigger": {
+      "main": [
+        [
+          {
+            "node": "Set Vars",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2025-06-07T10:32:25.302Z",
+  "id": "RiCf2o1gN1g2p1Xg",
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "Credentials",
+  "nodes": [
+    {
+      "parameters": {},
+      "id": "98cc58c2-06bb-4361-aee3-96b456a52766",
+      "name": "On clicking 'execute'",
+      "type": "n8n-nodes-base.manualTrigger",
+      "position": [
+        440,
+        240
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "triggerAtHour": 7
+            }
+          ]
+        }
+      },
+      "id": "f9ea4f1d-28fc-42ca-abfb-c6034df7a078",
+      "name": "Schedule Trigger",
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "position": [
+        440,
+        440
+      ],
+      "typeVersion": 1.2
+    },
+    {
+      "parameters": {
+        "content": "## Backup to GitHub \nThis workflow will backup all instance workflows to GitHub.\n\nThe files are saved `ID.json` for the filename.\n\n### Setup\nOpen `Globals` node and update the values below 👇\n\n- **repo.owner:** your Github username\n- **repo.name:** the name of your repository\n- **repo.path:** the folder to use within the repository. If it doesn't exist it will be created.\n\n\nIf your username was `john-doe` and your repository was called `n8n-backups` and you wanted the workflows to go into a `workflows` folder you would set:\n\n- repo.owner - john-doe\n- repo.name - n8n-backups\n- repo.path - workflows/\n\n\nThe workflow calls itself using a subworkflow, to help reduce memory usage.",
+        "height": 600.88409546716,
+        "width": 371.1995072042308,
+        "color": 4
+      },
+      "id": "6973d486-eef6-4e67-b1ef-5ffb0e3626c2",
+      "name": "Sticky Note1",
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        0,
+        0
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "command": "=n8n export:credentials --all --separate --pretty --output /data/git-backup/credentials\n"
+      },
+      "type": "n8n-nodes-base.executeCommand",
+      "typeVersion": 1,
+      "position": [
+        1100,
+        340
+      ],
+      "id": "cd755bf6-4d7f-473c-831e-d36a4bb7b035",
+      "name": "Export Credentials",
+      "alwaysOutputData": true
+    },
+    {
+      "parameters": {
+        "fields": {
+          "values": [
+            {
+              "name": "GIT_USER",
+              "stringValue": "bfirrst"
+            },
+            {
+              "name": "GIT_EMAIL",
+              "stringValue": "bfirstgang@gmail.com"
+            },
+            {
+              "name": "GIT_PAT",
+              "stringValue": "={{ $env.GH_PAT_BACKUP }}"
+            },
+            {
+              "name": "REPO",
+              "stringValue": "n8nbackup"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "3e3c4cd8-e958-437e-9b36-6197db9120d7",
+      "name": "Set Vars",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3,
+      "position": [
+        660,
+        340
+      ]
+    },
+    {
+      "parameters": {
+        "command": "={{`\nmkdir -p /data\ncd /data\n\nif [ ! -d git-backup/.git ]; then\n  # клонируем актуальную историю\n  git clone https://${$json.GIT_PAT}:x-oauth-basic@github.com/${$json.GIT_USER}/${$json.REPO}.git git-backup\nfi\n\ncd git-backup\n\ngit config user.name  \"${$json.GIT_USER}\"\ngit config user.email \"${$json.GIT_EMAIL}\"\n\n# подтягиваем изменения прежде чем пушить\ngit pull --rebase origin main\n\n# теперь можно добавлять файлы / пушить\n`}}\n"
+      },
+      "id": "1e5ad66f-06fc-4ed3-bbe4-5403c81be381",
+      "name": "Prepare Repo",
+      "type": "n8n-nodes-base.executeCommand",
+      "typeVersion": 1,
+      "position": [
+        880,
+        340
+      ],
+      "alwaysOutputData": true,
+      "retryOnFail": false
+    },
+    {
+      "parameters": {
+        "command": "={{`\ncd /data/git-backup\ngit add credentials\n\nif git diff --cached --quiet; then\n  echo \"nothing to commit\"\nelse\n  git commit -m \"autobackup $(date -Iseconds)\"\n  git push origin main\nfi\n`}}\n"
+      },
+      "id": "9373bfac-9c8e-4554-9c92-722d4efb57b9",
+      "name": "Git Add & Push",
+      "type": "n8n-nodes-base.executeCommand",
+      "typeVersion": 1,
+      "position": [
+        1320,
+        340
+      ]
+    }
+  ],
+  "pinData": {},
+  "settings": {
+    "executionOrder": "v1",
+    "timezone": "Europe/Moscow",
+    "callerPolicy": "workflowsFromSameOwner"
+  },
+  "staticData": {
+    "node:Schedule Trigger": {
+      "recurrenceRules": []
+    }
+  },
+  "tags": [
+    {
+      "createdAt": "2025-06-07T10:34:17.588Z",
+      "updatedAt": "2025-06-07T10:34:17.588Z",
+      "id": "Bhv2cToE017iGOBD",
+      "name": "backup"
+    }
+  ],
+  "triggerCount": 1,
+  "updatedAt": "2025-06-08T20:24:00.000Z",
+  "versionId": "57013403-6b19-46c9-8eb7-fb04bcf2897f"
+}
