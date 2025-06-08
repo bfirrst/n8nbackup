@@ -376,7 +376,13 @@
         880,
         680
       ],
-      "webhookId": "97dee910-f1b0-47c9-bd87-0a1b64052ad8"
+      "webhookId": "97dee910-f1b0-47c9-bd87-0a1b64052ad8",
+      "credentials": {
+        "telegramApi": {
+          "id": "LUE31AkpBaD1sQIq",
+          "name": "Telegram account"
+        }
+      }
     },
     {
       "parameters": {
@@ -485,6 +491,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2025-06-07T10:26:43.000Z",
-  "versionId": "eb8b8b54-ee4d-46bc-a453-d36eb6b32a3a"
+  "updatedAt": "2025-06-07T14:11:17.000Z",
+  "versionId": "749c0264-24cf-4964-b6c6-246e6bc427cc"
 }
