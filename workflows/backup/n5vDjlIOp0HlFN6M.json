@@ -1,5 +1,5 @@
 {
-  "active": false,
+  "active": true,
   "connections": {
     "/": {
       "main": [
@@ -261,7 +261,7 @@
   "meta": {
     "templateCredsSetupCompleted": true
   },
-  "name": "My workflow 2",
+  "name": "Backup to GitHub",
   "nodes": [
     {
       "parameters": {},
@@ -827,9 +827,15 @@
   ],
   "pinData": {},
   "settings": {
-    "executionOrder": "v1"
+    "executionOrder": "v1",
+    "timezone": "Europe/Moscow",
+    "callerPolicy": "workflowsFromSameOwner"
   },
-  "staticData": null,
+  "staticData": {
+    "node:Schedule Trigger": {
+      "recurrenceRules": []
+    }
+  },
   "tags": [
     {
       "createdAt": "2025-06-07T10:34:17.588Z",
@@ -838,7 +844,7 @@
       "name": "backup"
     }
   ],
-  "triggerCount": 0,
-  "updatedAt": "2025-06-07T10:48:57.000Z",
-  "versionId": "40336551-36d9-4b79-8681-aa295caca2e8"
+  "triggerCount": 1,
+  "updatedAt": "2025-06-08T20:23:35.000Z",
+  "versionId": "8b9e0a46-6b32-431d-a736-c2be6db5fa2c"
 }
