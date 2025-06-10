@@ -136,7 +136,7 @@
   "createdAt": "2025-06-08T20:26:08.572Z",
   "id": "WTIa1AFerPJ50l5k",
   "meta": null,
-  "name": "My workflow 2",
+  "name": "YT",
   "nodes": [
     {
       "parameters": {
@@ -533,6 +533,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2025-06-08T20:29:57.000Z",
-  "versionId": "5c6c6557-cc70-4cc2-9d72-6dfd68caa906"
+  "updatedAt": "2025-06-09T12:31:29.000Z",
+  "versionId": "9f1e9f3b-6fa4-4d9f-914d-0f3cc97401e0"
 }
