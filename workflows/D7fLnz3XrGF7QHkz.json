@@ -1,0 +1,1504 @@
+{
+  "active": false,
+  "connections": {
+    "Google Drive Trigger": {
+      "main": [
+        [
+          {
+            "node": "Google Drive",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Drive": {
+      "main": [
+        [
+          {
+            "node": "YouTube",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "YouTube": {
+      "main": [
+        [
+          {
+            "node": "Wait1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "YouTube Upload": {
+      "main": [
+        [
+          {
+            "node": "Wait2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Merge": {
+      "main": [
+        [
+          {
+            "node": "Gemini - Upload File",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Gemini - Upload File": {
+      "main": [
+        [
+          {
+            "node": "Wait",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Gemini - Ask Questions": {
+      "main": [
+        [
+          {
+            "node": "Telegram Send",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Gemini - Generate Upload URL": {
+      "main": [
+        [
+          {
+            "node": "Merge",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "Wait": {
+      "main": [
+        [
+          {
+            "node": "Gemini - Ask Questions",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Drive Trigger1": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Wait1": {
+      "main": [
+        [
+          {
+            "node": "YouTube1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Wait2": {
+      "main": [
+        [
+          {
+            "node": "YouTube Add to Playlist",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "YouTube Add to Playlist": {
+      "main": [
+        [
+          {
+            "node": "Google Drive1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Drive Download1": {
+      "main": [
+        [
+          {
+            "node": "Merge1",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Gemini - Generate Upload URL1",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "YouTube Upload1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "YouTube Upload1": {
+      "main": [
+        [
+          {
+            "node": "Wait4",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "YouTube Add to Playlist1": {
+      "main": [
+        [
+          {
+            "node": "Google Drive2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Merge1": {
+      "main": [
+        [
+          {
+            "node": "Gemini - Upload File1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Gemini - Upload File1": {
+      "main": [
+        [
+          {
+            "node": "Wait3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Gemini - Ask Questions1": {
+      "main": [
+        [
+          {
+            "node": "Telegram Send1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Gemini - Generate Upload URL1": {
+      "main": [
+        [
+          {
+            "node": "Merge1",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "Wait3": {
+      "main": [
+        [
+          {
+            "node": "Gemini - Ask Questions1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Drive Trigger2": {
+      "main": [
+        [
+          {
+            "node": "Google Drive Download1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Wait4": {
+      "main": [
+        [
+          {
+            "node": "YouTube Add to Playlist1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Drive Download2": {
+      "main": [
+        [
+          {
+            "node": "Merge2",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Gemini - Generate Upload URL2",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "YouTube Upload2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "YouTube Upload2": {
+      "main": [
+        [
+          {
+            "node": "Wait6",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "YouTube Add to Playlist2": {
+      "main": [
+        [
+          {
+            "node": "Google Drive3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Merge2": {
+      "main": [
+        [
+          {
+            "node": "Gemini - Upload File2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Gemini - Upload File2": {
+      "main": [
+        [
+          {
+            "node": "Wait5",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Gemini - Ask Questions2": {
+      "main": [
+        [
+          {
+            "node": "Telegram Send2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Gemini - Generate Upload URL2": {
+      "main": [
+        [
+          {
+            "node": "Merge2",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "Wait5": {
+      "main": [
+        [
+          {
+            "node": "Gemini - Ask Questions2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Drive Trigger3": {
+      "main": [
+        [
+          {
+            "node": "Google Drive Download2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Wait6": {
+      "main": [
+        [
+          {
+            "node": "YouTube Add to Playlist2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "HTTP Request": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "HTTP Request3": {
+      "main": [
+        [
+          {
+            "node": "YouTube Upload",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2025-06-12T10:56:33.969Z",
+  "id": "D7fLnz3XrGF7QHkz",
+  "meta": null,
+  "name": "YT",
+  "nodes": [
+    {
+      "parameters": {
+        "pollTimes": {
+          "item": [
+            {
+              "mode": "everyMinute"
+            }
+          ]
+        },
+        "triggerOn": "specificFolder",
+        "folderToWatch": {
+          "__rl": true,
+          "value": "1cn18_1efx0vVNAXVww8ip58IjTL0zvZw",
+          "mode": "list",
+          "cachedResultName": "Transribe",
+          "cachedResultUrl": "https://drive.google.com/drive/folders/1cn18_1efx0vVNAXVww8ip58IjTL0zvZw"
+        },
+        "event": "fileCreated",
+        "options": {
+          "fileType": "all"
+        }
+      },
+      "type": "n8n-nodes-base.googleDriveTrigger",
+      "typeVersion": 1,
+      "position": [
+        0,
+        0
+      ],
+      "id": "a23cc7b9-f706-49d2-a7f5-20088b097b32",
+      "name": "Google Drive Trigger",
+      "disabled": true
+    },
+    {
+      "parameters": {
+        "operation": "download",
+        "fileId": {
+          "__rl": true,
+          "value": "={{ $node[\"Google Drive Trigger\"].json[\"id\"] }}",
+          "mode": "id"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleDrive",
+      "typeVersion": 3,
+      "position": [
+        220,
+        0
+      ],
+      "id": "8b5557bb-c8b5-44e4-8e25-4f644891d827",
+      "name": "Google Drive"
+    },
+    {
+      "parameters": {
+        "resource": "video",
+        "operation": "upload",
+        "title": "Название видоса",
+        "regionCode": "RU",
+        "categoryId": "22",
+        "options": {
+          "license": "youtube",
+          "privacyStatus": "unlisted",
+          "selfDeclaredMadeForKids": false
+        }
+      },
+      "type": "n8n-nodes-base.youTube",
+      "typeVersion": 1,
+      "position": [
+        440,
+        0
+      ],
+      "id": "3b70e574-5972-4d14-81e2-eda8e20a0205",
+      "name": "YouTube",
+      "alwaysOutputData": true,
+      "notesInFlow": true
+    },
+    {
+      "parameters": {
+        "resource": "playlistItem",
+        "playlistId": "PLYqcSnuybDVIiVRYOo2grZrVBko4dLGUW",
+        "videoId": "={{ $node[\"YouTube Upload\"].json[\"id\"] }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.youTube",
+      "typeVersion": 1,
+      "position": [
+        880,
+        0
+      ],
+      "id": "712cbb5c-9d9a-4cd6-9448-99500cbc8318",
+      "name": "YouTube1"
+    },
+    {
+      "parameters": {
+        "resource": "video",
+        "operation": "upload",
+        "title": "={{ $json.name }}",
+        "regionCode": "RU",
+        "categoryId": "22",
+        "options": {
+          "privacyStatus": "unlisted"
+        }
+      },
+      "id": "f808bbd4-9286-4dbf-aa8c-740f788d8625",
+      "name": "YouTube Upload",
+      "type": "n8n-nodes-base.youTube",
+      "typeVersion": 1,
+      "position": [
+        760,
+        260
+      ]
+    },
+    {
+      "parameters": {
+        "resource": "playlistItem",
+        "playlistId": "PLYqcSnuybDVIiVRYOo2grZrVBko4dLGUW",
+        "videoId": "={{ $json.uploadId }}",
+        "options": {}
+      },
+      "id": "5abd38da-3741-4137-ba7b-38660c6c7dce",
+      "name": "YouTube Add to Playlist",
+      "type": "n8n-nodes-base.youTube",
+      "typeVersion": 1,
+      "position": [
+        1200,
+        260
+      ]
+    },
+    {
+      "parameters": {
+        "mode": "mergeByIndex"
+      },
+      "id": "a1b2b309-a69d-447c-997e-24d4caf6aa76",
+      "name": "Merge",
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 1,
+      "position": [
+        960,
+        500
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "={{ $node[\"Gemini - Generate Upload URL\"].json.headers[\"x-goog-upload-url\"] }}",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Content-Length",
+              "value": "={{ $json.size }}"
+            },
+            {
+              "name": "X-Goog-Upload-Offset",
+              "value": "0"
+            },
+            {
+              "name": "X-Goog-Upload-Command",
+              "value": "upload, finalize"
+            },
+            {
+              "name": "Content-Type",
+              "value": "={{ $binary.data.mimeType }}"
+            }
+          ]
+        },
+        "sendBody": true,
+        "contentType": "binaryData",
+        "inputDataFieldName": "data",
+        "options": {}
+      },
+      "id": "4534987f-d130-4707-ad03-0eb2054f4976",
+      "name": "Gemini - Upload File",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4,
+      "position": [
+        1140,
+        500
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent",
+        "sendQuery": true,
+        "queryParameters": {
+          "parameters": [
+            {
+              "name": "key",
+              "value": "AIzaSyBT_qas8sF4bd6zGmk9Xf0wXy8S3v7ji_8"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n   \"contents\": [\n      {\n         \"parts\": [\n            {\n               \"text\": \"сделай полную траанскрибацию видео\"\n            },\n            {\n               \"file_data\": {\n                  \"mime_type\": \"{{ $json.file.mimeType }}\",\n                  \"file_uri\": \"{{ $json.file.uri }}\"\n               }\n            }\n         ]\n      }\n   ]\n}\n",
+        "options": {}
+      },
+      "id": "c264b37c-f386-4b1c-a566-e9666ce4174d",
+      "name": "Gemini - Ask Questions",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4,
+      "position": [
+        1460,
+        500
+      ]
+    },
+    {
+      "parameters": {
+        "chatId": "477076152",
+        "text": "={{ $json.candidates[0].content.parts[0].text }}",
+        "additionalFields": {}
+      },
+      "id": "f66fde78-27a2-4d42-b184-fe4473e14611",
+      "name": "Telegram Send",
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1,
+      "position": [
+        1620,
+        500
+      ],
+      "webhookId": "97dee910-f1b0-47c9-bd87-0a1b64052ad8"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://generativelanguage.googleapis.com/upload/v1beta/files",
+        "sendQuery": true,
+        "queryParameters": {
+          "parameters": [
+            {
+              "name": "key",
+              "value": "AIzaSyBT_qas8sF4bd6zGmk9Xf0wXy8S3v7ji_8"
+            }
+          ]
+        },
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "X-Goog-Upload-Protocol",
+              "value": "resumable"
+            },
+            {
+              "name": "X-Goog-Upload-Command",
+              "value": "start"
+            },
+            {
+              "name": "X-Goog-Upload-Header-Content-Length",
+              "value": "={{ $json.Video[0].size }}"
+            },
+            {
+              "name": "X-Goog-Upload-Header-Content-Type",
+              "value": "={{ $json.mimeType }}"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n\"file\": {\n\"display_name\": \"{{ $json.name }}\"\n}\n}",
+        "options": {
+          "response": {
+            "response": {
+              "fullResponse": true
+            }
+          }
+        }
+      },
+      "id": "ecee7365-80ad-47fb-87d5-d0ee38c8901c",
+      "name": "Gemini - Generate Upload URL",
+      "type": "n8n-nodes-base.httpRequest",
+      "position": [
+        760,
+        580
+      ],
+      "typeVersion": 4.2
+    },
+    {
+      "parameters": {
+        "amount": 30
+      },
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1.1,
+      "position": [
+        1300,
+        500
+      ],
+      "id": "8b09877f-50fb-4bad-894e-171c341e3a5b",
+      "name": "Wait",
+      "webhookId": "6d9f1162-ba45-4f54-a53b-787f781b138b"
+    },
+    {
+      "parameters": {
+        "pollTimes": {
+          "item": [
+            {
+              "mode": "everyMinute"
+            }
+          ]
+        },
+        "triggerOn": "specificFolder",
+        "folderToWatch": {
+          "__rl": true,
+          "value": "1tRqQ_XQrTyLiFYhtRVAp9nG7X9zfN93o",
+          "mode": "list",
+          "cachedResultName": "Team transcribe",
+          "cachedResultUrl": "https://drive.google.com/drive/folders/1tRqQ_XQrTyLiFYhtRVAp9nG7X9zfN93o"
+        },
+        "event": "fileCreated",
+        "options": {
+          "fileType": "all"
+        }
+      },
+      "id": "b1d58c3c-b2d9-4046-9101-2f70ba56330a",
+      "name": "Google Drive Trigger1",
+      "type": "n8n-nodes-base.googleDriveTrigger",
+      "typeVersion": 1,
+      "position": [
+        -120,
+        440
+      ]
+    },
+    {
+      "parameters": {
+        "amount": 2,
+        "unit": "hours"
+      },
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1.1,
+      "position": [
+        660,
+        0
+      ],
+      "id": "372a0a1a-50a3-4dbf-9fc7-46ce3f28de47",
+      "name": "Wait1",
+      "webhookId": "2b57d4d6-19e2-4da3-85bb-0d27e514b472"
+    },
+    {
+      "parameters": {
+        "unit": "minutes"
+      },
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1.1,
+      "position": [
+        980,
+        260
+      ],
+      "id": "23282018-5fc0-4e3e-9d66-374ec1f443ac",
+      "name": "Wait2",
+      "webhookId": "2b57d4d6-19e2-4da3-85bb-0d27e514b472"
+    },
+    {
+      "parameters": {
+        "operation": "deleteFile",
+        "fileId": {
+          "__rl": true,
+          "value": "={{ $('Google Drive Trigger1').item.json.id }}",
+          "mode": "id"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleDrive",
+      "typeVersion": 3,
+      "position": [
+        1420,
+        260
+      ],
+      "id": "5f0f7ebc-e0aa-4692-a8da-e8b39fd14818",
+      "name": "Google Drive1"
+    },
+    {
+      "parameters": {
+        "operation": "download",
+        "fileId": {
+          "__rl": true,
+          "value": "={{ $node['Google Drive Trigger2'].json['id'] }}",
+          "mode": "id"
+        },
+        "options": {}
+      },
+      "id": "2ba9a5f5-884f-4b17-ad09-3b06320b51a7",
+      "name": "Google Drive Download1",
+      "type": "n8n-nodes-base.googleDrive",
+      "typeVersion": 3,
+      "position": [
+        220,
+        1020
+      ]
+    },
+    {
+      "parameters": {
+        "resource": "video",
+        "operation": "upload",
+        "title": "={{ $node['Google Drive Download1'].json.name }}",
+        "regionCode": "RU",
+        "categoryId": "22",
+        "options": {
+          "privacyStatus": "unlisted"
+        }
+      },
+      "id": "97d55809-30e8-445d-8241-fe36defdffe7",
+      "name": "YouTube Upload1",
+      "type": "n8n-nodes-base.youTube",
+      "typeVersion": 1,
+      "position": [
+        440,
+        860
+      ]
+    },
+    {
+      "parameters": {
+        "resource": "playlistItem",
+        "playlistId": "PLYqcSnuybDVLpM66zHsl0UtM99sXxR1Q_",
+        "videoId": "={{ $json.uploadId }}",
+        "options": {}
+      },
+      "id": "efd9ece5-cf2d-4d45-8ff2-fbf20a9ee269",
+      "name": "YouTube Add to Playlist1",
+      "type": "n8n-nodes-base.youTube",
+      "typeVersion": 1,
+      "position": [
+        880,
+        860
+      ]
+    },
+    {
+      "parameters": {
+        "mode": "mergeByIndex"
+      },
+      "id": "38c3b36e-b837-460d-aa10-a298597e7693",
+      "name": "Merge1",
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 1,
+      "position": [
+        660,
+        1100
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "={{ $node[\"Gemini - Generate Upload URL1\"].json.headers[\"x-goog-upload-url\"] }}",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Content-Length",
+              "value": "={{ $json.size }}"
+            },
+            {
+              "name": "X-Goog-Upload-Offset",
+              "value": "0"
+            },
+            {
+              "name": "X-Goog-Upload-Command",
+              "value": "upload, finalize"
+            },
+            {
+              "name": "Content-Type",
+              "value": "={{ $binary.data.mimeType }}"
+            }
+          ]
+        },
+        "sendBody": true,
+        "contentType": "binaryData",
+        "inputDataFieldName": "data",
+        "options": {}
+      },
+      "id": "899fa65c-9264-4f1c-bacf-d0cb6e6bf6b1",
+      "name": "Gemini - Upload File1",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4,
+      "position": [
+        880,
+        1100
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent",
+        "sendQuery": true,
+        "queryParameters": {
+          "parameters": [
+            {
+              "name": "key",
+              "value": "AIzaSyBT_qas8sF4bd6zGmk9Xf0wXy8S3v7ji_8"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n   \"contents\": [\n      {\n         \"parts\": [\n            {\n               \"text\": \"сделай полную траанскрибацию видео\"\n            },\n            {\n               \"file_data\": {\n                  \"mime_type\": \"{{ $json.file.mimeType }}\",\n                  \"file_uri\": \"{{ $json.file.uri }}\"\n               }\n            }\n         ]\n      }\n   ]\n}\n",
+        "options": {}
+      },
+      "id": "5e84c455-694d-4b2d-a929-0c0ebc67c917",
+      "name": "Gemini - Ask Questions1",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4,
+      "position": [
+        1320,
+        1100
+      ]
+    },
+    {
+      "parameters": {
+        "chatId": "477076152",
+        "text": "={{ $json.candidates[0].content.parts[0].text }}",
+        "additionalFields": {}
+      },
+      "id": "c15000a4-d392-4160-bffa-d8ace309abdf",
+      "name": "Telegram Send1",
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1,
+      "position": [
+        1540,
+        1100
+      ],
+      "webhookId": "97dee910-f1b0-47c9-bd87-0a1b64052ad8"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://generativelanguage.googleapis.com/upload/v1beta/files",
+        "sendQuery": true,
+        "queryParameters": {
+          "parameters": [
+            {
+              "name": "key",
+              "value": "AIzaSyBT_qas8sF4bd6zGmk9Xf0wXy8S3v7ji_8"
+            }
+          ]
+        },
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "X-Goog-Upload-Protocol",
+              "value": "resumable"
+            },
+            {
+              "name": "X-Goog-Upload-Command",
+              "value": "start"
+            },
+            {
+              "name": "X-Goog-Upload-Header-Content-Length",
+              "value": "={{ $json.Video[0].size }}"
+            },
+            {
+              "name": "X-Goog-Upload-Header-Content-Type",
+              "value": "={{ $json.mimeType }}"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n\"file\": {\n\"display_name\": \"{{ $json.name }}\"\n}\n}",
+        "options": {
+          "response": {
+            "response": {
+              "fullResponse": true
+            }
+          }
+        }
+      },
+      "id": "82ecf1ba-44d8-4179-b54e-68f68cde7195",
+      "name": "Gemini - Generate Upload URL1",
+      "type": "n8n-nodes-base.httpRequest",
+      "position": [
+        440,
+        1180
+      ],
+      "typeVersion": 4.2
+    },
+    {
+      "parameters": {
+        "amount": 30
+      },
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1.1,
+      "position": [
+        1100,
+        1100
+      ],
+      "id": "41e40265-14e2-4577-8c25-f4f75a93a8f5",
+      "name": "Wait3",
+      "webhookId": "6d9f1162-ba45-4f54-a53b-787f781b138b"
+    },
+    {
+      "parameters": {
+        "pollTimes": {
+          "item": [
+            {
+              "mode": "everyMinute"
+            }
+          ]
+        },
+        "triggerOn": "specificFolder",
+        "folderToWatch": {
+          "__rl": true,
+          "value": "11N4ptOIKJX1OaRfgPZnl9urdzC_fc64U",
+          "mode": "list",
+          "cachedResultName": "Clients transcribe",
+          "cachedResultUrl": "https://drive.google.com/drive/folders/11N4ptOIKJX1OaRfgPZnl9urdzC_fc64U"
+        },
+        "event": "fileCreated",
+        "options": {
+          "fileType": "all"
+        }
+      },
+      "id": "c17c65f9-51e6-45d2-845f-8ad5001b63be",
+      "name": "Google Drive Trigger2",
+      "type": "n8n-nodes-base.googleDriveTrigger",
+      "typeVersion": 1,
+      "position": [
+        0,
+        1020
+      ]
+    },
+    {
+      "parameters": {
+        "unit": "minutes"
+      },
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1.1,
+      "position": [
+        660,
+        860
+      ],
+      "id": "57e843bc-6e77-42bb-a167-e15dbaea3e8c",
+      "name": "Wait4",
+      "webhookId": "2b57d4d6-19e2-4da3-85bb-0d27e514b472"
+    },
+    {
+      "parameters": {
+        "operation": "deleteFile",
+        "fileId": {
+          "__rl": true,
+          "value": "={{ $('Google Drive Trigger2').item.json.id }}",
+          "mode": "id"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleDrive",
+      "typeVersion": 3,
+      "position": [
+        1100,
+        860
+      ],
+      "id": "b24d21ef-3611-44b2-bd78-93386717b47d",
+      "name": "Google Drive2"
+    },
+    {
+      "parameters": {
+        "operation": "download",
+        "fileId": {
+          "__rl": true,
+          "value": "={{ $node['Google Drive Trigger3'].json['id'] }}",
+          "mode": "id"
+        },
+        "options": {}
+      },
+      "id": "45ad6d34-f2fd-4738-bb29-00574d17b0d9",
+      "name": "Google Drive Download2",
+      "type": "n8n-nodes-base.googleDrive",
+      "typeVersion": 3,
+      "position": [
+        220,
+        1620
+      ]
+    },
+    {
+      "parameters": {
+        "resource": "video",
+        "operation": "upload",
+        "title": "={{ $node['Google Drive Download2'].json.name }}",
+        "regionCode": "RU",
+        "categoryId": "22",
+        "options": {
+          "privacyStatus": "unlisted"
+        }
+      },
+      "id": "33af034f-4e9d-4bee-8267-27ca7ff382b8",
+      "name": "YouTube Upload2",
+      "type": "n8n-nodes-base.youTube",
+      "typeVersion": 1,
+      "position": [
+        440,
+        1440
+      ]
+    },
+    {
+      "parameters": {
+        "resource": "playlistItem",
+        "playlistId": "PLYqcSnuybDVItoEwq_k0BsXDZS1UkdbGa",
+        "videoId": "={{ $json.uploadId }}",
+        "options": {}
+      },
+      "id": "d9eaf690-4628-4235-a0ef-112724a86a96",
+      "name": "YouTube Add to Playlist2",
+      "type": "n8n-nodes-base.youTube",
+      "typeVersion": 1,
+      "position": [
+        880,
+        1440
+      ]
+    },
+    {
+      "parameters": {
+        "mode": "mergeByIndex"
+      },
+      "id": "7bdbef30-331f-4cda-962b-759c322d0b2b",
+      "name": "Merge2",
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 1,
+      "position": [
+        660,
+        1680
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "={{ $node[\"Gemini - Generate Upload URL2\"].json.headers[\"x-goog-upload-url\"] }}",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Content-Length",
+              "value": "={{ $json.size }}"
+            },
+            {
+              "name": "X-Goog-Upload-Offset",
+              "value": "0"
+            },
+            {
+              "name": "X-Goog-Upload-Command",
+              "value": "upload, finalize"
+            },
+            {
+              "name": "Content-Type",
+              "value": "={{ $binary.data.mimeType }}"
+            }
+          ]
+        },
+        "sendBody": true,
+        "contentType": "binaryData",
+        "inputDataFieldName": "data",
+        "options": {}
+      },
+      "id": "85f6d273-8816-4160-aa5d-53f64afbad65",
+      "name": "Gemini - Upload File2",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4,
+      "position": [
+        880,
+        1680
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent",
+        "sendQuery": true,
+        "queryParameters": {
+          "parameters": [
+            {
+              "name": "key",
+              "value": "AIzaSyBT_qas8sF4bd6zGmk9Xf0wXy8S3v7ji_8"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n   \"contents\": [\n      {\n         \"parts\": [\n            {\n               \"text\": \"сделай полную траанскрибацию видео\"\n            },\n            {\n               \"file_data\": {\n                  \"mime_type\": \"{{ $json.file.mimeType }}\",\n                  \"file_uri\": \"{{ $json.file.uri }}\"\n               }\n            }\n         ]\n      }\n   ]\n}\n",
+        "options": {}
+      },
+      "id": "dd67e1a5-ab18-4697-a895-d0bc857d6d53",
+      "name": "Gemini - Ask Questions2",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4,
+      "position": [
+        1320,
+        1680
+      ]
+    },
+    {
+      "parameters": {
+        "chatId": "477076152",
+        "text": "={{ $json.candidates[0].content.parts[0].text }}",
+        "additionalFields": {}
+      },
+      "id": "94d20782-9700-487f-b143-88d42db72cc6",
+      "name": "Telegram Send2",
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1,
+      "position": [
+        1540,
+        1680
+      ],
+      "webhookId": "97dee910-f1b0-47c9-bd87-0a1b64052ad8"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://generativelanguage.googleapis.com/upload/v1beta/files",
+        "sendQuery": true,
+        "queryParameters": {
+          "parameters": [
+            {
+              "name": "key",
+              "value": "AIzaSyBT_qas8sF4bd6zGmk9Xf0wXy8S3v7ji_8"
+            }
+          ]
+        },
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "X-Goog-Upload-Protocol",
+              "value": "resumable"
+            },
+            {
+              "name": "X-Goog-Upload-Command",
+              "value": "start"
+            },
+            {
+              "name": "X-Goog-Upload-Header-Content-Length",
+              "value": "={{ $json.Video[0].size }}"
+            },
+            {
+              "name": "X-Goog-Upload-Header-Content-Type",
+              "value": "={{ $json.mimeType }}"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n\"file\": {\n\"display_name\": \"{{ $json.name }}\"\n}\n}",
+        "options": {
+          "response": {
+            "response": {
+              "fullResponse": true
+            }
+          }
+        }
+      },
+      "id": "0c3f58d1-c1d3-46a4-b797-9624766e5538",
+      "name": "Gemini - Generate Upload URL2",
+      "type": "n8n-nodes-base.httpRequest",
+      "position": [
+        440,
+        1760
+      ],
+      "typeVersion": 4.2
+    },
+    {
+      "parameters": {
+        "amount": 30
+      },
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1.1,
+      "position": [
+        1100,
+        1680
+      ],
+      "id": "01edcfd1-e09e-4174-9984-f2c4baf259b4",
+      "name": "Wait5",
+      "webhookId": "6d9f1162-ba45-4f54-a53b-787f781b138b"
+    },
+    {
+      "parameters": {
+        "pollTimes": {
+          "item": [
+            {
+              "mode": "everyMinute"
+            }
+          ]
+        },
+        "triggerOn": "specificFolder",
+        "folderToWatch": {
+          "__rl": true,
+          "value": "1tRqQ_XQrTyLiFYhtRVAp9nG7X9zfN93o",
+          "mode": "list",
+          "cachedResultName": "Team transcribe",
+          "cachedResultUrl": "https://drive.google.com/drive/folders/1tRqQ_XQrTyLiFYhtRVAp9nG7X9zfN93o"
+        },
+        "event": "fileCreated",
+        "options": {
+          "fileType": "all"
+        }
+      },
+      "id": "4eecaa67-4b84-468b-89cc-77cad3493653",
+      "name": "Google Drive Trigger3",
+      "type": "n8n-nodes-base.googleDriveTrigger",
+      "typeVersion": 1,
+      "position": [
+        0,
+        1620
+      ]
+    },
+    {
+      "parameters": {
+        "unit": "minutes"
+      },
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1.1,
+      "position": [
+        660,
+        1440
+      ],
+      "id": "6b3f4eb4-7363-4c6b-adb2-8c6c263cfec8",
+      "name": "Wait6",
+      "webhookId": "2b57d4d6-19e2-4da3-85bb-0d27e514b472"
+    },
+    {
+      "parameters": {
+        "operation": "deleteFile",
+        "fileId": {
+          "__rl": true,
+          "value": "={{ $('Google Drive Trigger3').item.json.id }}",
+          "mode": "id"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleDrive",
+      "typeVersion": 3,
+      "position": [
+        1100,
+        1440
+      ],
+      "id": "1830488d-952e-4267-9a33-46e525d3e30f",
+      "name": "Google Drive3"
+    },
+    {
+      "parameters": {
+        "content": "ALL",
+        "height": 540,
+        "width": 1900,
+        "color": 5
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        -140,
+        240
+      ],
+      "id": "0db49394-013d-4fb3-9c89-1df466370d9a",
+      "name": "Sticky Note"
+    },
+    {
+      "parameters": {
+        "content": "CLIENTS",
+        "height": 540,
+        "width": 1900,
+        "color": 6
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        -140,
+        820
+      ],
+      "id": "5d263698-acb0-42a5-873b-e4d43b35c58c",
+      "name": "Sticky Note1"
+    },
+    {
+      "parameters": {
+        "content": "TEAM",
+        "height": 540,
+        "width": 1900,
+        "color": 3
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        -140,
+        1400
+      ],
+      "id": "1919424c-a81a-4d75-b4c0-b64d7d0dee05",
+      "name": "Sticky Note2"
+    },
+    {
+      "parameters": {
+        "url": "=https://www.googleapis.com/drive/v3/files/{{ $('Google Drive Trigger1').item.json.id }}?alt=media",
+        "authentication": "predefinedCredentialType",
+        "nodeCredentialType": "googleDriveOAuth2Api",
+        "sendQuery": true,
+        "queryParameters": {
+          "parameters": [
+            {
+              "name": "fields",
+              "value": "webContentLink"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        240,
+        440
+      ],
+      "id": "267f395e-8650-41d1-b8ea-7edd75b8b5da",
+      "name": "HTTP Request"
+    },
+    {
+      "parameters": {
+        "url": "={{$json.webContentLink}}",
+        "options": {
+          "response": {
+            "response": {
+              "responseFormat": "file"
+            }
+          }
+        }
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        480,
+        540
+      ],
+      "id": "ceb6cdbc-cc31-4c9a-a937-bbcc0ffcd0b7",
+      "name": "HTTP Request1"
+    },
+    {
+      "parameters": {
+        "url": "=https://www.googleapis.com/drive/v3/files/{{ $('Google Drive Trigger1').item.json.id }}?alt=media",
+        "authentication": "predefinedCredentialType",
+        "nodeCredentialType": "googleDriveOAuth2Api",
+        "sendQuery": true,
+        "queryParameters": {
+          "parameters": [
+            {
+              "name": "fields",
+              "value": "webContentLink"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        2080,
+        1400
+      ],
+      "id": "b86f6a82-f436-4eff-9e2c-4528fa2b4e14",
+      "name": "HTTP Request2"
+    },
+    {
+      "parameters": {
+        "url": "=https://www.googleapis.com/drive/v3/files/{{ $node[\"Google Drive Trigger\"].json.id }}?alt=media",
+        "authentication": "predefinedCredentialType",
+        "nodeCredentialType": "googleDriveOAuth2Api",
+        "sendQuery": true,
+        "queryParameters": {
+          "parameters": [
+            {}
+          ]
+        },
+        "options": {
+          "response": {
+            "response": {
+              "responseFormat": "file"
+            }
+          }
+        }
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        480,
+        360
+      ],
+      "id": "77dd711e-ca5d-4154-b2c5-c72a254217d5",
+      "name": "HTTP Request3"
+    }
+  ],
+  "pinData": {},
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2025-06-12T10:56:43.000Z",
+  "versionId": "068e4116-6742-4cd5-958c-995db932bd53"
+}
