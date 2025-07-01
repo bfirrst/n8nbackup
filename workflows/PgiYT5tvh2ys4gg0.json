@@ -1,0 +1,1663 @@
+{
+  "active": true,
+  "connections": {
+    "CopyPdfTemplate": {
+      "main": [
+        [
+          {
+            "node": "Replace Text",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Replace Text": {
+      "main": [
+        [
+          {
+            "node": "Replace Images",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Replace Images": {
+      "main": [
+        [
+          {
+            "node": "Export PDF",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Export PDF": {
+      "main": [
+        [
+          {
+            "node": "Google Drive",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Switch",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Sheets Trigger": {
+      "main": [
+        [
+          {
+            "node": "Code2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code2": {
+      "main": [
+        [
+          {
+            "node": "CopyPdfTemplate",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Send PDF": {
+      "main": [
+        []
+      ]
+    },
+    "Google Drive": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Edit Fields": {
+      "main": [
+        [
+          {
+            "node": "Google Sheets",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Switch": {
+      "main": [
+        [
+          {
+            "node": "Send PDF",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Send PDF1",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Send PDF2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2025-06-19T21:41:41.435Z",
+  "id": "PgiYT5tvh2ys4gg0",
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "pdf",
+  "nodes": [
+    {
+      "parameters": {
+        "operation": "copy",
+        "fileId": {
+          "__rl": true,
+          "value": "1TC3keT1fYbVMdegvcwIJsX-2Vl5kW-WkRB3iHxRRVdY",
+          "mode": "list",
+          "cachedResultName": "yacht_brochure_google_template",
+          "cachedResultUrl": "https://docs.google.com/presentation/d/1TC3keT1fYbVMdegvcwIJsX-2Vl5kW-WkRB3iHxRRVdY/edit?usp=drivesdk"
+        },
+        "name": "=Brochure  {{ $json.model }}",
+        "sameFolder": false,
+        "driveId": {
+          "__rl": true,
+          "mode": "list",
+          "value": "My Drive"
+        },
+        "folderId": {
+          "__rl": true,
+          "value": "1y481RC31DRolvfNePhNQ0fmQP_63zzGS",
+          "mode": "id"
+        },
+        "options": {}
+      },
+      "id": "dfa96554-51b3-414e-b96d-9a430cfb3035",
+      "name": "CopyPdfTemplate",
+      "type": "n8n-nodes-base.googleDrive",
+      "position": [
+        1100,
+        1180
+      ],
+      "typeVersion": 3,
+      "credentials": {
+        "googleDriveOAuth2Api": {
+          "id": "tYDnM9gXl2f1Y9kO",
+          "name": "bfirstgang"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "replaceText",
+        "presentationId": "={{ $json.id }}",
+        "textUi": {
+          "textValues": [
+            {
+              "pageObjectIds": [
+                "p1",
+                "g36a9255d1b3_1_81",
+                "p2",
+                "p3",
+                "p5",
+                "p4",
+                "g33d36e8b69f_0_73",
+                "g33d36e8b69f_0_100",
+                "g33d36e8b69f_0_82",
+                "g33d36e8b69f_0_91",
+                "g33d36e8b69f_0_109",
+                "g33d36e8b69f_0_118"
+              ],
+              "text": "{{model}}",
+              "replaceText": "={{ $('Code2').item.json.model }}"
+            },
+            {
+              "pageObjectIds": [
+                "p1",
+                "g36a9255d1b3_1_81",
+                "p2",
+                "p3",
+                "p5",
+                "p4",
+                "g33d36e8b69f_0_73",
+                "g33d36e8b69f_0_100",
+                "g33d36e8b69f_0_82",
+                "g33d36e8b69f_0_91",
+                "g33d36e8b69f_0_109",
+                "g33d36e8b69f_0_118"
+              ],
+              "text": "{{year}}",
+              "replaceText": "={{ $('Code2').item.json.year + ''}}"
+            },
+            {
+              "pageObjectIds": [
+                "p1",
+                "g36a9255d1b3_1_81",
+                "p2",
+                "p3",
+                "p5",
+                "p4",
+                "g33d36e8b69f_0_73",
+                "g33d36e8b69f_0_100",
+                "g33d36e8b69f_0_82",
+                "g33d36e8b69f_0_91",
+                "g33d36e8b69f_0_109",
+                "g33d36e8b69f_0_118"
+              ],
+              "text": "{{length}}",
+              "replaceText": "={{ $('Code2').item.json.length_overall }}"
+            },
+            {
+              "pageObjectIds": [
+                "p1",
+                "g36a9255d1b3_1_81",
+                "p2",
+                "p3",
+                "p5",
+                "p4",
+                "g33d36e8b69f_0_73",
+                "g33d36e8b69f_0_100",
+                "g33d36e8b69f_0_82",
+                "g33d36e8b69f_0_91",
+                "g33d36e8b69f_0_109",
+                "g33d36e8b69f_0_118"
+              ],
+              "text": "{{price}}",
+              "replaceText": "={{ $('Code2').item.json.price + ''}}"
+            },
+            {
+              "pageObjectIds": [
+                "p1",
+                "g36a9255d1b3_1_81",
+                "p2",
+                "p3",
+                "p5",
+                "p4",
+                "g33d36e8b69f_0_73",
+                "g33d36e8b69f_0_100",
+                "g33d36e8b69f_0_82",
+                "g33d36e8b69f_0_91",
+                "g33d36e8b69f_0_109",
+                "g33d36e8b69f_0_118"
+              ],
+              "text": "{{class}}",
+              "replaceText": "={{ $('Code2').item.json.class }}"
+            },
+            {
+              "pageObjectIds": [
+                "p1",
+                "g36a9255d1b3_1_81",
+                "p2",
+                "p3",
+                "p5",
+                "p4",
+                "g33d36e8b69f_0_73",
+                "g33d36e8b69f_0_100",
+                "g33d36e8b69f_0_91",
+                "g33d36e8b69f_0_109",
+                "g33d36e8b69f_0_118",
+                "g33d36e8b69f_0_82"
+              ],
+              "text": "{{engines}}",
+              "replaceText": "={{ $('Code2').item.json.engines }}"
+            },
+            {
+              "pageObjectIds": [
+                "p1",
+                "g36a9255d1b3_1_81",
+                "p2",
+                "p3",
+                "p5",
+                "p4",
+                "g33d36e8b69f_0_73",
+                "g33d36e8b69f_0_100",
+                "g33d36e8b69f_0_82",
+                "g33d36e8b69f_0_91",
+                "g33d36e8b69f_0_109",
+                "g33d36e8b69f_0_118"
+              ],
+              "text": "{{total_power}}",
+              "replaceText": "={{ $('Code2').item.json.total_power }}"
+            },
+            {
+              "pageObjectIds": [
+                "p1",
+                "g36a9255d1b3_1_81",
+                "p2",
+                "p3",
+                "p5",
+                "p4",
+                "g33d36e8b69f_0_73",
+                "g33d36e8b69f_0_100",
+                "g33d36e8b69f_0_82",
+                "g33d36e8b69f_0_91",
+                "g33d36e8b69f_0_109",
+                "g33d36e8b69f_0_118"
+              ],
+              "text": "{{engine_hours}}",
+              "replaceText": "={{ $('Code2').item.json.engine_hours + '' }}"
+            },
+            {
+              "pageObjectIds": [
+                "p1",
+                "g36a9255d1b3_1_81",
+                "p2",
+                "p3",
+                "p5",
+                "p4",
+                "g33d36e8b69f_0_73",
+                "g33d36e8b69f_0_100",
+                "g33d36e8b69f_0_82",
+                "g33d36e8b69f_0_91",
+                "g33d36e8b69f_0_109",
+                "g33d36e8b69f_0_118"
+              ],
+              "text": "{{capacity}}",
+              "replaceText": "={{ $('Code2').item.json.capacity }}"
+            },
+            {
+              "pageObjectIds": [
+                "p1",
+                "g36a9255d1b3_1_81",
+                "p2",
+                "p3",
+                "p5",
+                "p4",
+                "g33d36e8b69f_0_73",
+                "g33d36e8b69f_0_100",
+                "g33d36e8b69f_0_82",
+                "g33d36e8b69f_0_91",
+                "g33d36e8b69f_0_109",
+                "g33d36e8b69f_0_118"
+              ],
+              "text": "{{propulsion}}",
+              "replaceText": "={{ $('Code2').item.json.propulsion }}"
+            },
+            {
+              "pageObjectIds": [
+                "p1",
+                "g36a9255d1b3_1_81",
+                "p2",
+                "p3",
+                "p5",
+                "p4",
+                "g33d36e8b69f_0_73",
+                "g33d36e8b69f_0_100",
+                "g33d36e8b69f_0_82",
+                "g33d36e8b69f_0_91",
+                "g33d36e8b69f_0_109",
+                "g33d36e8b69f_0_118"
+              ],
+              "text": "{{description}}",
+              "replaceText": "={{ $('Code2').item.json.description }}"
+            },
+            {
+              "pageObjectIds": [
+                "p1",
+                "g36a9255d1b3_1_81",
+                "p2",
+                "p3",
+                "p5",
+                "p4",
+                "g33d36e8b69f_0_73",
+                "g33d36e8b69f_0_100",
+                "g33d36e8b69f_0_82",
+                "g33d36e8b69f_0_91",
+                "g33d36e8b69f_0_109",
+                "g33d36e8b69f_0_118"
+              ],
+              "text": "{{beam}}",
+              "replaceText": "={{ $('Code2').item.json.maximum_beam }}"
+            },
+            {
+              "pageObjectIds": [
+                "p1",
+                "g36a9255d1b3_1_81",
+                "p2",
+                "p3",
+                "p5",
+                "p4",
+                "g33d36e8b69f_0_73",
+                "g33d36e8b69f_0_100",
+                "g33d36e8b69f_0_82",
+                "g33d36e8b69f_0_91",
+                "g33d36e8b69f_0_109",
+                "g33d36e8b69f_0_118"
+              ],
+              "text": "{{draft}}",
+              "replaceText": "={{ $('Code2').item.json.draft }}"
+            },
+            {
+              "pageObjectIds": [
+                "p1",
+                "g36a9255d1b3_1_81",
+                "p2",
+                "p3",
+                "p5",
+                "p4",
+                "g33d36e8b69f_0_73",
+                "g33d36e8b69f_0_100",
+                "g33d36e8b69f_0_82",
+                "g33d36e8b69f_0_91",
+                "g33d36e8b69f_0_109",
+                "g33d36e8b69f_0_118"
+              ],
+              "text": "{{displacement}}",
+              "replaceText": "={{ $('Code2').item.json.displacement }}"
+            },
+            {
+              "pageObjectIds": [
+                "p1",
+                "g36a9255d1b3_1_81",
+                "p2",
+                "p3",
+                "p5",
+                "p4",
+                "g33d36e8b69f_0_73",
+                "g33d36e8b69f_0_100",
+                "g33d36e8b69f_0_82",
+                "g33d36e8b69f_0_91",
+                "g33d36e8b69f_0_109",
+                "g33d36e8b69f_0_118"
+              ],
+              "text": "{{fuel_capacity}}",
+              "replaceText": "={{ $('Code2').item.json.fuel_capacity }}"
+            },
+            {
+              "pageObjectIds": [
+                "p1",
+                "g36a9255d1b3_1_81",
+                "p2",
+                "p3",
+                "p5",
+                "p4",
+                "g33d36e8b69f_0_73",
+                "g33d36e8b69f_0_100",
+                "g33d36e8b69f_0_82",
+                "g33d36e8b69f_0_91",
+                "g33d36e8b69f_0_109",
+                "g33d36e8b69f_0_118"
+              ],
+              "text": "{{water_capacity}}",
+              "replaceText": "={{ $('Code2').item.json.water_capacity }}"
+            },
+            {
+              "pageObjectIds": [
+                "p1",
+                "g36a9255d1b3_1_81",
+                "p2",
+                "p3",
+                "p5",
+                "p4",
+                "g33d36e8b69f_0_73",
+                "g33d36e8b69f_0_100",
+                "g33d36e8b69f_0_82",
+                "g33d36e8b69f_0_91",
+                "g33d36e8b69f_0_109",
+                "g33d36e8b69f_0_118"
+              ],
+              "text": "{{text}}",
+              "replaceText": "={{ $('Code2').item.json.total_power }}"
+            },
+            {
+              "text": "{{text}}",
+              "replaceText": "={{ $('Code2').item.json.engine_hours + '' }}"
+            },
+            {
+              "text": "{{capacity}}",
+              "replaceText": "={{ $('Code2').item.json.capacity }}"
+            },
+            {
+              "pageObjectIds": [
+                "p1",
+                "g36a9255d1b3_1_81",
+                "p2",
+                "p3",
+                "p5",
+                "p4",
+                "g33d36e8b69f_0_73",
+                "g33d36e8b69f_0_100",
+                "g33d36e8b69f_0_82",
+                "g33d36e8b69f_0_91",
+                "g33d36e8b69f_0_109",
+                "g33d36e8b69f_0_118"
+              ],
+              "text": "{{speed}}",
+              "replaceText": "={{ $('Code2').item.json.max_cruising_speed }}"
+            },
+            {
+              "pageObjectIds": [
+                "p1",
+                "p2",
+                "g36a9255d1b3_1_81"
+              ],
+              "text": "{{text}}",
+              "replaceText": "={{ $('Code2').item.json.description }}"
+            },
+            {
+              "pageObjectIds": [
+                "p1",
+                "g36a9255d1b3_1_81",
+                "p2",
+                "p3",
+                "p5",
+                "p4",
+                "g33d36e8b69f_0_73",
+                "g33d36e8b69f_0_100",
+                "g33d36e8b69f_0_82",
+                "g33d36e8b69f_0_91",
+                "g33d36e8b69f_0_109",
+                "g33d36e8b69f_0_118"
+              ],
+              "text": "{{advance_package}}",
+              "replaceText": "={{ $('Code2').item.json.advance_package }}"
+            },
+            {
+              "pageObjectIds": [
+                "p1",
+                "g36a9255d1b3_1_81",
+                "p2",
+                "p3",
+                "p5",
+                "p4",
+                "g33d36e8b69f_0_73",
+                "g33d36e8b69f_0_100",
+                "g33d36e8b69f_0_82",
+                "g33d36e8b69f_0_91",
+                "g33d36e8b69f_0_109",
+                "g33d36e8b69f_0_118"
+              ],
+              "text": "{{options_main_system}}",
+              "replaceText": "={{ $('Code2').item.json.options_main_system }}"
+            },
+            {
+              "pageObjectIds": [
+                "p1",
+                "g36a9255d1b3_1_81",
+                "p2",
+                "p3",
+                "p5",
+                "p4",
+                "g33d36e8b69f_0_73",
+                "g33d36e8b69f_0_100",
+                "g33d36e8b69f_0_82",
+                "g33d36e8b69f_0_91",
+                "g33d36e8b69f_0_109",
+                "g33d36e8b69f_0_118"
+              ],
+              "text": "{{exterior}}",
+              "replaceText": "={{ $('Code2').item.json.exterior }}"
+            },
+            {
+              "pageObjectIds": [
+                "p1",
+                "g36a9255d1b3_1_81",
+                "p2",
+                "p3",
+                "p5",
+                "p4",
+                "g33d36e8b69f_0_73",
+                "g33d36e8b69f_0_100",
+                "g33d36e8b69f_0_82",
+                "g33d36e8b69f_0_91",
+                "g33d36e8b69f_0_109",
+                "g33d36e8b69f_0_118"
+              ],
+              "text": "{{interior}}",
+              "replaceText": "={{ $('Code2').item.json.interior }}"
+            },
+            {
+              "pageObjectIds": [
+                "p1",
+                "g36a9255d1b3_1_81",
+                "p2",
+                "p3",
+                "p5",
+                "p4",
+                "g33d36e8b69f_0_73",
+                "g33d36e8b69f_0_100",
+                "g33d36e8b69f_0_82",
+                "g33d36e8b69f_0_91",
+                "g33d36e8b69f_0_109",
+                "g33d36e8b69f_0_118"
+              ],
+              "text": "{{appliances}}",
+              "replaceText": "={{ $('Code2').item.json.appliances }}"
+            },
+            {
+              "pageObjectIds": [
+                "p1",
+                "g36a9255d1b3_1_81",
+                "p2",
+                "p3",
+                "p5",
+                "p4",
+                "g33d36e8b69f_0_73",
+                "g33d36e8b69f_0_100",
+                "g33d36e8b69f_0_82",
+                "g33d36e8b69f_0_91",
+                "g33d36e8b69f_0_109",
+                "g33d36e8b69f_0_118"
+              ],
+              "text": "{{electronics}}",
+              "replaceText": "={{ $('Code2').item.json.electronics }}"
+            },
+            {
+              "pageObjectIds": [
+                "p1",
+                "g36a9255d1b3_1_81",
+                "p2",
+                "p3",
+                "p5",
+                "p4",
+                "g33d36e8b69f_0_73",
+                "g33d36e8b69f_0_100",
+                "g33d36e8b69f_0_82",
+                "g33d36e8b69f_0_91",
+                "g33d36e8b69f_0_109",
+                "g33d36e8b69f_0_118"
+              ],
+              "text": "{{audio_video}}",
+              "replaceText": "={{ $('Code2').item.json.audio_video }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "b1e05d5d-018e-4af2-a52f-4c82a71ac61e",
+      "name": "Replace Text",
+      "type": "n8n-nodes-base.googleSlides",
+      "typeVersion": 2,
+      "position": [
+        1320,
+        1180
+      ],
+      "credentials": {
+        "googleSlidesOAuth2Api": {
+          "id": "DdiliJSS4es3VtUK",
+          "name": "Google Slides account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "=https://slides.googleapis.com/v1/presentations/{{ $('CopyPdfTemplate').item.json.id }}:batchUpdate",
+        "authentication": "predefinedCredentialType",
+        "nodeCredentialType": "googleSlidesOAuth2Api",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"requests\": [\n    { \"replaceAllShapesWithImage\": {\n        \"imageUrl\": \"{{ $('Code2').item.json.photo1 }}\",\n        \"replaceMethod\": \"CENTER_CROP\",\n        \"containsText\": { \"text\": \"img_main\", \"matchCase\": true }\n    }},\n    { \"replaceAllShapesWithImage\": {\n        \"imageUrl\": \"{{ $('Code2').item.json.photo2 }}\",\n        \"replaceMethod\": \"CENTER_CROP\",\n        \"containsText\": { \"text\": \"img1\", \"matchCase\": true }\n    }},\n    { \"replaceAllShapesWithImage\": {\n        \"imageUrl\": \"{{ $('Code2').item.json.photo3 }}\",\n        \"replaceMethod\": \"CENTER_CROP\",\n        \"containsText\": { \"text\": \"img2\", \"matchCase\": true }\n    }},\n    { \"replaceAllShapesWithImage\": {\n        \"imageUrl\": \"{{ $('Code2').item.json.photo4 }}\",\n        \"replaceMethod\": \"CENTER_CROP\",\n        \"containsText\": { \"text\": \"img3\", \"matchCase\": true }\n    }},\n    { \"replaceAllShapesWithImage\": {\n        \"imageUrl\": \"{{ $('Code2').item.json.photo5 }}\",\n        \"replaceMethod\": \"CENTER_CROP\",\n        \"containsText\": { \"text\": \"img4\", \"matchCase\": true }\n    }},\n    { \"replaceAllShapesWithImage\": {\n        \"imageUrl\": \"{{ $('Code2').item.json.photo6 }}\",\n        \"replaceMethod\": \"CENTER_CROP\",\n        \"containsText\": { \"text\": \"img5\", \"matchCase\": true }\n    }},\n    { \"replaceAllShapesWithImage\": {\n        \"imageUrl\": \"{{ $('Code2').item.json.photo7 }}\",\n        \"replaceMethod\": \"CENTER_CROP\",\n        \"containsText\": { \"text\": \"img6\", \"matchCase\": true }\n    }},\n    { \"replaceAllShapesWithImage\": {\n        \"imageUrl\": \"{{ $('Code2').item.json.photo8 }}\",\n        \"replaceMethod\": \"CENTER_CROP\",\n        \"containsText\": { \"text\": \"img7\", \"matchCase\": true }\n    }},\n    { \"replaceAllShapesWithImage\": {\n        \"imageUrl\": \"{{ $('Code2').item.json.photo9 }}\",\n        \"replaceMethod\": \"CENTER_CROP\",\n        \"containsText\": { \"text\": \"img8\", \"matchCase\": true }\n    }},\n    { \"replaceAllShapesWithImage\": {\n        \"imageUrl\": \"{{ $('Code2').item.json.photo10 }}\",\n        \"replaceMethod\": \"CENTER_CROP\",\n        \"containsText\": { \"text\": \"img9\", \"matchCase\": true }\n    }},\n    { \"replaceAllShapesWithImage\": {\n        \"imageUrl\": \"{{ $('Code2').item.json.photo11 }}\",\n        \"replaceMethod\": \"CENTER_CROP\",\n        \"containsText\": { \"text\": \"img10\", \"matchCase\": true }\n    }},\n    { \"replaceAllShapesWithImage\": {\n        \"imageUrl\": \"{{ $('Code2').item.json.photo12 }}\",\n        \"replaceMethod\": \"CENTER_CROP\",\n        \"containsText\": { \"text\": \"img11\", \"matchCase\": true }\n    }},\n    { \"replaceAllShapesWithImage\": {\n        \"imageUrl\": \"{{ $('Code2').item.json.photo13 }}\",\n        \"replaceMethod\": \"CENTER_CROP\",\n        \"containsText\": { \"text\": \"img12\", \"matchCase\": true }\n    }},\n    { \"replaceAllShapesWithImage\": {\n        \"imageUrl\": \"{{ $('Code2').item.json.photo14 }}\",\n        \"replaceMethod\": \"CENTER_CROP\",\n        \"containsText\": { \"text\": \"img13\", \"matchCase\": true }\n    }},\n    { \"replaceAllShapesWithImage\": {\n        \"imageUrl\": \"{{ $('Code2').item.json.photo15 }}\",\n        \"replaceMethod\": \"CENTER_CROP\",\n        \"containsText\": { \"text\": \"img14\", \"matchCase\": true }\n    }},\n    { \"replaceAllShapesWithImage\": {\n        \"imageUrl\": \"{{ $('Code2').item.json.photo16 }}\",\n        \"replaceMethod\": \"CENTER_CROP\",\n        \"containsText\": { \"text\": \"img15\", \"matchCase\": true }\n    }},\n    { \"replaceAllShapesWithImage\": {\n        \"imageUrl\": \"{{ $('Code2').item.json.photo17 }}\",\n        \"replaceMethod\": \"CENTER_CROP\",\n        \"containsText\": { \"text\": \"img16\", \"matchCase\": true }\n    }},\n    { \"replaceAllShapesWithImage\": {\n        \"imageUrl\": \"{{ $('Code2').item.json.photo18 }}\",\n        \"replaceMethod\": \"CENTER_CROP\",\n        \"containsText\": { \"text\": \"img17\", \"matchCase\": true }\n    }},\n    { \"replaceAllShapesWithImage\": {\n        \"imageUrl\": \"{{ $('Code2').item.json.photo19 }}\",\n        \"replaceMethod\": \"CENTER_CROP\",\n        \"containsText\": { \"text\": \"img18\", \"matchCase\": true }\n    }},\n    { \"replaceAllShapesWithImage\": {\n        \"imageUrl\": \"{{ $('Code2').item.json.photo20 }}\",\n        \"replaceMethod\": \"CENTER_CROP\",\n        \"containsText\": { \"text\": \"img19\", \"matchCase\": true }\n    }},\n    { \"replaceAllShapesWithImage\": {\n        \"imageUrl\": \"{{ $('Code2').item.json.photo21 }}\",\n        \"replaceMethod\": \"CENTER_CROP\",\n        \"containsText\": { \"text\": \"img20\", \"matchCase\": true }\n    }},\n    { \"replaceAllShapesWithImage\": {\n        \"imageUrl\": \"{{ $('Code2').item.json.photo22 }}\",\n        \"replaceMethod\": \"CENTER_CROP\",\n        \"containsText\": { \"text\": \"img21\", \"matchCase\": true }\n    }},\n    { \"replaceAllShapesWithImage\": {\n        \"imageUrl\": \"{{ $('Code2').item.json.photo23 }}\",\n        \"replaceMethod\": \"CENTER_CROP\",\n        \"containsText\": { \"text\": \"img22\", \"matchCase\": true }\n    }},\n    { \"replaceAllShapesWithImage\": {\n        \"imageUrl\": \"{{ $('Code2').item.json.photo24 }}\",\n        \"replaceMethod\": \"CENTER_CROP\",\n        \"containsText\": { \"text\": \"img23\", \"matchCase\": true }\n    }},\n    { \"replaceAllShapesWithImage\": {\n        \"imageUrl\": \"{{ $('Code2').item.json.photo25 }}\",\n        \"replaceMethod\": \"CENTER_CROP\",\n        \"containsText\": { \"text\": \"img24\", \"matchCase\": true }\n    }},\n    { \"replaceAllShapesWithImage\": {\n        \"imageUrl\": \"{{ $('Code2').item.json.photo26 }}\",\n        \"replaceMethod\": \"CENTER_CROP\",\n        \"containsText\": { \"text\": \"img25\", \"matchCase\": true }\n    }},\n    { \"replaceAllShapesWithImage\": {\n        \"imageUrl\": \"{{ $('Code2').item.json.photo27 }}\",\n        \"replaceMethod\": \"CENTER_CROP\",\n        \"containsText\": { \"text\": \"img26\", \"matchCase\": true }\n    }},\n    { \"replaceAllShapesWithImage\": {\n        \"imageUrl\": \"{{ $('Code2').item.json.photo28 }}\",\n        \"replaceMethod\": \"CENTER_CROP\",\n        \"containsText\": { \"text\": \"img27\", \"matchCase\": true }\n    }},\n    { \"replaceAllShapesWithImage\": {\n        \"imageUrl\": \"{{ $('Code2').item.json.photo29 }}\",\n        \"replaceMethod\": \"CENTER_CROP\",\n        \"containsText\": { \"text\": \"img28\", \"matchCase\": true }\n    }},\n    { \"replaceAllShapesWithImage\": {\n        \"imageUrl\": \"{{ $('Code2').item.json.photo30 }}\",\n        \"replaceMethod\": \"CENTER_CROP\",\n        \"containsText\": { \"text\": \"img29\", \"matchCase\": true }\n    }},\n    { \"replaceAllShapesWithImage\": {\n        \"imageUrl\": \"{{ $('Code2').item.json.photo31 }}\",\n        \"replaceMethod\": \"CENTER_CROP\",\n        \"containsText\": { \"text\": \"img30\", \"matchCase\": true }\n    }}\n  ]\n}\n",
+        "options": {}
+      },
+      "id": "fd59b79b-8596-426a-aabd-fc9584db8368",
+      "name": "Replace Images",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4,
+      "position": [
+        1540,
+        1180
+      ],
+      "credentials": {
+        "googleSlidesOAuth2Api": {
+          "id": "DdiliJSS4es3VtUK",
+          "name": "Google Slides account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "download",
+        "fileId": {
+          "__rl": true,
+          "value": "={{ $('CopyPdfTemplate').item.json.id }}",
+          "mode": "id"
+        },
+        "options": {
+          "googleFileConversion": {
+            "conversion": {
+              "slidesToFormat": "application/pdf"
+            }
+          }
+        }
+      },
+      "id": "72ab0711-0d6f-42f0-b2b7-464b54521ed6",
+      "name": "Export PDF",
+      "type": "n8n-nodes-base.googleDrive",
+      "typeVersion": 3,
+      "position": [
+        1760,
+        1180
+      ],
+      "credentials": {
+        "googleDriveOAuth2Api": {
+          "id": "tYDnM9gXl2f1Y9kO",
+          "name": "bfirstgang"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "sendDocument",
+        "chatId": "=477076152",
+        "binaryData": "=data",
+        "additionalFields": {
+          "fileName": "={{ $('CopyPdfTemplate').item.json.name }}.pdf"
+        }
+      },
+      "id": "9d66fa7a-3a51-4121-b76f-07502f960fee",
+      "name": "Send PDF",
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1,
+      "position": [
+        2200,
+        1180
+      ],
+      "webhookId": "8e0520e5-959d-4d06-bbab-5ed313e706dc",
+      "credentials": {
+        "telegramApi": {
+          "id": "VSaespXbZr5kslxM",
+          "name": "msr_jarvis_bot"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "pollTimes": {
+          "item": [
+            {
+              "mode": "everyMinute"
+            }
+          ]
+        },
+        "documentId": {
+          "__rl": true,
+          "value": "1JF7QOiI_DaO2X7LAYULJ8cxG0v6DAU-aDpWF0hjz-Vg",
+          "mode": "list",
+          "cachedResultName": "google_form_questions",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1JF7QOiI_DaO2X7LAYULJ8cxG0v6DAU-aDpWF0hjz-Vg/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 1496169504,
+          "mode": "list",
+          "cachedResultName": "done",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1JF7QOiI_DaO2X7LAYULJ8cxG0v6DAU-aDpWF0hjz-Vg/edit#gid=1496169504"
+        },
+        "event": "rowAdded",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheetsTrigger",
+      "typeVersion": 1,
+      "position": [
+        660,
+        1180
+      ],
+      "id": "624e1d8c-7f10-4a6c-a4ae-9f1d8c04560d",
+      "name": "Google Sheets Trigger",
+      "credentials": {
+        "googleSheetsTriggerOAuth2Api": {
+          "id": "CDIwi7JxMHYdaVPf",
+          "name": "Google Sheets Trigger account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "// ---------- helper -----------\nfunction cleanUrl(u) {\n\tif (!u) return '';\n\n\t// ── 1. Уже «правильный» прямой UC-URL ───────────────────────────\n\tif (u.includes('drive.google.com/uc?')) {\n\t\treturn u.split('&')[0];               // обрезаем лишние параметры\n\t}\n\n\t// ── 2. Формат share-link:  .../file/d/FILE_ID/view?usp=… ─────────\n\tlet m = u.match(/\\/file\\/d\\/([\\w-]+)/);\n\tif (m) {\n\t\treturn `https://drive.google.com/uc?export=download&id=${m[1]}`;\n\t}\n\n\t// ── 3. Старый формат open?id=FILE_ID … ───────────────────────────\n\tm = u.match(/[?&]id=([\\w-]+)/);\n\tif (m) {\n\t\treturn `https://drive.google.com/uc?export=download&id=${m[1]}`;\n\t}\n\n\t// ── 4. Любой внешний URL → обрезаем хвост ?w=…&h=…&format=… ─────\n\treturn u.split('?')[0];\n}\n\n// ------------ main ------------\nconst row       = items[0].json;\nconst rowNumber = items[0].json.row_number;\n\nconst data = {\n\t// основные поля\n\tmodel               : row['Model'],\n\tyear                : String(row['Year']),\n\tprice               : String(row['Price']),\n\tlength_overall      : row['Length overall'],\n\tmaximum_beam        : row['Maximum beam'],\n\tdraft               : row['Draft'],\n\tdisplacement        : row['Displacement'],\n\tfuel_capacity       : row['Fuel capacity'],\n\twater_capacity      : row['Fresh water capacity'],\n\tengines             : row['Engines'],\n\ttotal_power         : String(row['Total power']),\n\tengine_hours        : String(row['Engine hours']),\n\tclass               : row['Class'],\n\tpropulsion          : row['Propulsion'],\n\tcapacity            : row['Capacity'],\n\tmax_cruising_speed  : row['Max/Cruising Speed'],\n\tdescription         : row['Description'],\n\tadvance_package     : row['Advance package'],\n\toptions_main_system : row['Options main system'],\n\texterior            : row['Exterior'],\n\tinterior            : row['Interior'],\n\tappliances          : row['Appliances'],\n\telectronics         : row['Electronics'],\n\taudio_video         : row['Audio video'],\n\n\t// менеджер\n\tManager             : row['Manager'],\n\n\t// тех-поля для Update Row\n\trow_number          : rowNumber,\n\t'Отметка времени'   : String(row['Отметка времени'])\n};\n\n// фото 1–31\nfor (let i = 1; i <= 31; i++) {\n\tconst col = `Photo${i} URL`;\n\tif (row[col]) data[`photo${i}`] = cleanUrl(row[col]);\n}\n\ndata.completed = true;\n\nreturn [{ json: data }];\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        880,
+        1180
+      ],
+      "id": "35809810-3d32-4b2f-b895-8ebbb8813387",
+      "name": "Code2"
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "documentId": {
+          "__rl": true,
+          "value": "1JF7QOiI_DaO2X7LAYULJ8cxG0v6DAU-aDpWF0hjz-Vg",
+          "mode": "list",
+          "cachedResultName": "google_form_questions",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1JF7QOiI_DaO2X7LAYULJ8cxG0v6DAU-aDpWF0hjz-Vg/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 1496169504,
+          "mode": "list",
+          "cachedResultName": "done",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1JF7QOiI_DaO2X7LAYULJ8cxG0v6DAU-aDpWF0hjz-Vg/edit#gid=1496169504"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "Presentation": "={{ $json['presentation_link\t'] }}",
+            "PDF": "={{ $json.pdf_link }}",
+            "Отметка времени": "={{ $('Code2').item.json['Отметка времени'] }}"
+          },
+          "matchingColumns": [
+            "Отметка времени"
+          ],
+          "schema": [
+            {
+              "id": "Мененджер",
+              "displayName": "Мененджер",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Presentation",
+              "displayName": "Presentation",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "PDF",
+              "displayName": "PDF",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Отметка времени",
+              "displayName": "Отметка времени",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Баллы",
+              "displayName": "Баллы",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Model",
+              "displayName": "Model",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Type of boat",
+              "displayName": "Type of boat",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Year",
+              "displayName": "Year",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Price",
+              "displayName": "Price",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Length overall",
+              "displayName": "Length overall",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Maximum beam",
+              "displayName": "Maximum beam",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Draft",
+              "displayName": "Draft",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Displacement",
+              "displayName": "Displacement",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Fuel capacity",
+              "displayName": "Fuel capacity",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Fresh water capacity",
+              "displayName": "Fresh water capacity",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Engines",
+              "displayName": "Engines",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Total power",
+              "displayName": "Total power",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Engine hours",
+              "displayName": "Engine hours",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Class",
+              "displayName": "Class",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Propulsion",
+              "displayName": "Propulsion",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Capacity",
+              "displayName": "Capacity",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Max/Cruising Speed",
+              "displayName": "Max/Cruising Speed",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Description",
+              "displayName": "Description",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Advance package",
+              "displayName": "Advance package",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Options main system",
+              "displayName": "Options main system",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Exterior",
+              "displayName": "Exterior",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Interior",
+              "displayName": "Interior",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Appliances",
+              "displayName": "Appliances",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Electronics",
+              "displayName": "Electronics",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Audio video",
+              "displayName": "Audio video",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Photo1 URL",
+              "displayName": "Photo1 URL",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Photo2 URL",
+              "displayName": "Photo2 URL",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Photo3 URL",
+              "displayName": "Photo3 URL",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Photo4 URL",
+              "displayName": "Photo4 URL",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Photo5 URL",
+              "displayName": "Photo5 URL",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Photo6 URL",
+              "displayName": "Photo6 URL",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Photo7 URL",
+              "displayName": "Photo7 URL",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Photo8 URL",
+              "displayName": "Photo8 URL",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Photo9 URL",
+              "displayName": "Photo9 URL",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Photo10 URL",
+              "displayName": "Photo10 URL",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Photo11 URL",
+              "displayName": "Photo11 URL",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Photo12 URL",
+              "displayName": "Photo12 URL",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Photo13 URL",
+              "displayName": "Photo13 URL",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Photo14 URL",
+              "displayName": "Photo14 URL",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Photo15 URL",
+              "displayName": "Photo15 URL",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Photo16 URL",
+              "displayName": "Photo16 URL",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Photo17 URL",
+              "displayName": "Photo17 URL",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Photo18 URL",
+              "displayName": "Photo18 URL",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Photo19 URL",
+              "displayName": "Photo19 URL",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Photo20 URL",
+              "displayName": "Photo20 URL",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Photo21 URL",
+              "displayName": "Photo21 URL",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Photo22 URL",
+              "displayName": "Photo22 URL",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Photo23 URL",
+              "displayName": "Photo23 URL",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Photo24 URL",
+              "displayName": "Photo24 URL",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Photo25 URL",
+              "displayName": "Photo25 URL",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Photo26 URL",
+              "displayName": "Photo26 URL",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Photo27 URL",
+              "displayName": "Photo27 URL",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Photo28 URL",
+              "displayName": "Photo28 URL",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Photo29 URL",
+              "displayName": "Photo29 URL",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Photo30 URL",
+              "displayName": "Photo30 URL",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Photo31 URL",
+              "displayName": "Photo31 URL",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "row_number",
+              "displayName": "row_number",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "readOnly": true,
+              "removed": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.5,
+      "position": [
+        2420,
+        980
+      ],
+      "id": "8d01265f-9857-4e64-93ef-26eed96c1cfd",
+      "name": "Google Sheets",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "CrfB9fg9PEmwDf6p",
+          "name": "Google Sheets account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "name": "={{ $('CopyPdfTemplate').item.json.name }}",
+        "driveId": {
+          "__rl": true,
+          "mode": "list",
+          "value": "My Drive"
+        },
+        "folderId": {
+          "__rl": true,
+          "value": "1y481RC31DRolvfNePhNQ0fmQP_63zzGS",
+          "mode": "list",
+          "cachedResultName": "pdf yaht",
+          "cachedResultUrl": "https://drive.google.com/drive/folders/1y481RC31DRolvfNePhNQ0fmQP_63zzGS"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleDrive",
+      "typeVersion": 3,
+      "position": [
+        1980,
+        980
+      ],
+      "id": "9ddd81e6-18a9-4253-9585-655e2bbdb391",
+      "name": "Google Drive",
+      "credentials": {
+        "googleDriveOAuth2Api": {
+          "id": "tYDnM9gXl2f1Y9kO",
+          "name": "bfirstgang"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "33cbcad1-c091-4125-b841-4b4269fdf900",
+              "name": "presentation_link\t",
+              "value": "=https://docs.google.com/presentation/d/{{ $node[\"CopyPdfTemplate\"].json.id }}/edit",
+              "type": "string"
+            },
+            {
+              "id": "48890aa9-683a-46b0-bde5-dcf79aa5d8c1",
+              "name": "pdf_link",
+              "value": "=https://drive.google.com/uc?export=download&id={{ $json.id }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        2200,
+        980
+      ],
+      "id": "211f1a2f-b426-4c6c-9317-736856ff19b4",
+      "name": "Edit Fields"
+    },
+    {
+      "parameters": {
+        "rules": {
+          "values": [
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "leftValue": "={{ $('Code2').item.json.Manager }}",
+                    "rightValue": "Василий Пугачев",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals"
+                    },
+                    "id": "98665174-1571-4425-b317-1c1cfa0e8e97"
+                  }
+                ],
+                "combinator": "and"
+              }
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "1ddf92a4-663a-419e-9bc0-b69b6af52360",
+                    "leftValue": "={{ $('Code2').item.json.Manager }}",
+                    "rightValue": "Иван Иванов",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              }
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "1c58b826-0ef3-4e2b-8cd2-7a1d1e2a82d3",
+                    "leftValue": "={{ $('Code2').item.json.Manager }}",
+                    "rightValue": "Дмитрий Дмитриев",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              }
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 3.2,
+      "position": [
+        1980,
+        1380
+      ],
+      "id": "3a26df17-9296-42f7-b672-e56656fc7b85",
+      "name": "Switch"
+    },
+    {
+      "parameters": {
+        "operation": "sendDocument",
+        "chatId": "=477076152",
+        "binaryData": "=data",
+        "additionalFields": {
+          "fileName": "={{ $('CopyPdfTemplate').item.json.name }}.pdf"
+        }
+      },
+      "id": "767818a1-f35d-40d2-b865-df5271ce2397",
+      "name": "Send PDF1",
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1,
+      "position": [
+        2200,
+        1380
+      ],
+      "webhookId": "8e0520e5-959d-4d06-bbab-5ed313e706dc",
+      "credentials": {
+        "telegramApi": {
+          "id": "VSaespXbZr5kslxM",
+          "name": "msr_jarvis_bot"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "sendDocument",
+        "chatId": "=477076152",
+        "binaryData": "=data",
+        "additionalFields": {
+          "fileName": "={{ $('CopyPdfTemplate').item.json.name }}.pdf"
+        }
+      },
+      "id": "d56b541b-deca-4a63-b0cd-1fc84860a41b",
+      "name": "Send PDF2",
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1,
+      "position": [
+        2200,
+        1580
+      ],
+      "webhookId": "8e0520e5-959d-4d06-bbab-5ed313e706dc",
+      "credentials": {
+        "telegramApi": {
+          "id": "VSaespXbZr5kslxM",
+          "name": "msr_jarvis_bot"
+        }
+      }
+    }
+  ],
+  "pinData": {},
+  "settings": {
+    "executionOrder": "v1",
+    "saveDataErrorExecution": "all",
+    "callerPolicy": "workflowsFromSameOwner"
+  },
+  "staticData": {
+    "global": {
+      "477076152": {
+        "stage": 2,
+        "data": {
+          "model": "ACICO 19M",
+          "year": "2019",
+          "price": "€1 490 000",
+          "length_overall": "62 ft 11 in (19.20 m)",
+          "maximum_beam": "16 ft 11 in (5.15 m)",
+          "draft": "4 ft 6 in (1.37 m)",
+          "displacement": "59 500 lb (27.0 t)",
+          "fuel_capacity": "965 US gal (3 650 l)",
+          "fresh_water_capacity": "196 US gal (740 l)",
+          "engines": "2 × Volvo-Penta IPS (D13C6-AMP)",
+          "total_power": "2 000 hp",
+          "engine_hours": "86",
+          "class": "Power",
+          "propulsion": "Volvo-Penta IPS pod-drive",
+          "capacity": "12 persons",
+          "max/cruising_speed": "32 kn / 26 kn",
+          "description": "Exceptional and fast aluminum yacht. Perfectly manoeuvrable thanks to IPS drives. Very generous space. The quality of the interior and surface finish goes far beyond the standard of this size yachts. A luxurious performance yacht for an owner who is looking for something outside the mainstream. Ralph Weil at De Valk Berlin is your go-to contact for any questions. Feel free to give us a call.",
+          "advance_package": "Additional control for electric searchlight Air; Conditioning system 72 000 BTU; Decor upgrade; Double RACOR filters; Easy-docking manoeuvring joystick Marex; Electric mooring winches in cockpit; Extra conduits; Generator; Grey-water tank washing system",
+          "options_main_system": "Seakeeper stabilizer 9; Watermaker 55 l/h – 14.5 gal/h",
+          "exterior": "Co-pilot seat on flybridge; Flybridge furniture on starboard; Hard-top with electric awning and painted mast (Island Volcanic); Manoeuvring lights on bow; Mid-ship cleats (N.2); Pop-up cleats on transom (N.4); Storage locker on transom; Telescopic gangway; Under-water lights on transom (N.2); Deck-wash outlets on bow and stern",
+          "interior": "Carpet Ottanio Green in lower-deck lobby and cabins; Roman shade blinds with black-out system; Safe in master cabin; Saloon door curtain with black-out system; Shuko sockets (instead of standard); Vanity furniture in master cabin; Coffee table in salon on cockpit seat; Dimmer lights throughout; Mosquito nets for portholes",
+          "appliances": "Barbecue for flybridge furniture; Dishwasher in galley; Icemaker in galley; Washer/dryer; Wine cooler in galley",
+          "electronics": "Raymarine AIS 700; Raymarine fishfinder; Raymarine Platinum navigation package",
+          "audio_video": "Smart Audio/Video package"
+        }
+      }
+    },
+    "node:Google Sheets Trigger": {
+      "documentId": "1JF7QOiI_DaO2X7LAYULJ8cxG0v6DAU-aDpWF0hjz-Vg",
+      "sheetId": 1496169504,
+      "lastIndexChecked": 9,
+      "lastRevision": 184,
+      "lastRevisionLink": "https://docs.google.com/spreadsheets/export?id=1JF7QOiI_DaO2X7LAYULJ8cxG0v6DAU-aDpWF0hjz-Vg&revision=184&exportFormat=xlsx"
+    }
+  },
+  "tags": [],
+  "triggerCount": 1,
+  "updatedAt": "2025-07-01T13:07:35.000Z",
+  "versionId": "90931054-f963-4ba6-acd7-df3d4b57ee8d"
+}
