@@ -1,0 +1,895 @@
+{
+  "active": false,
+  "connections": {
+    "OpenAI Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "БИЗНЕС АССИСТЕНТ",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Window Buffer Memory": {
+      "ai_memory": [
+        [
+          {
+            "node": "БИЗНЕС АССИСТЕНТ",
+            "type": "ai_memory",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Calculator": {
+      "ai_tool": [
+        [
+          {
+            "node": "БИЗНЕС АССИСТЕНТ",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Calendar Agent": {
+      "ai_tool": [
+        [
+          {
+            "node": "БИЗНЕС АССИСТЕНТ",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Telegram Trigger": {
+      "main": [
+        [
+          {
+            "node": "Switch",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Switch": {
+      "main": [
+        [
+          {
+            "node": "Download File",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Set Text",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Download File": {
+      "main": [
+        [
+          {
+            "node": "Transcribe",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Transcribe": {
+      "main": [
+        [
+          {
+            "node": "Set Text (voice)",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "БИЗНЕС АССИСТЕНТ": {
+      "main": [
+        [
+          {
+            "node": "Response",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI": {
+      "main": [
+        [
+          {
+            "node": "Switch1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Switch1": {
+      "main": [
+        [
+          {
+            "node": "написание постов",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "генерация тем",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "редактирование тем",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "редактирование поста",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "общее",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "написание постов": {
+      "main": [
+        [
+          {
+            "node": "БИЗНЕС АССИСТЕНТ",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "генерация тем": {
+      "main": [
+        [
+          {
+            "node": "БИЗНЕС АССИСТЕНТ",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "редактирование тем": {
+      "main": [
+        [
+          {
+            "node": "БИЗНЕС АССИСТЕНТ",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "общее": {
+      "main": [
+        [
+          {
+            "node": "БИЗНЕС АССИСТЕНТ",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Set Text": {
+      "main": [
+        [
+          {
+            "node": "Set Text (final)",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "редактирование поста": {
+      "main": [
+        [
+          {
+            "node": "БИЗНЕС АССИСТЕНТ",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Set Text (voice)": {
+      "main": [
+        [
+          {
+            "node": "Set Text (final)",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Set Text (final)": {
+      "main": [
+        [
+          {
+            "node": "OpenAI",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2025-06-13T15:41:27.742Z",
+  "id": "tXrVIlS53WyMJSbl",
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "npetrova",
+  "nodes": [
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "value": "gpt-4o-mini-2024-07-18",
+          "mode": "list",
+          "cachedResultName": "gpt-4o-mini-2024-07-18"
+        },
+        "options": {
+          "frequencyPenalty": 0
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.2,
+      "position": [
+        220,
+        620
+      ],
+      "id": "b037fcba-ec77-4f6e-9341-ce4018356aee",
+      "name": "OpenAI Chat Model",
+      "credentials": {
+        "openAiApi": {
+          "id": "T10Aj8URpRIqIm4V",
+          "name": "OpenAi account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "sessionIdType": "customKey",
+        "sessionKey": "={{ $('Telegram Trigger').item.json.message.chat.id }}",
+        "contextWindowLength": 50
+      },
+      "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
+      "typeVersion": 1.3,
+      "position": [
+        340,
+        620
+      ],
+      "id": "2977cb00-11c1-4395-8b50-701d2961b6bd",
+      "name": "Window Buffer Memory"
+    },
+    {
+      "parameters": {},
+      "type": "@n8n/n8n-nodes-langchain.toolCalculator",
+      "typeVersion": 1,
+      "position": [
+        460,
+        620
+      ],
+      "id": "546849ed-637a-4bd0-a0c4-b3685bd301b4",
+      "name": "Calculator"
+    },
+    {
+      "parameters": {
+        "name": "calendarAgent",
+        "description": "Call this tool for any calendar action.",
+        "workflowId": {
+          "__rl": true,
+          "value": "ghDYULuooCxBRVTv",
+          "mode": "list",
+          "cachedResultName": "NPetrova GC"
+        },
+        "workflowInputs": {
+          "mappingMode": "defineBelow",
+          "value": {},
+          "matchingColumns": [],
+          "schema": [],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.toolWorkflow",
+      "typeVersion": 2,
+      "position": [
+        580,
+        620
+      ],
+      "id": "25d16a3e-0b15-4467-bceb-f50c8061db42",
+      "name": "Calendar Agent"
+    },
+    {
+      "parameters": {
+        "updates": [
+          "message"
+        ],
+        "additionalFields": {}
+      },
+      "id": "151c2ca8-dc3d-4c19-bdaf-0ad64ea77a5d",
+      "name": "Telegram Trigger",
+      "type": "n8n-nodes-base.telegramTrigger",
+      "typeVersion": 1.1,
+      "position": [
+        -1920,
+        400
+      ],
+      "webhookId": "99eab1a0-569d-4f0f-a49e-578a02abfe63",
+      "credentials": {
+        "telegramApi": {
+          "id": "VSaespXbZr5kslxM",
+          "name": "msr_jarvis_bot"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "rules": {
+          "values": [
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "leftValue": "={{ $json.message.voice.file_id }}",
+                    "rightValue": "",
+                    "operator": {
+                      "type": "string",
+                      "operation": "exists",
+                      "singleValue": true
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "Voice"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "8c844924-b2ed-48b0-935c-c66a8fd0c778",
+                    "leftValue": "={{ $json.message.text }}",
+                    "rightValue": "",
+                    "operator": {
+                      "type": "string",
+                      "operation": "exists",
+                      "singleValue": true
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "Text"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "e2da7e2a-4347-4dc5-9e12-e37fec0ce484",
+      "name": "Switch",
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 3.2,
+      "position": [
+        -1700,
+        400
+      ]
+    },
+    {
+      "parameters": {
+        "chatId": "={{ $('Telegram Trigger').item.json.message.chat.id }}",
+        "text": "={{ $json.output }}",
+        "additionalFields": {
+          "appendAttribution": false
+        }
+      },
+      "id": "86d02949-da05-4070-859b-760b2668f0b2",
+      "name": "Response",
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1.2,
+      "position": [
+        780,
+        400
+      ],
+      "webhookId": "5dced4b9-5066-4036-a4d4-14fc07edd53c",
+      "credentials": {
+        "telegramApi": {
+          "id": "VSaespXbZr5kslxM",
+          "name": "msr_jarvis_bot"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "resource": "file",
+        "fileId": "={{ $json.message.voice.file_id }}"
+      },
+      "id": "1a8a2269-54d6-4c77-9ba3-4045143eab57",
+      "name": "Download File",
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1.2,
+      "position": [
+        -1480,
+        300
+      ],
+      "webhookId": "83bb7385-33f6-4105-8294-1a91c0ebbee5",
+      "credentials": {
+        "telegramApi": {
+          "id": "VSaespXbZr5kslxM",
+          "name": "msr_jarvis_bot"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "resource": "audio",
+        "operation": "transcribe",
+        "options": {}
+      },
+      "id": "72df96ef-858e-4292-84ce-6e910b88735b",
+      "name": "Transcribe",
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "typeVersion": 1.6,
+      "position": [
+        -1260,
+        300
+      ],
+      "credentials": {
+        "openAiApi": {
+          "id": "T10Aj8URpRIqIm4V",
+          "name": "OpenAi account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "={{ $json.prompt }} {{ $json.text }}",
+        "options": {
+          "systemMessage": "=# Overview\nYou are an expert assistant that helps with content generation, post editing, theme suggestions, and other content-related tasks. You also handle calendar tasks when needed.\n\n## Language\nAlways respond in Russian using a professional, clear, and friendly tone.\n\n## Content Rules\nYou are allowed to generate and edit text content including posts, articles, and ideas for social media. Follow the tone and goals described in the prompt.\n\n## Tools\n- calendarAgent: Use this tool to take actions in calendar\n\n## Final Reminder\nAlways complete the task clearly and concisely. Do not refuse content generation.\nCurrent date/time: {{ $now }}"
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 1.7,
+      "position": [
+        320,
+        400
+      ],
+      "id": "3cccd8fd-dff3-4f4b-93ac-17428e31f2f6",
+      "name": "БИЗНЕС АССИСТЕНТ"
+    },
+    {
+      "parameters": {
+        "modelId": {
+          "__rl": true,
+          "value": "gpt-4o-mini",
+          "mode": "list",
+          "cachedResultName": "GPT-4O-MINI"
+        },
+        "messages": {
+          "values": [
+            {
+              "content": "Ты классификатор команд. Ответь в формате JSON:\n{\n  \"команда\": \"написание поста | редактирование поста | редактирование тем | генерация тем | общее\"\n}\n\nТипы команд:\n- \"написание поста\" — если пользователь просит создать или написать статью/пост\n- \"редактирование поста\" — если пользователь хочет изменить, улучшить или переписать уже написанный пост\n- \"редактирование тем\" — если речь идет об изменении темы поста или темы контент-плана\n- \"генерация тем\" — если пользователь просит придумать новые темы\n- \"общее\" — если команда не подходит ни под одну из категорий",
+              "role": "system"
+            },
+            {
+              "content": "={{ $json.text }}"
+            }
+          ]
+        },
+        "jsonOutput": true,
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "typeVersion": 1.8,
+      "position": [
+        -520,
+        400
+      ],
+      "id": "b9ba71c1-db5f-43f6-b893-97c153bdd8a3",
+      "name": "OpenAI",
+      "credentials": {
+        "openAiApi": {
+          "id": "T10Aj8URpRIqIm4V",
+          "name": "OpenAi account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "rules": {
+          "values": [
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "leftValue": "={{$json[\"message\"][\"content\"][\"команда\"]}}",
+                    "rightValue": "написание поста",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals"
+                    },
+                    "id": "027a606a-f5ff-4466-977b-4584081cb9c7"
+                  }
+                ],
+                "combinator": "and"
+              }
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "153401ed-088c-4de8-a8f1-2c4cce6a49f3",
+                    "leftValue": "={{ $json[\"message\"][\"content\"][\"команда\"] }}",
+                    "rightValue": "генерация тем",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              }
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "a2fe31be-cd54-4286-937c-f1572420ea7d",
+                    "leftValue": "={{ $json[\"message\"][\"content\"][\"команда\"] }}",
+                    "rightValue": "редактирование тем",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              }
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "7d17d4c2-39b0-423a-b46a-f373ba5868e9",
+                    "leftValue": "={{ $json[\"message\"][\"content\"][\"команда\"] }}",
+                    "rightValue": "редактирование поста",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              }
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "24187032-471d-47df-a555-bb804a5e3759",
+                    "leftValue": "={{$json[\"message\"][\"content\"][\"команда\"]}}",
+                    "rightValue": "общее",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              }
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 3.2,
+      "position": [
+        -220,
+        360
+      ],
+      "id": "dee20f48-0662-4467-a135-1066965bd53c",
+      "name": "Switch1"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "4c54f89c-3770-469c-896a-a4e3d3c5bb12",
+              "name": "prompt",
+              "value": "=You are a copywriter and content marketer. Write a medium-length social media post (about 1200–1500 characters) based on the given topic. Use a friendly and motivating tone. Feel free to include emojis and up to 5 relevant hashtags. End the post with a clear call to action encouraging the reader to engage.",
+              "type": "string"
+            },
+            {
+              "id": "49993771-5717-4cd5-9914-5c92ad8556a5",
+              "name": "text",
+              "value": "={{ $node[\"Set Text (final)\"].json[\"text\"] }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        0,
+        200
+      ],
+      "id": "95d78011-b40c-4bf0-a347-7c2f02c91358",
+      "name": "генерация тем"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "232432eb-bf0e-4fe1-9569-78f098970af8",
+              "name": "prompt",
+              "value": "Ты – профессиональный копирайтер и контент-маркетолог. Твоя задача – создавать развернутые посты для эксперта в области психологии, нутрициологии и осознанного питания, учитывая четыре социальные платформы: ВКонтакте, Яндекс Дзен, Instagram и Telegram. У каждой платформы есть свои особенности, поэтому при написании постов важно следить за длиной текста, форматом, необходимостью хештегов и стилем подачи. Целевая аудитория: люди 35-50 лет, предприниматели, самозанятые, партнеры обеспеченных людей, которые хотят повысить самооценку, обрести энергию и привести тело в порядок. Их типичные проблемы: низкая самооценка, апатия, проблемы в отношениях, отсутствие энергии и желание улучшить внешний вид. Контент должен привлекать, прогревать к покупке и удерживать внимание. Используй общие фразы без гендерной принадлежности, чтобы текст был универсальным и подходил всем. Обязательно дополняй советы конкретными примерами, чтобы читатель мог сразу применить рекомендации на практике. Например, если даешь совет \"\"кушайте осознанно, чувствуя вкус\"\", добавь: \"\"Подумайте, какой на вкус авокадо? Ощущаете ли вы его кремовую текстуру и легкую ореховую нотку?\"\" Также добавь 10% женского юмора. Используй следующие обращения к аудитории: Дорогие друзья!  Други мои! (как говорит мой папа) Самые the healthiest people!  Здоровья всем, кто хочет быть здоров!  Приветствую всех, кто готов быть молодым и здоровым!  Привет, my friends! (Учу английский, иногда не могу удержаться 😁) Дорогие мои, благодарю за…  Всем привет!  Есть публикации где обращение не уместно. Не пиши ничего кроме готового поста, не пиши \"\"заголовок:\"\" или что-то подобное, только готовый пост для публикации.Не выделяй текст жирным шрифтом и этими символами - ** и ### ",
+              "type": "string"
+            },
+            {
+              "id": "2b2ff60e-9772-4dc6-8dad-7de37ec83103",
+              "name": "text",
+              "value": "={{ $node[\"Set Text (final)\"].json[\"text\"] }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        0,
+        0
+      ],
+      "id": "13bb961d-2d52-475b-acb9-439607fc2db1",
+      "name": "написание постов"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "4c54f89c-3770-469c-896a-a4e3d3c5bb12",
+              "name": "prompt",
+              "value": "=You are a professional content marketer and SMM strategist. Your task is to edit and improve previously generated content themes to make them more relevant, engaging, and in line with the audience’s pain points. The project is for an expert in psychology, nutrition, and mindful eating. The target audience is women aged 35–50 who are entrepreneurs, freelancers, or financially secure and seeking energy, self-esteem, and body transformation. Avoid bold formatting and do not number the topics. Keep suggestions concise and platform-neutral.",
+              "type": "string"
+            },
+            {
+              "id": "fd1f68cd-8e81-4b88-a416-88b1ff71d3e0",
+              "name": "text",
+              "value": "={{ $node[\"Set Text (final)\"].json[\"text\"] }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        0,
+        400
+      ],
+      "id": "7df4a5ea-6f57-402d-92c5-187dc6b3f906",
+      "name": "редактирование тем"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "4c54f89c-3770-469c-896a-a4e3d3c5bb12",
+              "name": "text",
+              "value": "={{ $node[\"Set Text (final)\"].json[\"text\"] }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        0,
+        800
+      ],
+      "id": "c4b02a9e-b316-49ff-a4c9-12e8efded100",
+      "name": "общее"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "fe7ecc99-e1e8-4a5e-bdd6-6fce9757b234",
+              "name": "text",
+              "value": "={{ $json.message.text }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "bda8c2b7-0d3b-48e0-abc2-2d5679765de0",
+      "name": "Set Text",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -1040,
+        500
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "72ac8133-34e7-4f08-bbb3-4b387c286c64",
+              "name": "prompt",
+              "value": "You are a copywriter and content marketer. Your task is to revise an existing social media post to improve its clarity, tone, and effectiveness while maintaining a friendly and motivating style. The goal is to adapt it for Telegram, VK, Instagram, and Yandex Zen. Include up to 5 relevant hashtags and emojis if natural. End with a strong call to action.Используй общие фразы без гендерной принадлежности, чтобы текст был универсальным и подходил всем. Обязательно дополняй советы конкретными примерами, чтобы читатель мог сразу применить рекомендации на практике. Например, если даешь совет \"кушайте осознанно, чувствуя вкус\", добавь: \"Подумайте, какой на вкус авокадо? Ощущаете ли вы его кремовую текстуру и легкую ореховую нотку?\" Также добавь 10% женского юмора. Используй следующие обращения к аудитории: Дорогие друзья!  Други мои! (как говорит мой папа) Самые the healthiest people!  Здоровья всем, кто хочет быть здоров!  Приветствую всех, кто готов быть молодым и здоровым!  Привет, my friends! (Учу английский, иногда не могу удержаться 😁) Дорогие мои, благодарю за…  Всем привет!  Есть публикации где обращение не уместно. Не пиши ничего кроме готового поста, не пиши \"заголовок:\" или что-то подобное, только готовый пост для публикации.Не выделяй текст жирным шрифтом и этими символами - ** и ### ",
+              "type": "string"
+            },
+            {
+              "id": "9a880348-9dad-49bb-9436-6faf65fb8cdd",
+              "name": "text",
+              "value": "={{ $node[\"Set Text (final)\"].json[\"text\"] }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        0,
+        600
+      ],
+      "id": "32d1420a-345b-482a-8d56-1e8bcb1d72c6",
+      "name": "редактирование поста"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "2b2ff60e-9772-4dc6-8dad-7de37ec83103",
+              "name": "text",
+              "value": "={{ $json.text }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -1040,
+        300
+      ],
+      "id": "142aaf20-b19f-4d42-b9d7-5dbafcda579f",
+      "name": "Set Text (voice)"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "2b2ff60e-9772-4dc6-8dad-7de37ec83103",
+              "name": "text",
+              "value": "={{ $json.text }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -660,
+        400
+      ],
+      "id": "5192e0fa-c24e-45fc-a783-d1a892858dcc",
+      "name": "Set Text (final)"
+    }
+  ],
+  "pinData": {},
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2025-07-01T17:59:49.000Z",
+  "versionId": "4ceb0478-705d-4d33-960d-fcefd32ca26a"
+}
