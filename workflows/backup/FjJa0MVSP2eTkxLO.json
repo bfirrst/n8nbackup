@@ -1,5 +1,5 @@
 {
-  "active": false,
+  "active": true,
   "connections": {
     "/": {
       "main": [
@@ -824,9 +824,15 @@
   ],
   "pinData": {},
   "settings": {
-    "executionOrder": "v1"
+    "executionOrder": "v1",
+    "timezone": "Europe/Moscow",
+    "callerPolicy": "workflowsFromSameOwner"
   },
-  "staticData": null,
+  "staticData": {
+    "node:Schedule Trigger": {
+      "recurrenceRules": []
+    }
+  },
   "tags": [
     {
       "createdAt": "2025-07-01T21:35:01.966Z",
@@ -835,7 +841,7 @@
       "name": "backup"
     }
   ],
-  "triggerCount": 0,
-  "updatedAt": "2025-07-01T21:42:01.000Z",
-  "versionId": "1b356f98-cb9d-409f-aad2-6c40c13fe6bd"
+  "triggerCount": 1,
+  "updatedAt": "2025-07-01T21:45:27.000Z",
+  "versionId": "64c373f9-7096-4263-9956-0be129834fe1"
 }
