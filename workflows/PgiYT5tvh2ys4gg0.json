@@ -137,10 +137,10 @@
         "operation": "copy",
         "fileId": {
           "__rl": true,
-          "value": "1TC3keT1fYbVMdegvcwIJsX-2Vl5kW-WkRB3iHxRRVdY",
+          "value": "12CA0MwKgqjgbNytrfkw0kWEx4uiWRU29CHWDRQsFwXg",
           "mode": "list",
           "cachedResultName": "yacht_brochure_google_template",
-          "cachedResultUrl": "https://docs.google.com/presentation/d/1TC3keT1fYbVMdegvcwIJsX-2Vl5kW-WkRB3iHxRRVdY/edit?usp=drivesdk"
+          "cachedResultUrl": "https://docs.google.com/presentation/d/12CA0MwKgqjgbNytrfkw0kWEx4uiWRU29CHWDRQsFwXg/edit?usp=drivesdk"
         },
         "name": "=Brochure  {{ $json.model }}",
         "sameFolder": false,
@@ -151,7 +151,7 @@
         },
         "folderId": {
           "__rl": true,
-          "value": "1y481RC31DRolvfNePhNQ0fmQP_63zzGS",
+          "value": "1WAGTpE-sIjjWwfI5rDSm8poTy3X39giK",
           "mode": "id"
         },
         "options": {}
@@ -166,8 +166,8 @@
       "typeVersion": 3,
       "credentials": {
         "googleDriveOAuth2Api": {
-          "id": "tYDnM9gXl2f1Y9kO",
-          "name": "bfirstgang"
+          "id": "XU6us3OKBdsaDe10",
+          "name": "2"
         }
       }
     },
@@ -658,8 +658,8 @@
       ],
       "credentials": {
         "googleSlidesOAuth2Api": {
-          "id": "DdiliJSS4es3VtUK",
-          "name": "Google Slides account"
+          "id": "L7tMDEGt6S5tUHg5",
+          "name": "Google Slides account 2"
         }
       }
     },
@@ -684,8 +684,8 @@
       ],
       "credentials": {
         "googleSlidesOAuth2Api": {
-          "id": "DdiliJSS4es3VtUK",
-          "name": "Google Slides account"
+          "id": "L7tMDEGt6S5tUHg5",
+          "name": "Google Slides account 2"
         }
       }
     },
@@ -715,8 +715,8 @@
       ],
       "credentials": {
         "googleDriveOAuth2Api": {
-          "id": "tYDnM9gXl2f1Y9kO",
-          "name": "bfirstgang"
+          "id": "XU6us3OKBdsaDe10",
+          "name": "2"
         }
       }
     },
@@ -756,17 +756,17 @@
         },
         "documentId": {
           "__rl": true,
-          "value": "1JF7QOiI_DaO2X7LAYULJ8cxG0v6DAU-aDpWF0hjz-Vg",
+          "value": "1z-RiC-GH1UOr9R3Q3QJw_MWtGEMKPa7BOgMvLsE47BM",
           "mode": "list",
-          "cachedResultName": "google_form_questions",
-          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1JF7QOiI_DaO2X7LAYULJ8cxG0v6DAU-aDpWF0hjz-Vg/edit?usp=drivesdk"
+          "cachedResultName": "PDF (Ответы)",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1z-RiC-GH1UOr9R3Q3QJw_MWtGEMKPa7BOgMvLsE47BM/edit?usp=drivesdk"
         },
         "sheetName": {
           "__rl": true,
-          "value": 1496169504,
+          "value": 1248592183,
           "mode": "list",
-          "cachedResultName": "done",
-          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1JF7QOiI_DaO2X7LAYULJ8cxG0v6DAU-aDpWF0hjz-Vg/edit#gid=1496169504"
+          "cachedResultName": "Ответы на форму (1)",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1z-RiC-GH1UOr9R3Q3QJw_MWtGEMKPa7BOgMvLsE47BM/edit#gid=1248592183"
         },
         "event": "rowAdded",
         "options": {}
@@ -781,8 +781,8 @@
       "name": "Google Sheets Trigger",
       "credentials": {
         "googleSheetsTriggerOAuth2Api": {
-          "id": "CDIwi7JxMHYdaVPf",
-          "name": "Google Sheets Trigger account"
+          "id": "EZJVcsYSqhj9XSHE",
+          "name": "2"
         }
       }
     },
@@ -804,17 +804,17 @@
         "operation": "update",
         "documentId": {
           "__rl": true,
-          "value": "1JF7QOiI_DaO2X7LAYULJ8cxG0v6DAU-aDpWF0hjz-Vg",
+          "value": "1z-RiC-GH1UOr9R3Q3QJw_MWtGEMKPa7BOgMvLsE47BM",
           "mode": "list",
-          "cachedResultName": "google_form_questions",
-          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1JF7QOiI_DaO2X7LAYULJ8cxG0v6DAU-aDpWF0hjz-Vg/edit?usp=drivesdk"
+          "cachedResultName": "PDF (Ответы)",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1z-RiC-GH1UOr9R3Q3QJw_MWtGEMKPa7BOgMvLsE47BM/edit?usp=drivesdk"
         },
         "sheetName": {
           "__rl": true,
-          "value": 1496169504,
+          "value": 1248592183,
           "mode": "list",
-          "cachedResultName": "done",
-          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1JF7QOiI_DaO2X7LAYULJ8cxG0v6DAU-aDpWF0hjz-Vg/edit#gid=1496169504"
+          "cachedResultName": "Ответы на форму (1)",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1z-RiC-GH1UOr9R3Q3QJw_MWtGEMKPa7BOgMvLsE47BM/edit#gid=1248592183"
         },
         "columns": {
           "mappingMode": "defineBelow",
@@ -1408,8 +1408,8 @@
       "name": "Google Sheets",
       "credentials": {
         "googleSheetsOAuth2Api": {
-          "id": "CrfB9fg9PEmwDf6p",
-          "name": "Google Sheets account"
+          "id": "arLv8uTojw0b6d6w",
+          "name": "2 id"
         }
       }
     },
@@ -1423,10 +1423,10 @@
         },
         "folderId": {
           "__rl": true,
-          "value": "1y481RC31DRolvfNePhNQ0fmQP_63zzGS",
+          "value": "1kPJibROaQsrl1VPncWAax-9Ou8hpagOw",
           "mode": "list",
-          "cachedResultName": "pdf yaht",
-          "cachedResultUrl": "https://drive.google.com/drive/folders/1y481RC31DRolvfNePhNQ0fmQP_63zzGS"
+          "cachedResultName": "pdf done",
+          "cachedResultUrl": "https://drive.google.com/drive/folders/1kPJibROaQsrl1VPncWAax-9Ou8hpagOw"
         },
         "options": {}
       },
@@ -1440,8 +1440,8 @@
       "name": "Google Drive",
       "credentials": {
         "googleDriveOAuth2Api": {
-          "id": "tYDnM9gXl2f1Y9kO",
-          "name": "bfirstgang"
+          "id": "XU6us3OKBdsaDe10",
+          "name": "2"
         }
       }
     },
@@ -1649,15 +1649,13 @@
       }
     },
     "node:Google Sheets Trigger": {
-      "documentId": "1JF7QOiI_DaO2X7LAYULJ8cxG0v6DAU-aDpWF0hjz-Vg",
-      "sheetId": 1496169504,
-      "lastIndexChecked": 9,
-      "lastRevision": 184,
-      "lastRevisionLink": "https://docs.google.com/spreadsheets/export?id=1JF7QOiI_DaO2X7LAYULJ8cxG0v6DAU-aDpWF0hjz-Vg&revision=184&exportFormat=xlsx"
+      "documentId": "1z-RiC-GH1UOr9R3Q3QJw_MWtGEMKPa7BOgMvLsE47BM",
+      "sheetId": 1248592183,
+      "lastIndexChecked": 2
     }
   },
   "tags": [],
   "triggerCount": 1,
-  "updatedAt": "2025-07-01T13:07:35.000Z",
-  "versionId": "90931054-f963-4ba6-acd7-df3d4b57ee8d"
+  "updatedAt": "2025-07-03T15:57:06.000Z",
+  "versionId": "6d640e10-5129-4e5a-9af8-8aac3de6dbbd"
 }
