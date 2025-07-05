@@ -161,6 +161,11 @@
             "node": "Gemini - Generate Upload URL1",
             "type": "main",
             "index": 0
+          },
+          {
+            "node": "YouTube Upload1",
+            "type": "main",
+            "index": 0
           }
         ]
       ]
@@ -926,8 +931,8 @@
       "type": "n8n-nodes-base.youTube",
       "typeVersion": 1,
       "position": [
-        440,
-        860
+        620,
+        1140
       ],
       "credentials": {
         "youTubeOAuth2Api": {
@@ -948,8 +953,8 @@
       "type": "n8n-nodes-base.youTube",
       "typeVersion": 1,
       "position": [
-        880,
-        860
+        1060,
+        1140
       ],
       "credentials": {
         "youTubeOAuth2Api": {
@@ -967,8 +972,8 @@
       "type": "n8n-nodes-base.merge",
       "typeVersion": 1,
       "position": [
-        660,
-        1100
+        640,
+        880
       ]
     },
     {
@@ -1006,8 +1011,8 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4,
       "position": [
-        880,
-        1100
+        860,
+        880
       ]
     },
     {
@@ -1033,9 +1038,12 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4,
       "position": [
-        1320,
-        1100
-      ]
+        1300,
+        880
+      ],
+      "retryOnFail": true,
+      "maxTries": 5,
+      "waitBetweenTries": 3000
     },
     {
       "parameters": {
@@ -1048,8 +1056,8 @@
       "type": "n8n-nodes-base.telegram",
       "typeVersion": 1,
       "position": [
-        1540,
-        1100
+        1520,
+        880
       ],
       "webhookId": "97dee910-f1b0-47c9-bd87-0a1b64052ad8",
       "credentials": {
@@ -1108,8 +1116,8 @@
       "name": "Gemini - Generate Upload URL1",
       "type": "n8n-nodes-base.httpRequest",
       "position": [
-        440,
-        1180
+        400,
+        880
       ],
       "typeVersion": 4.2
     },
@@ -1121,8 +1129,8 @@
       "type": "n8n-nodes-base.wait",
       "typeVersion": 1.1,
       "position": [
-        1100,
-        1100
+        1080,
+        880
       ],
       "id": "a29b66b2-5cef-4b06-b8ce-5a2767e6228c",
       "name": "Wait3",
@@ -1172,8 +1180,8 @@
       "type": "n8n-nodes-base.wait",
       "typeVersion": 1.1,
       "position": [
-        660,
-        860
+        840,
+        1140
       ],
       "id": "8541d1ab-546d-471f-9252-ef436bb84751",
       "name": "Wait4",
@@ -1192,8 +1200,8 @@
       "type": "n8n-nodes-base.googleDrive",
       "typeVersion": 3,
       "position": [
-        1100,
-        860
+        1280,
+        1140
       ],
       "id": "8cabf721-2584-4683-8986-b6426eedf37d",
       "name": "Google Drive2",
@@ -1674,8 +1682,8 @@
       "type": "n8n-nodes-base.executeCommand",
       "typeVersion": 1,
       "position": [
-        1340,
-        860
+        1520,
+        1140
       ],
       "id": "4abe161c-9fc0-42e0-a580-8a9401b689a3",
       "name": "Execute Command2"
@@ -1719,6 +1727,6 @@
   },
   "tags": [],
   "triggerCount": 1,
-  "updatedAt": "2025-07-01T21:33:54.000Z",
-  "versionId": "2db4510d-800a-453f-b617-cd05321a2d13"
+  "updatedAt": "2025-07-04T17:40:28.000Z",
+  "versionId": "2b1c4022-fbac-43cf-bd47-2febc8a4b49f"
 }
