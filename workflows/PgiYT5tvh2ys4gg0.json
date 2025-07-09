@@ -763,10 +763,10 @@
         },
         "sheetName": {
           "__rl": true,
-          "value": 1248592183,
+          "value": 894187590,
           "mode": "list",
-          "cachedResultName": "Ответы на форму (1)",
-          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1z-RiC-GH1UOr9R3Q3QJw_MWtGEMKPa7BOgMvLsE47BM/edit#gid=1248592183"
+          "cachedResultName": "Ответы на форму ",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1z-RiC-GH1UOr9R3Q3QJw_MWtGEMKPa7BOgMvLsE47BM/edit#gid=894187590"
         },
         "event": "rowAdded",
         "options": {}
@@ -811,10 +811,10 @@
         },
         "sheetName": {
           "__rl": true,
-          "value": 1248592183,
+          "value": 894187590,
           "mode": "list",
-          "cachedResultName": "Ответы на форму (1)",
-          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1z-RiC-GH1UOr9R3Q3QJw_MWtGEMKPa7BOgMvLsE47BM/edit#gid=1248592183"
+          "cachedResultName": "Ответы на форму ",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1z-RiC-GH1UOr9R3Q3QJw_MWtGEMKPa7BOgMvLsE47BM/edit#gid=894187590"
         },
         "columns": {
           "mappingMode": "defineBelow",
@@ -1650,12 +1650,12 @@
     },
     "node:Google Sheets Trigger": {
       "documentId": "1z-RiC-GH1UOr9R3Q3QJw_MWtGEMKPa7BOgMvLsE47BM",
-      "sheetId": 1248592183,
+      "sheetId": 894187590,
       "lastIndexChecked": 2
     }
   },
   "tags": [],
   "triggerCount": 1,
-  "updatedAt": "2025-07-03T15:57:06.000Z",
-  "versionId": "6d640e10-5129-4e5a-9af8-8aac3de6dbbd"
+  "updatedAt": "2025-07-08T12:58:51.000Z",
+  "versionId": "f951cb9f-107f-4d8a-8bdf-21ed7e501f67"
 }
