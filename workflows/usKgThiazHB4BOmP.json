@@ -1,0 +1,622 @@
+{
+  "active": true,
+  "connections": {
+    "OpenAI Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "БИЗНЕС АССИСТЕНТ",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Window Buffer Memory": {
+      "ai_memory": [
+        [
+          {
+            "node": "БИЗНЕС АССИСТЕНТ",
+            "type": "ai_memory",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Calculator": {
+      "ai_tool": [
+        [
+          {
+            "node": "БИЗНЕС АССИСТЕНТ",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Calendar Agent": {
+      "ai_tool": [
+        [
+          {
+            "node": "БИЗНЕС АССИСТЕНТ",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Telegram Trigger": {
+      "main": [
+        [
+          {
+            "node": "Switch",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Switch": {
+      "main": [
+        [
+          {
+            "node": "Download File",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Set Text",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Download File": {
+      "main": [
+        [
+          {
+            "node": "Transcribe",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Transcribe": {
+      "main": [
+        [
+          {
+            "node": "Set Text (voice)",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "БИЗНЕС АССИСТЕНТ": {
+      "main": [
+        [
+          {
+            "node": "Response",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Set Text": {
+      "main": [
+        [
+          {
+            "node": "Set Text (final)",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Set Text (voice)": {
+      "main": [
+        [
+          {
+            "node": "Set Text (final)",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Set Text (final)": {
+      "main": [
+        [
+          {
+            "node": "БИЗНЕС АССИСТЕНТ",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Response": {
+      "main": [
+        [
+          {
+            "node": "Telegram",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Send CTA",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Telegram": {
+      "main": [
+        [
+          {
+            "node": "Telegram1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2025-07-08T20:04:11.057Z",
+  "id": "usKgThiazHB4BOmP",
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "AI audit consultant",
+  "nodes": [
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "value": "gpt-4.1-mini",
+          "mode": "list",
+          "cachedResultName": "gpt-4.1-mini"
+        },
+        "options": {
+          "responseFormat": "text",
+          "temperature": 0.7
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.2,
+      "position": [
+        1180,
+        280
+      ],
+      "id": "cde3f9b8-f72c-45e5-b3dd-68f489fa2a66",
+      "name": "OpenAI Chat Model",
+      "credentials": {
+        "openAiApi": {
+          "id": "T10Aj8URpRIqIm4V",
+          "name": "OpenAi account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "sessionIdType": "customKey",
+        "sessionKey": "={{ $('Telegram Trigger').item.json.message.chat.id }}",
+        "contextWindowLength": 50
+      },
+      "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
+      "typeVersion": 1.3,
+      "position": [
+        1320,
+        280
+      ],
+      "id": "9f71fa9f-52b1-438b-89a7-e26f91e2a3ca",
+      "name": "Window Buffer Memory"
+    },
+    {
+      "parameters": {},
+      "type": "@n8n/n8n-nodes-langchain.toolCalculator",
+      "typeVersion": 1,
+      "position": [
+        1440,
+        280
+      ],
+      "id": "03045a5d-c280-44eb-b0f3-10d0b786c77c",
+      "name": "Calculator"
+    },
+    {
+      "parameters": {
+        "name": "calendarAgent",
+        "description": "Call this tool for any calendar action.",
+        "workflowId": {
+          "__rl": true,
+          "value": "uGFvdoswI002nLpP",
+          "mode": "list",
+          "cachedResultName": "GC"
+        },
+        "workflowInputs": {
+          "mappingMode": "defineBelow",
+          "value": {},
+          "matchingColumns": [],
+          "schema": [],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.toolWorkflow",
+      "typeVersion": 2,
+      "position": [
+        1580,
+        280
+      ],
+      "id": "16ae5c40-0d16-480e-b225-bcee15064905",
+      "name": "Calendar Agent"
+    },
+    {
+      "parameters": {
+        "updates": [
+          "message"
+        ],
+        "additionalFields": {}
+      },
+      "id": "bca2a8b9-f57b-4b01-a732-89ff68c0334a",
+      "name": "Telegram Trigger",
+      "type": "n8n-nodes-base.telegramTrigger",
+      "typeVersion": 1.1,
+      "position": [
+        -440,
+        100
+      ],
+      "webhookId": "ca86bf9f-ce73-4909-a0f0-a7c3d58b5812",
+      "credentials": {
+        "telegramApi": {
+          "id": "xKGDHC4LPvJ6wVev",
+          "name": "msr_transcribe_bot"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "rules": {
+          "values": [
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "leftValue": "={{ $json.message.voice.file_id }}",
+                    "rightValue": "",
+                    "operator": {
+                      "type": "string",
+                      "operation": "exists",
+                      "singleValue": true
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "Voice"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "8c844924-b2ed-48b0-935c-c66a8fd0c778",
+                    "leftValue": "={{ $json.message.text }}",
+                    "rightValue": "",
+                    "operator": {
+                      "type": "string",
+                      "operation": "exists",
+                      "singleValue": true
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "Text"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "010918c1-d203-4f02-8c35-347cc40ac52e",
+      "name": "Switch",
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 3.2,
+      "position": [
+        -220,
+        100
+      ]
+    },
+    {
+      "parameters": {
+        "chatId": "={{ $('Telegram Trigger').item.json.message.chat.id }}",
+        "text": "={{ $json.output }}",
+        "additionalFields": {
+          "appendAttribution": false
+        }
+      },
+      "id": "237df0ad-cb55-4fc1-b8ae-57d6922729b9",
+      "name": "Response",
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1.2,
+      "position": [
+        1840,
+        100
+      ],
+      "webhookId": "6bbedc57-cbec-437f-b795-0f6b74fd945c",
+      "credentials": {
+        "telegramApi": {
+          "id": "xKGDHC4LPvJ6wVev",
+          "name": "msr_transcribe_bot"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "resource": "file",
+        "fileId": "={{ $json.message.voice.file_id }}"
+      },
+      "id": "4ff123e3-f142-4f05-8b28-e4b7aecc8f12",
+      "name": "Download File",
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1.2,
+      "position": [
+        0,
+        0
+      ],
+      "webhookId": "e8224e01-f3b6-4f4b-8f77-df172a3a7741",
+      "credentials": {
+        "telegramApi": {
+          "id": "xKGDHC4LPvJ6wVev",
+          "name": "msr_transcribe_bot"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "resource": "audio",
+        "operation": "transcribe",
+        "options": {}
+      },
+      "id": "322b39a9-6a55-48b0-8fbe-12e00854fa7e",
+      "name": "Transcribe",
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "typeVersion": 1.6,
+      "position": [
+        220,
+        0
+      ],
+      "credentials": {
+        "openAiApi": {
+          "id": "T10Aj8URpRIqIm4V",
+          "name": "OpenAi account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "={{ $json.text }}",
+        "options": {
+          "systemMessage": "=# SYSTEM PROMPT — Ultimate AI Consultant\n\n## 🎯 Overview\nYou are an AI business consultant created to help business owners discover how AI can optimize their operations, reduce costs, and increase profits. In 10–15 minutes, you will:\n- Identify the client’s key bottlenecks and opportunities\n- Calculate their potential time and cost savings\n- Recommend an AI solution with ROI under 3 months\n- Offer a free consultation call to implement it\n\n## 🧑‍💼 Step 1: Introduction\nAlways start with this message:\n> Hello! I'm your personal AI consultant, here to help you discover how artificial intelligence can increase your company's profit and free up time by automating routine work.  \n> In just 10–15 minutes, I’ll show you where AI will help you the most, calculate ROI, and offer a free personalized solution.  \n>  \n> Could you tell me what your company does?  \n> Also, what’s your name and your company’s name?  \n>  \n> The more details you share, the deeper and more accurate the results will be.\n\nIf the user doesn't provide their name or company — continue without personalization.\n\n## 🟡 Step 2: Diagnose the problem\nAsk the following questions (2–3 at a time):\n1. What industry are you in?  \n2. How many employees are involved in routine tasks like handling leads, documents, scheduling, etc.?  \n3. What tasks take the most time?  \n4. What bottlenecks or growth points do you currently see?\n\nThen:\n5. How many incoming leads/inquiries/documents do you handle per week?  \n6. How many hours a week does that take?  \n7. What’s your average conversion rate from leads to sales?  \n8. What CRM or tools do you currently use?  \n9. (Optional) What is the average hourly wage of your employees?   \n> If skipped, use $25/hour and 80% automation as defaults.\n\n## 🧩 Step 2.5: Suggest relevant AI solutions before ROI\nBased on the user’s responses, recommend 1–2 products from:\n- AI Assistant / Secretary for CEOs  \n- AI bot for incoming leads (web, email, calls)  \n- Compliance & document AI (for checking and generating construction/project docs)  \n- SMM Factory (AI-powered content and social media production)  \n- Voice-controlled CRM task manager  \n- Tender management AI system  \n- Sales Quality Control System  \n- AI Knowledge Base (for contracts, internal processes)\n\n> Example:  \n> I recommend:  \n> 1. AI bot for incoming requests — qualifies leads 24/7 and syncs with your CRM  \n> 2. AI document automation & compliance — generates and validates construction docs under local regulations  \n> These typically pay for themselves in under 2 months.\n\n## 🔵 Step 3: Calculate the ROI\nUse collected data to:\n- Total hours saved = (employees × hours/week) × 4 × 80%  \n- Money saved = hours/month × $25  \n- ROI = $5,000 / savings per month\n\n🎯 If ROI ≤ 3 months:\n> [Name], your company “[Company]” can save around $[amount] every month and cover the $5,000 cost in just [X] months. That’s over $[yearly] of annual profit unlocked.\n\nIf ROI > 3 months, suggest another area where ROI would be faster.\n\nAdd emotion:\n> That’s like hiring a super-efficient manager who works 24/7 and never takes breaks. Imagine what your team could achieve with [S] extra hours every month.\n\nOffer 1–2 alternative options if relevant.\n\n## 🟣 Step 4: Show real client cases\nShare short, relatable case studies:\n- **Legion Group** (construction) — saved 120+ hours/month by automating lead processing and document handling, +40% meetings in month one.  \n- **Юридическая фирма** — AI knowledge base trained on 10,000+ contract pages; lawyers find clauses in seconds, saving 70–80% of research time.  \n- **Частный психолог** — uses SMM Factory and AI Assistant to automate all social media content and client reminders, saving 20+ hours/month.  \n- **NIKIMODELS** (modeling agency) — automated social media with SMM Factory, reduced content creation by 80% and doubled posting frequency.  \n- **Архимаг** (производство стройматериалов) — automated compliance checks and documentation, AI bot for inbound requests, voice-driven CRM tasks, and tender system; all solutions pay off in under 3 months.\n\nAdapt examples to match user’s industry.\n\n## 🔚 Step 5: Call to Action\nOffer to schedule a free consultation call with Calendly:\n> Would you like to test this solution in your business?  \n> Click the button below to pick a time — it’s free and only takes 15–20 minutes.\n\nUse an inline button\n\n## 🔔 Step 6: Post‑Booking Confirmation\nWhen Calendly webhook arrives, send:\n> Спасибо, [Name]!  \n> Мы зарегистрировали ваш звонок на [event_time].  \n> С нетерпением ждём нашей встречи!\n\n---\n\n## Language & Tone\n- Always respond in **Russian**.  \n- Professional, clear, friendly.  \n- Confident but never pushy.\n\n## Final Reminders\n- Group questions into two blocks as above.  \n- Prompt momentary recommendation before ROI.  \n- Use defaults ($25/hr, 80%) if needed.  \n- Recommend only solutions with ROI < 3 months.  \n- Be proactive, helpful, and goal‑oriented.  \n- Include Calendly integration and confirmation.  \n- Personalization increases trust and conversion.  \nCurrent date/time: {{ $now }}"
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 1.7,
+      "position": [
+        1240,
+        100
+      ],
+      "id": "fc508268-a843-4461-89e8-0e56bf428f0b",
+      "name": "БИЗНЕС АССИСТЕНТ"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "fe7ecc99-e1e8-4a5e-bdd6-6fce9757b234",
+              "name": "text",
+              "value": "={{ $json.message.text }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "f07e6d2f-05e8-4783-9e19-0f587a994ca5",
+      "name": "Set Text",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        440,
+        200
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "2b2ff60e-9772-4dc6-8dad-7de37ec83103",
+              "name": "text",
+              "value": "={{ $json.text }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        440,
+        0
+      ],
+      "id": "3ae1cc9b-2a8b-4649-90b0-407ed32b8602",
+      "name": "Set Text (voice)"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "2b2ff60e-9772-4dc6-8dad-7de37ec83103",
+              "name": "text",
+              "value": "={{ $json.text }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        820,
+        100
+      ],
+      "id": "d901859b-648e-4d27-a2f6-068c9177ff02",
+      "name": "Set Text (final)"
+    },
+    {
+      "parameters": {
+        "chatId": "={{ $('Telegram Trigger').item.json.message.chat.id }}",
+        "text": "Хотите протестировать эти решения на вашем бизнесе?   Нажмите кнопку ниже, чтобы выбрать время для бесплатного созвона:",
+        "replyMarkup": "inlineKeyboard",
+        "inlineKeyboard": {
+          "rows": [
+            {
+              "row": {
+                "buttons": [
+                  {
+                    "text": "Записаться на звонок",
+                    "additionalFields": {
+                      "url": "https://calendly.com/01p1/30min"
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        "additionalFields": {
+          "appendAttribution": false
+        }
+      },
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1.2,
+      "position": [
+        2060,
+        100
+      ],
+      "id": "2960e51a-e9f2-4207-a959-c48801dbe3ea",
+      "name": "Telegram",
+      "webhookId": "5b37b2b4-bf44-431b-a4be-4d7a10dcf57a",
+      "credentials": {
+        "telegramApi": {
+          "id": "xKGDHC4LPvJ6wVev",
+          "name": "msr_transcribe_bot"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "sendDocument",
+        "chatId": "={{ $('Telegram Trigger').item.json.message.chat.id }}",
+        "file": "=\"BQACAgIAAxkBAAMfaAU7ffWcwa7upZtxhbCxfRPLUi8AAqVzAAKCBylIBEvvgbKAfJo2BA\"",
+        "additionalFields": {}
+      },
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1.2,
+      "position": [
+        2280,
+        100
+      ],
+      "id": "a598afed-41a8-4432-b121-c5617787abd9",
+      "name": "Telegram1",
+      "webhookId": "57d95482-2432-4568-bd82-00982004f0e5",
+      "credentials": {
+        "telegramApi": {
+          "id": "xKGDHC4LPvJ6wVev",
+          "name": "msr_transcribe_bot"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "chatId": "={{ $('Telegram Trigger').item.json.message.chat.id }}",
+        "text": "Что дальше?",
+        "replyMarkup": "inlineKeyboard",
+        "inlineKeyboard": {
+          "rows": [
+            {
+              "row": {
+                "buttons": [
+                  {
+                    "text": "📂 Показать кейсы",
+                    "additionalFields": {
+                      "callback_data": "show_cases"
+                    }
+                  },
+                  {
+                    "text": "📞 Записаться на звонок",
+                    "additionalFields": {
+                      "callback_data": "book_call"
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        "additionalFields": {
+          "appendAttribution": false
+        }
+      },
+      "id": "ec606c95-ed9d-40c1-974e-a6177e167fc7",
+      "name": "Send CTA",
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1.2,
+      "position": [
+        2060,
+        400
+      ],
+      "webhookId": "8e5f7084-f27b-4c16-bc93-e998f7528c2c",
+      "credentials": {
+        "telegramApi": {
+          "id": "xKGDHC4LPvJ6wVev",
+          "name": "msr_transcribe_bot"
+        }
+      }
+    }
+  ],
+  "pinData": {},
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 1,
+  "updatedAt": "2025-07-08T20:04:48.000Z",
+  "versionId": "1a984286-19a2-46ee-bd38-f2f5ebe1624a"
+}
