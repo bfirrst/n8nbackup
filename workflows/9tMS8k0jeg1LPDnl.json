@@ -2183,10 +2183,10 @@
       "lastTimeChecked": "2025-06-29T15:01:41Z"
     },
     "node:File Created1": {
-      "lastTimeChecked": "2025-07-09T16:50:43Z"
+      "lastTimeChecked": "2025-07-21T14:17:35Z"
     },
     "node:File Updated1": {
-      "lastTimeChecked": "2025-07-09T16:50:43Z"
+      "lastTimeChecked": "2025-07-21T14:17:36Z"
     },
     "node:Gmail Trigger": {
       "Gmail Trigger": {
@@ -2211,6 +2211,6 @@
   },
   "tags": [],
   "triggerCount": 3,
-  "updatedAt": "2025-07-09T16:50:42.000Z",
+  "updatedAt": "2025-07-21T14:17:34.000Z",
   "versionId": "74c912d2-cbf8-47a3-b426-ff4cd09507ef"
 }
