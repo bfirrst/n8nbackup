@@ -16,6 +16,20 @@
             "type": "main",
             "index": 0
           }
+        ],
+        [
+          {
+            "node": "HTTP Request1",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "HTTP Request1",
+            "type": "main",
+            "index": 0
+          }
         ]
       ]
     },
@@ -235,7 +249,15 @@
             "type": "main",
             "index": 0
           }
-        ]
+        ],
+        [
+          {
+            "node": "OpenAI3",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        []
       ]
     },
     "HTTP Request (Typing On)1": {
@@ -386,7 +408,13 @@
     },
     "Switch3": {
       "main": [
-        [],
+        [
+          {
+            "node": "Google Sheets9",
+            "type": "main",
+            "index": 0
+          }
+        ],
         [
           {
             "node": "Google Sheets6",
@@ -434,6 +462,353 @@
         [
           {
             "node": "Evolution API7",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "HTTP Request (Typing On)3": {
+      "main": [
+        [
+          {
+            "node": "Evolution API8",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Evolution API2": {
+      "main": [
+        [
+          {
+            "node": "OpenAI",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request (Typing On)3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "HTTP Request (Typing On)4": {
+      "main": [
+        [
+          {
+            "node": "Evolution API9",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI1": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request (Typing On)4",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Evolution API3": {
+      "main": [
+        [
+          {
+            "node": "OpenAI1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "HTTP Request (Typing On)5": {
+      "main": [
+        [
+          {
+            "node": "Evolution API10",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI2": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request (Typing On)5",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Evolution API4": {
+      "main": [
+        [
+          {
+            "node": "OpenAI2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "HTTP Request (Typing On)6": {
+      "main": [
+        [
+          {
+            "node": "Evolution API11",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Sheets8": {
+      "main": [
+        [
+          {
+            "node": "Evolution API12",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Evolution API11": {
+      "main": [
+        [
+          {
+            "node": "Google Sheets8",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Sheets9": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request (Typing On)6",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI3": {
+      "main": [
+        [
+          {
+            "node": "Switch4",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "HTTP Request (Typing On)7": {
+      "main": [
+        [
+          {
+            "node": "Evolution API13",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Switch4": {
+      "main": [
+        [
+          {
+            "node": "Google Sheets10",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Google Sheets11",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Evolution API15",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "HTTP Request (Typing On)8": {
+      "main": [
+        [
+          {
+            "node": "Evolution API14",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Sheets10": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request (Typing On)7",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Sheets11": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request (Typing On)8",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "HTTP Request1": {
+      "main": [
+        [
+          {
+            "node": "Convert to File1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Convert to File1": {
+      "main": [
+        [
+          {
+            "node": "If2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI4": {
+      "main": [
+        [
+          {
+            "node": "OpenAI5",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI5": {
+      "main": [
+        [
+          {
+            "node": "Code1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code1": {
+      "main": [
+        [
+          {
+            "node": "If1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If1": {
+      "main": [
+        [
+          {
+            "node": "Google Sheets12",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Evolution API17",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Sheets12": {
+      "main": [
+        [
+          {
+            "node": "Evolution API16",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Evolution API16": {
+      "main": [
+        [
+          {
+            "node": "Evolution API18",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If2": {
+      "main": [
+        [
+          {
+            "node": "Extract from File",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "OpenAI4",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Extract from File": {
+      "main": [
+        [
+          {
+            "node": "OpenAI5",
             "type": "main",
             "index": 0
           }
@@ -500,6 +875,52 @@
               },
               "renameOutput": true,
               "outputKey": "Text"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "705bd82a-f8b0-41e3-9a08-e49587753929",
+                    "leftValue": "={{ $json.body.data.message?.imageMessage?.mimetype || $json.body.data.message?.documentMessage?.mimetype || '' }}",
+                    "rightValue": "image/",
+                    "operator": {
+                      "type": "string",
+                      "operation": "contains"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "Image"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "7d8d29dd-7113-4a2c-8a96-67fcc1f5ba35",
+                    "leftValue": "={{ $json.body.data.message?.imageMessage?.mimetype || $json.body.data.message?.documentMessage?.mimetype || '' }}",
+                    "rightValue": "application/pdf",
+                    "operator": {
+                      "type": "string",
+                      "operation": "contains"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              }
             }
           ]
         },
@@ -796,7 +1217,7 @@
     {
       "parameters": {
         "method": "POST",
-        "url": "https://evolution-api-production-9e6a.up.railway.app/chat/sendPresence/wa-01",
+        "url": "https://evolution-api-production-9e6a.up.railway.app/chat/sendPresence/VEPPERS",
         "authentication": "genericCredentialType",
         "genericAuthType": "httpHeaderAuth",
         "sendHeaders": true,
@@ -993,6 +1414,50 @@
                 ],
                 "combinator": "and"
               }
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "76a13f81-63e1-488d-b700-1afede2a49cf",
+                    "leftValue": "={{ $json.step }}",
+                    "rightValue": 4,
+                    "operator": {
+                      "type": "number",
+                      "operation": "equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              }
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "aa1a5f9e-d2d6-4d05-aba4-2c432e97cfa1",
+                    "leftValue": "={{ $json.step }}",
+                    "rightValue": 5,
+                    "operator": {
+                      "type": "number",
+                      "operation": "equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              }
             }
           ]
         },
@@ -1001,8 +1466,8 @@
       "type": "n8n-nodes-base.switch",
       "typeVersion": 3.2,
       "position": [
-        1060,
-        200
+        1040,
+        320
       ],
       "id": "c3e1bc4a-c8d1-4f27-99a7-7030ef1390f9",
       "name": "Switch1"
@@ -1094,7 +1559,7 @@
     {
       "parameters": {
         "resource": "messages-api",
-        "instanceName": "wa-01",
+        "instanceName": "VEPPERS",
         "remoteJid": "={{ $node[\"Webhook\"].json.body.data.key.remoteJid || $node[\"Webhook\"].json.body.sender }}",
         "messageText": "Я поняла Вас 🙌 😉 \nСкажите пожалуйста вес , рост,  хронические заболевания и какой вес хотите ?💐",
         "options_message": {}
@@ -1118,7 +1583,7 @@
     {
       "parameters": {
         "method": "POST",
-        "url": "https://evolution-api-production-9e6a.up.railway.app/chat/sendPresence/wa-01",
+        "url": "https://evolution-api-production-9e6a.up.railway.app/chat/sendPresence/VEPPERS",
         "authentication": "genericCredentialType",
         "genericAuthType": "httpHeaderAuth",
         "sendHeaders": true,
@@ -1254,8 +1719,8 @@
       "type": "n8n-nodes-evolution-api-eng.evolutionApi",
       "typeVersion": 1,
       "position": [
-        1120,
-        440
+        1700,
+        320
       ],
       "id": "a7f3cc14-4df9-40c2-9632-9b8ef2298c93",
       "name": "Evolution API2",
@@ -1290,7 +1755,7 @@
             "step": "3",
             "contact_id": "={{ $('Webhook').item.json.body.data.key.remoteJid }}",
             "name": "={{ $('Webhook').item.json.body.data.pushName }}",
-            "weight_kg": "{{ $('Code').item.json.weight_kg }}"
+            "weight_kg": "={{ $('Code').item.json.weight_kg }}"
           },
           "matchingColumns": [
             "contact_id"
@@ -1333,6 +1798,17 @@
               "display": true,
               "type": "string",
               "canBeUsedToMatch": true
+            },
+            {
+              "id": "row_number",
+              "displayName": "row_number",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "readOnly": true,
+              "removed": false
             }
           ],
           "attemptToConvertTypes": false,
@@ -1343,8 +1819,8 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.5,
       "position": [
-        960,
-        440
+        1540,
+        320
       ],
       "id": "8fb0a22f-f6eb-41dd-bf33-7ab3127cf583",
       "name": "Google Sheets3",
@@ -1433,8 +1909,8 @@
       "type": "n8n-nodes-base.switch",
       "typeVersion": 3.2,
       "position": [
-        740,
-        600
+        1320,
+        480
       ],
       "id": "f37af26b-5106-4d0b-bb69-150de7758263",
       "name": "Switch2"
@@ -1451,8 +1927,8 @@
       "type": "n8n-nodes-evolution-api-eng.evolutionApi",
       "typeVersion": 1,
       "position": [
-        1120,
-        600
+        1700,
+        480
       ],
       "id": "1f9cad13-f963-466a-a373-9d0a7472e5dd",
       "name": "Evolution API3",
@@ -1551,8 +2027,8 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.5,
       "position": [
-        960,
-        600
+        1540,
+        480
       ],
       "id": "16879b9b-e69f-4a69-981b-5407989f026d",
       "name": "Google Sheets4",
@@ -1575,8 +2051,8 @@
       "type": "n8n-nodes-evolution-api-eng.evolutionApi",
       "typeVersion": 1,
       "position": [
-        1120,
-        760
+        1700,
+        640
       ],
       "id": "915a04b8-4b5c-4e14-91da-b4cba8b9a529",
       "name": "Evolution API4",
@@ -1611,7 +2087,7 @@
             "step": "3",
             "contact_id": "={{ $('Webhook').item.json.body.data.key.remoteJid }}",
             "name": "={{ $('Webhook').item.json.body.data.pushName }}",
-            "weight_kg": "{{ $('Code').item.json.weight_kg }}"
+            "weight_kg": "={{ $('Code').item.json.weight_kg }}"
           },
           "matchingColumns": [
             "contact_id"
@@ -1664,8 +2140,8 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.5,
       "position": [
-        960,
-        760
+        1540,
+        640
       ],
       "id": "6c06721e-b333-4d0e-ac50-25fa0283b1b9",
       "name": "Google Sheets5",
@@ -1704,8 +2180,8 @@
       "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
       "typeVersion": 1.2,
       "position": [
-        280,
-        -360
+        -3500,
+        -20
       ],
       "id": "d50e8623-c90b-4708-ae93-87d04b5d3686",
       "name": "OpenAI Chat Model",
@@ -1721,8 +2197,8 @@
       "type": "@n8n/n8n-nodes-langchain.toolCalculator",
       "typeVersion": 1,
       "position": [
-        640,
-        -360
+        -3140,
+        -20
       ],
       "id": "c6485763-125f-4eab-a8a0-e19eb2f670c8",
       "name": "Calculator"
@@ -1738,8 +2214,8 @@
       "type": "@n8n/n8n-nodes-langchain.agent",
       "typeVersion": 1.7,
       "position": [
-        380,
-        -520
+        -3400,
+        -180
       ],
       "id": "f39761fa-f434-440c-a8d9-e613bcec4c34",
       "name": "БИЗНЕС АССИСТЕНТ"
@@ -1752,8 +2228,8 @@
       "type": "n8n-nodes-base.googleDocsTool",
       "typeVersion": 2,
       "position": [
-        500,
-        -360
+        -3280,
+        -20
       ],
       "id": "5032e0f7-c332-4d79-8436-331a12fea428",
       "name": "Stroinyashki1",
@@ -1773,8 +2249,8 @@
       "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
       "typeVersion": 1.3,
       "position": [
-        400,
-        -360
+        -3380,
+        -20
       ],
       "id": "f54e89d1-6dbc-4e90-8282-5324a4574f93",
       "name": "Window Buffer Memory1"
@@ -1836,8 +2312,8 @@
       "type": "n8n-nodes-base.switch",
       "typeVersion": 3.2,
       "position": [
-        1380,
-        300
+        1320,
+        920
       ],
       "id": "7bf7f5b2-31fa-4e8f-bf02-99e7270c7139",
       "name": "Switch3"
@@ -1846,7 +2322,7 @@
       "parameters": {
         "resource": "messages-api",
         "operation": "send-audio",
-        "instanceName": "wa-01",
+        "instanceName": "VEPPERS",
         "remoteJid": "={{ $node[\"Webhook\"].json.body.data.key.remoteJid || $node[\"Webhook\"].json.body.sender }}",
         "media": "https://drive.google.com/uc?export=download&id=1BGfJkWlQDQCHD2UPUz47IcCpSSbiWaJZ",
         "options_message": {}
@@ -1855,7 +2331,7 @@
       "typeVersion": 1,
       "position": [
         1700,
-        440
+        1020
       ],
       "id": "09511d54-bb94-45f4-a655-0dba63b2babd",
       "name": "Evolution API5",
@@ -1932,6 +2408,17 @@
               "display": true,
               "type": "string",
               "canBeUsedToMatch": true
+            },
+            {
+              "id": "row_number",
+              "displayName": "row_number",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "readOnly": true,
+              "removed": false
             }
           ],
           "attemptToConvertTypes": false,
@@ -1943,7 +2430,7 @@
       "typeVersion": 4.5,
       "position": [
         1540,
-        440
+        1020
       ],
       "id": "2d2cc6c5-3426-48bf-bdb8-03909e947270",
       "name": "Google Sheets6",
@@ -1957,7 +2444,7 @@
     {
       "parameters": {
         "resource": "messages-api",
-        "instanceName": "wa-01",
+        "instanceName": "VEPPERS",
         "remoteJid": "={{ $node[\"Webhook\"].json.body.data.key.remoteJid || $node[\"Webhook\"].json.body.sender }}",
         "messageText": "Пара слов обо мне 🩷   \n\nМеня зовут Анастасия Веперс, я дипломированный нутрициолог, психолог, коуч ICF, психосамотолог, в непрерывной практике нахожусь 8 лет  \n\n☝️💯Со мной похудело более 3800 человек. Снимаю диагнозы: сахарный диабет, резистентность, ожирение, бесплодие, гипертония.    💪Помогаю сбросить вес и восстановить здоровье. Со мной работает команда из 30 кураторов. 🤝  \n\nКак мы помогаем похудеть: \n✅Работа происходит в группе в Ватсап в сопровождении куратора.  \n❤️Комфортные группы по 15-20 человек. \n✍️В группе веде‌тся ежедневная работа, фиксируется и анализируется Ваше питание.  \n🤝Психологическое, коучинговое и информационное сопровождение. \n👉Выдается меню.  \n📃Ежедневная(!) обратная связь по всем вопросам.  \n✍️Мы веде‌м за Вами пищевые дневники.  \n✅считать калории не нужно. Все уже просчитано за Вас. \n🌟конструктор меню 👍👉взаимозаменяемые продукты  (т.е. всегда есть выбор на Ваш вкус). \n💥доступные продукты питания (продаются в обычных магазинах). \n🎉очень простая в приготовлении еда.  \n\nПрограмма🌟Поможет раз и навсегда комфортно справиться с лишним весом и очень скоро обновить гардероб 👗👠 )  \n\nТакже улучшить здоровье, снять диагнозы: СД2, резистентность к инсулину, гипертония, ожирение, жировой гепотоз и тд.",
         "options_message": {}
@@ -1966,7 +2453,7 @@
       "typeVersion": 1,
       "position": [
         2080,
-        440
+        1020
       ],
       "id": "93995d52-d520-4e3b-9ece-fee3683ef622",
       "name": "Evolution API6",
@@ -2008,7 +2495,7 @@
       "typeVersion": 4,
       "position": [
         1920,
-        440
+        1020
       ],
       "credentials": {
         "httpHeaderAuth": {
@@ -2032,7 +2519,7 @@
       "typeVersion": 1,
       "position": [
         2500,
-        440
+        1020
       ],
       "id": "df4697b8-e0c5-4cd4-9793-33aa4ca25580",
       "name": "Evolution API7",
@@ -2066,7 +2553,7 @@
       "typeVersion": 4.5,
       "position": [
         2300,
-        440
+        1020
       ],
       "id": "4c740dff-71be-49a1-8e2c-0b224e1342de",
       "name": "Google Sheets7",
@@ -2076,6 +2563,1387 @@
           "name": "veppers"
         }
       }
+    },
+    {
+      "parameters": {
+        "resource": "messages-api",
+        "instanceName": "VEPPERS",
+        "remoteJid": "={{ $node[\"Webhook\"].json.body.data.key.remoteJid || $node[\"Webhook\"].json.body.sender }}",
+        "messageText": "={{ $node[\"OpenAI\"].json.message.content }}",
+        "options_message": {}
+      },
+      "type": "n8n-nodes-evolution-api-eng.evolutionApi",
+      "typeVersion": 1,
+      "position": [
+        2420,
+        320
+      ],
+      "id": "07b788e6-ddd1-4287-88c3-4de1d43474b6",
+      "name": "Evolution API8",
+      "credentials": {
+        "evolutionApi": {
+          "id": "YF67B9nMmE69vgvN",
+          "name": "Evolution account 2"
+        }
+      },
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://evolution-api-production-9e6a.up.railway.app/chat/sendPresence/VEPPERS",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "apikey",
+              "value": "sdvsdgs37e4jgfvuh2g24rsdfsf"
+            },
+            {
+              "name": "content-type",
+              "value": "application/json"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ ({\n  number: String(\n           $node[\"Webhook\"].json.body.data?.key?.remoteJid\n        || $node[\"Webhook\"].json.body.data?.key?.participant\n        || $node[\"Webhook\"].json.body.sender\n        || ''\n       ).split('@')[0].replace(/\\D/g,''),\n  presence: 'composing',\n  delay: $json.typingDelayMs ?? 30000\n}) }}",
+        "options": {}
+      },
+      "id": "719bda8f-efd5-4ed4-acb1-294772977e8b",
+      "name": "HTTP Request (Typing On)3",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4,
+      "position": [
+        2240,
+        320
+      ],
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "G6YhkSorlbr3ZIxC",
+          "name": "Header Auth account"
+        }
+      },
+      "notes": "Имитация набора (typing). Требует, чтобы в текущем item было поле remoteJid, иначе замените выражение на путь к JID из вашего вебхука."
+    },
+    {
+      "parameters": {
+        "modelId": {
+          "__rl": true,
+          "value": "gpt-4.1-mini-2025-04-14",
+          "mode": "list",
+          "cachedResultName": "GPT-4.1-MINI-2025-04-14"
+        },
+        "messages": {
+          "values": [
+            {
+              "content": "={{ \n  $json.text\n  || $node[\"Set Text (final)\"]?.json?.text\n  || $node[\"Transcribe\"]?.json?.text\n  || $node[\"Webhook\"].json.body?.data?.message?.conversation\n  || `рост: ${$json.height_cm || ''} см; вес: ${$json.weight_kg || $node[\"Code\"].json.weight_kg || ''} кг`\n}}"
+            },
+            {
+              "content": "Ты — нутрициолог и женский коуч, общаешься с тёплой поддержкой и лёгкостью.\nНа вход ты получаешь рост (в см) и вес (в кг).\n\nТвоя задача:\n\nНайти рост и вес, посчитать индекс массы тела (ИМТ = вес / (рост в метрах)^2).\n\nОпределить категорию по стандарту ВОЗ:\n\n<18.5 — дефицит массы\n\n18.5–24.9 — норма\n\n25–29.9 — избыточный вес\n\n30–34.9 — ожирение I степени\n\n35–39.9 — ожирение II степени\n\n≥40 — ожирение III степени\n\nОтвет всегда должен начинаться словами:\n«Исходя из Ваших данных, ИМТ (Индекс массы тела)…»\n\nДай результат в 3–4 предложения:\n\nУкажи рассчитанный ИМТ (с округлением до десятых) и категорию.\n\nЕсли ИМТ в норме: похвали («вы прекрасно справляетесь 🌸» или «вы в гармонии со своим телом 💃»), предупреди, что от 25 начинается «лишний вес», и важно закрепить результат.\n\nЕсли ИМТ выше нормы: подбодри, добавь энергию («это можно легко исправить ✨»), покажи, что результат достижим.\n\nЕсли дефицит: мягко укажи на риски («организму нужно больше сил 🌸»), добавь заботы и надежды.\n\nВсегда пиши в женском стиле, дружелюбно, с эмодзи, как будто поддерживаешь подругу.\n\nЗаверши лёгким намёком на программу, без давления:\n«В Стройняшках мы мягко ведём шаг за шагом к комфортному результату 💕.»\n\nФормат ответа:\n— 3–4 живых предложения с эмодзи.\n— Никаких списков и таблиц.\n\n🔹 Примеры\n\nВвод: «Рост 170, вес 63»\nВывод:\n«Исходя из Ваших данных, ИМТ (Индекс массы тела) — он равен 21,8 🌸 Это отличная норма, вы в гармонии со своим телом! 💃 Важно закрепить результат, ведь со временем ситуация может измениться, и поддержка очень помогает. В Стройняшках мы мягко ведём шаг за шагом к комфортному результату 💕.»\n\nВвод: «Рост 172, вес 92»\nВывод:\n«Исходя из Ваших данных, ИМТ (Индекс массы тела) — получилось 31,1 ✨ Это уже ожирение I степени, но не волнуйтесь 🙌 Всё можно исправить, достаточно внести небольшие изменения в питание и режим. Мы будем поддерживать вас на каждом шаге, и результат обязательно станет вашим достижением 💖 В Стройняшках мы мягко ведём шаг за шагом к комфортному результату 💕.»\n\nВвод: «Рост 165, вес 47»\nВывод:\n«Исходя из Ваших данных, ИМТ (Индекс массы тела) — он равен 17,3 🌸 Это дефицит массы, организму сейчас не хватает сил. Но всё можно восстановить: сбалансированное питание и забота помогут вернуть энергию и красоту ✨ В Стройняшках мы мягко ведём шаг за шагом к гармоничному результату 💕.»",
+              "role": "system"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "typeVersion": 1.8,
+      "position": [
+        1900,
+        320
+      ],
+      "id": "c7b5d30d-09d9-4580-a83d-27804d5d14b1",
+      "name": "OpenAI",
+      "credentials": {
+        "openAiApi": {
+          "id": "T10Aj8URpRIqIm4V",
+          "name": "OpenAi account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "resource": "messages-api",
+        "instanceName": "VEPPERS",
+        "remoteJid": "={{ $node[\"Webhook\"].json.body.data.key.remoteJid || $node[\"Webhook\"].json.body.sender }}",
+        "messageText": "={{ $node[\"OpenAI1\"].json.message.content }}",
+        "options_message": {}
+      },
+      "type": "n8n-nodes-evolution-api-eng.evolutionApi",
+      "typeVersion": 1,
+      "position": [
+        2420,
+        480
+      ],
+      "id": "c52bcbe5-29a2-4dad-9cef-0dccf62063ce",
+      "name": "Evolution API9",
+      "credentials": {
+        "evolutionApi": {
+          "id": "YF67B9nMmE69vgvN",
+          "name": "Evolution account 2"
+        }
+      },
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://evolution-api-production-9e6a.up.railway.app/chat/sendPresence/VEPPERS",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "apikey",
+              "value": "sdvsdgs37e4jgfvuh2g24rsdfsf"
+            },
+            {
+              "name": "content-type",
+              "value": "application/json"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ ({\n  number: String(\n           $node[\"Webhook\"].json.body.data?.key?.remoteJid\n        || $node[\"Webhook\"].json.body.data?.key?.participant\n        || $node[\"Webhook\"].json.body.sender\n        || ''\n       ).split('@')[0].replace(/\\D/g,''),\n  presence: 'composing',\n  delay: $json.typingDelayMs ?? 30000\n}) }}",
+        "options": {}
+      },
+      "id": "f161c2e1-7ec7-449d-9489-0b97b604c402",
+      "name": "HTTP Request (Typing On)4",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4,
+      "position": [
+        2240,
+        480
+      ],
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "G6YhkSorlbr3ZIxC",
+          "name": "Header Auth account"
+        }
+      },
+      "notes": "Имитация набора (typing). Требует, чтобы в текущем item было поле remoteJid, иначе замените выражение на путь к JID из вашего вебхука."
+    },
+    {
+      "parameters": {
+        "modelId": {
+          "__rl": true,
+          "value": "gpt-4.1-mini-2025-04-14",
+          "mode": "list",
+          "cachedResultName": "GPT-4.1-MINI-2025-04-14"
+        },
+        "messages": {
+          "values": [
+            {
+              "content": "={{ \n  $json.text\n  || $node[\"Set Text (final)\"]?.json?.text\n  || $node[\"Transcribe\"]?.json?.text\n  || $node[\"Webhook\"].json.body?.data?.message?.conversation\n  || `рост: ${$json.height_cm || ''} см; вес: ${$json.weight_kg || $node[\"Code\"].json.weight_kg || ''} кг`\n}}"
+            },
+            {
+              "content": "Ты — нутрициолог и женский коуч, общаешься с тёплой поддержкой и лёгкостью.\nНа вход ты получаешь рост (в см) и вес (в кг).\n\nТвоя задача:\n\nНайти рост и вес, посчитать индекс массы тела (ИМТ = вес / (рост в метрах)^2).\n\nОпределить категорию по стандарту ВОЗ:\n\n<18.5 — дефицит массы\n\n18.5–24.9 — норма\n\n25–29.9 — избыточный вес\n\n30–34.9 — ожирение I степени\n\n35–39.9 — ожирение II степени\n\n≥40 — ожирение III степени\n\nОтвет всегда должен начинаться словами:\n«Исходя из Ваших данных, ИМТ (Индекс массы тела)…»\n\nДай результат в 3–4 предложения:\n\nУкажи рассчитанный ИМТ (с округлением до десятых) и категорию.\n\nЕсли ИМТ в норме: похвали («вы прекрасно справляетесь 🌸» или «вы в гармонии со своим телом 💃»), предупреди, что от 25 начинается «лишний вес», и важно закрепить результат.\n\nЕсли ИМТ выше нормы: подбодри, добавь энергию («это можно легко исправить ✨»), покажи, что результат достижим.\n\nЕсли дефицит: мягко укажи на риски («организму нужно больше сил 🌸»), добавь заботы и надежды.\n\nВсегда пиши в женском стиле, дружелюбно, с эмодзи, как будто поддерживаешь подругу.\n\nЗаверши лёгким намёком на программу, без давления:\n«В Стройняшках мы мягко ведём шаг за шагом к комфортному результату 💕.»\n\nФормат ответа:\n— 3–4 живых предложения с эмодзи.\n— Никаких списков и таблиц.\n\n🔹 Примеры\n\nВвод: «Рост 170, вес 63»\nВывод:\n«Исходя из Ваших данных, ИМТ (Индекс массы тела) — он равен 21,8 🌸 Это отличная норма, вы в гармонии со своим телом! 💃 Важно закрепить результат, ведь со временем ситуация может измениться, и поддержка очень помогает. В Стройняшках мы мягко ведём шаг за шагом к комфортному результату 💕.»\n\nВвод: «Рост 172, вес 92»\nВывод:\n«Исходя из Ваших данных, ИМТ (Индекс массы тела) — получилось 31,1 ✨ Это уже ожирение I степени, но не волнуйтесь 🙌 Всё можно исправить, достаточно внести небольшие изменения в питание и режим. Мы будем поддерживать вас на каждом шаге, и результат обязательно станет вашим достижением 💖 В Стройняшках мы мягко ведём шаг за шагом к комфортному результату 💕.»\n\nВвод: «Рост 165, вес 47»\nВывод:\n«Исходя из Ваших данных, ИМТ (Индекс массы тела) — он равен 17,3 🌸 Это дефицит массы, организму сейчас не хватает сил. Но всё можно восстановить: сбалансированное питание и забота помогут вернуть энергию и красоту ✨ В Стройняшках мы мягко ведём шаг за шагом к гармоничному результату 💕.»",
+              "role": "system"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "typeVersion": 1.8,
+      "position": [
+        1900,
+        480
+      ],
+      "id": "016795a1-b136-4a2a-bf5a-b101c8bc3d0c",
+      "name": "OpenAI1",
+      "credentials": {
+        "openAiApi": {
+          "id": "T10Aj8URpRIqIm4V",
+          "name": "OpenAi account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "resource": "messages-api",
+        "instanceName": "VEPPERS",
+        "remoteJid": "={{ $node[\"Webhook\"].json.body.data.key.remoteJid || $node[\"Webhook\"].json.body.sender }}",
+        "messageText": "={{ $node[\"OpenAI2\"].json.message.content }}",
+        "options_message": {}
+      },
+      "type": "n8n-nodes-evolution-api-eng.evolutionApi",
+      "typeVersion": 1,
+      "position": [
+        2420,
+        640
+      ],
+      "id": "64670ec2-6bef-40a9-beb9-6d88e52688c3",
+      "name": "Evolution API10",
+      "credentials": {
+        "evolutionApi": {
+          "id": "YF67B9nMmE69vgvN",
+          "name": "Evolution account 2"
+        }
+      },
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://evolution-api-production-9e6a.up.railway.app/chat/sendPresence/VEPPERS",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "apikey",
+              "value": "sdvsdgs37e4jgfvuh2g24rsdfsf"
+            },
+            {
+              "name": "content-type",
+              "value": "application/json"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ ({\n  number: String(\n           $node[\"Webhook\"].json.body.data?.key?.remoteJid\n        || $node[\"Webhook\"].json.body.data?.key?.participant\n        || $node[\"Webhook\"].json.body.sender\n        || ''\n       ).split('@')[0].replace(/\\D/g,''),\n  presence: 'composing',\n  delay: $json.typingDelayMs ?? 30000\n}) }}",
+        "options": {}
+      },
+      "id": "61dedce5-9c97-43c1-973a-3ce4f21a4ca5",
+      "name": "HTTP Request (Typing On)5",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4,
+      "position": [
+        2240,
+        640
+      ],
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "G6YhkSorlbr3ZIxC",
+          "name": "Header Auth account"
+        }
+      },
+      "notes": "Имитация набора (typing). Требует, чтобы в текущем item было поле remoteJid, иначе замените выражение на путь к JID из вашего вебхука."
+    },
+    {
+      "parameters": {
+        "modelId": {
+          "__rl": true,
+          "value": "gpt-4.1-mini-2025-04-14",
+          "mode": "list",
+          "cachedResultName": "GPT-4.1-MINI-2025-04-14"
+        },
+        "messages": {
+          "values": [
+            {
+              "content": "={{ \n  $json.text\n  || $node[\"Set Text (final)\"]?.json?.text\n  || $node[\"Transcribe\"]?.json?.text\n  || $node[\"Webhook\"].json.body?.data?.message?.conversation\n  || `рост: ${$json.height_cm || ''} см; вес: ${$json.weight_kg || $node[\"Code\"].json.weight_kg || ''} кг`\n}}"
+            },
+            {
+              "content": "Ты — нутрициолог и женский коуч, общаешься с тёплой поддержкой и лёгкостью.\nНа вход ты получаешь рост (в см) и вес (в кг).\n\nТвоя задача:\n\nНайти рост и вес, посчитать индекс массы тела (ИМТ = вес / (рост в метрах)^2).\n\nОпределить категорию по стандарту ВОЗ:\n\n<18.5 — дефицит массы\n\n18.5–24.9 — норма\n\n25–29.9 — избыточный вес\n\n30–34.9 — ожирение I степени\n\n35–39.9 — ожирение II степени\n\n≥40 — ожирение III степени\n\nОтвет всегда должен начинаться словами:\n«Исходя из Ваших данных, ИМТ (Индекс массы тела)…»\n\nДай результат в 3–4 предложения:\n\nУкажи рассчитанный ИМТ (с округлением до десятых) и категорию.\n\nЕсли ИМТ в норме: похвали («вы прекрасно справляетесь 🌸» или «вы в гармонии со своим телом 💃»), предупреди, что от 25 начинается «лишний вес», и важно закрепить результат.\n\nЕсли ИМТ выше нормы: подбодри, добавь энергию («это можно легко исправить ✨»), покажи, что результат достижим.\n\nЕсли дефицит: мягко укажи на риски («организму нужно больше сил 🌸»), добавь заботы и надежды.\n\nВсегда пиши в женском стиле, дружелюбно, с эмодзи, как будто поддерживаешь подругу.\n\nЗаверши лёгким намёком на программу, без давления:\n«В Стройняшках мы мягко ведём шаг за шагом к комфортному результату 💕.»\n\nФормат ответа:\n— 3–4 живых предложения с эмодзи.\n— Никаких списков и таблиц.\n\n🔹 Примеры\n\nВвод: «Рост 170, вес 63»\nВывод:\n«Исходя из Ваших данных, ИМТ (Индекс массы тела) — он равен 21,8 🌸 Это отличная норма, вы в гармонии со своим телом! 💃 Важно закрепить результат, ведь со временем ситуация может измениться, и поддержка очень помогает. В Стройняшках мы мягко ведём шаг за шагом к комфортному результату 💕.»\n\nВвод: «Рост 172, вес 92»\nВывод:\n«Исходя из Ваших данных, ИМТ (Индекс массы тела) — получилось 31,1 ✨ Это уже ожирение I степени, но не волнуйтесь 🙌 Всё можно исправить, достаточно внести небольшие изменения в питание и режим. Мы будем поддерживать вас на каждом шаге, и результат обязательно станет вашим достижением 💖 В Стройняшках мы мягко ведём шаг за шагом к комфортному результату 💕.»\n\nВвод: «Рост 165, вес 47»\nВывод:\n«Исходя из Ваших данных, ИМТ (Индекс массы тела) — он равен 17,3 🌸 Это дефицит массы, организму сейчас не хватает сил. Но всё можно восстановить: сбалансированное питание и забота помогут вернуть энергию и красоту ✨ В Стройняшках мы мягко ведём шаг за шагом к гармоничному результату 💕.»",
+              "role": "system"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "typeVersion": 1.8,
+      "position": [
+        1900,
+        640
+      ],
+      "id": "7f341b4d-c863-4f6c-a7e3-e869e427da0b",
+      "name": "OpenAI2",
+      "credentials": {
+        "openAiApi": {
+          "id": "T10Aj8URpRIqIm4V",
+          "name": "OpenAi account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "resource": "messages-api",
+        "instanceName": "VEPPERS",
+        "remoteJid": "={{ $node[\"Webhook\"].json.body.data.key.remoteJid || $node[\"Webhook\"].json.body.sender }}",
+        "messageText": "Здорово снова видеть вас рядом! 💚 Вы знаете наш подход — мягко, по делу и с результатом. Ниже — актуальные условия и ближайший старт 👇",
+        "options_message": {}
+      },
+      "type": "n8n-nodes-evolution-api-eng.evolutionApi",
+      "typeVersion": 1,
+      "position": [
+        1920,
+        860
+      ],
+      "id": "e81c3564-6d86-4a28-ae46-3adbe376498b",
+      "name": "Evolution API11",
+      "credentials": {
+        "evolutionApi": {
+          "id": "YF67B9nMmE69vgvN",
+          "name": "Evolution account 2"
+        }
+      },
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://evolution-api-production-9e6a.up.railway.app/chat/sendPresence/VEPPERS",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "apikey",
+              "value": "sdvsdgs37e4jgfvuh2g24rsdfsf"
+            },
+            {
+              "name": "content-type",
+              "value": "application/json"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ JSON.stringify({\n  number:  String(($json.contact_id\n                   || $json.body?.data?.key?.participant\n                   || $json.body?.data?.key?.remoteJid\n                   || $json.body?.sender\n                   || '')).split('@')[0].replace(/\\D/g,''),\n  presence: 'composing',\n  delay: 20000\n}) }}\n",
+        "options": {}
+      },
+      "id": "3ce925fd-5e15-4517-829c-4e32ba4cbab8",
+      "name": "HTTP Request (Typing On)6",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4,
+      "position": [
+        1700,
+        860
+      ],
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "G6YhkSorlbr3ZIxC",
+          "name": "Header Auth account"
+        }
+      },
+      "notes": "Имитация набора (typing). Требует, чтобы в текущем item было поле remoteJid, иначе замените выражение на путь к JID из вашего вебхука."
+    },
+    {
+      "parameters": {
+        "resource": "messages-api",
+        "instanceName": "VEPPERS",
+        "remoteJid": "={{ $node[\"Webhook\"].json.body.data.key.remoteJid || $node[\"Webhook\"].json.body.sender }}",
+        "messageText": "=💸Стоимость   \n\n7100 руб.  (возможна рассрочка!) \n🔵Если оплачиваете СЕГОДНЯ в \n🔺течении суток, то (!)👉 \n🔺6200 руб. - подключение к Группе и работа в первый месяц (возможна оплата в 2 этапа по 3100 руб) \nПролонгация на следующий месяц (по необходимости) - 4000 руб в месяц.   \n\n🟢Дата старта: {{ $json['Дата старта'] }}   \n\n🔴Наши результаты можно посмотреть в Инстаграмм👇   \n\nhttps://instagram.com/a.vepers?utm_medium=copy_link   \n\nТелеграм https://t.me/+9oiL-YbTotY0MTdi  \n\nТелеграмм \"Самое интересное \" https://t.me/+evDmVWbiMcRiOGYy   \n\nСайт https://anastasiavepers.ru/   \n\nЕсли есть вопросы,  спрашивайте, я с удовольствием на них отвечу  💋🤝 ",
+        "options_message": {
+          "delay": 10000
+        }
+      },
+      "type": "n8n-nodes-evolution-api-eng.evolutionApi",
+      "typeVersion": 1,
+      "position": [
+        2300,
+        860
+      ],
+      "id": "05f186db-b64e-41c6-95a8-186fdf71a7cf",
+      "name": "Evolution API12",
+      "credentials": {
+        "evolutionApi": {
+          "id": "YF67B9nMmE69vgvN",
+          "name": "Evolution account 2"
+        }
+      },
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "documentId": {
+          "__rl": true,
+          "value": "1aVsjAorVhubrACj_YNSLy3t-rQYfBwjL1IQ_aBKRpEI",
+          "mode": "list",
+          "cachedResultName": "Активная база данных",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1aVsjAorVhubrACj_YNSLy3t-rQYfBwjL1IQ_aBKRpEI/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "Лист1",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1aVsjAorVhubrACj_YNSLy3t-rQYfBwjL1IQ_aBKRpEI/edit#gid=0"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.5,
+      "position": [
+        2080,
+        860
+      ],
+      "id": "23246aee-4124-440f-a597-9552184dacb5",
+      "name": "Google Sheets8",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "y8u36G3ttt4BcDqC",
+          "name": "veppers"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "documentId": {
+          "__rl": true,
+          "value": "1WOCQBIfJEhzbwSSK1dOF26JMQBO0JAwpuLLVHWnIWUc",
+          "mode": "list",
+          "cachedResultName": "Диалоги",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1WOCQBIfJEhzbwSSK1dOF26JMQBO0JAwpuLLVHWnIWUc/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "Вотсап",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1WOCQBIfJEhzbwSSK1dOF26JMQBO0JAwpuLLVHWnIWUc/edit#gid=0"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "step": "4",
+            "contact_id": "={{ $('Webhook').item.json.body.data.key.remoteJid }}",
+            "name": "={{ $('Webhook').item.json.body.data.pushName }}"
+          },
+          "matchingColumns": [
+            "contact_id"
+          ],
+          "schema": [
+            {
+              "id": "contact_id",
+              "displayName": "contact_id",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "name",
+              "displayName": "name",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "step",
+              "displayName": "step",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "weight_kg",
+              "displayName": "weight_kg",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "row_number",
+              "displayName": "row_number",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "readOnly": true,
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.5,
+      "position": [
+        1540,
+        860
+      ],
+      "id": "5c76e429-3755-4ed8-bf4b-b2d7e2728043",
+      "name": "Google Sheets9",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "y8u36G3ttt4BcDqC",
+          "name": "veppers"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "rules": {
+          "values": [
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "d76bcca3-b1bd-45dd-bdef-bc1f0e56e1c5",
+                    "leftValue": "={{ JSON.parse($node[\"OpenAI3\"].json.message.content).answer }}",
+                    "rightValue": "full",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              }
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "b7f20159-4ce8-417e-905a-17a07d280c59",
+                    "leftValue": "={{ JSON.parse($node[\"OpenAI3\"].json.message.content).answer }}",
+                    "rightValue": "split",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              }
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "171f4d59-e35f-48a6-b4d6-444f06e23ecf",
+                    "leftValue": "={{ JSON.parse($node[\"OpenAI3\"].json.message.content).answer }}",
+                    "rightValue": "other",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              }
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 3.2,
+      "position": [
+        -1020,
+        780
+      ],
+      "id": "9440618d-aac9-4778-8269-873fcbbf703d",
+      "name": "Switch4"
+    },
+    {
+      "parameters": {
+        "modelId": {
+          "__rl": true,
+          "value": "gpt-4.1-mini-2025-04-14",
+          "mode": "list",
+          "cachedResultName": "GPT-4.1-MINI-2025-04-14"
+        },
+        "messages": {
+          "values": [
+            {
+              "content": "Ты — классификатор ответа клиента по способу оплаты.\nВерни СТРОГО один JSON-объект БЕЗ пояснений и текста вокруг ровно в таком виде:\n\n{\n  \"answer\": \"full\" | \"split\" | \"other\",\n  \"full_amount\": number | null,\n  \"part_amount\": number | null\n}\n\nПравила:\n1) \"full\" — если человек явно согласен оплатить полностью сейчас/сегодня/ ИЛИ упоминает 6200 (например: «перевожу 6200», «оплачу полностью», «готов оплатить целиком»).\n2) \"split\" — если человек хочет оплатить в 2 этапа/в рассрочку/частями, упоминает «по 3100», «двумя платежами», «в два платежа», «50/50», «частями», «рассрочка».\n3) \"other\" — любой другой ответ: уточняющие вопросы, «подумаю», «позже», обсуждение не про способ оплаты, упоминание 4000 (это цена пролонгации, НЕ первый платёж), молчание по сути и т.д.\n\nНормализация чисел:\n- Считай 6200 независимо от пробелов/знаков («6 200», «6,200», «6200р», «6200 руб» и т.п.).\n- Считай 3100 аналогично («3 100», «3,100» и т.п.).\n- Игнорируй числа не относящиеся к первому платежу (например «4000» — это не первый платеж, не повод для \"split\" или \"full\").\n\nПоля в ответе:\n- \"answer\": только одно из \"full\" | \"split\" | \"other\".\n- \"full_amount\": 6200 если answer=\"full\", иначе null.\n- \"part_amount\": 3100 если answer=\"split\" (2 платежа), иначе null.\n\nВерни ТОЛЬКО JSON-объект, без комментариев и без текста вокруг.",
+              "role": "system"
+            },
+            {
+              "content": "={{ \n  $json.text\n  || $node[\"Set Text (final)\"]?.json?.text\n  || $node[\"Transcribe\"]?.json?.text\n  || $node[\"Webhook\"].json.body?.data?.message?.conversation\n}}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "typeVersion": 1.8,
+      "position": [
+        -1340,
+        640
+      ],
+      "id": "5d6d2daa-bfc9-4e6a-af54-5ea1ec7422a3",
+      "name": "OpenAI3",
+      "credentials": {
+        "openAiApi": {
+          "id": "T10Aj8URpRIqIm4V",
+          "name": "OpenAi account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "resource": "messages-api",
+        "instanceName": "VEPPERS",
+        "remoteJid": "={{ $node[\"Webhook\"].json.body.data.key.remoteJid || $node[\"Webhook\"].json.body.sender }}",
+        "messageText": "Оплатить можете по ссылке удобным для вас способом через Робокассу👇\n\nhttps://auth.robokassa.ru/merchant/Invoice/i0FzQfluCUKk2MhP85XfQw\n\n6200 рублей, будем очень признательны за оплату по СБП🙏\nНапишите как сделаете оплату и пришлите скриншот, я сразу же передам ваш контакт главному куратору и добавим вас в группу",
+        "options_message": {}
+      },
+      "type": "n8n-nodes-evolution-api-eng.evolutionApi",
+      "typeVersion": 1,
+      "position": [
+        -440,
+        640
+      ],
+      "id": "ac0f9311-a9fe-4743-96c2-b10a56b9f553",
+      "name": "Evolution API13",
+      "credentials": {
+        "evolutionApi": {
+          "id": "YF67B9nMmE69vgvN",
+          "name": "Evolution account 2"
+        }
+      },
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://evolution-api-production-9e6a.up.railway.app/chat/sendPresence/VEPPERS",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "apikey",
+              "value": "sdvsdgs37e4jgfvuh2g24rsdfsf"
+            },
+            {
+              "name": "content-type",
+              "value": "application/json"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ ({\n  number: String(\n           $node[\"Webhook\"].json.body.data?.key?.remoteJid\n        || $node[\"Webhook\"].json.body.data?.key?.participant\n        || $node[\"Webhook\"].json.body.sender\n        || ''\n       ).split('@')[0].replace(/\\D/g,''),\n  presence: 'composing',\n  delay: $json.typingDelayMs ?? 30000\n}) }}",
+        "options": {}
+      },
+      "id": "e7e9dc7d-71e2-418a-afbf-8b82651a2205",
+      "name": "HTTP Request (Typing On)7",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4,
+      "position": [
+        -620,
+        640
+      ],
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "G6YhkSorlbr3ZIxC",
+          "name": "Header Auth account"
+        }
+      },
+      "notes": "Имитация набора (typing). Требует, чтобы в текущем item было поле remoteJid, иначе замените выражение на путь к JID из вашего вебхука."
+    },
+    {
+      "parameters": {
+        "resource": "messages-api",
+        "instanceName": "VEPPERS",
+        "remoteJid": "={{ $node[\"Webhook\"].json.body.data.key.remoteJid || $node[\"Webhook\"].json.body.sender }}",
+        "messageText": "Оплатить можете по ссылке удобным для вас способом через Робокассу👇\n\nhttps://auth.robokassa.ru/merchant/Invoice/27bnWwf_UU6s3_PlSwAexg\n\n3100 рублей, будем очень признательны за оплату по СБП🙏\nНапишите как сделаете оплату и пришлите скриншот, я сразу же передам ваш контакт главному куратору и добавим вас в группу",
+        "options_message": {}
+      },
+      "type": "n8n-nodes-evolution-api-eng.evolutionApi",
+      "typeVersion": 1,
+      "position": [
+        -440,
+        780
+      ],
+      "id": "058bccc0-7c2b-4570-bd7b-b1b37a0bfde9",
+      "name": "Evolution API14",
+      "credentials": {
+        "evolutionApi": {
+          "id": "YF67B9nMmE69vgvN",
+          "name": "Evolution account 2"
+        }
+      },
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://evolution-api-production-9e6a.up.railway.app/chat/sendPresence/VEPPERS",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "apikey",
+              "value": "sdvsdgs37e4jgfvuh2g24rsdfsf"
+            },
+            {
+              "name": "content-type",
+              "value": "application/json"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ ({\n  number: String(\n           $node[\"Webhook\"].json.body.data?.key?.remoteJid\n        || $node[\"Webhook\"].json.body.data?.key?.participant\n        || $node[\"Webhook\"].json.body.sender\n        || ''\n       ).split('@')[0].replace(/\\D/g,''),\n  presence: 'composing',\n  delay: $json.typingDelayMs ?? 30000\n}) }}",
+        "options": {}
+      },
+      "id": "c174ecf5-72e6-4ead-8bab-43ea11a9c202",
+      "name": "HTTP Request (Typing On)8",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4,
+      "position": [
+        -620,
+        780
+      ],
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "G6YhkSorlbr3ZIxC",
+          "name": "Header Auth account"
+        }
+      },
+      "notes": "Имитация набора (typing). Требует, чтобы в текущем item было поле remoteJid, иначе замените выражение на путь к JID из вашего вебхука."
+    },
+    {
+      "parameters": {
+        "resource": "messages-api",
+        "instanceName": "VEPPERS",
+        "remoteJid": "=79898517307@s.whatsapp.net",
+        "messageText": "={{ \n  'Лид на этапе оплаты — сообщение:\\n\\n'\n  + 'Имя: ' \n  + ($json.name || $node[\"Webhook\"].json.body.data?.pushName || '—') + '\\n'\n  + 'Телефон: +' \n  + String(($node[\"Webhook\"].json.body.data?.key?.remoteJid || $node[\"Webhook\"].json.body?.sender || ''))\n      .split('@')[0].replace(/\\D/g,'') + '\\n'\n  + 'Текст клиента: ' \n  + ($node[\"Set Text (final)\"].json?.text \n      || $node[\"Webhook\"].json.body?.data?.message?.conversation \n      || '[нет текста]')\n}}",
+        "options_message": {}
+      },
+      "type": "n8n-nodes-evolution-api-eng.evolutionApi",
+      "typeVersion": 1,
+      "position": [
+        -820,
+        940
+      ],
+      "id": "aa6a27ea-3c59-496d-8886-b216c2db0914",
+      "name": "Evolution API15",
+      "credentials": {
+        "evolutionApi": {
+          "id": "YF67B9nMmE69vgvN",
+          "name": "Evolution account 2"
+        }
+      },
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "documentId": {
+          "__rl": true,
+          "value": "1WOCQBIfJEhzbwSSK1dOF26JMQBO0JAwpuLLVHWnIWUc",
+          "mode": "list",
+          "cachedResultName": "Диалоги",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1WOCQBIfJEhzbwSSK1dOF26JMQBO0JAwpuLLVHWnIWUc/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "Вотсап",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1WOCQBIfJEhzbwSSK1dOF26JMQBO0JAwpuLLVHWnIWUc/edit#gid=0"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "step": "5",
+            "contact_id": "={{ $('Webhook').item.json.body.data.key.remoteJid }}",
+            "name": "={{ $('Webhook').item.json.body.data.pushName }}"
+          },
+          "matchingColumns": [
+            "contact_id"
+          ],
+          "schema": [
+            {
+              "id": "contact_id",
+              "displayName": "contact_id",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "name",
+              "displayName": "name",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "step",
+              "displayName": "step",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "weight_kg",
+              "displayName": "weight_kg",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "row_number",
+              "displayName": "row_number",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "readOnly": true,
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.5,
+      "position": [
+        -820,
+        640
+      ],
+      "id": "1c75c57f-6e09-4f63-aa2d-16bc0f060329",
+      "name": "Google Sheets10",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "y8u36G3ttt4BcDqC",
+          "name": "veppers"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "documentId": {
+          "__rl": true,
+          "value": "1WOCQBIfJEhzbwSSK1dOF26JMQBO0JAwpuLLVHWnIWUc",
+          "mode": "list",
+          "cachedResultName": "Диалоги",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1WOCQBIfJEhzbwSSK1dOF26JMQBO0JAwpuLLVHWnIWUc/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "Вотсап",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1WOCQBIfJEhzbwSSK1dOF26JMQBO0JAwpuLLVHWnIWUc/edit#gid=0"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "step": "5",
+            "contact_id": "={{ $('Webhook').item.json.body.data.key.remoteJid }}",
+            "name": "={{ $('Webhook').item.json.body.data.pushName }}"
+          },
+          "matchingColumns": [
+            "contact_id"
+          ],
+          "schema": [
+            {
+              "id": "contact_id",
+              "displayName": "contact_id",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "name",
+              "displayName": "name",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "step",
+              "displayName": "step",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "weight_kg",
+              "displayName": "weight_kg",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "row_number",
+              "displayName": "row_number",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "readOnly": true,
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.5,
+      "position": [
+        -820,
+        780
+      ],
+      "id": "7bafa421-14bf-480f-a5ab-291688897257",
+      "name": "Google Sheets11",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "y8u36G3ttt4BcDqC",
+          "name": "veppers"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "resource": "image",
+        "operation": "analyze",
+        "modelId": {
+          "__rl": true,
+          "value": "gpt-4o-2024-11-20",
+          "mode": "list",
+          "cachedResultName": "GPT-4O-2024-11-20"
+        },
+        "text": "текст с картинки",
+        "inputType": "base64",
+        "binaryPropertyName": "file",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "typeVersion": 1.8,
+      "position": [
+        -140,
+        640
+      ],
+      "id": "002ab299-9fdc-4389-9db2-7ca97ef6fa20",
+      "name": "OpenAI4",
+      "credentials": {
+        "openAiApi": {
+          "id": "T10Aj8URpRIqIm4V",
+          "name": "OpenAi account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "=https://evolution-api-production-9e6a.up.railway.app/chat/getBase64FromMediaMessage/VEPPERS",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "apikey",
+              "value": "={{ $json.body.apikey }}"
+            },
+            {
+              "name": "content-type",
+              "value": "application/json"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ JSON.stringify({\n  message: {\n    key: {\n      id: $node[\"Webhook\"].json.body.data.key.id,\n      remoteJid: $node[\"Webhook\"].json.body.data.key.remoteJid\n    }\n  },\n  convertToMp4: false\n}) }}",
+        "options": {
+          "response": {
+            "response": {
+              "neverError": true,
+              "responseFormat": "json"
+            }
+          }
+        }
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        -740,
+        360
+      ],
+      "id": "d53052dd-1342-4656-a856-e61cc5fee61e",
+      "name": "HTTP Request1"
+    },
+    {
+      "parameters": {
+        "operation": "toBinary",
+        "sourceProperty": "base64",
+        "binaryPropertyName": "file",
+        "options": {
+          "fileName": "={{ $json.fileName || 'receipt.jpg' }}",
+          "mimeType": "={{ $json.mimetype || 'image/jpeg' }}"
+        }
+      },
+      "type": "n8n-nodes-base.convertToFile",
+      "typeVersion": 1.1,
+      "position": [
+        -560,
+        360
+      ],
+      "id": "434ed586-5ab0-428e-a77f-afca248ce3f3",
+      "name": "Convert to File1"
+    },
+    {
+      "parameters": {
+        "modelId": {
+          "__rl": true,
+          "value": "gpt-4.1-mini-2025-04-14",
+          "mode": "list",
+          "cachedResultName": "GPT-4.1-MINI-2025-04-14"
+        },
+        "messages": {
+          "values": [
+            {
+              "content": "Ты парсер чеков. Верни ТОЛЬКО JSON без текста и без ```.\n\nСхема:\n{\n  \"receipt\": \"yes|no|uncertain\",\n  \"paid\": \"yes|no|uncertain\",\n  \"amount\": number|null,\n  \"method\": \"sbp|card|transfer|cash|unknown\",\n  \"confidence\": number  // 0..1\n}\n\nЕсли не уверено — ставь \"uncertain\" и amount=null.\nСумму — числом (в рублях) без пробелов и валюты.",
+              "role": "system"
+            },
+            {
+              "content": "={{ $json.content }}\n{{ $json.text }}"
+            }
+          ]
+        },
+        "jsonOutput": true,
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "typeVersion": 1.8,
+      "position": [
+        0,
+        640
+      ],
+      "id": "2ec9a024-882c-4137-8e5f-03322be43708",
+      "name": "OpenAI5",
+      "credentials": {
+        "openAiApi": {
+          "id": "T10Aj8URpRIqIm4V",
+          "name": "OpenAi account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "let o = {};\ntry { o = JSON.parse($json.message?.content || '{}'); } catch(e) {}\n\nconst base64 = $node[\"HTTP Request1\"].json?.base64 \n            || $node[\"HTTP Request1\"].json?.result?.base64 \n            || null;\n\nconst mimetype = $node[\"HTTP Request1\"].json?.mimetype || 'image/jpeg';\nconst fileName = $node[\"HTTP Request1\"].json?.fileName || (mimetype === 'application/pdf' ? 'receipt.pdf' : 'receipt.jpg');\n\nreturn [{\n  // из OpenAI5\n  receipt: o.receipt || 'uncertain',\n  paid: o.paid || 'uncertain',\n  amount: Number.isFinite(o.amount) ? o.amount : null,\n  method: o.method || 'unknown',\n\n  // сервисные поля\n  is_paid: (o.paid === 'yes'),\n  name: $node[\"Webhook\"].json.body?.data?.pushName || '',\n  phone: String($node[\"Webhook\"].json.body?.data?.key?.remoteJid || $node[\"Webhook\"].json.body?.sender || '').split('@')[0].replace(/\\D/g,''),\n  caption_or_text: $node[\"Webhook\"].json.body?.data?.message?.imageMessage?.caption \n                 || $node[\"Webhook\"].json.body?.data?.message?.conversation || '',\n\n  // для отправки файла\n  base64,\n  mimetype,\n  fileName\n}];\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        300,
+        640
+      ],
+      "id": "e8e1badb-9310-419f-8941-bb1e6b3dd83b",
+      "name": "Code1"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "f69fbc8c-cc54-45ce-bc38-97b15e8c34a3",
+              "leftValue": "={{ $('OpenAI5').item.json.message.content.paid }}",
+              "rightValue": "yes",
+              "operator": {
+                "type": "string",
+                "operation": "equals",
+                "name": "filter.operator.equals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        500,
+        640
+      ],
+      "id": "8f9c6d79-ed95-403e-9394-c8fad8f64b79",
+      "name": "If1"
+    },
+    {
+      "parameters": {
+        "resource": "messages-api",
+        "instanceName": "VEPPERS",
+        "remoteJid": "=79898517307@s.whatsapp.net",
+        "messageText": "=✅ Клиент оплатил\nИмя: {{ $json.name }}\nТелефон: +{{ $('If1').item.json.phone }}\nСумма: {{ $('OpenAI5').item.json.message.content.amount }}\nМетод: {{ $('OpenAI5').item.json.message.content.method }}",
+        "options_message": {}
+      },
+      "type": "n8n-nodes-evolution-api-eng.evolutionApi",
+      "typeVersion": 1,
+      "position": [
+        60,
+        860
+      ],
+      "id": "99583ed1-c318-4dcb-8518-eee9bf562da4",
+      "name": "Evolution API16",
+      "credentials": {
+        "evolutionApi": {
+          "id": "YF67B9nMmE69vgvN",
+          "name": "Evolution account 2"
+        }
+      },
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "resource": "messages-api",
+        "instanceName": "VEPPERS",
+        "remoteJid": "=79898517307@s.whatsapp.net",
+        "messageText": "=⚠️ лид прислал скриншот оплаты, но система не распознала оплату\n\nИмя: {{ $json.name }}\nТелефон: +{{ $('If1').item.json.phone }}",
+        "options_message": {}
+      },
+      "type": "n8n-nodes-evolution-api-eng.evolutionApi",
+      "typeVersion": 1,
+      "position": [
+        500,
+        860
+      ],
+      "id": "d8ced697-a762-4ab2-a3d9-ae57e7615994",
+      "name": "Evolution API17",
+      "credentials": {
+        "evolutionApi": {
+          "id": "YF67B9nMmE69vgvN",
+          "name": "Evolution account 2"
+        }
+      },
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "documentId": {
+          "__rl": true,
+          "value": "1WOCQBIfJEhzbwSSK1dOF26JMQBO0JAwpuLLVHWnIWUc",
+          "mode": "list",
+          "cachedResultName": "Диалоги",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1WOCQBIfJEhzbwSSK1dOF26JMQBO0JAwpuLLVHWnIWUc/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "Вотсап",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1WOCQBIfJEhzbwSSK1dOF26JMQBO0JAwpuLLVHWnIWUc/edit#gid=0"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "step": "оплачено",
+            "contact_id": "={{ $('Webhook').item.json.body.data.key.remoteJid }}",
+            "name": "={{ $('Webhook').item.json.body.data.pushName }}"
+          },
+          "matchingColumns": [
+            "contact_id"
+          ],
+          "schema": [
+            {
+              "id": "contact_id",
+              "displayName": "contact_id",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "name",
+              "displayName": "name",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "step",
+              "displayName": "step",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "weight_kg",
+              "displayName": "weight_kg",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "row_number",
+              "displayName": "row_number",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "readOnly": true,
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.5,
+      "position": [
+        -80,
+        860
+      ],
+      "id": "487dfc8d-c3a0-4fbc-af56-126feae7972d",
+      "name": "Google Sheets12",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "y8u36G3ttt4BcDqC",
+          "name": "veppers"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "resource": "messages-api",
+        "operation": "send-image",
+        "instanceName": "VEPPERS",
+        "remoteJid": "=79898517307@s.whatsapp.net",
+        "media": "={{ $('If1').item.json.base64 }}",
+        "options_message": {}
+      },
+      "type": "n8n-nodes-evolution-api-eng.evolutionApi",
+      "typeVersion": 1,
+      "position": [
+        200,
+        860
+      ],
+      "id": "82a96855-dcc2-4344-871f-8b2533ea217b",
+      "name": "Evolution API18",
+      "credentials": {
+        "evolutionApi": {
+          "id": "YF67B9nMmE69vgvN",
+          "name": "Evolution account 2"
+        }
+      },
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "operation": "pdf",
+        "binaryPropertyName": "file",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.extractFromFile",
+      "typeVersion": 1,
+      "position": [
+        -140,
+        360
+      ],
+      "id": "7fa15ed6-7adc-4854-aa2e-4b45f9f1b9ce",
+      "name": "Extract from File"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "f69fbc8c-cc54-45ce-bc38-97b15e8c34a3",
+              "leftValue": "={{$binary.file.mimeType}}",
+              "rightValue": "application/pdf",
+              "operator": {
+                "type": "string",
+                "operation": "contains"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        -380,
+        360
+      ],
+      "id": "e049b095-a5df-4793-9e9c-94b37402bf13",
+      "name": "If2"
     }
   ],
   "pinData": {},
@@ -2087,6 +3955,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 1,
-  "updatedAt": "2025-09-02T20:26:32.000Z",
-  "versionId": "be82768a-1be3-4c63-8850-322416daa112"
+  "updatedAt": "2025-09-03T20:37:01.000Z",
+  "versionId": "8de4bde6-3fd6-465b-9134-a0b3d7104166"
 }
