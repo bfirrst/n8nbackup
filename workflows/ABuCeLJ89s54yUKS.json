@@ -30,6 +30,13 @@
             "type": "main",
             "index": 0
           }
+        ],
+        [
+          {
+            "node": "Set Text",
+            "type": "main",
+            "index": 0
+          }
         ]
       ]
     },
@@ -114,7 +121,7 @@
       "main": [
         [
           {
-            "node": "Wait",
+            "node": "Edit Fields1",
             "type": "main",
             "index": 0
           }
@@ -814,6 +821,90 @@
           }
         ]
       ]
+    },
+    "Edit Fields1": {
+      "main": [
+        [
+          {
+            "node": "Google Sheets13",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Sheets13": {
+      "main": [
+        [
+          {
+            "node": "If3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code2": {
+      "main": [
+        [
+          {
+            "node": "Google Sheets14",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Sheets14": {
+      "main": [
+        [
+          {
+            "node": "Wait",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If3": {
+      "main": [
+        [
+          {
+            "node": "Code3",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Code2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code3": {
+      "main": [
+        [
+          {
+            "node": "Google Sheets15",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Sheets15": {
+      "main": [
+        [
+          {
+            "node": "Wait",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
     }
   },
   "createdAt": "2025-09-01T18:48:30.216Z",
@@ -921,6 +1012,29 @@
                 ],
                 "combinator": "and"
               }
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "e1ae13f6-de30-4062-9142-7485a5dd7459",
+                    "leftValue": "={{ $json.buffer }}",
+                    "rightValue": "",
+                    "operator": {
+                      "type": "string",
+                      "operation": "exists",
+                      "singleValue": true
+                    }
+                  }
+                ],
+                "combinator": "and"
+              }
             }
           ]
         },
@@ -964,6 +1078,12 @@
               "id": "fe7ecc99-e1e8-4a5e-bdd6-6fce9757b234",
               "name": "text",
               "value": "={{ $('Webhook').item.json.body.data.message.conversation }}",
+              "type": "string"
+            },
+            {
+              "id": "e0943693-169b-46a1-8f1b-6c49144b1fb4",
+              "name": "text",
+              "value": "={{ $json.buffer }}",
               "type": "string"
             }
           ]
@@ -1089,7 +1209,7 @@
       "type": "n8n-nodes-base.webhook",
       "typeVersion": 2,
       "position": [
-        -1320,
+        -2220,
         100
       ],
       "id": "3d0d5298-0a33-40d5-8a89-625938ff7ce6",
@@ -1275,9 +1395,13 @@
             {
               "lookupColumn": "contact_id",
               "lookupValue": "={{ $('Webhook').item.json.body.data.key.remoteJid }}"
+            },
+            {
+              "lookupColumn": "contact_id"
             }
           ]
         },
+        "combineFilters": "OR",
         "options": {}
       },
       "type": "n8n-nodes-base.googleSheets",
@@ -3944,6 +4068,395 @@
       ],
       "id": "e049b095-a5df-4793-9e9c-94b37402bf13",
       "name": "If2"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "7a1bc435-55e8-4180-8e8b-6b1549813d12",
+              "name": "phone",
+              "value": "={{ \n  (\n    $json.body?.data?.key?.remoteJid   // обычный вебхук из EVOLUTION\n    || $json.body?.sender              // запасной\n    || $json.body?.from                // агрегатор из VEP LOGS\n    || $json.query?.phone \n    || ''\n  ).toString().replace(/@.*/, '').replace(/\\D/g, '')\n}}",
+              "type": "string"
+            },
+            {
+              "id": "c5dd7444-ccf6-4c84-b27a-5dda06daa588",
+              "name": "text",
+              "value": "={{\n  $json.body?.data?.message?.conversation\n  || $json.body?.data?.message?.extendedTextMessage?.text\n  || $json.body?.data?.message?.imageMessage?.caption\n  || $json.body?.text     // агрегатор\n  || $json.text           // вдруг уже есть наверху\n  || ''\n}}\n",
+              "type": "string"
+            },
+            {
+              "id": "57747cdb-749e-4134-9789-47f72b75356c",
+              "name": "stage",
+              "value": "={{ $json.body?.stage || 'bmi' }}",
+              "type": "string"
+            },
+            {
+              "id": "33dc288d-d221-4971-8385-932047188471",
+              "name": "now",
+              "value": "={{ Date.now() }}",
+              "type": "string"
+            },
+            {
+              "id": "c97c9878-1ae4-4284-a488-66e1975491d3",
+              "name": "key",
+              "value": "={{ ($json.phone || '').toString() + ':' + ($json.stage || 'bmi') }}",
+              "type": "string"
+            },
+            {
+              "id": "f419217f-85ad-44d8-a9f6-6b1026983f52",
+              "name": "chunk",
+              "value": "={{ JSON.stringify({ text: $json.text || '', ts: $json.now }) }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -2060,
+        100
+      ],
+      "id": "130a97f5-c15e-45bd-8c23-ca5d98e1bc4f",
+      "name": "Edit Fields1"
+    },
+    {
+      "parameters": {
+        "documentId": {
+          "__rl": true,
+          "value": "1WOCQBIfJEhzbwSSK1dOF26JMQBO0JAwpuLLVHWnIWUc",
+          "mode": "list",
+          "cachedResultName": "Диалоги",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1WOCQBIfJEhzbwSSK1dOF26JMQBO0JAwpuLLVHWnIWUc/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 8285682,
+          "mode": "list",
+          "cachedResultName": "logs wapp",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1WOCQBIfJEhzbwSSK1dOF26JMQBO0JAwpuLLVHWnIWUc/edit#gid=8285682"
+        },
+        "filtersUI": {
+          "values": [
+            {
+              "lookupColumn": "key",
+              "lookupValue": "={{ $node[\"Edit Fields1\"].json.key }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.5,
+      "position": [
+        -1920,
+        100
+      ],
+      "id": "4a5df8ca-0d5d-4c39-8ded-3a2431a779d8",
+      "name": "Google Sheets13",
+      "alwaysOutputData": true,
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "y8u36G3ttt4BcDqC",
+          "name": "veppers"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "const src = $node[\"Edit Fields1\"].json; // тут есть phone, text, stage, now, key\n\nreturn [{\n  key:    src.key,\n  phone:  src.phone,\n  stage:  src.stage,\n  firstAt: src.now,\n  lastAt:  src.now,\n  buffer: JSON.stringify([{ text: src.text || '', ts: src.now }]),\n}];\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -1580,
+        240
+      ],
+      "id": "e1272e2d-3277-42bb-b652-e63435a96fb7",
+      "name": "Code2"
+    },
+    {
+      "parameters": {
+        "operation": "appendOrUpdate",
+        "documentId": {
+          "__rl": true,
+          "value": "1WOCQBIfJEhzbwSSK1dOF26JMQBO0JAwpuLLVHWnIWUc",
+          "mode": "list",
+          "cachedResultName": "Диалоги",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1WOCQBIfJEhzbwSSK1dOF26JMQBO0JAwpuLLVHWnIWUc/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 8285682,
+          "mode": "list",
+          "cachedResultName": "logs wapp",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1WOCQBIfJEhzbwSSK1dOF26JMQBO0JAwpuLLVHWnIWUc/edit#gid=8285682"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "key": "={{ $json.key }}",
+            "phone": "={{ $json.phone }}",
+            "lastAt": "={{ $json.lastAt }}",
+            "stage": "={{ $json.stage }}",
+            "firstAt": "={{ $json.firstAt }}",
+            "buffer": "={{ $json.buffer }}"
+          },
+          "matchingColumns": [
+            "key"
+          ],
+          "schema": [
+            {
+              "id": "key",
+              "displayName": "key",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "phone",
+              "displayName": "phone",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "stage",
+              "displayName": "stage",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "firstAt",
+              "displayName": "firstAt",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "lastAt",
+              "displayName": "lastAt",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "buffer",
+              "displayName": "buffer",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "chunk",
+              "displayName": "chunk",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.5,
+      "position": [
+        -1380,
+        240
+      ],
+      "id": "88ef4840-c949-4238-bfd5-288571186f88",
+      "name": "Google Sheets14",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "y8u36G3ttt4BcDqC",
+          "name": "veppers"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "fc7f633a-d184-488f-9914-6a58f6a466fc",
+              "leftValue": "={{$json.key || ''}}",
+              "rightValue": 0,
+              "operator": {
+                "type": "string",
+                "operation": "notEmpty",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        -1760,
+        100
+      ],
+      "id": "ef9f054a-1a4d-402b-888b-81897e604cdb",
+      "name": "If3"
+    },
+    {
+      "parameters": {
+        "jsCode": "const src = $node[\"Edit Fields1\"].json;   // берем текущие поля из вебхука\nconst old = $json.buffer ? JSON.parse($json.buffer) : [];\nold.push({ text: src.text || '', ts: src.now });\n\nreturn [{\n  key:    src.key,\n  phone:  src.phone,\n  stage:  src.stage,\n  firstAt: $json.firstAt || src.now,   // не теряем firstAt, если он уже был\n  lastAt:  src.now,\n  buffer: JSON.stringify(old),\n}];\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -1580,
+        100
+      ],
+      "id": "b626f9c6-fc6b-4f01-a7ba-f02f5c55880c",
+      "name": "Code3"
+    },
+    {
+      "parameters": {
+        "operation": "appendOrUpdate",
+        "documentId": {
+          "__rl": true,
+          "value": "1WOCQBIfJEhzbwSSK1dOF26JMQBO0JAwpuLLVHWnIWUc",
+          "mode": "list",
+          "cachedResultName": "Диалоги",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1WOCQBIfJEhzbwSSK1dOF26JMQBO0JAwpuLLVHWnIWUc/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 8285682,
+          "mode": "list",
+          "cachedResultName": "logs wapp",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1WOCQBIfJEhzbwSSK1dOF26JMQBO0JAwpuLLVHWnIWUc/edit#gid=8285682"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "key": "={{ $json.key }}",
+            "lastAt": "={{ $json.now }}",
+            "buffer": "={{$json.buffer}}"
+          },
+          "matchingColumns": [
+            "key"
+          ],
+          "schema": [
+            {
+              "id": "key",
+              "displayName": "key",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "phone",
+              "displayName": "phone",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "stage",
+              "displayName": "stage",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "firstAt",
+              "displayName": "firstAt",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "lastAt",
+              "displayName": "lastAt",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "buffer",
+              "displayName": "buffer",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "chunk",
+              "displayName": "chunk",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.5,
+      "position": [
+        -1380,
+        100
+      ],
+      "id": "e36f882c-630b-425a-9dde-bf185a1f011d",
+      "name": "Google Sheets15",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "y8u36G3ttt4BcDqC",
+          "name": "veppers"
+        }
+      }
     }
   ],
   "pinData": {},
@@ -3955,6 +4468,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 1,
-  "updatedAt": "2025-09-03T20:37:01.000Z",
-  "versionId": "8de4bde6-3fd6-465b-9134-a0b3d7104166"
+  "updatedAt": "2025-09-04T16:12:06.000Z",
+  "versionId": "1b0dcfb7-aec0-4ac5-b57a-f4f7ce9bbdf2"
 }
