@@ -77,7 +77,7 @@
       "main": [
         [
           {
-            "node": "БИЗНЕС АССИСТЕНТ1",
+            "node": "Code4",
             "type": "main",
             "index": 0
           }
@@ -144,28 +144,6 @@
         [
           {
             "node": "Transcribe",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Edit Fields": {
-      "main": [
-        [
-          {
-            "node": "Switch",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Wait": {
-      "main": [
-        [
-          {
-            "node": "Edit Fields",
             "type": "main",
             "index": 0
           }
@@ -353,50 +331,6 @@
           {
             "node": "Google Sheets",
             "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "OpenAI Chat Model": {
-      "ai_languageModel": [
-        [
-          {
-            "node": "БИЗНЕС АССИСТЕНТ",
-            "type": "ai_languageModel",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Calculator": {
-      "ai_tool": [
-        [
-          {
-            "node": "БИЗНЕС АССИСТЕНТ",
-            "type": "ai_tool",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Stroinyashki1": {
-      "ai_tool": [
-        [
-          {
-            "node": "БИЗНЕС АССИСТЕНТ",
-            "type": "ai_tool",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Window Buffer Memory1": {
-      "ai_memory": [
-        [
-          {
-            "node": "БИЗНЕС АССИСТЕНТ",
-            "type": "ai_memory",
             "index": 0
           }
         ]
@@ -826,7 +760,7 @@
       "main": [
         [
           {
-            "node": "Google Sheets13",
+            "node": "If (AGGREGATED?)",
             "type": "main",
             "index": 0
           }
@@ -837,7 +771,7 @@
       "main": [
         [
           {
-            "node": "If3",
+            "node": "If (Row exists?)",
             "type": "main",
             "index": 0
           }
@@ -857,16 +791,44 @@
     },
     "Google Sheets14": {
       "main": [
+        []
+      ]
+    },
+    "Code3": {
+      "main": [
         [
           {
-            "node": "Wait",
+            "node": "Google Sheets15",
             "type": "main",
             "index": 0
           }
         ]
       ]
     },
-    "If3": {
+    "Google Sheets15": {
+      "main": [
+        []
+      ]
+    },
+    "If (AGGREGATED?)": {
+      "main": [
+        [
+          {
+            "node": "Switch",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Google Sheets13",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If (Row exists?)": {
       "main": [
         [
           {
@@ -884,22 +846,11 @@
         ]
       ]
     },
-    "Code3": {
+    "Code4": {
       "main": [
         [
           {
-            "node": "Google Sheets15",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Google Sheets15": {
-      "main": [
-        [
-          {
-            "node": "Wait",
+            "node": "БИЗНЕС АССИСТЕНТ1",
             "type": "main",
             "index": 0
           }
@@ -1024,7 +975,7 @@
                 "conditions": [
                   {
                     "id": "e1ae13f6-de30-4062-9142-7485a5dd7459",
-                    "leftValue": "={{ $json.buffer }}",
+                    "leftValue": "={{ $json.text }}",
                     "rightValue": "",
                     "operator": {
                       "type": "string",
@@ -1045,7 +996,7 @@
       "type": "n8n-nodes-base.switch",
       "typeVersion": 3.2,
       "position": [
-        -780,
+        -900,
         100
       ]
     },
@@ -1060,7 +1011,7 @@
       "type": "@n8n/n8n-nodes-langchain.openAi",
       "typeVersion": 1.6,
       "position": [
-        -300,
+        -420,
         0
       ],
       "credentials": {
@@ -1077,13 +1028,7 @@
             {
               "id": "fe7ecc99-e1e8-4a5e-bdd6-6fce9757b234",
               "name": "text",
-              "value": "={{ $('Webhook').item.json.body.data.message.conversation }}",
-              "type": "string"
-            },
-            {
-              "id": "e0943693-169b-46a1-8f1b-6c49144b1fb4",
-              "name": "text",
-              "value": "={{ $json.buffer }}",
+              "value": "={{\n  // 1) из агрегатора (второй WF)\n  $json.body?.text\n  // 2) если кто-то уже положил текст ранее в $json.text\n  || $json.text\n  // 3) прямой вебхук WhatsApp\n  || $json.body?.data?.message?.conversation\n  || $json.body?.data?.message?.extendedTextMessage?.text\n  || $json.body?.message?.conversation\n  // 4) запасной вариант — пустая строка\n  || ''\n}}",
               "type": "string"
             }
           ]
@@ -1095,7 +1040,7 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        -140,
+        -260,
         200
       ]
     },
@@ -1116,7 +1061,7 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        -140,
+        -260,
         0
       ],
       "id": "1787c9f0-0c33-45fc-b0ba-92ed0abdc16c",
@@ -1139,7 +1084,7 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        80,
+        -80,
         100
       ],
       "id": "29b71663-9e4a-49d5-b719-827ed377a655",
@@ -1186,7 +1131,7 @@
     {
       "parameters": {
         "promptType": "define",
-        "text": "={{ $json.text }}",
+        "text": "={{ $('Set Text (final)').item.json.text }}",
         "options": {
           "systemMessage": "=Ты — классификатор входящих сообщений клиента в чате.\nВерни СТРОГО ОДИН JSON-объект без пояснений и текста вокруг, со следующими полями:\n\n{\n  \"weight_bucket\": \"lt_60\" | \"60_100\" | \"gt_100\" | null,\n  \"weight_kg\": number | null,\n  \"knows_project\": true | false | null,\n  \"follow_ok\": \"yes\" | \"no\"\n}\n\nТебе передаются:\n- current_step: 1 | 2 | 3  (этап воронки)\n- user_message: текст последнего сообщения пользователя (без наших реплик)\n\nЗАДАЧИ И ПРАВИЛА:\n\n1) weight_kg — ТЕКУЩИЙ вес человека в кг.\n   - Ищи числовые упоминания веса в user_message.\n   - Если рядом есть маркеры \"кг\"/\"kg\"/\"килограмм\" — бери это число (последнее по тексту).\n   - Если маркеров нет, используй эвристику:\n       • Числа ≥ 150 считай ростом (в сантиметрах), НЕ воспринимай их как вес.\n       • Вес обычно в диапазоне 30–300. Если несколько кандидатов — возьми первый.\n   - Игнорируй ЦЕЛЕВОЙ вес (фразы \"хочу 55\", \"цель 60\", \"до 70\", \"сбросить до 65\" и т.п.) — это не текущий вес.\n   - Диапазоны \"63–64\", \"63-64\", \"63/64\" трактуй как 63 (левое число).\n   - Округляй до 1 знака после запятой. Если текущий вес определить нельзя — weight_kg = null.\n\n2) weight_bucket — корзина веса на основе ТЕКУЩЕГО weight_kg:\n   - Если weight_kg <= 60 → \"lt_60\"\n   - Если 60 < weight_kg <= 100 → \"60_100\"\n   - Если weight_kg > 100 → \"gt_100\"\n   - Если weight_kg = null → weight_bucket = null\n\n3) knows_project — знаком ли человек с проектом:\n   - true: явные признаки знакомости/подписки/опыта (\"знаю\", \"знаком\", \"слежу\", \"подписан\", \"уже был\", \"проходил\", \"участвовал\" и т.п.).\n   - false: явно не знаком / просит рассказать (\"не знаю\", \"впервые\", \"что это\", \"расскажите\" и т.п.).\n   - null: в сообщении не понятно.\n\n4) follow_ok — СЛЕДУЕТ ЛИ пользователь ТЕКУЩЕМУ шагу воронки (а не просто соглашается/отказывается):\n   - current_step = 1 (наш вопрос: \"Раньше пробовали работать в программах с нутрициологом?\"):\n       • \"yes\" — если ответил по сути (да/нет/описание опыта).\n       • \"no\" — если вместо ответа уходит в оффтоп/задаёт другие вопросы.\n   - current_step = 2 (наш вопрос: \"Скажите, пожалуйста, ВЕС, РОСТ, хронические заболевания и КАКОЙ ВЕС хотите\"):\n       • \"yes\" — если дал хотя бы одну запрошенную сущность (например, вес или рост, или заболевания/цель).\n       • \"no\" — если не дал ни одной из запрошенных сущностей и уходит в оффтоп.\n       • ВАЖНО: для weight_kg и weight_bucket учитываем ТОЛЬКО текущий вес (целевой вес игнорируем).\n   - current_step = 3 (мы голосом спрашиваем: \"Знакомы ли с проектом?\"):\n       • \"yes\" — если ответил по теме (знаком/незнаком и т.п.).\n       • \"no\" — если не ответил по сути, уходит в оффтоп/другие вопросы.\n\nФормат вывода: только JSON-объект БЕЗ текста вокруг, БЕЗ лишних полей.\n\nПРИМЕРЫ:\nuser_message: \"Рост 172, вес 63.5 кг, хочу 55\" (current_step=2)\n→ {\"weight_bucket\":\"60_100\",\"weight_kg\":63.5,\"knows_project\":null,\"follow_ok\":\"yes\"}\n\nuser_message: \"Привет! Я вас знаю, давно подписана. Сейчас 105кг.\" (current_step=1)\n→ {\"weight_bucket\":\"gt_100\",\"weight_kg\":105,\"knows_project\":true,\"follow_ok\":\"yes\"}\n\nuser_message: \"Что это за проект? Не знаю вас. 170см, 58\" (current_step=2)\n→ {\"weight_bucket\":\"lt_60\",\"weight_kg\":58,\"knows_project\":false,\"follow_ok\":\"yes\"}\n\nuser_message: \"Да, давайте!\" (current_step=1)\n→ {\"weight_bucket\":null,\"weight_kg\":null,\"knows_project\":null,\"follow_ok\":\"yes\"}\n\nuser_message: \"Цель 55. Рост 170\" (current_step=2)\n→ {\"weight_bucket\":null,\"weight_kg\":null,\"knows_project\":null,\"follow_ok\":\"yes\"}   // цель игнорируем, роста мало для веса\n\nuser_message: \"Не сейчас. А сколько стоит?\" (current_step=1)\n→ {\"weight_bucket\":null,\"weight_kg\":null,\"knows_project\":null,\"follow_ok\":\"no\"}\n"
         }
@@ -1203,7 +1148,7 @@
     {
       "parameters": {
         "httpMethod": "POST",
-        "path": "0ea67612-498f-434c-9f2d-a11e918b46c4",
+        "path": "0ea67612-498f-434c-9f2d-a11e918b46c4/messages-upsert",
         "options": {}
       },
       "type": "n8n-nodes-base.webhook",
@@ -1247,7 +1192,7 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        -620,
+        -740,
         0
       ],
       "id": "f25ae4cc-a8cc-45df-9efe-2ec64945b352",
@@ -1265,7 +1210,7 @@
       "type": "n8n-nodes-base.convertToFile",
       "typeVersion": 1.1,
       "position": [
-        -480,
+        -600,
         0
       ],
       "id": "37e7fbd7-5944-4bea-8f27-fb4c0e1054bf",
@@ -1274,8 +1219,8 @@
     {
       "parameters": {
         "resource": "messages-api",
-        "instanceName": "VEPPERS",
-        "remoteJid": "={{ $node[\"Webhook\"].json.body.data.key.remoteJid || $node[\"Webhook\"].json.body.sender }}",
+        "instanceName": "wa-01",
+        "remoteJid": "={{ $('Switch').item.json.body.contact_id }}",
         "messageText": "Доброго дня )  \nМеня зовут Анастасия Веперс - я руководитель проекта,  дипломированный нутрициолог.   \n\nПодскажите пожалуйста раньше пробовали работать в программах с нутрициологом ?💐",
         "options_message": {}
       },
@@ -1287,6 +1232,8 @@
       ],
       "id": "7e784bbc-8c29-4ab1-8da8-2aa7a75430f1",
       "name": "Evolution API1",
+      "retryOnFail": true,
+      "waitBetweenTries": 5000,
       "credentials": {
         "evolutionApi": {
           "id": "YF67B9nMmE69vgvN",
@@ -1297,47 +1244,8 @@
     },
     {
       "parameters": {
-        "assignments": {
-          "assignments": [
-            {
-              "id": "cdc477da-7a27-46b4-a5b0-06ebead46d0d",
-              "name": "sessionId",
-              "value": "={{ \n  ($json.body.instance || 'wa-01') + ':' + \n  ($json.body.data.key.remoteJid || $json.body.data.key.participant || $json.body.sender) \n}}",
-              "type": "string"
-            }
-          ]
-        },
-        "includeOtherFields": true,
-        "options": {}
-      },
-      "type": "n8n-nodes-base.set",
-      "typeVersion": 3.4,
-      "position": [
-        -960,
-        100
-      ],
-      "id": "eafcfb93-167f-47c2-a952-b643fd7917eb",
-      "name": "Edit Fields"
-    },
-    {
-      "parameters": {
-        "amount": "={{ Math.floor(Math.random() * (200 - 120 + 1)) + 120 }}"
-      },
-      "type": "n8n-nodes-base.wait",
-      "typeVersion": 1.1,
-      "position": [
-        -1140,
-        100
-      ],
-      "id": "e4af7fcd-a54d-407e-aa1b-fff0821fb439",
-      "name": "Wait",
-      "webhookId": "e5b44bb5-a5be-4bbd-a0d3-ada3acfafc83",
-      "disabled": true
-    },
-    {
-      "parameters": {
         "method": "POST",
-        "url": "https://evolution-api-production-9e6a.up.railway.app/chat/sendPresence/VEPPERS",
+        "url": "https://evolution-api-production-9e6a.up.railway.app/chat/sendPresence/wa-01",
         "authentication": "genericCredentialType",
         "genericAuthType": "httpHeaderAuth",
         "sendHeaders": true,
@@ -1355,7 +1263,7 @@
         },
         "sendBody": true,
         "specifyBody": "json",
-        "jsonBody": "={{ JSON.stringify({\n  number:  String(($json.contact_id\n                   || $json.body?.data?.key?.participant\n                   || $json.body?.data?.key?.remoteJid\n                   || $json.body?.sender\n                   || '')).split('@')[0].replace(/\\D/g,''),\n  presence: 'composing',\n  delay: 40000\n}) }}\n",
+        "jsonBody": "={{ ({\n  number: String(\n    $json.number\n    || $json.contact_id\n    || $node[\"Webhook\"].json.body?.from\n    || $node[\"Webhook\"].json.body?.sender\n    || ''\n  ).split('@')[0].replace(/\\D/g,''),\n  presence: 'composing',   // допустимо: 'composing' | 'paused' | 'recording'\n  delay: $json.typingDelayMs ?? 40000\n}) }}",
         "options": {}
       },
       "id": "7a958b2a-b42e-4696-98db-50bbe9966cbc",
@@ -1372,6 +1280,7 @@
           "name": "Header Auth account"
         }
       },
+      "onError": "continueRegularOutput",
       "notes": "Имитация набора (typing). Требует, чтобы в текущем item было поле remoteJid, иначе замените выражение на путь к JID из вашего вебхука."
     },
     {
@@ -1394,10 +1303,7 @@
           "values": [
             {
               "lookupColumn": "contact_id",
-              "lookupValue": "={{ $('Webhook').item.json.body.data.key.remoteJid }}"
-            },
-            {
-              "lookupColumn": "contact_id"
+              "lookupValue": "={{ $('Edit Fields1').item.json.contact_id }}"
             }
           ]
         },
@@ -1423,7 +1329,7 @@
     {
       "parameters": {
         "sessionIdType": "customKey",
-        "sessionKey": "={{ $('Edit Fields').first().json.sessionId \n   || ( ($('Webhook').json.body.instance || 'wa-01') + ':' + \n        ($('Webhook').json.body.data.key.remoteJid \n          || $('Webhook').json.body.data.key.participant \n          || $('Webhook').json.body.sender) ) }}\n",
+        "sessionKey": "={{\n  // 1) то, что уже есть в текущем item\n  $json.contact_id\n  // 2) то, что посчитано в Edit Fields1 (берём первый item того узла)\n  || $items(\"Edit Fields1\")[0]?.json?.contact_id\n  // 3) прямой вебхук Evolution\n  || $json.body?.data?.key?.remoteJid\n  || $json.body?.sender\n  || $json.body?.from\n  // 4) если есть номер, собираем jid\n  || (()=>{\n        const phone = $json.phone || $items(\"Edit Fields1\")[0]?.json?.phone;\n        if (phone) return String(phone).replace(/\\D/g,'') + '@s.whatsapp.net';\n        return '';\n     })()\n  // 5) последний фолбэк\n  || 'unknown@s.whatsapp.net'\n}}",
         "contextWindowLength": 50
       },
       "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
@@ -1447,16 +1353,15 @@
           "conditions": [
             {
               "id": "dac984c0-46e2-443e-9251-349f82856453",
-              "leftValue": "={{ $json.contact_id }}",
-              "rightValue": "",
+              "leftValue": "={{ $items('Google Sheets').filter(i => Object.keys(i.json).length > 0).length }}",
+              "rightValue": 0,
               "operator": {
-                "type": "string",
-                "operation": "empty",
-                "singleValue": true
+                "type": "number",
+                "operation": "equals"
               }
             }
           ],
-          "combinator": "and"
+          "combinator": "or"
         },
         "options": {}
       },
@@ -1617,8 +1522,8 @@
           "mappingMode": "defineBelow",
           "value": {
             "step": "1",
-            "contact_id": "={{ $('Webhook').item.json.body.data.key.remoteJid }}",
-            "name": "={{ $('Webhook').item.json.body.data.pushName }}"
+            "contact_id": "={{ $('Edit Fields1').item.json.contact_id }}",
+            "name": "={{ $('Switch').item.json.body.name }}"
           },
           "matchingColumns": [],
           "schema": [
@@ -1683,8 +1588,8 @@
     {
       "parameters": {
         "resource": "messages-api",
-        "instanceName": "VEPPERS",
-        "remoteJid": "={{ $node[\"Webhook\"].json.body.data.key.remoteJid || $node[\"Webhook\"].json.body.sender }}",
+        "instanceName": "wa-01",
+        "remoteJid": "={{ $('Switch1').item.json.contact_id }}",
         "messageText": "Я поняла Вас 🙌 😉 \nСкажите пожалуйста вес , рост,  хронические заболевания и какой вес хотите ?💐",
         "options_message": {}
       },
@@ -1707,7 +1612,7 @@
     {
       "parameters": {
         "method": "POST",
-        "url": "https://evolution-api-production-9e6a.up.railway.app/chat/sendPresence/VEPPERS",
+        "url": "https://evolution-api-production-9e6a.up.railway.app/chat/sendPresence/wa-01",
         "authentication": "genericCredentialType",
         "genericAuthType": "httpHeaderAuth",
         "sendHeaders": true,
@@ -1765,8 +1670,8 @@
           "mappingMode": "defineBelow",
           "value": {
             "step": "2",
-            "contact_id": "={{ $('Webhook').item.json.body.data.key.remoteJid }}",
-            "name": "={{ $('Webhook').item.json.body.data.pushName }}"
+            "contact_id": "={{ $json.contact_id }}",
+            "name": "={{ $('Switch').item.json.body.name }}"
           },
           "matchingColumns": [
             "contact_id"
@@ -1809,6 +1714,27 @@
               "display": true,
               "type": "string",
               "canBeUsedToMatch": true
+            },
+            {
+              "id": "nexttouch",
+              "displayName": "nexttouch",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "row_number",
+              "displayName": "row_number",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "readOnly": true,
+              "removed": false
             }
           ],
           "attemptToConvertTypes": false,
@@ -1835,8 +1761,8 @@
       "parameters": {
         "resource": "messages-api",
         "operation": "send-audio",
-        "instanceName": "VEPPERS",
-        "remoteJid": "={{ $node[\"Webhook\"].json.body.data.key.remoteJid || $node[\"Webhook\"].json.body.sender }}",
+        "instanceName": "wa-01",
+        "remoteJid": "={{ $('Edit Fields1').item.json.contact_id }}",
         "media": "https://drive.google.com/uc?export=download&id=1_ljlE_2GNdp0RMHFeOwlwEEX8m-BmxZC",
         "options_message": {}
       },
@@ -1877,8 +1803,7 @@
           "mappingMode": "defineBelow",
           "value": {
             "step": "3",
-            "contact_id": "={{ $('Webhook').item.json.body.data.key.remoteJid }}",
-            "name": "={{ $('Webhook').item.json.body.data.pushName }}",
+            "contact_id": "={{ $('Switch').item.json.body.contact_id }}",
             "weight_kg": "={{ $('Code').item.json.weight_kg }}"
           },
           "matchingColumns": [
@@ -1903,7 +1828,7 @@
               "display": true,
               "type": "string",
               "canBeUsedToMatch": true,
-              "removed": false
+              "removed": true
             },
             {
               "id": "step",
@@ -2043,8 +1968,8 @@
       "parameters": {
         "resource": "messages-api",
         "operation": "send-audio",
-        "instanceName": "VEPPERS",
-        "remoteJid": "={{ $node[\"Webhook\"].json.body.data.key.remoteJid || $node[\"Webhook\"].json.body.sender }}",
+        "instanceName": "wa-01",
+        "remoteJid": "={{ $('Edit Fields1').item.json.contact_id }}",
         "media": "https://drive.google.com/uc?export=download&id=1HFjYmgGa8UbJhwRY2xY6UD-f52wEwS7s",
         "options_message": {}
       },
@@ -2085,8 +2010,7 @@
           "mappingMode": "defineBelow",
           "value": {
             "step": "3",
-            "contact_id": "={{ $('Webhook').item.json.body.data.key.remoteJid }}",
-            "name": "={{ $('Webhook').item.json.body.data.pushName }}",
+            "contact_id": "={{ $('Switch1').item.json.contact_id }}",
             "weight_kg": "={{ $('Code').item.json.weight_kg }}"
           },
           "matchingColumns": [
@@ -2111,7 +2035,7 @@
               "display": true,
               "type": "string",
               "canBeUsedToMatch": true,
-              "removed": false
+              "removed": true
             },
             {
               "id": "step",
@@ -2167,8 +2091,8 @@
       "parameters": {
         "resource": "messages-api",
         "operation": "send-audio",
-        "instanceName": "VEPPERS",
-        "remoteJid": "={{ $node[\"Webhook\"].json.body.data.key.remoteJid || $node[\"Webhook\"].json.body.sender }}",
+        "instanceName": "wa-01",
+        "remoteJid": "={{ $('Edit Fields1').item.json.contact_id }}",
         "media": "https://drive.google.com/uc?export=download&id=1HFjYmgGa8UbJhwRY2xY6UD-f52wEwS7s",
         "options_message": {}
       },
@@ -2209,8 +2133,7 @@
           "mappingMode": "defineBelow",
           "value": {
             "step": "3",
-            "contact_id": "={{ $('Webhook').item.json.body.data.key.remoteJid }}",
-            "name": "={{ $('Webhook').item.json.body.data.pushName }}",
+            "contact_id": "={{ $('Switch').item.json.body.contact_id }}",
             "weight_kg": "={{ $('Code').item.json.weight_kg }}"
           },
           "matchingColumns": [
@@ -2235,7 +2158,7 @@
               "display": true,
               "type": "string",
               "canBeUsedToMatch": true,
-              "removed": false
+              "removed": true
             },
             {
               "id": "step",
@@ -2288,96 +2211,6 @@
       ],
       "id": "128012bf-ce8a-44eb-9de1-ae9ef8875436",
       "name": "Code"
-    },
-    {
-      "parameters": {
-        "model": {
-          "__rl": true,
-          "value": "gpt-5-mini",
-          "mode": "list",
-          "cachedResultName": "gpt-5-mini"
-        },
-        "options": {
-          "responseFormat": "text"
-        }
-      },
-      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
-      "typeVersion": 1.2,
-      "position": [
-        -3500,
-        -20
-      ],
-      "id": "d50e8623-c90b-4708-ae93-87d04b5d3686",
-      "name": "OpenAI Chat Model",
-      "credentials": {
-        "openAiApi": {
-          "id": "T10Aj8URpRIqIm4V",
-          "name": "OpenAi account"
-        }
-      }
-    },
-    {
-      "parameters": {},
-      "type": "@n8n/n8n-nodes-langchain.toolCalculator",
-      "typeVersion": 1,
-      "position": [
-        -3140,
-        -20
-      ],
-      "id": "c6485763-125f-4eab-a8a0-e19eb2f670c8",
-      "name": "Calculator"
-    },
-    {
-      "parameters": {
-        "promptType": "define",
-        "text": "={{ $json.text }}",
-        "options": {
-          "systemMessage": "=Ты — классификатор входящих сообщений клиента в чате. \nВерни СТРОГО ОДИН JSON-объект без пояснений и текста вокруг, со следующими полями:\n{\n  \"weight_kg\": number | null,\n  \"knows_project\": true | false | null,\n  \"follow_ok\": \"yes\" | \"no\"\n}\n\nТебе передаются:\n- current_step: 1 | 2 | 3  (этап воронки)\n- user_message: текст последнего сообщения пользователя (без наших реплик)\n\nЗАДАЧИ:\n\n1) weight_kg — ТЕКУЩИЙ вес человека в кг.\n   - Ищи числовые упоминания веса в user_message.\n   - Если рядом есть маркеры \"кг\"/\"kg\"/\"килограмм\", бери это число (последнее по тексту).\n   - Если маркеров нет, используй эвристику: \n       • Числа ≥ 150 считай ростом (в сантиметрах) и НЕ воспринимай как вес.\n       • Вес обычно в диапазоне 30–300. Если несколько кандидатов — возьми первый.\n   - Игнорируй ЦЕЛЕВОЙ вес (например, фразы \"хочу 55\", \"цель 60\", \"до 70\", \"сбросить до 65\"): \n       • Если рядом с числом есть слова \"хочу\", \"цель\", \"до\", \"сбросить\", \"планирую\", \"мечтаю\", — НЕ считай это текущим весом.\n   - Диапазоны вида \"63–64\", \"63-64\", \"63/64\" трактуй как 63 (левое число).\n   - Округляй до одного знака после запятой. Если текущий вес определить нельзя — weight_kg = null.\n\n2) knows_project — знаком ли человек с проектом:\n   - true: явные признаки знакомости/подписки/опыта (\"знаю\", \"знаком\", \"слежу\", \"подписан\", \"уже был\", \"проходил\", \"участвовал\" и т.п.).\n   - false: явно не знаком / просит рассказать (\"не знаю\", \"впервые\", \"что это\", \"расскажите\" и т.п.).\n   - null: в сообщении не понятно.\n\n3) follow_ok — СЛЕДУЕТ ЛИ пользователь ТЕКУЩЕМУ шагу воронки:\n   - current_step = 1 (наш вопрос: \"Раньше пробовали работать в программах с нутрициологом?\"):\n       • \"yes\", если ответ по сути на вопрос (да/нет/описание опыта).\n       • \"no\", если вместо ответа задаёт другие вопросы, уходит в оффтоп, молчит по сути вопроса.\n   - current_step = 2 (наш вопрос: \"Скажите, пожалуйста, ВЕС, РОСТ, хронические заболевания и КАКОЙ ВЕС хотите\"):\n       • \"yes\", если дал хотя бы часть запрошенных данных (например, вес или рост или заболевания/цель).\n       • \"no\", если не дал ни одной из запрошенных сущностей и уходит в оффтоп/задаёт другие вопросы.\n       • ВАЖНО: для weight_kg в поле JSON учитываем ТЕКУЩИЙ вес, а целевой вес игнорируем (см. правила выше).\n   - current_step = 3 (мы голосом спрашиваем: \"Знакомы ли с проектом?\"):\n       • \"yes\", если ответил по теме (знаком/незнаком и т.п.).\n       • \"no\", если не ответил по сути, уходит в оффтоп/другие вопросы.\n\nФормат вывода: только JSON-объект без текста, без комментариев, без лишних полей.\n\nПРИМЕРЫ:\nuser_message: \"Рост 172, вес 63.5 кг, хочу 55\" при current_step=2\n→ {\"weight_kg\":63.5,\"knows_project\":null,\"follow_ok\":\"yes\"}\n\nuser_message: \"Привет! Я вас знаю, давно подписана. Сейчас 105кг.\" при current_step=1\n→ {\"weight_kg\":105,\"knows_project\":true,\"follow_ok\":\"yes\"}\n\nuser_message: \"Что это за проект? Не знаю вас. 170см, 58\" при current_step=2\n→ {\"weight_kg\":58,\"knows_project\":false,\"follow_ok\":\"yes\"}\n\nuser_message: \"Да, давайте!\" при current_step=1\n→ {\"weight_kg\":null,\"knows_project\":null,\"follow_ok\":\"yes\"}\n\nuser_message: \"Не, не сейчас. А сколько стоит?\" при current_step=1\n→ {\"weight_kg\":null,\"knows_project\":null,\"follow_ok\":\"no\"}\n\nuser_message: \"Хочу 55, сейчас 63\" при current_step=2\n→ {\"weight_kg\":63,\"knows_project\":null,\"follow_ok\":\"yes\"}\n\nuser_message: \"Цель 55\" при current_step=2\n→ {\"weight_kg\":null,\"knows_project\":null,\"follow_ok\":\"no\"}"
-        }
-      },
-      "type": "@n8n/n8n-nodes-langchain.agent",
-      "typeVersion": 1.7,
-      "position": [
-        -3400,
-        -180
-      ],
-      "id": "f39761fa-f434-440c-a8d9-e613bcec4c34",
-      "name": "БИЗНЕС АССИСТЕНТ"
-    },
-    {
-      "parameters": {
-        "operation": "get",
-        "documentURL": "https://docs.google.com/document/d/1q_-8reALZA8dOQdRsB7b4ZEGN7YbFo0uTYGnXlqMJdI/edit?usp=sharing"
-      },
-      "type": "n8n-nodes-base.googleDocsTool",
-      "typeVersion": 2,
-      "position": [
-        -3280,
-        -20
-      ],
-      "id": "5032e0f7-c332-4d79-8436-331a12fea428",
-      "name": "Stroinyashki1",
-      "credentials": {
-        "googleDocsOAuth2Api": {
-          "id": "ntyRaXF3CbPOJ69I",
-          "name": "VEPPERS"
-        }
-      }
-    },
-    {
-      "parameters": {
-        "sessionIdType": "customKey",
-        "sessionKey": "={{ $('Edit Fields').first().json.sessionId \n   || ( ($('Webhook').json.body.instance || 'wa-01') + ':' + \n        ($('Webhook').json.body.data.key.remoteJid \n          || $('Webhook').json.body.data.key.participant \n          || $('Webhook').json.body.sender) ) }}\n",
-        "contextWindowLength": 50
-      },
-      "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
-      "typeVersion": 1.3,
-      "position": [
-        -3380,
-        -20
-      ],
-      "id": "f54e89d1-6dbc-4e90-8282-5324a4574f93",
-      "name": "Window Buffer Memory1"
     },
     {
       "parameters": {
@@ -2446,8 +2279,8 @@
       "parameters": {
         "resource": "messages-api",
         "operation": "send-audio",
-        "instanceName": "VEPPERS",
-        "remoteJid": "={{ $node[\"Webhook\"].json.body.data.key.remoteJid || $node[\"Webhook\"].json.body.sender }}",
+        "instanceName": "wa-01",
+        "remoteJid": "={{ $('Edit Fields1').item.json.contact_id }}",
         "media": "https://drive.google.com/uc?export=download&id=1BGfJkWlQDQCHD2UPUz47IcCpSSbiWaJZ",
         "options_message": {}
       },
@@ -2488,8 +2321,8 @@
           "mappingMode": "defineBelow",
           "value": {
             "step": "4",
-            "contact_id": "={{ $('Webhook').item.json.body.data.key.remoteJid }}",
-            "name": "={{ $('Webhook').item.json.body.data.pushName }}"
+            "contact_id": "={{ $json.contact_id }}",
+            "name": "={{ $json.name }}"
           },
           "matchingColumns": [
             "contact_id"
@@ -2569,7 +2402,7 @@
       "parameters": {
         "resource": "messages-api",
         "instanceName": "VEPPERS",
-        "remoteJid": "={{ $node[\"Webhook\"].json.body.data.key.remoteJid || $node[\"Webhook\"].json.body.sender }}",
+        "remoteJid": "={{ $('Edit Fields1').item.json.contact_id }}",
         "messageText": "Пара слов обо мне 🩷   \n\nМеня зовут Анастасия Веперс, я дипломированный нутрициолог, психолог, коуч ICF, психосамотолог, в непрерывной практике нахожусь 8 лет  \n\n☝️💯Со мной похудело более 3800 человек. Снимаю диагнозы: сахарный диабет, резистентность, ожирение, бесплодие, гипертония.    💪Помогаю сбросить вес и восстановить здоровье. Со мной работает команда из 30 кураторов. 🤝  \n\nКак мы помогаем похудеть: \n✅Работа происходит в группе в Ватсап в сопровождении куратора.  \n❤️Комфортные группы по 15-20 человек. \n✍️В группе веде‌тся ежедневная работа, фиксируется и анализируется Ваше питание.  \n🤝Психологическое, коучинговое и информационное сопровождение. \n👉Выдается меню.  \n📃Ежедневная(!) обратная связь по всем вопросам.  \n✍️Мы веде‌м за Вами пищевые дневники.  \n✅считать калории не нужно. Все уже просчитано за Вас. \n🌟конструктор меню 👍👉взаимозаменяемые продукты  (т.е. всегда есть выбор на Ваш вкус). \n💥доступные продукты питания (продаются в обычных магазинах). \n🎉очень простая в приготовлении еда.  \n\nПрограмма🌟Поможет раз и навсегда комфортно справиться с лишним весом и очень скоро обновить гардероб 👗👠 )  \n\nТакже улучшить здоровье, снять диагнозы: СД2, резистентность к инсулину, гипертония, ожирение, жировой гепотоз и тд.",
         "options_message": {}
       },
@@ -2610,7 +2443,7 @@
         },
         "sendBody": true,
         "specifyBody": "json",
-        "jsonBody": "={{ {\n  number: String(\n           $node[\"Webhook\"].json.body.data?.key?.remoteJid\n        || $node[\"Webhook\"].json.body.data?.key?.participant\n        || $node[\"Webhook\"].json.body.sender\n        || ''\n       ).split('@')[0].replace(/\\D/g,''),\n  presence: 'composing',\n  delay: $json.typingDelayMs ?? 20000\n} }}",
+        "jsonBody": "={{ ({\n  number: String(\n    $('Edit Fields1').item.json.contact_id\n    || $json.contact_id\n    || $json.number\n    || $json.remoteJid\n    || $json.body?.data?.key?.remoteJid\n    || $json.body?.data?.key?.participant\n    || $json.body?.sender\n    || $json.from\n    || ''\n  ).split('@')[0].replace(/\\D/g,''),\n  presence: $json.presence || 'composing',   // 'composing' | 'recording'\n  delay: $json.PresenceComposingDelay ?? $json.typingDelayMs ?? 20000\n}) }}",
         "options": {}
       },
       "id": "7c5b1f4c-c5b4-41d6-a953-23e38f161c31",
@@ -2632,8 +2465,8 @@
     {
       "parameters": {
         "resource": "messages-api",
-        "instanceName": "VEPPERS",
-        "remoteJid": "={{ $node[\"Webhook\"].json.body.data.key.remoteJid || $node[\"Webhook\"].json.body.sender }}",
+        "instanceName": "wa-01",
+        "remoteJid": "={{ $('Edit Fields1').item.json.contact_id }}",
         "messageText": "=💸Стоимость   \n\n7100 руб.  (возможна рассрочка!) \n🔵Если оплачиваете СЕГОДНЯ в \n🔺течении суток, то (!)👉 \n🔺6200 руб. - подключение к Группе и работа в первый месяц (возможна оплата в 2 этапа по 3100 руб) \nПролонгация на следующий месяц (по необходимости) - 4000 руб в месяц.   \n\n🟢Дата старта: {{ $json['Дата старта'] }}   \n\n🔴Наши результаты можно посмотреть в Инстаграмм👇   \n\nhttps://instagram.com/a.vepers?utm_medium=copy_link   \n\nТелеграм https://t.me/+9oiL-YbTotY0MTdi  \n\nТелеграмм \"Самое интересное \" https://t.me/+evDmVWbiMcRiOGYy   \n\nСайт https://anastasiavepers.ru/   \n\nЕсли есть вопросы,  спрашивайте, я с удовольствием на них отвечу  💋🤝 ",
         "options_message": {
           "delay": 10000
@@ -2691,8 +2524,8 @@
     {
       "parameters": {
         "resource": "messages-api",
-        "instanceName": "VEPPERS",
-        "remoteJid": "={{ $node[\"Webhook\"].json.body.data.key.remoteJid || $node[\"Webhook\"].json.body.sender }}",
+        "instanceName": "wa-01",
+        "remoteJid": "={{ $('Edit Fields1').item.json.contact_id }}",
         "messageText": "={{ $node[\"OpenAI\"].json.message.content }}",
         "options_message": {}
       },
@@ -2715,7 +2548,7 @@
     {
       "parameters": {
         "method": "POST",
-        "url": "https://evolution-api-production-9e6a.up.railway.app/chat/sendPresence/VEPPERS",
+        "url": "https://evolution-api-production-9e6a.up.railway.app/chat/sendPresence/wa-01",
         "authentication": "genericCredentialType",
         "genericAuthType": "httpHeaderAuth",
         "sendHeaders": true,
@@ -2733,7 +2566,7 @@
         },
         "sendBody": true,
         "specifyBody": "json",
-        "jsonBody": "={{ ({\n  number: String(\n           $node[\"Webhook\"].json.body.data?.key?.remoteJid\n        || $node[\"Webhook\"].json.body.data?.key?.participant\n        || $node[\"Webhook\"].json.body.sender\n        || ''\n       ).split('@')[0].replace(/\\D/g,''),\n  presence: 'composing',\n  delay: $json.typingDelayMs ?? 30000\n}) }}",
+        "jsonBody": "={{ ({\n  number: String(\n    $('Edit Fields1').item.json.contact_id\n    || $json.contact_id\n    || $json.number\n    || $json.remoteJid\n    || $json.body?.data?.key?.remoteJid\n    || $json.body?.data?.key?.participant\n    || $json.body?.sender\n    || $json.from\n    || ''\n  ).split('@')[0].replace(/\\D/g,''),\n  presence: $json.presence || 'composing',   // 'composing' | 'recording'\n  delay: $json.PresenceComposingDelay ?? $json.typingDelayMs ?? 20000\n}) }}",
         "options": {}
       },
       "id": "719bda8f-efd5-4ed4-acb1-294772977e8b",
@@ -2766,7 +2599,7 @@
               "content": "={{ \n  $json.text\n  || $node[\"Set Text (final)\"]?.json?.text\n  || $node[\"Transcribe\"]?.json?.text\n  || $node[\"Webhook\"].json.body?.data?.message?.conversation\n  || `рост: ${$json.height_cm || ''} см; вес: ${$json.weight_kg || $node[\"Code\"].json.weight_kg || ''} кг`\n}}"
             },
             {
-              "content": "Ты — нутрициолог и женский коуч, общаешься с тёплой поддержкой и лёгкостью.\nНа вход ты получаешь рост (в см) и вес (в кг).\n\nТвоя задача:\n\nНайти рост и вес, посчитать индекс массы тела (ИМТ = вес / (рост в метрах)^2).\n\nОпределить категорию по стандарту ВОЗ:\n\n<18.5 — дефицит массы\n\n18.5–24.9 — норма\n\n25–29.9 — избыточный вес\n\n30–34.9 — ожирение I степени\n\n35–39.9 — ожирение II степени\n\n≥40 — ожирение III степени\n\nОтвет всегда должен начинаться словами:\n«Исходя из Ваших данных, ИМТ (Индекс массы тела)…»\n\nДай результат в 3–4 предложения:\n\nУкажи рассчитанный ИМТ (с округлением до десятых) и категорию.\n\nЕсли ИМТ в норме: похвали («вы прекрасно справляетесь 🌸» или «вы в гармонии со своим телом 💃»), предупреди, что от 25 начинается «лишний вес», и важно закрепить результат.\n\nЕсли ИМТ выше нормы: подбодри, добавь энергию («это можно легко исправить ✨»), покажи, что результат достижим.\n\nЕсли дефицит: мягко укажи на риски («организму нужно больше сил 🌸»), добавь заботы и надежды.\n\nВсегда пиши в женском стиле, дружелюбно, с эмодзи, как будто поддерживаешь подругу.\n\nЗаверши лёгким намёком на программу, без давления:\n«В Стройняшках мы мягко ведём шаг за шагом к комфортному результату 💕.»\n\nФормат ответа:\n— 3–4 живых предложения с эмодзи.\n— Никаких списков и таблиц.\n\n🔹 Примеры\n\nВвод: «Рост 170, вес 63»\nВывод:\n«Исходя из Ваших данных, ИМТ (Индекс массы тела) — он равен 21,8 🌸 Это отличная норма, вы в гармонии со своим телом! 💃 Важно закрепить результат, ведь со временем ситуация может измениться, и поддержка очень помогает. В Стройняшках мы мягко ведём шаг за шагом к комфортному результату 💕.»\n\nВвод: «Рост 172, вес 92»\nВывод:\n«Исходя из Ваших данных, ИМТ (Индекс массы тела) — получилось 31,1 ✨ Это уже ожирение I степени, но не волнуйтесь 🙌 Всё можно исправить, достаточно внести небольшие изменения в питание и режим. Мы будем поддерживать вас на каждом шаге, и результат обязательно станет вашим достижением 💖 В Стройняшках мы мягко ведём шаг за шагом к комфортному результату 💕.»\n\nВвод: «Рост 165, вес 47»\nВывод:\n«Исходя из Ваших данных, ИМТ (Индекс массы тела) — он равен 17,3 🌸 Это дефицит массы, организму сейчас не хватает сил. Но всё можно восстановить: сбалансированное питание и забота помогут вернуть энергию и красоту ✨ В Стройняшках мы мягко ведём шаг за шагом к гармоничному результату 💕.»",
+              "content": "Ты — нутрициолог и женский коуч, общаешься с тёплой поддержкой и лёгкостью.\nНа вход ты получаешь рост (в см) и вес (в кг).\n\nТвоя задача:\n\nНайти рост и вес, посчитать индекс массы тела (ИМТ = вес / (рост в метрах)^2).\n\nОпределить категорию по стандарту ВОЗ:\n\n<18.5 — дефицит массы\n\n18.5–24.9 — норма\n\n25–29.9 — избыточный вес\n\n30–34.9 — ожирение I степени\n\n35–39.9 — ожирение II степени\n\n≥40 — ожирение III степени\n\nОтвет всегда должен начинаться словами:\n«Исходя из Ваших данных, ИМТ (Индекс массы тела)…»\n\nДай результат в 3–4 предложения:\n\nУкажи рассчитанный ИМТ (с округлением до десятых) и категорию.\n\nЕсли ИМТ в норме: похвали («вы прекрасно справляетесь 🌸» или «вы в гармонии со своим телом 💃»), предупреди, что от 25 начинается «лишний вес», и важно закрепить результат.\n\nЕсли ИМТ выше нормы: подбодри, добавь энергию («это можно легко исправить ✨»), покажи, что результат достижим.\n\nЕсли дефицит: мягко укажи на риски («организму нужно больше сил 🌸»), добавь заботы и надежды.\n\nВсегда пиши в женском стиле, дружелюбно, с эмодзи, как будто поддерживаешь подругу.\n\nЗаверши лёгким намёком на программу, без давления:\n«В Стройняшках мы мягко ведём шаг за шагом к комфортному результату 💕\n\nПодскажите, вы знакомы с нами, с условиями проекта?)»\n\nФормат ответа:\n— 3–4 живых предложения с эмодзи.\n— Никаких списков и таблиц.\n\n🔹 Примеры\n\nВвод: «Рост 170, вес 63»\nВывод:\n«Исходя из Ваших данных, ИМТ (Индекс массы тела) — он равен 21,8 🌸 Это отличная норма, вы в гармонии со своим телом! 💃 Важно закрепить результат, ведь со временем ситуация может измениться, и поддержка очень помогает. В Стройняшках мы мягко ведём шаг за шагом к комфортному результату 💕\n\nПодскажите, вы знакомы с нами, с условиями проекта?)»\n\nВвод: «Рост 172, вес 92»\nВывод:\n«Исходя из Ваших данных, ИМТ (Индекс массы тела) — получилось 31,1 ✨ Это уже ожирение I степени, но не волнуйтесь 🙌 Всё можно исправить, достаточно внести небольшие изменения в питание и режим. Мы будем поддерживать вас на каждом шаге, и результат обязательно станет вашим достижением 💖 В Стройняшках мы мягко ведём шаг за шагом к комфортному результату 💕\n\nПодскажите, вы знакомы с нами, с условиями проекта?)»\n\nВвод: «Рост 165, вес 47»\nВывод:\n«Исходя из Ваших данных, ИМТ (Индекс массы тела) — он равен 17,3 🌸 Это дефицит массы, организму сейчас не хватает сил. Но всё можно восстановить: сбалансированное питание и забота помогут вернуть энергию и красоту ✨ В Стройняшках мы мягко ведём шаг за шагом к гармоничному результату 💕\n\nПодскажите, вы знакомы с нами, с условиями проекта?)»",
               "role": "system"
             }
           ]
@@ -2791,8 +2624,8 @@
     {
       "parameters": {
         "resource": "messages-api",
-        "instanceName": "VEPPERS",
-        "remoteJid": "={{ $node[\"Webhook\"].json.body.data.key.remoteJid || $node[\"Webhook\"].json.body.sender }}",
+        "instanceName": "wa-01",
+        "remoteJid": "={{ $('Edit Fields1').item.json.contact_id }}",
         "messageText": "={{ $node[\"OpenAI1\"].json.message.content }}",
         "options_message": {}
       },
@@ -2815,7 +2648,7 @@
     {
       "parameters": {
         "method": "POST",
-        "url": "https://evolution-api-production-9e6a.up.railway.app/chat/sendPresence/VEPPERS",
+        "url": "https://evolution-api-production-9e6a.up.railway.app/chat/sendPresence/wa-01",
         "authentication": "genericCredentialType",
         "genericAuthType": "httpHeaderAuth",
         "sendHeaders": true,
@@ -2833,7 +2666,7 @@
         },
         "sendBody": true,
         "specifyBody": "json",
-        "jsonBody": "={{ ({\n  number: String(\n           $node[\"Webhook\"].json.body.data?.key?.remoteJid\n        || $node[\"Webhook\"].json.body.data?.key?.participant\n        || $node[\"Webhook\"].json.body.sender\n        || ''\n       ).split('@')[0].replace(/\\D/g,''),\n  presence: 'composing',\n  delay: $json.typingDelayMs ?? 30000\n}) }}",
+        "jsonBody": "={{ ({\n  number: String(\n    $('Edit Fields1').item.json.contact_id\n    || $json.contact_id\n    || $json.number\n    || $json.remoteJid\n    || $json.body?.data?.key?.remoteJid\n    || $json.body?.data?.key?.participant\n    || $json.body?.sender\n    || $json.from\n    || ''\n  ).split('@')[0].replace(/\\D/g,''),\n  presence: $json.presence || 'composing',   // 'composing' | 'recording'\n  delay: $json.PresenceComposingDelay ?? $json.typingDelayMs ?? 20000\n}) }}",
         "options": {}
       },
       "id": "f161c2e1-7ec7-449d-9489-0b97b604c402",
@@ -2866,7 +2699,7 @@
               "content": "={{ \n  $json.text\n  || $node[\"Set Text (final)\"]?.json?.text\n  || $node[\"Transcribe\"]?.json?.text\n  || $node[\"Webhook\"].json.body?.data?.message?.conversation\n  || `рост: ${$json.height_cm || ''} см; вес: ${$json.weight_kg || $node[\"Code\"].json.weight_kg || ''} кг`\n}}"
             },
             {
-              "content": "Ты — нутрициолог и женский коуч, общаешься с тёплой поддержкой и лёгкостью.\nНа вход ты получаешь рост (в см) и вес (в кг).\n\nТвоя задача:\n\nНайти рост и вес, посчитать индекс массы тела (ИМТ = вес / (рост в метрах)^2).\n\nОпределить категорию по стандарту ВОЗ:\n\n<18.5 — дефицит массы\n\n18.5–24.9 — норма\n\n25–29.9 — избыточный вес\n\n30–34.9 — ожирение I степени\n\n35–39.9 — ожирение II степени\n\n≥40 — ожирение III степени\n\nОтвет всегда должен начинаться словами:\n«Исходя из Ваших данных, ИМТ (Индекс массы тела)…»\n\nДай результат в 3–4 предложения:\n\nУкажи рассчитанный ИМТ (с округлением до десятых) и категорию.\n\nЕсли ИМТ в норме: похвали («вы прекрасно справляетесь 🌸» или «вы в гармонии со своим телом 💃»), предупреди, что от 25 начинается «лишний вес», и важно закрепить результат.\n\nЕсли ИМТ выше нормы: подбодри, добавь энергию («это можно легко исправить ✨»), покажи, что результат достижим.\n\nЕсли дефицит: мягко укажи на риски («организму нужно больше сил 🌸»), добавь заботы и надежды.\n\nВсегда пиши в женском стиле, дружелюбно, с эмодзи, как будто поддерживаешь подругу.\n\nЗаверши лёгким намёком на программу, без давления:\n«В Стройняшках мы мягко ведём шаг за шагом к комфортному результату 💕.»\n\nФормат ответа:\n— 3–4 живых предложения с эмодзи.\n— Никаких списков и таблиц.\n\n🔹 Примеры\n\nВвод: «Рост 170, вес 63»\nВывод:\n«Исходя из Ваших данных, ИМТ (Индекс массы тела) — он равен 21,8 🌸 Это отличная норма, вы в гармонии со своим телом! 💃 Важно закрепить результат, ведь со временем ситуация может измениться, и поддержка очень помогает. В Стройняшках мы мягко ведём шаг за шагом к комфортному результату 💕.»\n\nВвод: «Рост 172, вес 92»\nВывод:\n«Исходя из Ваших данных, ИМТ (Индекс массы тела) — получилось 31,1 ✨ Это уже ожирение I степени, но не волнуйтесь 🙌 Всё можно исправить, достаточно внести небольшие изменения в питание и режим. Мы будем поддерживать вас на каждом шаге, и результат обязательно станет вашим достижением 💖 В Стройняшках мы мягко ведём шаг за шагом к комфортному результату 💕.»\n\nВвод: «Рост 165, вес 47»\nВывод:\n«Исходя из Ваших данных, ИМТ (Индекс массы тела) — он равен 17,3 🌸 Это дефицит массы, организму сейчас не хватает сил. Но всё можно восстановить: сбалансированное питание и забота помогут вернуть энергию и красоту ✨ В Стройняшках мы мягко ведём шаг за шагом к гармоничному результату 💕.»",
+              "content": "Ты — нутрициолог и женский коуч, общаешься с тёплой поддержкой и лёгкостью.\nНа вход ты получаешь рост (в см) и вес (в кг).\n\nТвоя задача:\n\nНайти рост и вес, посчитать индекс массы тела (ИМТ = вес / (рост в метрах)^2).\n\nОпределить категорию по стандарту ВОЗ:\n\n<18.5 — дефицит массы\n\n18.5–24.9 — норма\n\n25–29.9 — избыточный вес\n\n30–34.9 — ожирение I степени\n\n35–39.9 — ожирение II степени\n\n≥40 — ожирение III степени\n\nОтвет всегда должен начинаться словами:\n«Исходя из Ваших данных, ИМТ (Индекс массы тела)…»\n\nДай результат в 3–4 предложения:\n\nУкажи рассчитанный ИМТ (с округлением до десятых) и категорию.\n\nЕсли ИМТ в норме: похвали («вы прекрасно справляетесь 🌸» или «вы в гармонии со своим телом 💃»), предупреди, что от 25 начинается «лишний вес», и важно закрепить результат.\n\nЕсли ИМТ выше нормы: подбодри, добавь энергию («это можно легко исправить ✨»), покажи, что результат достижим.\n\nЕсли дефицит: мягко укажи на риски («организму нужно больше сил 🌸»), добавь заботы и надежды.\n\nВсегда пиши в женском стиле, дружелюбно, с эмодзи, как будто поддерживаешь подругу.\n\nЗаверши лёгким намёком на программу, без давления:\n«В Стройняшках мы мягко ведём шаг за шагом к комфортному результату 💕\n\nПодскажите, вы знакомы с нами, с условиями проекта?)»\n\nФормат ответа:\n— 3–4 живых предложения с эмодзи.\n— Никаких списков и таблиц.\n\n🔹 Примеры\n\nВвод: «Рост 170, вес 63»\nВывод:\n«Исходя из Ваших данных, ИМТ (Индекс массы тела) — он равен 21,8 🌸 Это отличная норма, вы в гармонии со своим телом! 💃 Важно закрепить результат, ведь со временем ситуация может измениться, и поддержка очень помогает. В Стройняшках мы мягко ведём шаг за шагом к комфортному результату 💕\n\nПодскажите, вы знакомы с нами, с условиями проекта?)»\n\nВвод: «Рост 172, вес 92»\nВывод:\n«Исходя из Ваших данных, ИМТ (Индекс массы тела) — получилось 31,1 ✨ Это уже ожирение I степени, но не волнуйтесь 🙌 Всё можно исправить, достаточно внести небольшие изменения в питание и режим. Мы будем поддерживать вас на каждом шаге, и результат обязательно станет вашим достижением 💖 В Стройняшках мы мягко ведём шаг за шагом к комфортному результату 💕\n\nПодскажите, вы знакомы с нами, с условиями проекта?)»\n\nВвод: «Рост 165, вес 47»\nВывод:\n«Исходя из Ваших данных, ИМТ (Индекс массы тела) — он равен 17,3 🌸 Это дефицит массы, организму сейчас не хватает сил. Но всё можно восстановить: сбалансированное питание и забота помогут вернуть энергию и красоту ✨ В Стройняшках мы мягко ведём шаг за шагом к гармоничному результату 💕\n\nПодскажите, вы знакомы с нами, с условиями проекта?)»",
               "role": "system"
             }
           ]
@@ -2891,8 +2724,8 @@
     {
       "parameters": {
         "resource": "messages-api",
-        "instanceName": "VEPPERS",
-        "remoteJid": "={{ $node[\"Webhook\"].json.body.data.key.remoteJid || $node[\"Webhook\"].json.body.sender }}",
+        "instanceName": "wa-01",
+        "remoteJid": "={{ $('Edit Fields1').item.json.contact_id }}",
         "messageText": "={{ $node[\"OpenAI2\"].json.message.content }}",
         "options_message": {}
       },
@@ -2915,7 +2748,7 @@
     {
       "parameters": {
         "method": "POST",
-        "url": "https://evolution-api-production-9e6a.up.railway.app/chat/sendPresence/VEPPERS",
+        "url": "https://evolution-api-production-9e6a.up.railway.app/chat/sendPresence/wa-01",
         "authentication": "genericCredentialType",
         "genericAuthType": "httpHeaderAuth",
         "sendHeaders": true,
@@ -2933,7 +2766,7 @@
         },
         "sendBody": true,
         "specifyBody": "json",
-        "jsonBody": "={{ ({\n  number: String(\n           $node[\"Webhook\"].json.body.data?.key?.remoteJid\n        || $node[\"Webhook\"].json.body.data?.key?.participant\n        || $node[\"Webhook\"].json.body.sender\n        || ''\n       ).split('@')[0].replace(/\\D/g,''),\n  presence: 'composing',\n  delay: $json.typingDelayMs ?? 30000\n}) }}",
+        "jsonBody": "={{ ({\n  number: String(\n    $('Edit Fields1').item.json.contact_id\n    || $json.contact_id\n    || $json.number\n    || $json.remoteJid\n    || $json.body?.data?.key?.remoteJid\n    || $json.body?.data?.key?.participant\n    || $json.body?.sender\n    || $json.from\n    || ''\n  ).split('@')[0].replace(/\\D/g,''),\n  presence: $json.presence || 'composing',   // 'composing' | 'recording'\n  delay: $json.PresenceComposingDelay ?? $json.typingDelayMs ?? 20000\n}) }}",
         "options": {}
       },
       "id": "61dedce5-9c97-43c1-973a-3ce4f21a4ca5",
@@ -2950,6 +2783,7 @@
           "name": "Header Auth account"
         }
       },
+      "onError": "continueRegularOutput",
       "notes": "Имитация набора (typing). Требует, чтобы в текущем item было поле remoteJid, иначе замените выражение на путь к JID из вашего вебхука."
     },
     {
@@ -2966,7 +2800,7 @@
               "content": "={{ \n  $json.text\n  || $node[\"Set Text (final)\"]?.json?.text\n  || $node[\"Transcribe\"]?.json?.text\n  || $node[\"Webhook\"].json.body?.data?.message?.conversation\n  || `рост: ${$json.height_cm || ''} см; вес: ${$json.weight_kg || $node[\"Code\"].json.weight_kg || ''} кг`\n}}"
             },
             {
-              "content": "Ты — нутрициолог и женский коуч, общаешься с тёплой поддержкой и лёгкостью.\nНа вход ты получаешь рост (в см) и вес (в кг).\n\nТвоя задача:\n\nНайти рост и вес, посчитать индекс массы тела (ИМТ = вес / (рост в метрах)^2).\n\nОпределить категорию по стандарту ВОЗ:\n\n<18.5 — дефицит массы\n\n18.5–24.9 — норма\n\n25–29.9 — избыточный вес\n\n30–34.9 — ожирение I степени\n\n35–39.9 — ожирение II степени\n\n≥40 — ожирение III степени\n\nОтвет всегда должен начинаться словами:\n«Исходя из Ваших данных, ИМТ (Индекс массы тела)…»\n\nДай результат в 3–4 предложения:\n\nУкажи рассчитанный ИМТ (с округлением до десятых) и категорию.\n\nЕсли ИМТ в норме: похвали («вы прекрасно справляетесь 🌸» или «вы в гармонии со своим телом 💃»), предупреди, что от 25 начинается «лишний вес», и важно закрепить результат.\n\nЕсли ИМТ выше нормы: подбодри, добавь энергию («это можно легко исправить ✨»), покажи, что результат достижим.\n\nЕсли дефицит: мягко укажи на риски («организму нужно больше сил 🌸»), добавь заботы и надежды.\n\nВсегда пиши в женском стиле, дружелюбно, с эмодзи, как будто поддерживаешь подругу.\n\nЗаверши лёгким намёком на программу, без давления:\n«В Стройняшках мы мягко ведём шаг за шагом к комфортному результату 💕.»\n\nФормат ответа:\n— 3–4 живых предложения с эмодзи.\n— Никаких списков и таблиц.\n\n🔹 Примеры\n\nВвод: «Рост 170, вес 63»\nВывод:\n«Исходя из Ваших данных, ИМТ (Индекс массы тела) — он равен 21,8 🌸 Это отличная норма, вы в гармонии со своим телом! 💃 Важно закрепить результат, ведь со временем ситуация может измениться, и поддержка очень помогает. В Стройняшках мы мягко ведём шаг за шагом к комфортному результату 💕.»\n\nВвод: «Рост 172, вес 92»\nВывод:\n«Исходя из Ваших данных, ИМТ (Индекс массы тела) — получилось 31,1 ✨ Это уже ожирение I степени, но не волнуйтесь 🙌 Всё можно исправить, достаточно внести небольшие изменения в питание и режим. Мы будем поддерживать вас на каждом шаге, и результат обязательно станет вашим достижением 💖 В Стройняшках мы мягко ведём шаг за шагом к комфортному результату 💕.»\n\nВвод: «Рост 165, вес 47»\nВывод:\n«Исходя из Ваших данных, ИМТ (Индекс массы тела) — он равен 17,3 🌸 Это дефицит массы, организму сейчас не хватает сил. Но всё можно восстановить: сбалансированное питание и забота помогут вернуть энергию и красоту ✨ В Стройняшках мы мягко ведём шаг за шагом к гармоничному результату 💕.»",
+              "content": "Ты — нутрициолог и женский коуч, общаешься с тёплой поддержкой и лёгкостью.\nНа вход ты получаешь рост (в см) и вес (в кг).\n\nТвоя задача:\n\nНайти рост и вес, посчитать индекс массы тела (ИМТ = вес / (рост в метрах)^2).\n\nОпределить категорию по стандарту ВОЗ:\n\n<18.5 — дефицит массы\n\n18.5–24.9 — норма\n\n25–29.9 — избыточный вес\n\n30–34.9 — ожирение I степени\n\n35–39.9 — ожирение II степени\n\n≥40 — ожирение III степени\n\nОтвет всегда должен начинаться словами:\n«Исходя из Ваших данных, ИМТ (Индекс массы тела)…»\n\nДай результат в 3–4 предложения:\n\nУкажи рассчитанный ИМТ (с округлением до десятых) и категорию.\n\nЕсли ИМТ в норме: похвали («вы прекрасно справляетесь 🌸» или «вы в гармонии со своим телом 💃»), предупреди, что от 25 начинается «лишний вес», и важно закрепить результат.\n\nЕсли ИМТ выше нормы: подбодри, добавь энергию («это можно легко исправить ✨»), покажи, что результат достижим.\n\nЕсли дефицит: мягко укажи на риски («организму нужно больше сил 🌸»), добавь заботы и надежды.\n\nВсегда пиши в женском стиле, дружелюбно, с эмодзи, как будто поддерживаешь подругу.\n\nЗаверши лёгким намёком на программу, без давления:\n«В Стройняшках мы мягко ведём шаг за шагом к комфортному результату 💕\n\nПодскажите, вы знакомы с нами, с условиями проекта?)»\n\nФормат ответа:\n— 3–4 живых предложения с эмодзи.\n— Никаких списков и таблиц.\n\n🔹 Примеры\n\nВвод: «Рост 170, вес 63»\nВывод:\n«Исходя из Ваших данных, ИМТ (Индекс массы тела) — он равен 21,8 🌸 Это отличная норма, вы в гармонии со своим телом! 💃 Важно закрепить результат, ведь со временем ситуация может измениться, и поддержка очень помогает. В Стройняшках мы мягко ведём шаг за шагом к комфортному результату 💕\n\nПодскажите, вы знакомы с нами, с условиями проекта?)»\n\nВвод: «Рост 172, вес 92»\nВывод:\n«Исходя из Ваших данных, ИМТ (Индекс массы тела) — получилось 31,1 ✨ Это уже ожирение I степени, но не волнуйтесь 🙌 Всё можно исправить, достаточно внести небольшие изменения в питание и режим. Мы будем поддерживать вас на каждом шаге, и результат обязательно станет вашим достижением 💖 В Стройняшках мы мягко ведём шаг за шагом к комфортному результату 💕\n\nПодскажите, вы знакомы с нами, с условиями проекта?)»\n\nВвод: «Рост 165, вес 47»\nВывод:\n«Исходя из Ваших данных, ИМТ (Индекс массы тела) — он равен 17,3 🌸 Это дефицит массы, организму сейчас не хватает сил. Но всё можно восстановить: сбалансированное питание и забота помогут вернуть энергию и красоту ✨ В Стройняшках мы мягко ведём шаг за шагом к гармоничному результату 💕\n\nПодскажите, вы знакомы с нами, с условиями проекта?)»",
               "role": "system"
             }
           ]
@@ -2991,8 +2825,8 @@
     {
       "parameters": {
         "resource": "messages-api",
-        "instanceName": "VEPPERS",
-        "remoteJid": "={{ $node[\"Webhook\"].json.body.data.key.remoteJid || $node[\"Webhook\"].json.body.sender }}",
+        "instanceName": "wa-01",
+        "remoteJid": "={{ $('Edit Fields1').item.json.contact_id }}",
         "messageText": "Здорово снова видеть вас рядом! 💚 Вы знаете наш подход — мягко, по делу и с результатом. Ниже — актуальные условия и ближайший старт 👇",
         "options_message": {}
       },
@@ -3015,7 +2849,7 @@
     {
       "parameters": {
         "method": "POST",
-        "url": "https://evolution-api-production-9e6a.up.railway.app/chat/sendPresence/VEPPERS",
+        "url": "https://evolution-api-production-9e6a.up.railway.app/chat/sendPresence/wa-01",
         "authentication": "genericCredentialType",
         "genericAuthType": "httpHeaderAuth",
         "sendHeaders": true,
@@ -3033,7 +2867,7 @@
         },
         "sendBody": true,
         "specifyBody": "json",
-        "jsonBody": "={{ JSON.stringify({\n  number:  String(($json.contact_id\n                   || $json.body?.data?.key?.participant\n                   || $json.body?.data?.key?.remoteJid\n                   || $json.body?.sender\n                   || '')).split('@')[0].replace(/\\D/g,''),\n  presence: 'composing',\n  delay: 20000\n}) }}\n",
+        "jsonBody": "={{ ({\n  number: String(\n    $('Edit Fields1').item.json.contact_id\n    || $json.contact_id\n    || $json.number\n    || $json.remoteJid\n    || $json.body?.data?.key?.remoteJid\n    || $json.body?.sender\n    || $json.from\n    || ''\n  ).split('@')[0].replace(/\\D/g,''),\n  // для твоего инстанса presence/delay должны быть В КОРНЕ\n  presence: 'composing',          // или 'recording'\n  delay: ($json.PresenceComposingDelay ?? $json.typingDelayMs ?? 20000)\n}) }}\n\n",
         "options": {}
       },
       "id": "3ce925fd-5e15-4517-829c-4e32ba4cbab8",
@@ -3055,8 +2889,8 @@
     {
       "parameters": {
         "resource": "messages-api",
-        "instanceName": "VEPPERS",
-        "remoteJid": "={{ $node[\"Webhook\"].json.body.data.key.remoteJid || $node[\"Webhook\"].json.body.sender }}",
+        "instanceName": "wa-01",
+        "remoteJid": "={{ $('Edit Fields1').item.json.contact_id }}",
         "messageText": "=💸Стоимость   \n\n7100 руб.  (возможна рассрочка!) \n🔵Если оплачиваете СЕГОДНЯ в \n🔺течении суток, то (!)👉 \n🔺6200 руб. - подключение к Группе и работа в первый месяц (возможна оплата в 2 этапа по 3100 руб) \nПролонгация на следующий месяц (по необходимости) - 4000 руб в месяц.   \n\n🟢Дата старта: {{ $json['Дата старта'] }}   \n\n🔴Наши результаты можно посмотреть в Инстаграмм👇   \n\nhttps://instagram.com/a.vepers?utm_medium=copy_link   \n\nТелеграм https://t.me/+9oiL-YbTotY0MTdi  \n\nТелеграмм \"Самое интересное \" https://t.me/+evDmVWbiMcRiOGYy   \n\nСайт https://anastasiavepers.ru/   \n\nЕсли есть вопросы,  спрашивайте, я с удовольствием на них отвечу  💋🤝 ",
         "options_message": {
           "delay": 10000
@@ -3132,8 +2966,8 @@
           "mappingMode": "defineBelow",
           "value": {
             "step": "4",
-            "contact_id": "={{ $('Webhook').item.json.body.data.key.remoteJid }}",
-            "name": "={{ $('Webhook').item.json.body.data.pushName }}"
+            "contact_id": "={{ $json.contact_id }}",
+            "name": "={{ $json.name }}"
           },
           "matchingColumns": [
             "contact_id"
@@ -3224,7 +3058,7 @@
                 "conditions": [
                   {
                     "id": "d76bcca3-b1bd-45dd-bdef-bc1f0e56e1c5",
-                    "leftValue": "={{ JSON.parse($node[\"OpenAI3\"].json.message.content).answer }}",
+                    "leftValue": "={{ (JSON.parse(($items(\"OpenAI3\")[0]?.json?.message?.content) || \"{}\")).answer }}",
                     "rightValue": "full",
                     "operator": {
                       "type": "string",
@@ -3247,7 +3081,7 @@
                 "conditions": [
                   {
                     "id": "b7f20159-4ce8-417e-905a-17a07d280c59",
-                    "leftValue": "={{ JSON.parse($node[\"OpenAI3\"].json.message.content).answer }}",
+                    "leftValue": "={{ (JSON.parse(($items(\"OpenAI3\")[0]?.json?.message?.content) || \"{}\")).answer }}",
                     "rightValue": "split",
                     "operator": {
                       "type": "string",
@@ -3270,7 +3104,7 @@
                 "conditions": [
                   {
                     "id": "171f4d59-e35f-48a6-b4d6-444f06e23ecf",
-                    "leftValue": "={{ JSON.parse($node[\"OpenAI3\"].json.message.content).answer }}",
+                    "leftValue": "={{ (JSON.parse(($items(\"OpenAI3\")[0]?.json?.message?.content) || \"{}\")).answer }}",
                     "rightValue": "other",
                     "operator": {
                       "type": "string",
@@ -3334,8 +3168,8 @@
     {
       "parameters": {
         "resource": "messages-api",
-        "instanceName": "VEPPERS",
-        "remoteJid": "={{ $node[\"Webhook\"].json.body.data.key.remoteJid || $node[\"Webhook\"].json.body.sender }}",
+        "instanceName": "={{ $node[\"Webhook\"].json.body.instance || 'wa-01' }}",
+        "remoteJid": "={{ $('Edit Fields1').item.json.contact_id }}",
         "messageText": "Оплатить можете по ссылке удобным для вас способом через Робокассу👇\n\nhttps://auth.robokassa.ru/merchant/Invoice/i0FzQfluCUKk2MhP85XfQw\n\n6200 рублей, будем очень признательны за оплату по СБП🙏\nНапишите как сделаете оплату и пришлите скриншот, я сразу же передам ваш контакт главному куратору и добавим вас в группу",
         "options_message": {}
       },
@@ -3358,7 +3192,7 @@
     {
       "parameters": {
         "method": "POST",
-        "url": "https://evolution-api-production-9e6a.up.railway.app/chat/sendPresence/VEPPERS",
+        "url": "https://evolution-api-production-9e6a.up.railway.app/chat/sendPresence/wa-01",
         "authentication": "genericCredentialType",
         "genericAuthType": "httpHeaderAuth",
         "sendHeaders": true,
@@ -3398,8 +3232,8 @@
     {
       "parameters": {
         "resource": "messages-api",
-        "instanceName": "VEPPERS",
-        "remoteJid": "={{ $node[\"Webhook\"].json.body.data.key.remoteJid || $node[\"Webhook\"].json.body.sender }}",
+        "instanceName": "={{ $node[\"Webhook\"].json.body.instance || 'wa-01' }}",
+        "remoteJid": "={{ $('Edit Fields1').item.json.contact_id }}",
         "messageText": "Оплатить можете по ссылке удобным для вас способом через Робокассу👇\n\nhttps://auth.robokassa.ru/merchant/Invoice/27bnWwf_UU6s3_PlSwAexg\n\n3100 рублей, будем очень признательны за оплату по СБП🙏\nНапишите как сделаете оплату и пришлите скриншот, я сразу же передам ваш контакт главному куратору и добавим вас в группу",
         "options_message": {}
       },
@@ -3422,7 +3256,7 @@
     {
       "parameters": {
         "method": "POST",
-        "url": "https://evolution-api-production-9e6a.up.railway.app/chat/sendPresence/VEPPERS",
+        "url": "https://evolution-api-production-9e6a.up.railway.app/chat/sendPresence/wa-01",
         "authentication": "genericCredentialType",
         "genericAuthType": "httpHeaderAuth",
         "sendHeaders": true,
@@ -3462,7 +3296,7 @@
     {
       "parameters": {
         "resource": "messages-api",
-        "instanceName": "VEPPERS",
+        "instanceName": "={{ $node[\"Webhook\"].json.body.instance || 'wa-01' }}",
         "remoteJid": "=79898517307@s.whatsapp.net",
         "messageText": "={{ \n  'Лид на этапе оплаты — сообщение:\\n\\n'\n  + 'Имя: ' \n  + ($json.name || $node[\"Webhook\"].json.body.data?.pushName || '—') + '\\n'\n  + 'Телефон: +' \n  + String(($node[\"Webhook\"].json.body.data?.key?.remoteJid || $node[\"Webhook\"].json.body?.sender || ''))\n      .split('@')[0].replace(/\\D/g,'') + '\\n'\n  + 'Текст клиента: ' \n  + ($node[\"Set Text (final)\"].json?.text \n      || $node[\"Webhook\"].json.body?.data?.message?.conversation \n      || '[нет текста]')\n}}",
         "options_message": {}
@@ -3712,7 +3546,7 @@
     {
       "parameters": {
         "method": "POST",
-        "url": "=https://evolution-api-production-9e6a.up.railway.app/chat/getBase64FromMediaMessage/VEPPERS",
+        "url": "=https://evolution-api-production-9e6a.up.railway.app/chat/getBase64FromMediaMessage/{{ $node[\"Webhook\"].json.body.instance || 'wa-01' }}",
         "sendHeaders": true,
         "headerParameters": {
           "parameters": [
@@ -3741,7 +3575,7 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        -740,
+        -860,
         360
       ],
       "id": "d53052dd-1342-4656-a856-e61cc5fee61e",
@@ -3760,7 +3594,7 @@
       "type": "n8n-nodes-base.convertToFile",
       "typeVersion": 1.1,
       "position": [
-        -560,
+        -680,
         360
       ],
       "id": "434ed586-5ab0-428e-a77f-afca248ce3f3",
@@ -3853,7 +3687,7 @@
     {
       "parameters": {
         "resource": "messages-api",
-        "instanceName": "VEPPERS",
+        "instanceName": "={{ $node[\"Webhook\"].json.body.instance || 'wa-01' }}",
         "remoteJid": "=79898517307@s.whatsapp.net",
         "messageText": "=✅ Клиент оплатил\nИмя: {{ $json.name }}\nТелефон: +{{ $('If1').item.json.phone }}\nСумма: {{ $('OpenAI5').item.json.message.content.amount }}\nМетод: {{ $('OpenAI5').item.json.message.content.method }}",
         "options_message": {}
@@ -3877,7 +3711,7 @@
     {
       "parameters": {
         "resource": "messages-api",
-        "instanceName": "VEPPERS",
+        "instanceName": "={{ $node[\"Webhook\"].json.body.instance || 'wa-01' }}",
         "remoteJid": "=79898517307@s.whatsapp.net",
         "messageText": "=⚠️ лид прислал скриншот оплаты, но система не распознала оплату\n\nИмя: {{ $json.name }}\nТелефон: +{{ $('If1').item.json.phone }}",
         "options_message": {}
@@ -4000,7 +3834,7 @@
       "parameters": {
         "resource": "messages-api",
         "operation": "send-image",
-        "instanceName": "VEPPERS",
+        "instanceName": "={{ $node[\"Webhook\"].json.body.instance || 'wa-01' }}",
         "remoteJid": "=79898517307@s.whatsapp.net",
         "media": "={{ $('If1').item.json.base64 }}",
         "options_message": {}
@@ -4030,7 +3864,7 @@
       "type": "n8n-nodes-base.extractFromFile",
       "typeVersion": 1,
       "position": [
-        -140,
+        -260,
         360
       ],
       "id": "7fa15ed6-7adc-4854-aa2e-4b45f9f1b9ce",
@@ -4063,7 +3897,7 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 2.2,
       "position": [
-        -380,
+        -500,
         360
       ],
       "id": "e049b095-a5df-4793-9e9c-94b37402bf13",
@@ -4076,13 +3910,13 @@
             {
               "id": "7a1bc435-55e8-4180-8e8b-6b1549813d12",
               "name": "phone",
-              "value": "={{ \n  (\n    $json.body?.data?.key?.remoteJid   // обычный вебхук из EVOLUTION\n    || $json.body?.sender              // запасной\n    || $json.body?.from                // агрегатор из VEP LOGS\n    || $json.query?.phone \n    || ''\n  ).toString().replace(/@.*/, '').replace(/\\D/g, '')\n}}",
+              "value": "={{ \n  (\n    $json.body?.data?.key?.remoteJid\n    || $json.body?.from\n    || $json.from\n    || $json.body?.sender\n    || $json.data?.key?.remoteJid\n    || $json.remoteJid\n    || $json.contact_id\n    || $json.phone\n    || ''\n  ).toString().split('@')[0].replace(/\\D/g, '')\n}}",
               "type": "string"
             },
             {
               "id": "c5dd7444-ccf6-4c84-b27a-5dda06daa588",
               "name": "text",
-              "value": "={{\n  $json.body?.data?.message?.conversation\n  || $json.body?.data?.message?.extendedTextMessage?.text\n  || $json.body?.data?.message?.imageMessage?.caption\n  || $json.body?.text     // агрегатор\n  || $json.text           // вдруг уже есть наверху\n  || ''\n}}\n",
+              "value": "={{ \n  $json.body?.data?.message?.conversation\n  || $json.body?.data?.message?.extendedTextMessage?.text\n  || $json.body?.text\n  || $json.text           // вдруг уже есть наверху\n  || ''\n}}",
               "type": "string"
             },
             {
@@ -4100,7 +3934,7 @@
             {
               "id": "c97c9878-1ae4-4284-a488-66e1975491d3",
               "name": "key",
-              "value": "={{ ($json.phone || '').toString() + ':' + ($json.stage || 'bmi') }}",
+              "value": "={{\n  (\n    (\n      $json.body?.data?.key?.remoteJid\n      || $json.body?.from\n      || $json.from\n      || $json.body?.sender\n      || $json.data?.key?.remoteJid\n      || $json.remoteJid\n      || $json.contact_id\n      || $json.phone\n      || ''\n    ).toString().split('@')[0].replace(/\\D/g,'')\n  ) + ':' + ($json.body?.stage || $json.stage || 'bmi')\n}}",
               "type": "string"
             },
             {
@@ -4108,9 +3942,22 @@
               "name": "chunk",
               "value": "={{ JSON.stringify({ text: $json.text || '', ts: $json.now }) }}",
               "type": "string"
+            },
+            {
+              "id": "927c4e67-ba8e-4f75-9031-57e5b84c545d",
+              "name": "contact_id",
+              "value": "={{ (() => {   const j = $json;   const raw =     j.body?.from ||     j.from ||     j.sender ||     j.data?.key?.remoteJid ||     j.body?.data?.key?.remoteJid ||     '';   const s = String(raw).trim();   if (s.includes('@')) return s;   const digits = s.replace(/\\D/g,'');   return digits ? `${digits}@s.whatsapp.net` : ''; })() }}",
+              "type": "string"
+            },
+            {
+              "id": "ca5175a3-27b6-4501-adb9-eebb66234308",
+              "name": "aggregated",
+              "value": "={{ !!($json.body?.aggregated) }}",
+              "type": "boolean"
             }
           ]
         },
+        "includeOtherFields": true,
         "options": {}
       },
       "type": "n8n-nodes-base.set",
@@ -4142,7 +3989,7 @@
           "values": [
             {
               "lookupColumn": "key",
-              "lookupValue": "={{ $node[\"Edit Fields1\"].json.key }}"
+              "lookupValue": "={{\n  (\n    (\n      $json.body?.data?.key?.remoteJid\n      || $json.body?.from\n      || $json.from\n      || $json.body?.sender\n      || $json.data?.key?.remoteJid\n      || $json.remoteJid\n      || $json.contact_id\n      || $json.phone\n      || ''\n    ).toString().split('@')[0].replace(/\\D/g,'')\n  ) + ':' + ($json.body?.stage || $json.stage || 'bmi')\n}}"
             }
           ]
         },
@@ -4151,8 +3998,8 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.5,
       "position": [
-        -1920,
-        100
+        -1880,
+        260
       ],
       "id": "4a5df8ca-0d5d-4c39-8ded-3a2431a779d8",
       "name": "Google Sheets13",
@@ -4166,13 +4013,13 @@
     },
     {
       "parameters": {
-        "jsCode": "const src = $node[\"Edit Fields1\"].json; // тут есть phone, text, stage, now, key\n\nreturn [{\n  key:    src.key,\n  phone:  src.phone,\n  stage:  src.stage,\n  firstAt: src.now,\n  lastAt:  src.now,\n  buffer: JSON.stringify([{ text: src.text || '', ts: src.now }]),\n}];\n"
+        "jsCode": "// Источник: пытаемся взять данные из Edit Fields1, иначе из текущего $json\nconst src = ($items(\"Edit Fields1\")[0]?.json) || $json || {};\n\n// Функции-помощники\nconst onlyDigits = v => String(v || '').split('@')[0].replace(/\\D/g, '');\nconst pick = (...xs) => xs.find(v => v !== undefined && v !== null && String(v).trim() !== '');\n\n// Достаём цифры (приоритет: remoteJid контакта, затем sender/from и т.п.)\nlet digits = onlyDigits(\n  pick(\n    src.contact_id,\n    src.phone,\n    src.body?.data?.key?.remoteJid,\n    src.body?.sender,\n    src.body?.from,\n    src.from,\n    src.sender,\n    src.data?.key?.remoteJid,\n    (src.key || '').split(':')[0] // на крайний случай — префикс key до ':'\n  )\n);\n\n// Базовые поля\nconst stage = src.stage || 'bmi';\nconst now   = Number.isFinite(+src.now) ? +src.now : Date.now();\n\n// Ключ: формируем из digits:stage, если digits нет — как минимум :stage\nconst key = digits ? `${digits}:${stage}` : (src.key || `:${stage}`);\n\n// Текст входящего куска (если Edit Fields1 его не дал — тянем из webhook)\nconst text = pick(\n  src.text,\n  src.body?.data?.message?.conversation,\n  src.body?.text,\n  ''\n).toString().trim();\n\n// Имя: учитываем pushName в body.data\nconst name = pick(\n  src.name,\n  src.pushName,\n  src.body?.data?.pushName,\n  src.body?.pushName,\n  ''\n).toString().trim();\n\n// Стартовый буфер\nconst bufferArr = text ? [{ text, ts: now }] : [];\n\nreturn [{\n  json: {\n    key,\n    phone: digits,         // только цифры\n    stage,\n    firstAt: now,\n    lastAt:  now,\n    buffer: JSON.stringify(bufferArr),\n    name,                  // колонка name — опционально, но полезно\n  }\n}];\n"
       },
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [
-        -1580,
-        240
+        -2040,
+        600
       ],
       "id": "e1272e2d-3277-42bb-b652-e63435a96fb7",
       "name": "Code2"
@@ -4202,7 +4049,8 @@
             "lastAt": "={{ $json.lastAt }}",
             "stage": "={{ $json.stage }}",
             "firstAt": "={{ $json.firstAt }}",
-            "buffer": "={{ $json.buffer }}"
+            "buffer": "={{ $json.buffer }}",
+            "name": "={{$json.name}}"
           },
           "matchingColumns": [
             "key"
@@ -4264,8 +4112,8 @@
               "canBeUsedToMatch": true
             },
             {
-              "id": "chunk",
-              "displayName": "chunk",
+              "id": "name",
+              "displayName": "name",
               "required": false,
               "defaultMatch": false,
               "display": true,
@@ -4282,8 +4130,8 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.5,
       "position": [
-        -1380,
-        240
+        -1880,
+        600
       ],
       "id": "88ef4840-c949-4238-bfd5-288571186f88",
       "name": "Google Sheets14",
@@ -4296,47 +4144,13 @@
     },
     {
       "parameters": {
-        "conditions": {
-          "options": {
-            "caseSensitive": true,
-            "leftValue": "",
-            "typeValidation": "strict",
-            "version": 2
-          },
-          "conditions": [
-            {
-              "id": "fc7f633a-d184-488f-9914-6a58f6a466fc",
-              "leftValue": "={{$json.key || ''}}",
-              "rightValue": 0,
-              "operator": {
-                "type": "string",
-                "operation": "notEmpty",
-                "singleValue": true
-              }
-            }
-          ],
-          "combinator": "and"
-        },
-        "options": {}
-      },
-      "type": "n8n-nodes-base.if",
-      "typeVersion": 2.2,
-      "position": [
-        -1760,
-        100
-      ],
-      "id": "ef9f054a-1a4d-402b-888b-81897e604cdb",
-      "name": "If3"
-    },
-    {
-      "parameters": {
-        "jsCode": "const src = $node[\"Edit Fields1\"].json;   // берем текущие поля из вебхука\nconst old = $json.buffer ? JSON.parse($json.buffer) : [];\nold.push({ text: src.text || '', ts: src.now });\n\nreturn [{\n  key:    src.key,\n  phone:  src.phone,\n  stage:  src.stage,\n  firstAt: $json.firstAt || src.now,   // не теряем firstAt, если он уже был\n  lastAt:  src.now,\n  buffer: JSON.stringify(old),\n}];\n"
+        "jsCode": "// Источники\nconst src = ($items(\"Edit Fields1\")[0]?.json) || $json || {};\nconst row = $items(\"Google Sheets13\")[0]?.json || {};\n\n// Хелперы\nconst onlyDigits = v => String(v || '').split('@')[0].replace(/\\D/g, '');\nconst pick = (...xs) => xs.find(v => v !== undefined && v !== null && String(v).trim() !== '');\n\n// Время/этап\nconst now   = Number.isFinite(+src.now) ? +src.now : Date.now();\nconst stage = row.stage || src.stage || 'bmi';\n\n// Номер: сперва из строки (надежнее), затем из входа, затем из key\nlet digits = onlyDigits(\n  pick(\n    row.phone,\n    src.contact_id,\n    src.phone,\n    src.body?.data?.key?.remoteJid,\n    src.body?.sender,\n    src.body?.from,\n    src.from,\n    src.sender,\n    src.data?.key?.remoteJid,\n    (row.key || src.key || '').split(':')[0]\n  )\n);\n\n// Ключ оставляем прежний, если есть; иначе собираем из digits:stage\nconst key = row.key || (digits ? `${digits}:${stage}` : (src.key || `:${stage}`));\n\n// Текст куска\nconst text = pick(\n  src.text,\n  src.body?.data?.message?.conversation,\n  src.body?.text,\n  ''\n).toString().trim();\n\n// Текущий буфер из строки\nlet arr = [];\ntry { arr = row.buffer ? JSON.parse(row.buffer) : []; } catch (_) { arr = []; }\n\n// Антидубль по паре (ts, text)\n// Примечание: если опасаешься коллизий по ts, можно добавить хэш текста.\nconst chunk   = { text, ts: now };\nconst exists  = arr.some(x => String(x.ts) === String(chunk.ts) && (x.text || '') === chunk.text);\nconst nextArr = text ? (exists ? arr : [...arr, chunk]) : arr;\n\n// Имя: берём из строки, иначе из webhook (учитываем body.data.pushName)\nconst name = pick(\n  row.name,\n  src.name,\n  src.pushName,\n  src.body?.data?.pushName,\n  src.body?.pushName,\n  ''\n).toString().trim();\n\nreturn [{\n  json: {\n    key,\n    phone: digits,\n    stage,\n    firstAt: row.firstAt || now,\n    lastAt:  now,                        // важно: обновляем на каждый чанк\n    buffer: JSON.stringify(nextArr),\n    name,\n  }\n}];\n"
       },
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [
-        -1580,
-        100
+        -2040,
+        440
       ],
       "id": "b626f9c6-fc6b-4f01-a7ba-f02f5c55880c",
       "name": "Code3"
@@ -4362,8 +4176,10 @@
           "mappingMode": "defineBelow",
           "value": {
             "key": "={{ $json.key }}",
-            "lastAt": "={{ $json.now }}",
-            "buffer": "={{$json.buffer}}"
+            "lastAt": "={{ $json.lastAt }}",
+            "buffer": "={{$json.buffer}}",
+            "name": "={{$json.name}}",
+            "firstAt": "={{ $json.firstAt }}"
           },
           "matchingColumns": [
             "key"
@@ -4407,7 +4223,7 @@
               "display": true,
               "type": "string",
               "canBeUsedToMatch": true,
-              "removed": true
+              "removed": false
             },
             {
               "id": "lastAt",
@@ -4428,14 +4244,14 @@
               "canBeUsedToMatch": true
             },
             {
-              "id": "chunk",
-              "displayName": "chunk",
+              "id": "name",
+              "displayName": "name",
               "required": false,
               "defaultMatch": false,
               "display": true,
               "type": "string",
               "canBeUsedToMatch": true,
-              "removed": true
+              "removed": false
             }
           ],
           "attemptToConvertTypes": false,
@@ -4446,8 +4262,8 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.5,
       "position": [
-        -1380,
-        100
+        -1880,
+        440
       ],
       "id": "e36f882c-630b-425a-9dde-bf185a1f011d",
       "name": "Google Sheets15",
@@ -4457,6 +4273,86 @@
           "name": "veppers"
         }
       }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "fc7f633a-d184-488f-9914-6a58f6a466fc",
+              "leftValue": "={{ $json.aggregated }}",
+              "rightValue": "true",
+              "operator": {
+                "type": "boolean",
+                "operation": "true",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        -1880,
+        100
+      ],
+      "id": "ef9f054a-1a4d-402b-888b-81897e604cdb",
+      "name": "If (AGGREGATED?)"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "fc7f633a-d184-488f-9914-6a58f6a466fc",
+              "leftValue": "={{$items('Google Sheets13').filter(i => Object.keys(i.json).length > 0).length}}",
+              "rightValue": 0,
+              "operator": {
+                "type": "number",
+                "operation": "gt"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        -2200,
+        600
+      ],
+      "id": "9c6d863b-1a43-4093-85df-1751f84cde9f",
+      "name": "If (Row exists?)"
+    },
+    {
+      "parameters": {
+        "jsCode": "// безопасный доступ к json любого узла (если не исполнялся — вернёт {})\nconst get = (name) => {\n  try { const a = $items(name); return (Array.isArray(a) && a.length) ? a[0].json : {}; }\n  catch(e){ return {}; }\n};\n\nlet o = {};\ntry { o = JSON.parse($json.message?.content || '{}'); } catch(e) {}\n\nconst hr = get(\"HTTP Request1\");   // вместо $node[\"HTTP Request1\"]\nconst base64   = hr.base64 || hr.result?.base64 || null;\nconst mimetype = hr.mimetype || 'image/jpeg';\nconst fileName = hr.fileName || (mimetype === 'application/pdf' ? 'receipt.pdf' : 'receipt.jpg');\n\nreturn [{\n  // из OpenAI5\n  receipt: o.receipt || 'uncertain',\n  paid: o.paid || 'uncertain',\n  amount: Number.isFinite(o.amount) ? o.amount : null,\n  method: o.method || 'unknown',\n\n  // сервисные поля\n  is_paid: (o.paid === 'yes'),\n  name: $items(\"Webhook\")[0]?.json?.body?.data?.pushName || '',\n  phone: String(($items(\"Webhook\")[0]?.json?.body?.data?.key?.remoteJid\n              || $items(\"Webhook\")[0]?.json?.body?.sender || ''))\n           .split('@')[0].replace(/\\D/g,''),\n  caption_or_text: $items(\"Webhook\")[0]?.json?.body?.data?.message?.imageMessage?.caption\n                || $items(\"Webhook\")[0]?.json?.body?.data?.message?.conversation || '',\n\n  // для отправки файла\n  base64, mimetype, fileName\n}];\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        60,
+        100
+      ],
+      "id": "a184eb00-1f46-49e0-ab78-1ec7810b1224",
+      "name": "Code4"
     }
   ],
   "pinData": {},
@@ -4468,6 +4364,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 1,
-  "updatedAt": "2025-09-04T16:12:06.000Z",
-  "versionId": "1b0dcfb7-aec0-4ac5-b57a-f4f7ce9bbdf2"
+  "updatedAt": "2025-09-05T22:24:28.000Z",
+  "versionId": "ee89543c-1e53-44bb-8483-0a4ab189f7f5"
 }
