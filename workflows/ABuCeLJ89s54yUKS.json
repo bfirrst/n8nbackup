@@ -1,5 +1,5 @@
 {
-  "active": false,
+  "active": true,
   "connections": {
     "Switch": {
       "main": [
@@ -121,7 +121,7 @@
       "main": [
         [
           {
-            "node": "Edit Fields1",
+            "node": "If3",
             "type": "main",
             "index": 0
           }
@@ -856,6 +856,24 @@
           }
         ]
       ]
+    },
+    "If3": {
+      "main": [
+        [
+          {
+            "node": "Switch",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Edit Fields1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
     }
   },
   "createdAt": "2025-09-01T18:48:30.216Z",
@@ -1154,7 +1172,7 @@
       "type": "n8n-nodes-base.webhook",
       "typeVersion": 2,
       "position": [
-        -2220,
+        -2400,
         100
       ],
       "id": "3d0d5298-0a33-40d5-8a89-625938ff7ce6",
@@ -2401,7 +2419,7 @@
     {
       "parameters": {
         "resource": "messages-api",
-        "instanceName": "VEPPERS",
+        "instanceName": "wa-01",
         "remoteJid": "={{ $('Edit Fields1').item.json.contact_id }}",
         "messageText": "Пара слов обо мне 🩷   \n\nМеня зовут Анастасия Веперс, я дипломированный нутрициолог, психолог, коуч ICF, психосамотолог, в непрерывной практике нахожусь 8 лет  \n\n☝️💯Со мной похудело более 3800 человек. Снимаю диагнозы: сахарный диабет, резистентность, ожирение, бесплодие, гипертония.    💪Помогаю сбросить вес и восстановить здоровье. Со мной работает команда из 30 кураторов. 🤝  \n\nКак мы помогаем похудеть: \n✅Работа происходит в группе в Ватсап в сопровождении куратора.  \n❤️Комфортные группы по 15-20 человек. \n✍️В группе веде‌тся ежедневная работа, фиксируется и анализируется Ваше питание.  \n🤝Психологическое, коучинговое и информационное сопровождение. \n👉Выдается меню.  \n📃Ежедневная(!) обратная связь по всем вопросам.  \n✍️Мы веде‌м за Вами пищевые дневники.  \n✅считать калории не нужно. Все уже просчитано за Вас. \n🌟конструктор меню 👍👉взаимозаменяемые продукты  (т.е. всегда есть выбор на Ваш вкус). \n💥доступные продукты питания (продаются в обычных магазинах). \n🎉очень простая в приготовлении еда.  \n\nПрограмма🌟Поможет раз и навсегда комфортно справиться с лишним весом и очень скоро обновить гардероб 👗👠 )  \n\nТакже улучшить здоровье, снять диагнозы: СД2, резистентность к инсулину, гипертония, ожирение, жировой гепотоз и тд.",
         "options_message": {}
@@ -2867,7 +2885,7 @@
         },
         "sendBody": true,
         "specifyBody": "json",
-        "jsonBody": "={{ ({\n  number: String(\n    $('Edit Fields1').item.json.contact_id\n    || $json.contact_id\n    || $json.number\n    || $json.remoteJid\n    || $json.body?.data?.key?.remoteJid\n    || $json.body?.sender\n    || $json.from\n    || ''\n  ).split('@')[0].replace(/\\D/g,''),\n  // для твоего инстанса presence/delay должны быть В КОРНЕ\n  presence: 'composing',          // или 'recording'\n  delay: ($json.PresenceComposingDelay ?? $json.typingDelayMs ?? 20000)\n}) }}\n\n",
+        "jsonBody": "={{ JSON.stringify({\n  number: String(\n    $('Edit Fields1').item.json.contact_id\n    || $json.contact_id\n    || $json.number\n    || $json.remoteJid\n    || $json.body?.data?.key?.remoteJid\n    || $json.body?.sender\n    || $json.from\n    || ''\n  ).split('@')[0].replace(/\\D/g,''),\n  // для твоего инстанса presence/delay должны быть в КОРНЕ\n  presence: 'composing',           // или 'recording'\n  delay: ($json.PresenceComposingDelay ?? $json.typingDelayMs ?? 20000)\n}) }}\n",
         "options": {}
       },
       "id": "3ce925fd-5e15-4517-829c-4e32ba4cbab8",
@@ -3210,7 +3228,7 @@
         },
         "sendBody": true,
         "specifyBody": "json",
-        "jsonBody": "={{ ({\n  number: String(\n           $node[\"Webhook\"].json.body.data?.key?.remoteJid\n        || $node[\"Webhook\"].json.body.data?.key?.participant\n        || $node[\"Webhook\"].json.body.sender\n        || ''\n       ).split('@')[0].replace(/\\D/g,''),\n  presence: 'composing',\n  delay: $json.typingDelayMs ?? 30000\n}) }}",
+        "jsonBody": "={{ ({\n  number: String(\n    $('Edit Fields1').item.json.contact_id\n    || $json.contact_id\n    || $json.number\n    || $json.remoteJid\n    || $json.body?.data?.key?.remoteJid\n    || $json.body?.data?.key?.participant\n    || $json.body?.sender\n    || $json.from\n    || ''\n  ).split('@')[0].replace(/\\D/g,''),\n  presence: $json.presence || 'composing',   // 'composing' | 'recording'\n  delay: $json.PresenceComposingDelay ?? $json.typingDelayMs ?? 20000\n}) }}",
         "options": {}
       },
       "id": "e7e9dc7d-71e2-418a-afbf-8b82651a2205",
@@ -3274,7 +3292,7 @@
         },
         "sendBody": true,
         "specifyBody": "json",
-        "jsonBody": "={{ ({\n  number: String(\n           $node[\"Webhook\"].json.body.data?.key?.remoteJid\n        || $node[\"Webhook\"].json.body.data?.key?.participant\n        || $node[\"Webhook\"].json.body.sender\n        || ''\n       ).split('@')[0].replace(/\\D/g,''),\n  presence: 'composing',\n  delay: $json.typingDelayMs ?? 30000\n}) }}",
+        "jsonBody": "={{ ({\n  number: String(\n    $('Edit Fields1').item.json.contact_id\n    || $json.contact_id\n    || $json.number\n    || $json.remoteJid\n    || $json.body?.data?.key?.remoteJid\n    || $json.body?.data?.key?.participant\n    || $json.body?.sender\n    || $json.from\n    || ''\n  ).split('@')[0].replace(/\\D/g,''),\n  presence: $json.presence || 'composing',   // 'composing' | 'recording'\n  delay: $json.PresenceComposingDelay ?? $json.typingDelayMs ?? 20000\n}) }}",
         "options": {}
       },
       "id": "c174ecf5-72e6-4ead-8bab-43ea11a9c202",
@@ -3298,7 +3316,7 @@
         "resource": "messages-api",
         "instanceName": "={{ $node[\"Webhook\"].json.body.instance || 'wa-01' }}",
         "remoteJid": "=79898517307@s.whatsapp.net",
-        "messageText": "={{ \n  'Лид на этапе оплаты — сообщение:\\n\\n'\n  + 'Имя: ' \n  + ($json.name || $node[\"Webhook\"].json.body.data?.pushName || '—') + '\\n'\n  + 'Телефон: +' \n  + String(($node[\"Webhook\"].json.body.data?.key?.remoteJid || $node[\"Webhook\"].json.body?.sender || ''))\n      .split('@')[0].replace(/\\D/g,'') + '\\n'\n  + 'Текст клиента: ' \n  + ($node[\"Set Text (final)\"].json?.text \n      || $node[\"Webhook\"].json.body?.data?.message?.conversation \n      || '[нет текста]')\n}}",
+        "messageText": "={{ (() => {\n  const j = $json;\n\n  // Имя: сначала то, что кладёт Switch (BAD.NAME / NAME),\n  // затем корневые/агрегаторные места, в конце — из Edit Fields1.\n  const name = (\n    j.BAD?.NAME\n    ?? j.NAME\n    ?? j.name\n    ?? j.body?.name\n    ?? j.body?.pushName\n    ?? j.body?.data?.pushName\n    ?? $items(\"Edit Fields1\")[0]?.json?.name\n    ?? ''\n  ).toString().trim() || '—';\n\n  // Номер: сначала из Switch (BAD.FON / phone), затем contact_id и т.д.\n  const digits = String(\n    j.BAD?.FON\n    ?? j.phone\n    ?? j.FON\n    ?? j.contact_id\n    ?? j.body?.contact_id\n    ?? j.body?.from\n    ?? $items(\"Edit Fields1\")[0]?.json?.contact_id\n    ?? ''\n  ).split('@')[0].replace(/\\D/g,'');\n\n  // Текст клиента: финальный, с безопасными фолбэками\n  const text =\n    $items(\"Set Text (final)\")[0]?.json?.text\n    ?? j.text\n    ?? j.body?.text\n    ?? j.body?.data?.message?.conversation\n    ?? '[нет текста]';\n\n  return [\n    'Лид — новое сообщение',\n    '',\n    `Имя: ${name}`,\n    digits ? `Телефон: +${digits}` : 'Телефон: —',\n    `Текст клиента: ${text}`,\n  ].join('\\n');\n})() }}",
         "options_message": {}
       },
       "type": "n8n-nodes-evolution-api-eng.evolutionApi",
@@ -3338,8 +3356,7 @@
           "mappingMode": "defineBelow",
           "value": {
             "step": "5",
-            "contact_id": "={{ $('Webhook').item.json.body.data.key.remoteJid }}",
-            "name": "={{ $('Webhook').item.json.body.data.pushName }}"
+            "contact_id": "={{ $('Switch1').item.json.contact_id }}"
           },
           "matchingColumns": [
             "contact_id"
@@ -3363,7 +3380,7 @@
               "display": true,
               "type": "string",
               "canBeUsedToMatch": true,
-              "removed": false
+              "removed": true
             },
             {
               "id": "step",
@@ -3381,7 +3398,8 @@
               "defaultMatch": false,
               "display": true,
               "type": "string",
-              "canBeUsedToMatch": true
+              "canBeUsedToMatch": true,
+              "removed": true
             },
             {
               "id": "row_number",
@@ -3436,8 +3454,7 @@
           "mappingMode": "defineBelow",
           "value": {
             "step": "5",
-            "contact_id": "={{ $('Webhook').item.json.body.data.key.remoteJid }}",
-            "name": "={{ $('Webhook').item.json.body.data.pushName }}"
+            "contact_id": "={{ $('Switch1').item.json.contact_id }}"
           },
           "matchingColumns": [
             "contact_id"
@@ -3461,7 +3478,7 @@
               "display": true,
               "type": "string",
               "canBeUsedToMatch": true,
-              "removed": false
+              "removed": true
             },
             {
               "id": "step",
@@ -3479,7 +3496,8 @@
               "defaultMatch": false,
               "display": true,
               "type": "string",
-              "canBeUsedToMatch": true
+              "canBeUsedToMatch": true,
+              "removed": true
             },
             {
               "id": "row_number",
@@ -3689,7 +3707,7 @@
         "resource": "messages-api",
         "instanceName": "={{ $node[\"Webhook\"].json.body.instance || 'wa-01' }}",
         "remoteJid": "=79898517307@s.whatsapp.net",
-        "messageText": "=✅ Клиент оплатил\nИмя: {{ $json.name }}\nТелефон: +{{ $('If1').item.json.phone }}\nСумма: {{ $('OpenAI5').item.json.message.content.amount }}\nМетод: {{ $('OpenAI5').item.json.message.content.method }}",
+        "messageText": "=✅ Клиент оплатил\nИмя: {{ $('If1').item.json.name }}\nТелефон: +{{ $('If1').item.json.phone }}\nСумма: {{ $('OpenAI5').item.json.message.content.amount }}\nМетод: {{ $('OpenAI5').item.json.message.content.method }}",
         "options_message": {}
       },
       "type": "n8n-nodes-evolution-api-eng.evolutionApi",
@@ -3713,7 +3731,7 @@
         "resource": "messages-api",
         "instanceName": "={{ $node[\"Webhook\"].json.body.instance || 'wa-01' }}",
         "remoteJid": "=79898517307@s.whatsapp.net",
-        "messageText": "=⚠️ лид прислал скриншот оплаты, но система не распознала оплату\n\nИмя: {{ $json.name }}\nТелефон: +{{ $('If1').item.json.phone }}",
+        "messageText": "=⚠️ лид прислал скриншот оплаты, но система не распознала оплату\n\nИмя: {{ $('If1').item.json.name }}\nТелефон: +{{ $('If1').item.json.phone }}",
         "options_message": {}
       },
       "type": "n8n-nodes-evolution-api-eng.evolutionApi",
@@ -3753,8 +3771,7 @@
           "mappingMode": "defineBelow",
           "value": {
             "step": "оплачено",
-            "contact_id": "={{ $('Webhook').item.json.body.data.key.remoteJid }}",
-            "name": "={{ $('Webhook').item.json.body.data.pushName }}"
+            "contact_id": "={{ $('Webhook').item.json.body.data.key.remoteJid }}"
           },
           "matchingColumns": [
             "contact_id"
@@ -3778,7 +3795,7 @@
               "display": true,
               "type": "string",
               "canBeUsedToMatch": true,
-              "removed": false
+              "removed": true
             },
             {
               "id": "step",
@@ -3796,7 +3813,8 @@
               "defaultMatch": false,
               "display": true,
               "type": "string",
-              "canBeUsedToMatch": true
+              "canBeUsedToMatch": true,
+              "removed": true
             },
             {
               "id": "row_number",
@@ -4353,6 +4371,48 @@
       ],
       "id": "a184eb00-1f46-49e0-ab78-1ec7810b1224",
       "name": "Code4"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "8895f5dc-3d67-4044-929f-7bf5afd16221",
+              "leftValue": "={{ $json.body.data.message?.imageMessage?.mimetype || $json.body.data.message?.documentMessage?.mimetype || '' }}",
+              "rightValue": "image/",
+              "operator": {
+                "type": "string",
+                "operation": "contains"
+              }
+            },
+            {
+              "id": "9f3dcc7a-f4d6-4c6d-a77e-f8a14e7b6d8b",
+              "leftValue": "={{ $json.body.data.message?.imageMessage?.mimetype || $json.body.data.message?.documentMessage?.mimetype || '' }}",
+              "rightValue": "application/pdf",
+              "operator": {
+                "type": "string",
+                "operation": "contains"
+              }
+            }
+          ],
+          "combinator": "or"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        -2240,
+        100
+      ],
+      "id": "c413f3b4-4a06-4dc6-a15c-a6f05898ed0e",
+      "name": "If3"
     }
   ],
   "pinData": {},
@@ -4364,6 +4424,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 1,
-  "updatedAt": "2025-09-05T22:24:28.000Z",
-  "versionId": "ee89543c-1e53-44bb-8483-0a4ab189f7f5"
+  "updatedAt": "2025-09-06T19:55:56.000Z",
+  "versionId": "e847cb56-fcda-4851-b9ad-87be6ea6d2bd"
 }
