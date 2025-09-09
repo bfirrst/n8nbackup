@@ -1,5 +1,5 @@
 {
-  "active": true,
+  "active": false,
   "connections": {
     "Switch": {
       "main": [
@@ -3315,7 +3315,7 @@
       "parameters": {
         "resource": "messages-api",
         "instanceName": "={{ $node[\"Webhook\"].json.body.instance || 'wa-01' }}",
-        "remoteJid": "=79898517307@s.whatsapp.net",
+        "remoteJid": "=79181357871@s.whatsapp.net",
         "messageText": "={{ (() => {\n  const j = $json;\n\n  // Имя: сначала то, что кладёт Switch (BAD.NAME / NAME),\n  // затем корневые/агрегаторные места, в конце — из Edit Fields1.\n  const name = (\n    j.BAD?.NAME\n    ?? j.NAME\n    ?? j.name\n    ?? j.body?.name\n    ?? j.body?.pushName\n    ?? j.body?.data?.pushName\n    ?? $items(\"Edit Fields1\")[0]?.json?.name\n    ?? ''\n  ).toString().trim() || '—';\n\n  // Номер: сначала из Switch (BAD.FON / phone), затем contact_id и т.д.\n  const digits = String(\n    j.BAD?.FON\n    ?? j.phone\n    ?? j.FON\n    ?? j.contact_id\n    ?? j.body?.contact_id\n    ?? j.body?.from\n    ?? $items(\"Edit Fields1\")[0]?.json?.contact_id\n    ?? ''\n  ).split('@')[0].replace(/\\D/g,'');\n\n  // Текст клиента: финальный, с безопасными фолбэками\n  const text =\n    $items(\"Set Text (final)\")[0]?.json?.text\n    ?? j.text\n    ?? j.body?.text\n    ?? j.body?.data?.message?.conversation\n    ?? '[нет текста]';\n\n  return [\n    'Лид — новое сообщение',\n    '',\n    `Имя: ${name}`,\n    digits ? `Телефон: +${digits}` : 'Телефон: —',\n    `Текст клиента: ${text}`,\n  ].join('\\n');\n})() }}",
         "options_message": {}
       },
@@ -3706,7 +3706,7 @@
       "parameters": {
         "resource": "messages-api",
         "instanceName": "={{ $node[\"Webhook\"].json.body.instance || 'wa-01' }}",
-        "remoteJid": "=79898517307@s.whatsapp.net",
+        "remoteJid": "=79134438532@s.whatsapp.net",
         "messageText": "=✅ Клиент оплатил\nИмя: {{ $('If1').item.json.name }}\nТелефон: +{{ $('If1').item.json.phone }}\nСумма: {{ $('OpenAI5').item.json.message.content.amount }}\nМетод: {{ $('OpenAI5').item.json.message.content.method }}",
         "options_message": {}
       },
@@ -3730,7 +3730,7 @@
       "parameters": {
         "resource": "messages-api",
         "instanceName": "={{ $node[\"Webhook\"].json.body.instance || 'wa-01' }}",
-        "remoteJid": "=79898517307@s.whatsapp.net",
+        "remoteJid": "=79134438532@s.whatsapp.net",
         "messageText": "=⚠️ лид прислал скриншот оплаты, но система не распознала оплату\n\nИмя: {{ $('If1').item.json.name }}\nТелефон: +{{ $('If1').item.json.phone }}",
         "options_message": {}
       },
@@ -3853,8 +3853,9 @@
         "resource": "messages-api",
         "operation": "send-image",
         "instanceName": "={{ $node[\"Webhook\"].json.body.instance || 'wa-01' }}",
-        "remoteJid": "=79898517307@s.whatsapp.net",
+        "remoteJid": "=79134438532@s.whatsapp.net",
         "media": "={{ $('If1').item.json.base64 }}",
+        "caption": "=",
         "options_message": {}
       },
       "type": "n8n-nodes-evolution-api-eng.evolutionApi",
@@ -4424,6 +4425,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 1,
-  "updatedAt": "2025-09-06T19:55:56.000Z",
-  "versionId": "e847cb56-fcda-4851-b9ad-87be6ea6d2bd"
+  "updatedAt": "2025-09-08T13:37:13.000Z",
+  "versionId": "ed89e116-ed26-4a04-892e-b291254693d7"
 }
