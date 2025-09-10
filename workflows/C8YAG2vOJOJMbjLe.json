@@ -1,0 +1,1513 @@
+{
+  "active": false,
+  "connections": {
+    "Config1": {
+      "main": [
+        [
+          {
+            "node": "Normalize IG Event1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Normalize IG Event1": {
+      "main": [
+        [
+          {
+            "node": "If (Is Comment?)1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Match Trigger Word1": {
+      "main": [
+        [
+          {
+            "node": "If (Has Trigger)1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Build CID + Links3": {
+      "main": [
+        [
+          {
+            "node": "IG: Reply to Comment1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Extract Label2": {
+      "main": [
+        [
+          {
+            "node": "Switch intent2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "IG: Send DM (HTTP)4": {
+      "main": [
+        [
+          {
+            "node": "Respond to Webhook1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "IG: Reply to Comment1": {
+      "main": [
+        [
+          {
+            "node": "IG: Send DM (HTTP)4",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI classify1": {
+      "main": [
+        [
+          {
+            "node": "Extract Label3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI compose answer2": {
+      "main": [
+        [
+          {
+            "node": "IG: Reply to Comment4",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Trigger word1": {
+      "main": [
+        [
+          {
+            "node": "Match Trigger Word1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If (Is Comment?)1": {
+      "main": [
+        [
+          {
+            "node": "Trigger word1",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "OpenAI classify1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If (Has Trigger)1": {
+      "main": [
+        [
+          {
+            "node": "Build CID + Links3",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "OpenAI classify intent1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI classify intent1": {
+      "main": [
+        [
+          {
+            "node": "Extract Label2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Switch intent2": {
+      "main": [
+        [
+          {
+            "node": "OpenAI compose answer2",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Build CID + Links4",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "TG: Notify Nastya3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "IG: Reply to Comment4": {
+      "main": [
+        [
+          {
+            "node": "Respond to Webhook1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Build CID + Links4": {
+      "main": [
+        [
+          {
+            "node": "IG: Reply to Comment5",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "IG: Send DM (HTTP)5": {
+      "main": [
+        [
+          {
+            "node": "TG: Notify Nastya (trigger)1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "IG: Reply to Comment5": {
+      "main": [
+        [
+          {
+            "node": "IG: Send DM (HTTP)5",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "TG: Notify Nastya3": {
+      "main": [
+        [
+          {
+            "node": "Respond to Webhook1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Extract Label3": {
+      "main": [
+        [
+          {
+            "node": "Switch intent3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Switch intent3": {
+      "main": [
+        [
+          {
+            "node": "OpenAI compose answer3",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Build CID + Links5",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "TG: Notify Nastya5",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI compose answer3": {
+      "main": [
+        [
+          {
+            "node": "IG: Send DM (HTTP)6",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "IG: Send DM (HTTP)6": {
+      "main": [
+        [
+          {
+            "node": "Respond to Webhook1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Build CID + Links5": {
+      "main": [
+        [
+          {
+            "node": "TG: Notify Nastya4",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "IG: Send DM (HTTP)7": {
+      "main": [
+        [
+          {
+            "node": "Respond to Webhook1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "TG: Notify Nastya4": {
+      "main": [
+        [
+          {
+            "node": "IG: Send DM (HTTP)7",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "TG: Notify Nastya5": {
+      "main": [
+        [
+          {
+            "node": "Respond to Webhook1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "IF (IG Verify?)",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "IF (IG Verify?)",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "IF (IG Verify?)": {
+      "main": [
+        [
+          {
+            "node": "Respond to Webhook1",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Respond to Webhook1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2025-09-09T19:53:56.791Z",
+  "id": "C8YAG2vOJOJMbjLe",
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "VEP INST WEBH SET",
+  "nodes": [
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "name": "IG_TOKEN",
+              "type": "string",
+              "value": "={{ $env.IG_TOKEN || 'REPLACE_ME_IG_TOKEN' }}"
+            },
+            {
+              "name": "IG_BUSINESS_ID",
+              "type": "string",
+              "value": "={{ $env.IG_BUSINESS_ID || 'REPLACE_ME_IG_BA_ID' }}"
+            },
+            {
+              "name": "TG_BOT_LINK",
+              "type": "string",
+              "value": "={{ $env.TG_BOT_LINK || 'https://t.me/your_bot?start=' }}"
+            },
+            {
+              "name": "REDIRECT_BASE",
+              "type": "string",
+              "value": "={{ $env.REDIRECT_BASE || 'https://yourdomain/redirect?cid=' }}"
+            },
+            {
+              "name": "TRIGGER_WORDS",
+              "type": "string",
+              "value": "(fallback) гайд,инструкция,подробнее,хочу,цена,стоимость,директ,личку,в лс,ссылку,ссылка"
+            },
+            {
+              "name": "PROJECT",
+              "type": "string",
+              "value": "Проект «Стройняшки»"
+            },
+            {
+              "name": "TG_NASTYA_CHAT_ID",
+              "type": "string",
+              "value": "={{ $env.TG_NASTYA_CHAT_ID || 'REPLACE_ME_CHAT_ID' }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "42b8e4e5-74a7-455c-abef-9f2e8438b3b8",
+      "name": "Config1",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -420,
+        -460
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "\nconst b = $json.body || $json || {};\nfunction fb(v, d=''){ return (v===undefined || v===null) ? d : v; }\nfunction s(v){ return String(v ?? ''); }\nlet event='', text='', user_id='', username='', media_id='', comment_id='', thread_id='', ig_user_id='';\nif (b.event) {\n  event = b.event;\n  text = fb(b.text,'');\n  user_id = fb(b.user_id,'');\n  username = fb(b.username,'');\n  media_id = fb(b.media_id,'');\n  comment_id = fb(b.comment_id,'');\n  thread_id = fb(b.thread_id,'');\n  ig_user_id = fb(b.ig_user_id,'');\n} else if (b.object === 'instagram' && Array.isArray(b.entry)) {\n  const ch = b.entry?.[0]?.changes?.[0] || {};\n  const field = ch.field || '';\n  const val = ch.value || {};\n  if (field.includes('comments')) {\n    event = 'comment';\n    text = fb(val.text,'');\n    comment_id = fb(val.comment_id,'');\n    media_id = fb(val.media_id,'');\n    user_id = fb(val.from?.id,'');\n    username = fb(val.from?.username,'');\n  } else if (field.includes('messages')) {\n    event = 'dm';\n    const msg = val.messages?.[0] || {};\n    text = fb(msg.text,'');\n    user_id = fb(msg.from?.id,'');\n    username = fb(msg.from?.username,'');\n    thread_id = fb(val.thread_id,'');\n  }\n}\nconst lower = s(text).toLowerCase();\nreturn [{ json: { event, text, lower, user_id, username, media_id, comment_id, thread_id, ig_user_id } }];\n"
+      },
+      "id": "d0d18af8-6bb2-46dd-beec-3c1514634b09",
+      "name": "Normalize IG Event1",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -260,
+        -460
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "\nconst lower = ($json.lower || '').toString();\nconst list = ($items(\"Build Trigger List\")[0]?.json?.TRIGGER_WORDS || $json.TRIGGER_WORDS || '').split(',').map(s=>s.trim()).filter(Boolean);\nlet matched = '';\nfor (const w of list) {\n  const re = new RegExp(`\\b${w.replace(/[.*+?^${}()|[\\]\\\\]/g, '\\\\$&')}\\b`, 'i');\n  if (re.test(lower)) { matched = w; break; }\n}\nreturn [{ json: { hasTrigger: !!matched, matchedWord: matched, TRIGGER_WORDS: list.join(',') } }];\n"
+      },
+      "id": "f2a482d0-d50d-4a45-a848-cdd7f760c315",
+      "name": "Match Trigger Word1",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        680,
+        -660
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "\nfunction safe(v){ return String(v || '') }\nconst user = safe($json.user_id);\nconst media = safe($json.media_id || $json.comment_id || $json.thread_id);\nconst ts = Date.now();\nconst cid = [user, media, ts].filter(Boolean).join('_');\nconst link = `${$json.TG_BOT_LINK}cid_${cid}`;\nconst redirect = `${$json.REDIRECT_BASE}${encodeURIComponent(`cid_${cid}`)}`;\nreturn [{ json: { cid, tg_link: link, redirect_link: redirect } }];\n"
+      },
+      "id": "8968cd5c-0e29-49af-84b7-c5cab55cd1e5",
+      "name": "Build CID + Links3",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        980,
+        -760
+      ]
+    },
+    {
+      "parameters": {
+        "chatId": "={{ $json.TG_NASTYA_CHAT_ID }}",
+        "text": "={{ `🔔 Триггер в IG (${ $json.event || 'comment' })\\nПользователь: ${$json.username || $json.user_id}\\nСлово: ${$json.matchedWord}\\nCID: ${$json.cid}\\nTG: ${$json.tg_link}` }}",
+        "additionalFields": {
+          "parse_mode": "HTML"
+        },
+        "path": "955269a4-819e-4e22-af45-c243125af530"
+      },
+      "id": "16741230-cd65-44b1-bd3f-e8c9e529c0e8",
+      "name": "TG: Notify Nastya (trigger)1",
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1.1,
+      "position": [
+        2320,
+        -460
+      ],
+      "webhookId": "955269a4-819e-4e22-af45-c243125af530",
+      "credentials": {
+        "telegramApi": {
+          "id": "PAs2MiN5AnWILrsa",
+          "name": "realestate_aiconsultant_bot"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "\nlet label = 'IN';\ntry {\n  const raw = $json.output || $json.text || $json.message || '';\n  const obj = typeof raw === 'string' ? JSON.parse(raw) : raw;\n  label = (obj && (obj.label || obj.Label)) ? String(obj.label || obj.Label).toUpperCase() : 'IN';\n} catch(e){ label = 'IN'; }\nreturn [{ json: { kb_label: label } }];\n"
+      },
+      "id": "c12e8bdc-711b-4e89-a15d-73d01b07073c",
+      "name": "Extract Label2",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1380,
+        -540
+      ]
+    },
+    {
+      "parameters": {
+        "respondWith": "text",
+        "responseBody": "={{ $json.query[\"hub.challenge\"] ? String($json.query[\"hub.challenge\"]) : \"ok\" }}",
+        "options": {
+          "responseCode": 200,
+          "responseHeaders": {
+            "entries": [
+              {
+                "name": "Content-Type",
+                "value": "text/plain; charset=utf-8"
+              }
+            ]
+          }
+        }
+      },
+      "id": "1b6e0b19-c90a-49e9-ae23-c5cb9f2bc014",
+      "name": "Respond to Webhook1",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.1,
+      "position": [
+        2540,
+        -500
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://n8n.aigrowtech.ru/webhook/0ea67612-498f-434c-9f2d-a11e918b46c4/messages-upsert",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "from",
+              "value": "={{ $json.contact_id }}"
+            },
+            {
+              "name": "stage",
+              "value": "={{ $json.stage }}"
+            },
+            {
+              "name": "text",
+              "value": "={{ $json.text }}"
+            },
+            {
+              "name": "key",
+              "value": "={{$json.key}}"
+            },
+            {
+              "name": "aggregated",
+              "value": "={{ true }}"
+            },
+            {
+              "name": "remoteJid",
+              "value": "={{ $json.contact_id }}"
+            },
+            {
+              "name": "contact_id",
+              "value": "={{ $json.contact_id }}"
+            },
+            {
+              "name": "phone",
+              "value": "={{ $json.phone_digits }}"
+            },
+            {
+              "name": "name",
+              "value": "={{ $json.name }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1320,
+        -760
+      ],
+      "id": "e02e2278-8f37-40d7-a277-a4a4ed925613",
+      "name": "IG: Send DM (HTTP)4"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://n8n.aigrowtech.ru/webhook/0ea67612-498f-434c-9f2d-a11e918b46c4/messages-upsert",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "from",
+              "value": "={{ $json.contact_id }}"
+            },
+            {
+              "name": "stage",
+              "value": "={{ $json.stage }}"
+            },
+            {
+              "name": "text",
+              "value": "={{ $json.text }}"
+            },
+            {
+              "name": "key",
+              "value": "={{$json.key}}"
+            },
+            {
+              "name": "aggregated",
+              "value": "={{ true }}"
+            },
+            {
+              "name": "remoteJid",
+              "value": "={{ $json.contact_id }}"
+            },
+            {
+              "name": "contact_id",
+              "value": "={{ $json.contact_id }}"
+            },
+            {
+              "name": "phone",
+              "value": "={{ $json.phone_digits }}"
+            },
+            {
+              "name": "name",
+              "value": "={{ $json.name }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1140,
+        -760
+      ],
+      "id": "5d2fa14f-5727-4e0b-8af5-78ac718f4cff",
+      "name": "IG: Reply to Comment1"
+    },
+    {
+      "parameters": {
+        "modelId": {
+          "__rl": true,
+          "value": "gpt-4.1-mini-2025-04-14",
+          "mode": "list",
+          "cachedResultName": "GPT-4.1-MINI-2025-04-14"
+        },
+        "messages": {
+          "values": [
+            {
+              "content": "Ты парсер чеков. Верни ТОЛЬКО JSON без текста и без ```.\n\nСхема:\n{\n  \"receipt\": \"yes|no|uncertain\",\n  \"paid\": \"yes|no|uncertain\",\n  \"amount\": number|null,\n  \"method\": \"sbp|card|transfer|cash|unknown\",\n  \"confidence\": number  // 0..1\n}\n\nЕсли не уверено — ставь \"uncertain\" и amount=null.\nСумму — числом (в рублях) без пробелов и валюты.",
+              "role": "system"
+            },
+            {
+              "content": "={{ $json.content }}\n{{ $json.text }}"
+            }
+          ]
+        },
+        "jsonOutput": true,
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "typeVersion": 1.8,
+      "position": [
+        500,
+        -140
+      ],
+      "id": "eb4232dd-1e00-43db-aec2-09b893462a1c",
+      "name": "OpenAI classify1",
+      "credentials": {
+        "openAiApi": {
+          "id": "T10Aj8URpRIqIm4V",
+          "name": "OpenAi account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "modelId": {
+          "__rl": true,
+          "value": "gpt-4.1-mini-2025-04-14",
+          "mode": "list",
+          "cachedResultName": "GPT-4.1-MINI-2025-04-14"
+        },
+        "messages": {
+          "values": [
+            {
+              "content": "Ты парсер чеков. Верни ТОЛЬКО JSON без текста и без ```.\n\nСхема:\n{\n  \"receipt\": \"yes|no|uncertain\",\n  \"paid\": \"yes|no|uncertain\",\n  \"amount\": number|null,\n  \"method\": \"sbp|card|transfer|cash|unknown\",\n  \"confidence\": number  // 0..1\n}\n\nЕсли не уверено — ставь \"uncertain\" и amount=null.\nСумму — числом (в рублях) без пробелов и валюты.",
+              "role": "system"
+            },
+            {
+              "content": "={{ $json.content }}\n{{ $json.text }}"
+            }
+          ]
+        },
+        "jsonOutput": true,
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "typeVersion": 1.8,
+      "position": [
+        1800,
+        -620
+      ],
+      "id": "61756086-6a3b-4424-820b-498bda8fb1ad",
+      "name": "OpenAI compose answer2",
+      "credentials": {
+        "openAiApi": {
+          "id": "T10Aj8URpRIqIm4V",
+          "name": "OpenAi account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "documentId": {
+          "__rl": true,
+          "value": "1aVsjAorVhubrACj_YNSLy3t-rQYfBwjL1IQ_aBKRpEI",
+          "mode": "list",
+          "cachedResultName": "Активная база данных",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1aVsjAorVhubrACj_YNSLy3t-rQYfBwjL1IQ_aBKRpEI/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 809442074,
+          "mode": "list",
+          "cachedResultName": "триггеры",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1aVsjAorVhubrACj_YNSLy3t-rQYfBwjL1IQ_aBKRpEI/edit#gid=809442074"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.5,
+      "position": [
+        500,
+        -660
+      ],
+      "id": "4e7c4d57-10fc-4cf0-a16a-cd2f841c7480",
+      "name": "Trigger word1",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "y8u36G3ttt4BcDqC",
+          "name": "veppers"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "boolean": [
+            {
+              "value1": "={{$json.hasTrigger}}",
+              "operation": "isTrue"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "578c33b2-acc4-4a4f-a917-62704379fc35",
+      "name": "If (Is Comment?)1",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.1,
+      "position": [
+        320,
+        -460
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "boolean": [
+            {
+              "value1": "={{$json.hasTrigger}}",
+              "operation": "isTrue"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "af115f03-f4f1-4d12-95f6-4f1872f3fc9b",
+      "name": "If (Has Trigger)1",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.1,
+      "position": [
+        840,
+        -660
+      ]
+    },
+    {
+      "parameters": {
+        "modelId": {
+          "__rl": true,
+          "value": "gpt-4.1-mini-2025-04-14",
+          "mode": "list",
+          "cachedResultName": "GPT-4.1-MINI-2025-04-14"
+        },
+        "messages": {
+          "values": [
+            {
+              "content": "Ты парсер чеков. Верни ТОЛЬКО JSON без текста и без ```.\n\nСхема:\n{\n  \"receipt\": \"yes|no|uncertain\",\n  \"paid\": \"yes|no|uncertain\",\n  \"amount\": number|null,\n  \"method\": \"sbp|card|transfer|cash|unknown\",\n  \"confidence\": number  // 0..1\n}\n\nЕсли не уверено — ставь \"uncertain\" и amount=null.\nСумму — числом (в рублях) без пробелов и валюты.",
+              "role": "system"
+            },
+            {
+              "content": "={{ $json.content }}\n{{ $json.text }}"
+            }
+          ]
+        },
+        "jsonOutput": true,
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "typeVersion": 1.8,
+      "position": [
+        1060,
+        -540
+      ],
+      "id": "b4daa632-0246-41d6-aafd-97ba4df70e97",
+      "name": "OpenAI classify intent1",
+      "credentials": {
+        "openAiApi": {
+          "id": "T10Aj8URpRIqIm4V",
+          "name": "OpenAi account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "rules": {
+          "values": [
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "leftValue": "",
+                    "rightValue": "",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals"
+                    },
+                    "id": "692ca686-95a8-4d63-8e14-950125881e80"
+                  }
+                ],
+                "combinator": "and"
+              }
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "127c4d70-c121-4d35-92fa-7dac5cfe47a7",
+                    "leftValue": "",
+                    "rightValue": "",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              }
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "9f0ca144-665b-48cd-bb28-4c2011380296",
+                    "leftValue": "",
+                    "rightValue": "",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              }
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 3.2,
+      "position": [
+        1580,
+        -540
+      ],
+      "id": "099ec173-a9fa-49b4-b1e6-c64bc117571f",
+      "name": "Switch intent2"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://n8n.aigrowtech.ru/webhook/0ea67612-498f-434c-9f2d-a11e918b46c4/messages-upsert",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "from",
+              "value": "={{ $json.contact_id }}"
+            },
+            {
+              "name": "stage",
+              "value": "={{ $json.stage }}"
+            },
+            {
+              "name": "text",
+              "value": "={{ $json.text }}"
+            },
+            {
+              "name": "key",
+              "value": "={{$json.key}}"
+            },
+            {
+              "name": "aggregated",
+              "value": "={{ true }}"
+            },
+            {
+              "name": "remoteJid",
+              "value": "={{ $json.contact_id }}"
+            },
+            {
+              "name": "contact_id",
+              "value": "={{ $json.contact_id }}"
+            },
+            {
+              "name": "phone",
+              "value": "={{ $json.phone_digits }}"
+            },
+            {
+              "name": "name",
+              "value": "={{ $json.name }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        2160,
+        -620
+      ],
+      "id": "4db17955-f995-4aa3-b41e-39ee6bd0154f",
+      "name": "IG: Reply to Comment4"
+    },
+    {
+      "parameters": {
+        "jsCode": "\nfunction safe(v){ return String(v || '') }\nconst user = safe($json.user_id);\nconst media = safe($json.media_id || $json.comment_id || $json.thread_id);\nconst ts = Date.now();\nconst cid = [user, media, ts].filter(Boolean).join('_');\nconst link = `${$json.TG_BOT_LINK}cid_${cid}`;\nconst redirect = `${$json.REDIRECT_BASE}${encodeURIComponent(`cid_${cid}`)}`;\nreturn [{ json: { cid, tg_link: link, redirect_link: redirect } }];\n"
+      },
+      "id": "7f86bb55-1b40-4b78-bfcb-da5e7215ffb4",
+      "name": "Build CID + Links4",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1800,
+        -460
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://n8n.aigrowtech.ru/webhook/0ea67612-498f-434c-9f2d-a11e918b46c4/messages-upsert",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "from",
+              "value": "={{ $json.contact_id }}"
+            },
+            {
+              "name": "stage",
+              "value": "={{ $json.stage }}"
+            },
+            {
+              "name": "text",
+              "value": "={{ $json.text }}"
+            },
+            {
+              "name": "key",
+              "value": "={{$json.key}}"
+            },
+            {
+              "name": "aggregated",
+              "value": "={{ true }}"
+            },
+            {
+              "name": "remoteJid",
+              "value": "={{ $json.contact_id }}"
+            },
+            {
+              "name": "contact_id",
+              "value": "={{ $json.contact_id }}"
+            },
+            {
+              "name": "phone",
+              "value": "={{ $json.phone_digits }}"
+            },
+            {
+              "name": "name",
+              "value": "={{ $json.name }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        2140,
+        -460
+      ],
+      "id": "873636f4-784e-4daa-9aaf-622ca0b7fcb7",
+      "name": "IG: Send DM (HTTP)5"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://n8n.aigrowtech.ru/webhook/0ea67612-498f-434c-9f2d-a11e918b46c4/messages-upsert",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "from",
+              "value": "={{ $json.contact_id }}"
+            },
+            {
+              "name": "stage",
+              "value": "={{ $json.stage }}"
+            },
+            {
+              "name": "text",
+              "value": "={{ $json.text }}"
+            },
+            {
+              "name": "key",
+              "value": "={{$json.key}}"
+            },
+            {
+              "name": "aggregated",
+              "value": "={{ true }}"
+            },
+            {
+              "name": "remoteJid",
+              "value": "={{ $json.contact_id }}"
+            },
+            {
+              "name": "contact_id",
+              "value": "={{ $json.contact_id }}"
+            },
+            {
+              "name": "phone",
+              "value": "={{ $json.phone_digits }}"
+            },
+            {
+              "name": "name",
+              "value": "={{ $json.name }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1960,
+        -460
+      ],
+      "id": "083bc278-8fb6-4c62-8269-79e923cbdf05",
+      "name": "IG: Reply to Comment5"
+    },
+    {
+      "parameters": {
+        "chatId": "={{ $json.TG_NASTYA_CHAT_ID }}",
+        "text": "={{ `❗️Вопрос вне базы: ${$json.text}\\nАвтор: ${$json.username || $json.user_id}` }}",
+        "additionalFields": {
+          "disable_web_page_preview": true
+        },
+        "path": "60f9d9f7-c05a-4932-b427-c0ab053b0e56"
+      },
+      "id": "c40e1193-e810-4ee6-9f4f-d6048f3fa097",
+      "name": "TG: Notify Nastya3",
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1.1,
+      "position": [
+        1800,
+        -300
+      ],
+      "webhookId": "60f9d9f7-c05a-4932-b427-c0ab053b0e56",
+      "credentials": {
+        "telegramApi": {
+          "id": "PAs2MiN5AnWILrsa",
+          "name": "realestate_aiconsultant_bot"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "\nlet label = 'IN';\ntry {\n  const raw = $json.output || $json.text || $json.message || '';\n  const obj = typeof raw === 'string' ? JSON.parse(raw) : raw;\n  label = (obj && (obj.label || obj.Label)) ? String(obj.label || obj.Label).toUpperCase() : 'IN';\n} catch(e){ label = 'IN'; }\nreturn [{ json: { kb_label: label } }];\n"
+      },
+      "id": "d51cae40-6a76-4e9a-a02f-f81afcda8eb9",
+      "name": "Extract Label3",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        860,
+        -100
+      ]
+    },
+    {
+      "parameters": {
+        "rules": {
+          "values": [
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "leftValue": "",
+                    "rightValue": "",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals"
+                    },
+                    "id": "692ca686-95a8-4d63-8e14-950125881e80"
+                  }
+                ],
+                "combinator": "and"
+              }
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "127c4d70-c121-4d35-92fa-7dac5cfe47a7",
+                    "leftValue": "",
+                    "rightValue": "",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              }
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "9f0ca144-665b-48cd-bb28-4c2011380296",
+                    "leftValue": "",
+                    "rightValue": "",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              }
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 3.2,
+      "position": [
+        1000,
+        -140
+      ],
+      "id": "62e114c6-b237-495b-a620-7d6283e6be83",
+      "name": "Switch intent3"
+    },
+    {
+      "parameters": {
+        "modelId": {
+          "__rl": true,
+          "value": "gpt-4.1-mini-2025-04-14",
+          "mode": "list",
+          "cachedResultName": "GPT-4.1-MINI-2025-04-14"
+        },
+        "messages": {
+          "values": [
+            {
+              "content": "Ты парсер чеков. Верни ТОЛЬКО JSON без текста и без ```.\n\nСхема:\n{\n  \"receipt\": \"yes|no|uncertain\",\n  \"paid\": \"yes|no|uncertain\",\n  \"amount\": number|null,\n  \"method\": \"sbp|card|transfer|cash|unknown\",\n  \"confidence\": number  // 0..1\n}\n\nЕсли не уверено — ставь \"uncertain\" и amount=null.\nСумму — числом (в рублях) без пробелов и валюты.",
+              "role": "system"
+            },
+            {
+              "content": "={{ $json.content }}\n{{ $json.text }}"
+            }
+          ]
+        },
+        "jsonOutput": true,
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "typeVersion": 1.8,
+      "position": [
+        1220,
+        -180
+      ],
+      "id": "0ce42878-b20a-4aee-969c-11944e22ac7c",
+      "name": "OpenAI compose answer3",
+      "credentials": {
+        "openAiApi": {
+          "id": "T10Aj8URpRIqIm4V",
+          "name": "OpenAi account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://n8n.aigrowtech.ru/webhook/0ea67612-498f-434c-9f2d-a11e918b46c4/messages-upsert",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "from",
+              "value": "={{ $json.contact_id }}"
+            },
+            {
+              "name": "stage",
+              "value": "={{ $json.stage }}"
+            },
+            {
+              "name": "text",
+              "value": "={{ $json.text }}"
+            },
+            {
+              "name": "key",
+              "value": "={{$json.key}}"
+            },
+            {
+              "name": "aggregated",
+              "value": "={{ true }}"
+            },
+            {
+              "name": "remoteJid",
+              "value": "={{ $json.contact_id }}"
+            },
+            {
+              "name": "contact_id",
+              "value": "={{ $json.contact_id }}"
+            },
+            {
+              "name": "phone",
+              "value": "={{ $json.phone_digits }}"
+            },
+            {
+              "name": "name",
+              "value": "={{ $json.name }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1520,
+        -180
+      ],
+      "id": "52e52998-a321-4d7f-85fc-0ac2a4dd3e41",
+      "name": "IG: Send DM (HTTP)6"
+    },
+    {
+      "parameters": {
+        "jsCode": "\nfunction safe(v){ return String(v || '') }\nconst user = safe($json.user_id);\nconst media = safe($json.media_id || $json.comment_id || $json.thread_id);\nconst ts = Date.now();\nconst cid = [user, media, ts].filter(Boolean).join('_');\nconst link = `${$json.TG_BOT_LINK}cid_${cid}`;\nconst redirect = `${$json.REDIRECT_BASE}${encodeURIComponent(`cid_${cid}`)}`;\nreturn [{ json: { cid, tg_link: link, redirect_link: redirect } }];\n"
+      },
+      "id": "a6a9e217-9bb9-4080-9f44-f8fab53a3140",
+      "name": "Build CID + Links5",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1220,
+        -40
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://n8n.aigrowtech.ru/webhook/0ea67612-498f-434c-9f2d-a11e918b46c4/messages-upsert",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "from",
+              "value": "={{ $json.contact_id }}"
+            },
+            {
+              "name": "stage",
+              "value": "={{ $json.stage }}"
+            },
+            {
+              "name": "text",
+              "value": "={{ $json.text }}"
+            },
+            {
+              "name": "key",
+              "value": "={{$json.key}}"
+            },
+            {
+              "name": "aggregated",
+              "value": "={{ true }}"
+            },
+            {
+              "name": "remoteJid",
+              "value": "={{ $json.contact_id }}"
+            },
+            {
+              "name": "contact_id",
+              "value": "={{ $json.contact_id }}"
+            },
+            {
+              "name": "phone",
+              "value": "={{ $json.phone_digits }}"
+            },
+            {
+              "name": "name",
+              "value": "={{ $json.name }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1500,
+        -40
+      ],
+      "id": "1fe1cd39-201c-4983-9ca9-80e8be495df6",
+      "name": "IG: Send DM (HTTP)7"
+    },
+    {
+      "parameters": {
+        "chatId": "={{ $json.TG_NASTYA_CHAT_ID }}",
+        "text": "={{ `❗️Вопрос вне базы: ${$json.text}\\nАвтор: ${$json.username || $json.user_id}` }}",
+        "additionalFields": {
+          "disable_web_page_preview": true
+        },
+        "path": "69398a3b-4725-434d-84bf-1c7014dd1183"
+      },
+      "id": "b69b22ce-9f1e-4b5d-a028-5a17aef58ed7",
+      "name": "TG: Notify Nastya4",
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1.1,
+      "position": [
+        1360,
+        -40
+      ],
+      "webhookId": "69398a3b-4725-434d-84bf-1c7014dd1183",
+      "credentials": {
+        "telegramApi": {
+          "id": "PAs2MiN5AnWILrsa",
+          "name": "realestate_aiconsultant_bot"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "chatId": "={{ $json.TG_NASTYA_CHAT_ID }}",
+        "text": "={{ `❗️Вопрос вне базы: ${$json.text}\\nАвтор: ${$json.username || $json.user_id}` }}",
+        "additionalFields": {
+          "disable_web_page_preview": true
+        },
+        "path": "426aebef-fdf1-4573-b3c3-4bd0c4ce8101"
+      },
+      "id": "6ae4b09b-2e33-4661-9b15-fc74a91c14b3",
+      "name": "TG: Notify Nastya5",
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1.1,
+      "position": [
+        1300,
+        200
+      ],
+      "webhookId": "426aebef-fdf1-4573-b3c3-4bd0c4ce8101",
+      "credentials": {
+        "telegramApi": {
+          "id": "PAs2MiN5AnWILrsa",
+          "name": "realestate_aiconsultant_bot"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "multipleMethods": true,
+        "path": "0ccec295-8a15-4135-83c2-856eb5fe5178",
+        "responseMode": "responseNode",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [
+        -720,
+        -80
+      ],
+      "id": "5a306a18-b806-4d42-910a-c70ca5ba6b17",
+      "name": "Webhook",
+      "webhookId": "0ccec295-8a15-4135-83c2-856eb5fe5178"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "ca87ea7e-4fbb-47ce-b94c-45de04fc133a",
+              "leftValue": "={{$json.query[\"hub.mode\"]}}",
+              "rightValue": "subscribe",
+              "operator": {
+                "type": "string",
+                "operation": "equals",
+                "name": "filter.operator.equals"
+              }
+            },
+            {
+              "id": "07f73a4c-c179-43d6-af38-3a58f4de5238",
+              "leftValue": "={{$json.query[\"hub.verify_token\"]}}",
+              "rightValue": "vep_inst_2025",
+              "operator": {
+                "type": "string",
+                "operation": "equals",
+                "name": "filter.operator.equals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        -540,
+        -80
+      ],
+      "id": "c8a38c48-e174-439e-9826-8a00a7a1d62f",
+      "name": "IF (IG Verify?)"
+    }
+  ],
+  "pinData": {},
+  "settings": {
+    "executionOrder": "v1",
+    "saveDataErrorExecution": "all",
+    "callerPolicy": "workflowsFromSameOwner"
+  },
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 2,
+  "updatedAt": "2025-09-09T19:53:56.791Z",
+  "versionId": "cf794a4c-eaf6-4b8d-9169-63be896cd696"
+}
