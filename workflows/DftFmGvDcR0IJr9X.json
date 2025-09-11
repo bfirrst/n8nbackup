@@ -67,17 +67,6 @@
         ]
       ]
     },
-    "OpenAI Chat Model1": {
-      "ai_languageModel": [
-        [
-          {
-            "node": "БИЗНЕС АССИСТЕНТ1",
-            "type": "ai_languageModel",
-            "index": 0
-          }
-        ]
-      ]
-    },
     "Calculator1": {
       "ai_tool": [
         [
@@ -151,6 +140,17 @@
           {
             "node": "Telegram",
             "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "БИЗНЕС АССИСТЕНТ1",
+            "type": "ai_languageModel",
             "index": 0
           }
         ]
@@ -299,34 +299,6 @@
       }
     },
     {
-      "parameters": {
-        "model": {
-          "__rl": true,
-          "value": "gpt-5-mini",
-          "mode": "list",
-          "cachedResultName": "gpt-5-mini"
-        },
-        "options": {
-          "responseFormat": "text",
-          "temperature": 0.3
-        }
-      },
-      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
-      "typeVersion": 1.2,
-      "position": [
-        940,
-        320
-      ],
-      "id": "519e09d8-7a4c-404a-a75b-6ba84c6bda74",
-      "name": "OpenAI Chat Model1",
-      "credentials": {
-        "openAiApi": {
-          "id": "T10Aj8URpRIqIm4V",
-          "name": "OpenAi account"
-        }
-      }
-    },
-    {
       "parameters": {},
       "type": "@n8n/n8n-nodes-langchain.toolCalculator",
       "typeVersion": 1,
@@ -352,7 +324,8 @@
         100
       ],
       "id": "b65d85d2-ed21-4e36-82a6-86366432dd70",
-      "name": "БИЗНЕС АССИСТЕНТ1"
+      "name": "БИЗНЕС АССИСТЕНТ1",
+      "retryOnFail": true
     },
     {
       "parameters": {
@@ -487,6 +460,33 @@
           "name": "msr_jarvis_bot"
         }
       }
+    },
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "value": "gpt-5-mini-2025-08-07",
+          "mode": "list",
+          "cachedResultName": "gpt-5-mini-2025-08-07"
+        },
+        "options": {
+          "temperature": 1
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.2,
+      "position": [
+        1860,
+        320
+      ],
+      "id": "cf81b31d-148c-4bcb-a465-c756581e2f40",
+      "name": "OpenAI Chat Model",
+      "credentials": {
+        "openAiApi": {
+          "id": "T10Aj8URpRIqIm4V",
+          "name": "OpenAi account"
+        }
+      }
     }
   ],
   "pinData": {},
@@ -498,6 +498,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 1,
-  "updatedAt": "2025-09-07T17:58:05.000Z",
-  "versionId": "a7e47b1a-bfeb-4537-9ff4-0eea46862f7d"
+  "updatedAt": "2025-09-10T19:17:15.000Z",
+  "versionId": "0d4679c1-b5ba-4771-a5bf-b7bd5430fc72"
 }
