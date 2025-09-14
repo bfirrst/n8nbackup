@@ -374,7 +374,7 @@
     {
       "parameters": {
         "httpMethod": "POST",
-        "path": "6baef27b-40e8-4ad9-b22a-10b41a1fff77",
+        "path": "6baef27b-40e8-4ad9-b22a-10b41a1fff87",
         "options": {}
       },
       "type": "n8n-nodes-base.webhook",
@@ -476,7 +476,7 @@
       "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
       "typeVersion": 1.2,
       "position": [
-        1860,
+        940,
         320
       ],
       "id": "cf81b31d-148c-4bcb-a465-c756581e2f40",
@@ -498,6 +498,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 1,
-  "updatedAt": "2025-09-10T19:17:15.000Z",
-  "versionId": "0d4679c1-b5ba-4771-a5bf-b7bd5430fc72"
+  "updatedAt": "2025-09-13T12:18:18.000Z",
+  "versionId": "ca3e307d-475f-4eae-968f-61a894ef6bf9"
 }
