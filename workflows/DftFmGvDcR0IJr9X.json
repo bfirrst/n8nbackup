@@ -1594,7 +1594,7 @@
           "values": [
             {
               "lookupColumn": "conversation_key",
-              "lookupValue": "={{$json.conversation_key}}"
+              "lookupValue": "={{ $node[\"Set SessionKey\"].json.conversation_key }}"
             }
           ]
         },
@@ -1916,6 +1916,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 1,
-  "updatedAt": "2025-09-20T17:47:32.000Z",
-  "versionId": "f348c26e-ecc4-461b-8f85-68d66fb9610c"
+  "updatedAt": "2025-09-21T10:19:28.000Z",
+  "versionId": "b28861d2-0b07-40dd-9588-2494935de603"
 }
