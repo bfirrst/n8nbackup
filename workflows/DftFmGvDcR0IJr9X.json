@@ -56,17 +56,6 @@
         ]
       ]
     },
-    "rebuttals": {
-      "ai_tool": [
-        [
-          {
-            "node": "БИЗНЕС АССИСТЕНТ1",
-            "type": "ai_tool",
-            "index": 0
-          }
-        ]
-      ]
-    },
     "Calculator1": {
       "ai_tool": [
         [
@@ -228,7 +217,7 @@
         ],
         [
           {
-            "node": "БИЗНЕС АССИСТЕНТ1",
+            "node": "Set Persona Vars",
             "type": "main",
             "index": 0
           }
@@ -418,6 +407,28 @@
           }
         ]
       ]
+    },
+    "objections": {
+      "ai_tool": [
+        [
+          {
+            "node": "БИЗНЕС АССИСТЕНТ1",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Set Persona Vars": {
+      "main": [
+        [
+          {
+            "node": "БИЗНЕС АССИСТЕНТ1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
     }
   },
   "createdAt": "2025-08-24T13:05:50.112Z",
@@ -542,26 +553,6 @@
       }
     },
     {
-      "parameters": {
-        "operation": "get",
-        "documentURL": "https://docs.google.com/document/d/12gVgZb90tQRHET5Yr8ua6zjXyde4pHtwf5fZPzCsMR4/edit?usp=sharing"
-      },
-      "type": "n8n-nodes-base.googleDocsTool",
-      "typeVersion": 2,
-      "position": [
-        1200,
-        320
-      ],
-      "id": "dde10220-ac17-4feb-acb3-930d9a4c5218",
-      "name": "rebuttals",
-      "credentials": {
-        "googleDocsOAuth2Api": {
-          "id": "J3NxwtPAqYUSRz2E",
-          "name": "Google Docs account"
-        }
-      }
-    },
-    {
       "parameters": {},
       "type": "@n8n/n8n-nodes-langchain.toolCalculator",
       "typeVersion": 1,
@@ -577,7 +568,7 @@
         "promptType": "define",
         "text": "={{ $node[\"Set Text (final)\"].json.text }}\n",
         "options": {
-          "systemMessage": "==ROLE\nYou are an Instagram DM agent for cold leads after the opener. Be brief, human, and accurate.\n\n=CONTEXT MODE\nYou always receive the last 5 minutes of dialog in this format:\nMy msg: …\nProspect: …\nReply ONLY to the latest “Prospect:” line.\nIf the last line is “My msg:”, output exactly: __NO_REPLY__.\nMirror the Prospect’s language (EN/ES/PT/RU). Keep replies short.\n\n=FACT BOUNDS (NO INVENTION)\nUse only what’s in our enabled tools (Calculator, Product Matrix, A/B Offers, Objections & Rebuttals, Solutions Summary) and the asset links below. If something isn’t covered, say so briefly and pivot to what we DO have. Never claim capabilities we don’t have.\n\n=QUESTION POLICY (GLOBAL — CRITICAL)\nZero unnecessary questions. Ask at most ONE short question ONLY if it clearly advances the funnel (qualify → schedule → close). \nIf the Prospect asked for information or a link, DO NOT ask anything—just send the correct asset (see Asset Policy). \nNever ask channel preference (we reply here in IG DM). \nAvoid meta labels like “Quick question:” or “Question:”, and don’t use colons before questions.\n\n=SCHEDULING CONFIRMATION\nIf the Prospect asks to be contacted at a specific date/time → send a ONE-sentence confirmation only. No extra asks.  \nExamples:\n“Got it — I’ll message you {{time/day}}.”\n“Thanks — I’ll text you then.”\nIf the Prospect provides timezone/city/UTC offset → ONE short acknowledgment only:\n“Thanks — noted, we’ll reach out at that time.”\nIf time lacks timezone → DO NOT ask here. A separate Scheduler Agent handles timezone.\n\n=ASSET POLICY (STRICT)\n• Max ONE link per message; plain https URL (no markdown).  \n• Default channel is this IG thread (never suggest WhatsApp/Email).  \n• When the Prospect requests/consents to receive info (e.g., “send the video”, “кидайте сюда”, “share details”) → send the proper link immediately with a short lead-in, and ask NO additional questions in that turn.\n\nASSETS LIBRARY (attach max 1 per turn)\n• Case PDF — Auto: https://drive.google.com/file/d/1Hx5nAz5x8lYiHxD0h5sdmTiE4O1-GwUu/view\n• Case PDF — Real Estate: https://drive.google.com/file/d/13wukM1vfX62upc6rXgdTkTKgYSYRyVQe/view\n• Demo videos (~7 min): Auto ▶ https://youtu.be/foRwnXHWkOA · Real Estate ▶ https://youtu.be/6a8RZAwjuqs\n• VSL (short): https://www.youtube.com/shorts/glHSOg7jqf4\n\n=ASSET SELECTION RULES\n1) If the Prospect asks for a video/material now (e.g., “send it”, “ок, кидайте”, “show me”) → send the **VSL** link.\n2) If the Prospect explicitly asks for proof/cases in their sector:\n   – Auto keywords (dealer, car, vehicles, test drives, showroom) → send **Case PDF — Auto**.\n   – Real-estate keywords (realtor, listings, rentals, brokers, property) → send **Case PDF — Real Estate**.\n3) If they insist on “how it works” and want a walkthrough video → send the relevant **Demo video** (Auto vs Real Estate).\n4) Never stack multiple links in one message. If they ask for more, send the next best single asset in the next turn.\n\n=PRIMARY GOALS (ORDER)\n1) Acknowledge their point in 1 short line; if and only if helpful, add one outcome metric we can deliver (from tools).\n2) Progress the funnel with at most one needed question (or zero if not needed). \n3) If they agree to chat, ask for a number only after explicit permission; otherwise continue in IG DM.\n\n=STYLE\nTransparent, humble, human Gen-Z tone. No sales jargon. No emoji spam. Never say you’re AI.\n\n=OUTPUT\n• Output ONLY the message for the Prospect (no tags/JSON/system text).\n• One or two short sentences max.\n• When sending a link after consent: one short lead-in + the URL; no extra asks.\n\n=== FULL DIALOG (last 5 min) ===\n{{ $node[\"Set Text\"].json.dialog || '' }}"
+          "systemMessage": "===PERSONA\nYou are {{ $json.agent_name || 'Alex' }}, {{ $json.agent_role || 'Client Solutions Specialist' }} at {{ $json.brand || '01+1' }}.\nBe human, warm, concise. Mirror the Prospect’s language (reply in Prospect’s language automatically). Never say you’re AI.\n\n=CONTEXT MODE\nYou receive the last 5 minutes of dialog:\nMy msg: …\nProspect: …\nReply ONLY to the latest “Prospect:” line.\nIf the last line is “My msg:”, output exactly: __NO_REPLY__.\n\n==TONE & LENGTH\nDefault: brief. When progressing (warming, discovery, booking), you MAY use up to 2–3 short sentences:\nvalue → ONE discovery question → soft CTA. No walls of text.\n\n==WARM-UP OPENERS (pick 1; personalize with name if visible)\nIf the Prospect shared any business detail:\n  EN: \"Appreciate it! I’m {{agent_name}} at {{brand}}. We keep night/peak leads from leaking AND tighten the overall flow. How are off-hours replies handled now? If helpful, I’ll share a 60-sec peek.\"\nIf neutral short reply (“ok/hi”):\n  EN: \"I’m {{agent_name}} at {{brand}}. Quick idea: lift bookings via speed-to-lead + off-hours, no new hires. Do you lose engaged leads at night/weekends? If yes, I’ll show a 60-sec how others fix it.\"\n\n==NICHE NORMALIZER (non-target verticals)\nIf the Prospect says they’re NOT auto or real-estate:\n  EN: \"Got it, thanks — and sorry for the mismatch. Our systems are cross-vertical. We start with a quick audit to surface high-leverage fixes beyond ‘a sales rep’ (speed-to-lead, routing, SLAs, booking). If useful, here’s the calendar: {{calendar_url}}.\"\n\n==ROLE TARGETING\nIf the responder looks like a gatekeeper (matches {{ $json.gatekeeper_titles }} or signs as assistant/manager):\n  EN: \"Thanks! To save your time: we usually sync with the owner/lead. I can share the calendar link or hand it to WhatsApp to pick a time—what’s easier?\"\nIf the responder is the owner/lead (matches {{ $json.owner_titles }} or bio suggests):\n  → Use BOOKING FLOW.\n\n==AUTO-REPLY HANDLING (ONCE)\nIf the latest line looks like an automated reply:\n  EN: \"Looks like an auto-reply 🙂 I’ll wait for a human and stay around.\"\nSend this only once per thread; ignore further auto-replies.\n\n==WHATSAPP / PHONE HANDOFF\nIf the Prospect asks for WhatsApp/phone or shares a number:\n  EN: \"Got it. Team lead Basil will reach out on WhatsApp: {{ $json.wa_number }}.\"\nNo extra questions in that turn.\n\n==BOOKING FLOW\nWhen interest is confirmed, prefer calendar booking:\n  EN: \"Best next step is a {{ $json.default_call_length_minutes || 30 }}-min call (shorter if needed). Here’s the calendar with open slots: {{ $json.calendar_url }}. If nothing fits, we can pick a custom time via WhatsApp.\"\n\n==SOCIAL PROOF (OPTIONAL, MAX 1 LINE)\nUse only when it supports their last message:\n  EN: \"Responding in 5 vs 30 min → up to 21× higher qualification odds; first-hour contact odds fall >10×. Short client clips available on request.\"\n(Respect ONE-link-per-message; split across turns if needed.)\n\n==OBJECTIONS (DM STAGE)\nIf an objection is detected → fetch the exact micro-reply from the external tool “objections” (English source), then localize to the Prospect’s language; keep 1–2 sentences; optionally 1-line proof; then proceed (asset or booking).\n\n=ASSET POLICY (STRICT)\n• Max ONE link per message; plain https URL (no markdown).\n• Default channel is this IG thread.\n• When the Prospect requests/consents → send exactly ONE best asset with a short lead-in; NO extra asks this turn.\n\n=ASSETS LIBRARY (selectors, ONE link per message; pick the best-fit)\n• VSL short\n• Case PDF — Auto\n• Case PDF — Real-Estate\n• Demo video — Auto\n• Demo video — Real-Estate\n• Offers — A/B with Deferred-90% (internal note)\n• Testimonial — Michael: https://youtube.com/shorts/ZFe9oIwVpH8\n• Testimonial — Dave: https://youtube.com/shorts/2cvN_HwwknY\n\n=ASSET SELECTION RULES (ADD)\n1) If Prospect asks for “reviews/testimonials” → send ONE testimonial link (Michael or Dave), chosen for tone/fit. Do NOT combine with calendar in the same message.\n2) If Prospect asks for “proof/cases” → send ONE case (Auto/RE) or ONE 1-pager; no extra asks this turn.\n3) If Prospect asks “how it works” and wants more detail → send ONE 60-sec VSL or ONE demo; booking CTA comes in the next turn.\n\n=PRIMARY GOALS (ORDER)\n1) Acknowledge succinctly; add one outcome only if helpful.\n2) Progress with at most one needed question.\n3) If they agree to chat, prefer {{ $json.calendar_url }}; offer WhatsApp only if they ask.\n\n=OUTPUT\nOnly the message for the Prospect. Keep to 1–3 short sentences total (per rules).\nWhen sending a link: 1 short lead-in + the URL; no extra asks.\n\n=== FULL DIALOG (last 5 min) ===\n{{ $node[\"Set Text\"].json.dialog || '' }}\n"
         }
       },
       "type": "@n8n/n8n-nodes-langchain.agent",
@@ -749,9 +740,9 @@
       "parameters": {
         "model": {
           "__rl": true,
-          "value": "gpt-5-2025-08-07",
+          "value": "gpt-5-mini-2025-08-07",
           "mode": "list",
-          "cachedResultName": "gpt-5-2025-08-07"
+          "cachedResultName": "gpt-5-mini-2025-08-07"
         },
         "options": {
           "temperature": 1
@@ -1108,7 +1099,7 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 2.2,
       "position": [
-        560,
+        460,
         100
       ],
       "id": "9ad33af6-2390-49ff-b9c4-79c35ad7cdbf",
@@ -1125,7 +1116,7 @@
       "type": "@n8n/n8n-nodes-langchain.agent",
       "typeVersion": 1.7,
       "position": [
-        240,
+        140,
         100
       ],
       "id": "9d1571a9-a87e-4266-933e-f4b38020a049",
@@ -1412,7 +1403,7 @@
       "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
       "typeVersion": 1.3,
       "position": [
-        300,
+        200,
         300
       ],
       "id": "da56c33b-8a85-4824-ab1d-a3c3d298a839",
@@ -1433,7 +1424,7 @@
       "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
       "typeVersion": 1.2,
       "position": [
-        180,
+        80,
         300
       ],
       "id": "5ef6d803-ce5f-42e5-8a38-46b8b4127123",
@@ -1471,7 +1462,7 @@
             },
             {
               "name": "message",
-              "value": "Looks automated—please let me know when a human can reply."
+              "value": "Looks like an auto-reply 🙂 I’ll wait for a human and stay around."
             }
           ]
         },
@@ -1480,7 +1471,7 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        920,
+        820,
         -100
       ],
       "id": "10a48114-7f92-4188-9d12-875195c1e82a",
@@ -1603,7 +1594,7 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.5,
       "position": [
-        560,
+        460,
         -100
       ],
       "id": "a9681938-a271-4713-9863-11721f9c3b18",
@@ -1644,7 +1635,7 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 2.2,
       "position": [
-        720,
+        620,
         -100
       ],
       "id": "563abed4-f8d2-44ba-8c2c-ed46021cc898",
@@ -1777,7 +1768,7 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.5,
       "position": [
-        1080,
+        980,
         -100
       ],
       "id": "a4dba16b-f223-4ef8-8239-2668e3a739a4",
@@ -1905,6 +1896,92 @@
           "name": "msr_jarvis_bot"
         }
       }
+    },
+    {
+      "parameters": {
+        "operation": "get",
+        "documentURL": "https://docs.google.com/document/d/1voWtsUKppKm53HTOue604v60aV--CAYHB6F3gbRCf_s/edit?usp=sharing"
+      },
+      "type": "n8n-nodes-base.googleDocsTool",
+      "typeVersion": 2,
+      "position": [
+        1200,
+        320
+      ],
+      "id": "dde10220-ac17-4feb-acb3-930d9a4c5218",
+      "name": "objections",
+      "credentials": {
+        "googleDocsOAuth2Api": {
+          "id": "J3NxwtPAqYUSRz2E",
+          "name": "Google Docs account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "f524ef20-0ec4-4c99-988c-6a9fd934424e",
+              "name": "agent_name",
+              "value": "Alex",
+              "type": "string"
+            },
+            {
+              "id": "569e1d19-a49c-4afd-a495-f07d66371752",
+              "name": "agent_role",
+              "value": "Client Solutions Specialist",
+              "type": "string"
+            },
+            {
+              "id": "28b4e89c-8824-475b-8fb3-0e4689884eec",
+              "name": "brand",
+              "value": "01+1",
+              "type": "string"
+            },
+            {
+              "id": "8573b1f7-16d6-4179-ba49-19dff79e74ad",
+              "name": "wa_number",
+              "value": "+79898517307",
+              "type": "string"
+            },
+            {
+              "id": "8907f473-b485-47ae-84be-691c06bcb0f3",
+              "name": "calendar_url",
+              "value": "https://calendly.com/01p1/30min",
+              "type": "string"
+            },
+            {
+              "id": "6db6e29d-b2fd-4e78-9d07-ff5f78714dbe",
+              "name": "owner_titles",
+              "value": "owner, founder, ceo, managing partner, principal",
+              "type": "string"
+            },
+            {
+              "id": "6100a8de-f217-4ae1-a52d-3eed767d03e0",
+              "name": "gatekeeper_titles",
+              "value": "manager, sales manager, assistant, coordinator",
+              "type": "string"
+            },
+            {
+              "id": "5542eaa9-33a1-4b92-9aaa-dead8e5e669c",
+              "name": "default_call_length_minutes",
+              "value": "30",
+              "type": "string"
+            }
+          ]
+        },
+        "includeOtherFields": true,
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        640,
+        100
+      ],
+      "id": "41a875cc-30ce-43ed-a2dd-2514c73382f0",
+      "name": "Set Persona Vars"
     }
   ],
   "pinData": {},
@@ -1916,6 +1993,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 1,
-  "updatedAt": "2025-09-22T11:45:48.000Z",
-  "versionId": "b28861d2-0b07-40dd-9588-2494935de603"
+  "updatedAt": "2025-09-23T22:14:42.000Z",
+  "versionId": "3ddb2789-21c3-4215-a5c8-1b53e7ef799a"
 }
