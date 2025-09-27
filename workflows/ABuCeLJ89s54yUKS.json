@@ -1339,8 +1339,8 @@
       "alwaysOutputData": true,
       "credentials": {
         "googleSheetsOAuth2Api": {
-          "id": "y8u36G3ttt4BcDqC",
-          "name": "veppers"
+          "id": "NntUkzuHFVYVN8l6",
+          "name": "veppers2"
         }
       }
     },
@@ -1541,7 +1541,10 @@
           "value": {
             "step": "1",
             "contact_id": "={{ $('Edit Fields1').item.json.contact_id }}",
-            "name": "={{ $('Switch').item.json.body.name }}"
+            "name": "={{ $('Switch').item.json.body.name }}",
+            "1 этап": "={{ $json[\"1 этап\"] || $items(\"Edit Fields1\")[0].json.date }}",
+            "FirstAt": "={{ $json.FirstAt || $items(\"Edit Fields1\")[0].json.date }}",
+            "LastAt": "={{ $items(\"Edit Fields1\")[0].json.date }}"
           },
           "matchingColumns": [],
           "schema": [
@@ -1580,7 +1583,88 @@
               "defaultMatch": false,
               "display": true,
               "type": "string",
-              "canBeUsedToMatch": true
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "FirstAt",
+              "displayName": "FirstAt",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "LastAt",
+              "displayName": "LastAt",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "1 этап",
+              "displayName": "1 этап",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "2 этап",
+              "displayName": "2 этап",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "3 этап",
+              "displayName": "3 этап",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "4 этап",
+              "displayName": "4 этап",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "5 этап",
+              "displayName": "5 этап",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "6 этап",
+              "displayName": "6 этап",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
             }
           ],
           "attemptToConvertTypes": false,
@@ -1598,8 +1682,8 @@
       "name": "Google Sheets1",
       "credentials": {
         "googleSheetsOAuth2Api": {
-          "id": "y8u36G3ttt4BcDqC",
-          "name": "veppers"
+          "id": "NntUkzuHFVYVN8l6",
+          "name": "veppers2"
         }
       }
     },
@@ -1689,7 +1773,10 @@
           "value": {
             "step": "2",
             "contact_id": "={{ $json.contact_id }}",
-            "name": "={{ $('Switch').item.json.body.name }}"
+            "name": "={{ $('Switch').item.json.body.name }}",
+            "FirstAt": "={{ $json.FirstAt || $items(\"Edit Fields1\")[0].json.date }}",
+            "LastAt": "={{ $items(\"Edit Fields1\")[0].json.date }}",
+            "2 этап": "={{ $json[\"2 этап\"] || $items(\"Edit Fields1\")[0].json.date }}"
           },
           "matchingColumns": [
             "contact_id"
@@ -1731,17 +1818,88 @@
               "defaultMatch": false,
               "display": true,
               "type": "string",
-              "canBeUsedToMatch": true
+              "canBeUsedToMatch": true,
+              "removed": true
             },
             {
-              "id": "nexttouch",
-              "displayName": "nexttouch",
+              "id": "FirstAt",
+              "displayName": "FirstAt",
               "required": false,
               "defaultMatch": false,
               "display": true,
               "type": "string",
               "canBeUsedToMatch": true,
               "removed": false
+            },
+            {
+              "id": "LastAt",
+              "displayName": "LastAt",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "1 этап",
+              "displayName": "1 этап",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "2 этап",
+              "displayName": "2 этап",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "3 этап",
+              "displayName": "3 этап",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "4 этап",
+              "displayName": "4 этап",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "5 этап",
+              "displayName": "5 этап",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "6 этап",
+              "displayName": "6 этап",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
             },
             {
               "id": "row_number",
@@ -1770,8 +1928,8 @@
       "name": "Google Sheets2",
       "credentials": {
         "googleSheetsOAuth2Api": {
-          "id": "y8u36G3ttt4BcDqC",
-          "name": "veppers"
+          "id": "NntUkzuHFVYVN8l6",
+          "name": "veppers2"
         }
       }
     },
@@ -1822,7 +1980,10 @@
           "value": {
             "step": "3",
             "contact_id": "={{ $('Switch').item.json.body.contact_id }}",
-            "weight_kg": "={{ $('Code').item.json.weight_kg }}"
+            "weight_kg": "={{ $('Code').item.json.weight_kg }}",
+            "FirstAt": "={{ $json.FirstAt || $items(\"Edit Fields1\")[0].json.date }}",
+            "LastAt": "={{ $items(\"Edit Fields1\")[0].json.date }}",
+            "3 этап": "={{ $json[\"3 этап\"] || $items(\"Edit Fields1\")[0].json.date }}"
           },
           "matchingColumns": [
             "contact_id"
@@ -1867,6 +2028,86 @@
               "canBeUsedToMatch": true
             },
             {
+              "id": "FirstAt",
+              "displayName": "FirstAt",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "LastAt",
+              "displayName": "LastAt",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "1 этап",
+              "displayName": "1 этап",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "2 этап",
+              "displayName": "2 этап",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "3 этап",
+              "displayName": "3 этап",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "4 этап",
+              "displayName": "4 этап",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "5 этап",
+              "displayName": "5 этап",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "6 этап",
+              "displayName": "6 этап",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
               "id": "row_number",
               "displayName": "row_number",
               "required": false,
@@ -1893,8 +2134,8 @@
       "name": "Google Sheets3",
       "credentials": {
         "googleSheetsOAuth2Api": {
-          "id": "y8u36G3ttt4BcDqC",
-          "name": "veppers"
+          "id": "NntUkzuHFVYVN8l6",
+          "name": "veppers2"
         }
       }
     },
@@ -2029,7 +2270,10 @@
           "value": {
             "step": "3",
             "contact_id": "={{ $('Switch1').item.json.contact_id }}",
-            "weight_kg": "={{ $('Code').item.json.weight_kg }}"
+            "weight_kg": "={{ $('Code').item.json.weight_kg }}",
+            "FirstAt": "={{ $json.FirstAt || $items(\"Edit Fields1\")[0].json.date }}",
+            "LastAt": "={{ $items(\"Edit Fields1\")[0].json.date }}",
+            "3 этап": "={{ $json[\"3 этап\"] || $items(\"Edit Fields1\")[0].json.date }}"
           },
           "matchingColumns": [
             "contact_id"
@@ -2074,6 +2318,86 @@
               "canBeUsedToMatch": true
             },
             {
+              "id": "FirstAt",
+              "displayName": "FirstAt",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "LastAt",
+              "displayName": "LastAt",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "1 этап",
+              "displayName": "1 этап",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "2 этап",
+              "displayName": "2 этап",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "3 этап",
+              "displayName": "3 этап",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "4 этап",
+              "displayName": "4 этап",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "5 этап",
+              "displayName": "5 этап",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "6 этап",
+              "displayName": "6 этап",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
               "id": "row_number",
               "displayName": "row_number",
               "required": false,
@@ -2100,8 +2424,8 @@
       "name": "Google Sheets4",
       "credentials": {
         "googleSheetsOAuth2Api": {
-          "id": "y8u36G3ttt4BcDqC",
-          "name": "veppers"
+          "id": "NntUkzuHFVYVN8l6",
+          "name": "veppers2"
         }
       }
     },
@@ -2152,7 +2476,10 @@
           "value": {
             "step": "3",
             "contact_id": "={{ $('Switch').item.json.body.contact_id }}",
-            "weight_kg": "={{ $('Code').item.json.weight_kg }}"
+            "weight_kg": "={{ $('Code').item.json.weight_kg }}",
+            "FirstAt": "={{ $json.FirstAt || $items(\"Edit Fields1\")[0].json.date }}",
+            "LastAt": "={{ $items(\"Edit Fields1\")[0].json.date }}",
+            "3 этап": "={{ $json[\"3 этап\"] || $items(\"Edit Fields1\")[0].json.date }}"
           },
           "matchingColumns": [
             "contact_id"
@@ -2195,6 +2522,97 @@
               "display": true,
               "type": "string",
               "canBeUsedToMatch": true
+            },
+            {
+              "id": "FirstAt",
+              "displayName": "FirstAt",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "LastAt",
+              "displayName": "LastAt",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "1 этап",
+              "displayName": "1 этап",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "2 этап",
+              "displayName": "2 этап",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "3 этап",
+              "displayName": "3 этап",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "4 этап",
+              "displayName": "4 этап",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "5 этап",
+              "displayName": "5 этап",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "6 этап",
+              "displayName": "6 этап",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "row_number",
+              "displayName": "row_number",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "readOnly": true,
+              "removed": false
             }
           ],
           "attemptToConvertTypes": false,
@@ -2212,8 +2630,8 @@
       "name": "Google Sheets5",
       "credentials": {
         "googleSheetsOAuth2Api": {
-          "id": "y8u36G3ttt4BcDqC",
-          "name": "veppers"
+          "id": "NntUkzuHFVYVN8l6",
+          "name": "veppers2"
         }
       }
     },
@@ -2340,7 +2758,10 @@
           "value": {
             "step": "4",
             "contact_id": "={{ $json.contact_id }}",
-            "name": "={{ $json.name }}"
+            "name": "={{ $json.name }}",
+            "FirstAt": "={{ $json.FirstAt || $items(\"Edit Fields1\")[0].json.date }}",
+            "LastAt": "={{ $items(\"Edit Fields1\")[0].json.date }}",
+            "4 этап": "={{ $json[\"4 этап\"] || $items(\"Edit Fields1\")[0].json.date }}"
           },
           "matchingColumns": [
             "contact_id"
@@ -2382,7 +2803,88 @@
               "defaultMatch": false,
               "display": true,
               "type": "string",
-              "canBeUsedToMatch": true
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "FirstAt",
+              "displayName": "FirstAt",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "LastAt",
+              "displayName": "LastAt",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "1 этап",
+              "displayName": "1 этап",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "2 этап",
+              "displayName": "2 этап",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "3 этап",
+              "displayName": "3 этап",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "4 этап",
+              "displayName": "4 этап",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "5 этап",
+              "displayName": "5 этап",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "6 этап",
+              "displayName": "6 этап",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
             },
             {
               "id": "row_number",
@@ -2411,8 +2913,8 @@
       "name": "Google Sheets6",
       "credentials": {
         "googleSheetsOAuth2Api": {
-          "id": "y8u36G3ttt4BcDqC",
-          "name": "veppers"
+          "id": "NntUkzuHFVYVN8l6",
+          "name": "veppers2"
         }
       }
     },
@@ -2534,8 +3036,8 @@
       "name": "Google Sheets7",
       "credentials": {
         "googleSheetsOAuth2Api": {
-          "id": "y8u36G3ttt4BcDqC",
-          "name": "veppers"
+          "id": "NntUkzuHFVYVN8l6",
+          "name": "veppers2"
         }
       }
     },
@@ -2958,8 +3460,8 @@
       "name": "Google Sheets8",
       "credentials": {
         "googleSheetsOAuth2Api": {
-          "id": "y8u36G3ttt4BcDqC",
-          "name": "veppers"
+          "id": "NntUkzuHFVYVN8l6",
+          "name": "veppers2"
         }
       }
     },
@@ -2985,7 +3487,10 @@
           "value": {
             "step": "4",
             "contact_id": "={{ $json.contact_id }}",
-            "name": "={{ $json.name }}"
+            "name": "={{ $json.name }}",
+            "FirstAt": "={{ $json.FirstAt || $items(\"Edit Fields1\")[0].json.date }}",
+            "LastAt": "={{ $items(\"Edit Fields1\")[0].json.date }}",
+            "4 этап": "={{ $json[\"4 этап\"] || $items(\"Edit Fields1\")[0].json.date }}"
           },
           "matchingColumns": [
             "contact_id"
@@ -3027,7 +3532,88 @@
               "defaultMatch": false,
               "display": true,
               "type": "string",
-              "canBeUsedToMatch": true
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "FirstAt",
+              "displayName": "FirstAt",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "LastAt",
+              "displayName": "LastAt",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "1 этап",
+              "displayName": "1 этап",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "2 этап",
+              "displayName": "2 этап",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "3 этап",
+              "displayName": "3 этап",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "4 этап",
+              "displayName": "4 этап",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "5 этап",
+              "displayName": "5 этап",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "6 этап",
+              "displayName": "6 этап",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
             },
             {
               "id": "row_number",
@@ -3056,8 +3642,8 @@
       "name": "Google Sheets9",
       "credentials": {
         "googleSheetsOAuth2Api": {
-          "id": "y8u36G3ttt4BcDqC",
-          "name": "veppers"
+          "id": "NntUkzuHFVYVN8l6",
+          "name": "veppers2"
         }
       }
     },
@@ -3356,7 +3942,10 @@
           "mappingMode": "defineBelow",
           "value": {
             "step": "5",
-            "contact_id": "={{ $('Switch1').item.json.contact_id }}"
+            "contact_id": "={{ $('Switch1').item.json.contact_id }}",
+            "FirstAt": "={{ $json.FirstAt || $items(\"Edit Fields1\")[0].json.date }}",
+            "LastAt": "={{ $items(\"Edit Fields1\")[0].json.date }}",
+            "5 этап": "={{ $json[\"5 этап\"] || $items(\"Edit Fields1\")[0].json.date }}"
           },
           "matchingColumns": [
             "contact_id"
@@ -3400,6 +3989,86 @@
               "type": "string",
               "canBeUsedToMatch": true,
               "removed": true
+            },
+            {
+              "id": "FirstAt",
+              "displayName": "FirstAt",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "LastAt",
+              "displayName": "LastAt",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "1 этап",
+              "displayName": "1 этап",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "2 этап",
+              "displayName": "2 этап",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "3 этап",
+              "displayName": "3 этап",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "4 этап",
+              "displayName": "4 этап",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "5 этап",
+              "displayName": "5 этап",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "6 этап",
+              "displayName": "6 этап",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
             },
             {
               "id": "row_number",
@@ -3428,8 +4097,8 @@
       "name": "Google Sheets10",
       "credentials": {
         "googleSheetsOAuth2Api": {
-          "id": "y8u36G3ttt4BcDqC",
-          "name": "veppers"
+          "id": "NntUkzuHFVYVN8l6",
+          "name": "veppers2"
         }
       }
     },
@@ -3454,7 +4123,10 @@
           "mappingMode": "defineBelow",
           "value": {
             "step": "5",
-            "contact_id": "={{ $('Switch1').item.json.contact_id }}"
+            "contact_id": "={{ $('Switch1').item.json.contact_id }}",
+            "FirstAt": "={{ $json.FirstAt || $items(\"Edit Fields1\")[0].json.date }}",
+            "LastAt": "={{ $items(\"Edit Fields1\")[0].json.date }}",
+            "5 этап": "={{ $json[\"5 этап\"] || $items(\"Edit Fields1\")[0].json.date }}"
           },
           "matchingColumns": [
             "contact_id"
@@ -3492,6 +4164,86 @@
             {
               "id": "weight_kg",
               "displayName": "weight_kg",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "FirstAt",
+              "displayName": "FirstAt",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "LastAt",
+              "displayName": "LastAt",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "1 этап",
+              "displayName": "1 этап",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "2 этап",
+              "displayName": "2 этап",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "3 этап",
+              "displayName": "3 этап",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "4 этап",
+              "displayName": "4 этап",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "5 этап",
+              "displayName": "5 этап",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "6 этап",
+              "displayName": "6 этап",
               "required": false,
               "defaultMatch": false,
               "display": true,
@@ -3526,8 +4278,8 @@
       "name": "Google Sheets11",
       "credentials": {
         "googleSheetsOAuth2Api": {
-          "id": "y8u36G3ttt4BcDqC",
-          "name": "veppers"
+          "id": "NntUkzuHFVYVN8l6",
+          "name": "veppers2"
         }
       }
     },
@@ -3771,7 +4523,10 @@
           "mappingMode": "defineBelow",
           "value": {
             "step": "оплачено",
-            "contact_id": "={{ $('Webhook').item.json.body.data.key.remoteJid }}"
+            "contact_id": "={{ $('Webhook').item.json.body.data.key.remoteJid }}",
+            "FirstAt": "={{ $json.FirstAt || $items(\"Edit Fields1\")[0].json.date }}",
+            "LastAt": "={{ $items(\"Edit Fields1\")[0].json.date }}",
+            "6 этап": "={{ $json[\"6 этап\"] || $items(\"Edit Fields1\")[0].json.date }}"
           },
           "matchingColumns": [
             "contact_id"
@@ -3817,6 +4572,86 @@
               "removed": true
             },
             {
+              "id": "FirstAt",
+              "displayName": "FirstAt",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "LastAt",
+              "displayName": "LastAt",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "1 этап",
+              "displayName": "1 этап",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "2 этап",
+              "displayName": "2 этап",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "3 этап",
+              "displayName": "3 этап",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "4 этап",
+              "displayName": "4 этап",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "5 этап",
+              "displayName": "5 этап",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "6 этап",
+              "displayName": "6 этап",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
               "id": "row_number",
               "displayName": "row_number",
               "required": false,
@@ -3843,8 +4678,8 @@
       "name": "Google Sheets12",
       "credentials": {
         "googleSheetsOAuth2Api": {
-          "id": "y8u36G3ttt4BcDqC",
-          "name": "veppers"
+          "id": "NntUkzuHFVYVN8l6",
+          "name": "veppers2"
         }
       }
     },
@@ -3973,6 +4808,12 @@
               "name": "aggregated",
               "value": "={{ !!($json.body?.aggregated) }}",
               "type": "boolean"
+            },
+            {
+              "id": "dc882aba-28fb-498f-8abf-10a48803b9ab",
+              "name": "date",
+              "value": "={{ new Date().toLocaleDateString('ru-RU', { timeZone: 'Europe/Moscow' }) }}",
+              "type": "string"
             }
           ]
         },
@@ -4025,8 +4866,8 @@
       "alwaysOutputData": true,
       "credentials": {
         "googleSheetsOAuth2Api": {
-          "id": "y8u36G3ttt4BcDqC",
-          "name": "veppers"
+          "id": "NntUkzuHFVYVN8l6",
+          "name": "veppers2"
         }
       }
     },
@@ -4156,8 +4997,8 @@
       "name": "Google Sheets14",
       "credentials": {
         "googleSheetsOAuth2Api": {
-          "id": "y8u36G3ttt4BcDqC",
-          "name": "veppers"
+          "id": "NntUkzuHFVYVN8l6",
+          "name": "veppers2"
         }
       }
     },
@@ -4288,8 +5129,8 @@
       "name": "Google Sheets15",
       "credentials": {
         "googleSheetsOAuth2Api": {
-          "id": "y8u36G3ttt4BcDqC",
-          "name": "veppers"
+          "id": "NntUkzuHFVYVN8l6",
+          "name": "veppers2"
         }
       }
     },
@@ -4425,6 +5266,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 1,
-  "updatedAt": "2025-09-18T14:36:33.000Z",
-  "versionId": "ed89e116-ed26-4a04-892e-b291254693d7"
+  "updatedAt": "2025-09-26T20:02:51.000Z",
+  "versionId": "a4a42e4d-c330-4774-9da7-032639dd67d6"
 }
