@@ -188,7 +188,7 @@
       "main": [
         [
           {
-            "node": "BotDetector",
+            "node": "IF: Blocked?",
             "type": "main",
             "index": 0
           }
@@ -199,7 +199,7 @@
       "main": [
         [
           {
-            "node": "BotDetector",
+            "node": "IF: Blocked?",
             "type": "main",
             "index": 0
           }
@@ -424,6 +424,18 @@
         [
           {
             "node": "БИЗНЕС АССИСТЕНТ1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "IF: Blocked?": {
+      "main": [
+        [],
+        [
+          {
+            "node": "BotDetector",
             "type": "main",
             "index": 0
           }
@@ -792,7 +804,7 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.5,
       "position": [
-        -520,
+        -620,
         100
       ],
       "id": "d8dce771-c632-4ac6-8d0b-eeaf64e61afa",
@@ -833,7 +845,7 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 2.2,
       "position": [
-        -300,
+        -460,
         100
       ],
       "id": "6a55db68-5819-4289-9f02-54761dd0d768",
@@ -935,7 +947,7 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.5,
       "position": [
-        -80,
+        -240,
         0
       ],
       "id": "a14a46dc-57e1-4c53-85fb-dd58d81d0cdf",
@@ -1059,7 +1071,7 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.5,
       "position": [
-        -80,
+        -240,
         160
       ],
       "id": "96439f87-5e23-4afc-8694-a2f88fa05869",
@@ -1110,7 +1122,7 @@
         "promptType": "define",
         "text": "={{ $node[\"Set Text (final)\"].json.text || $node[\"Set Text\"].json.text || '' }}\n",
         "options": {
-          "systemMessage": "==BOT DETECTOR\nYou receive the FULL last 5 minutes of dialog:\nMy msg: …\nProspect: …\nDecide if the latest Prospect text looks automated (mass-mail phrasing, repeated templates, “automated message / do not reply”, generic cadence).\nIf automated → output exactly: __BOT_SUSPECT__\nElse → output exactly: __HUMAN__\nNo other text."
+          "systemMessage": "=BOT / STOP DETECTOR\nYou receive the FULL last 5 minutes of dialog:\nMy msg: …\nProspect: …\n\nDecide for the LATEST Prospect line ONLY:\n• If it's an automated reply/template (mass-mail phrasing, repeated templates, “automated message / do not reply”, generic cadence) → output: __BOT_SUSPECT__\n• If it asks to stop/unsubscribe/do not contact (ANY language; examples: stop, unsubscribe, don’t message, do not contact, remove me, opt out, cancel; RU: стоп, не пишите, отписка, не беспокоить, удалите, хватит) → output: __STOP__\n• Otherwise → output: __HUMAN__\n\nOUTPUT: exactly ONE token: __BOT_SUSPECT__ | __STOP__ | __HUMAN__\nNo other text. No JSON.\n"
         }
       },
       "type": "@n8n/n8n-nodes-langchain.agent",
@@ -1982,6 +1994,40 @@
       ],
       "id": "41a875cc-30ce-43ed-a2dd-2514c73382f0",
       "name": "Set Persona Vars"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "654883ba-3f22-4fba-9900-529071a6cdc5",
+              "leftValue": "={{ String($items(\"Google Sheets\")[0]?.json?.blocked || '').toLowerCase() === 'true' }}",
+              "rightValue": "",
+              "operator": {
+                "type": "boolean",
+                "operation": "true",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        -40,
+        100
+      ],
+      "id": "97ddd502-5f32-4f3e-82d9-349579702f80",
+      "name": "IF: Blocked?"
     }
   ],
   "pinData": {},
@@ -1993,6 +2039,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 1,
-  "updatedAt": "2025-09-23T22:14:42.000Z",
-  "versionId": "3ddb2789-21c3-4215-a5c8-1b53e7ef799a"
+  "updatedAt": "2025-09-28T19:56:35.000Z",
+  "versionId": "c6028089-d1a8-4913-a85e-82d389dca86f"
 }
