@@ -217,7 +217,7 @@
         ],
         [
           {
-            "node": "Set Persona Vars",
+            "node": "Google Sheets (Reset AutoNotice)",
             "type": "main",
             "index": 0
           }
@@ -228,7 +228,7 @@
       "main": [
         [
           {
-            "node": "If1",
+            "node": "If_Stop",
             "type": "main",
             "index": 0
           }
@@ -441,6 +441,46 @@
           }
         ]
       ]
+    },
+    "If_Stop": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request3",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "If1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "HTTP Request3": {
+      "main": [
+        [
+          {
+            "node": "Google Sheets (Block)",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Sheets (Reset AutoNotice)": {
+      "main": [
+        [
+          {
+            "node": "Set Persona Vars",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
     }
   },
   "createdAt": "2025-08-24T13:05:50.112Z",
@@ -512,7 +552,7 @@
       "type": "n8n-nodes-base.googleDocsTool",
       "typeVersion": 2,
       "position": [
-        840,
+        1280,
         320
       ],
       "id": "340b8e0d-ddbf-49fe-9200-433bdfcf22a0",
@@ -532,7 +572,7 @@
       "type": "n8n-nodes-base.googleDocsTool",
       "typeVersion": 2,
       "position": [
-        960,
+        1400,
         320
       ],
       "id": "f4e2ed7d-986f-4885-9f4e-cd09ba280dda",
@@ -552,7 +592,7 @@
       "type": "n8n-nodes-base.googleDocsTool",
       "typeVersion": 2,
       "position": [
-        1080,
+        1520,
         320
       ],
       "id": "0c8bd123-4c98-4885-9cfc-67129c6ae1c2",
@@ -569,7 +609,7 @@
       "type": "@n8n/n8n-nodes-langchain.toolCalculator",
       "typeVersion": 1,
       "position": [
-        1320,
+        1760,
         320
       ],
       "id": "b8c7df54-5cef-43eb-86de-c5d3fa3633b9",
@@ -586,7 +626,7 @@
       "type": "@n8n/n8n-nodes-langchain.agent",
       "typeVersion": 1.7,
       "position": [
-        880,
+        1320,
         100
       ],
       "id": "b65d85d2-ed21-4e36-82a6-86366432dd70",
@@ -628,7 +668,7 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        1800,
+        2020,
         100
       ],
       "id": "5ad38a63-6250-472f-8e30-b241110a4653",
@@ -718,7 +758,7 @@
       "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
       "typeVersion": 1.3,
       "position": [
-        720,
+        1160,
         320
       ],
       "id": "361ca65a-264b-4988-8d93-defed637a606",
@@ -735,7 +775,7 @@
       "type": "n8n-nodes-base.telegram",
       "typeVersion": 1.2,
       "position": [
-        1940,
+        2160,
         100
       ],
       "id": "670e4944-7626-4598-93e5-ea93fca47095",
@@ -763,7 +803,7 @@
       "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
       "typeVersion": 1.2,
       "position": [
-        600,
+        1040,
         320
       ],
       "id": "cf81b31d-148c-4bcb-a465-c756581e2f40",
@@ -1111,7 +1151,7 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 2.2,
       "position": [
-        460,
+        820,
         100
       ],
       "id": "9ad33af6-2390-49ff-b9c4-79c35ad7cdbf",
@@ -1483,7 +1523,7 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        820,
+        1180,
         -100
       ],
       "id": "10a48114-7f92-4188-9d12-875195c1e82a",
@@ -1606,7 +1646,7 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.5,
       "position": [
-        460,
+        820,
         -100
       ],
       "id": "a9681938-a271-4713-9863-11721f9c3b18",
@@ -1631,7 +1671,7 @@
           "conditions": [
             {
               "id": "34a1ab29-a380-4247-a474-e61491bbcc2d",
-              "leftValue": "={{ String($items(\"Google Sheets4\").json[0]?.auto_notice_sent || '').toLowerCase() === 'true' }}",
+              "leftValue": "={{ String($items(\"Google Sheets4\")[0]?.json?.auto_notice_sent || '').toLowerCase() !== 'true' }}",
               "rightValue": "",
               "operator": {
                 "type": "boolean",
@@ -1647,7 +1687,7 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 2.2,
       "position": [
-        620,
+        980,
         -100
       ],
       "id": "563abed4-f8d2-44ba-8c2c-ed46021cc898",
@@ -1780,7 +1820,7 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.5,
       "position": [
-        980,
+        1340,
         -100
       ],
       "id": "a4dba16b-f223-4ef8-8239-2668e3a739a4",
@@ -1800,7 +1840,7 @@
       "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
       "typeVersion": 1.3,
       "position": [
-        1640,
+        2020,
         440
       ],
       "id": "11dc5dd1-1975-433d-87b9-b7a20784070d",
@@ -1821,7 +1861,7 @@
       "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
       "typeVersion": 1.2,
       "position": [
-        1540,
+        1920,
         440
       ],
       "id": "08278cb4-7417-467c-9efe-4df39111c5e0",
@@ -1838,13 +1878,13 @@
         "promptType": "define",
         "text": "={{ $node[\"Set Text\"].json.dialog }}",
         "options": {
-          "systemMessage": "=INTEREST CLASSIFIER\nYou receive the FULL 5-minute dialog batch in this format:\nMy msg: …\nProspect: …\nMy msg: …\nProspect: …\n\nDecide ONLY from the LATEST Prospect line whether there is meaningful buying interest.\nInterest means ANY of: asks about price/cost, demo/call/meeting, timeline/next steps, integration/compatibility, ROI/results, sends phone/WhatsApp/Zoom, shares availability to talk, explicitly wants to proceed or book.\nNon-interest: greetings, pleasantries, generic objections without intent, autoresponders, “later”, unrelated chat.\n\nOUTPUT STRICTLY one token:\n- __INTEREST__  (if interest is present)\n- __NO_INTEREST__  (otherwise)\n\nNo extra words. No JSON. No explanations."
+          "systemMessage": "=ALERT AGENT — CONSERVATIVE, TOKEN OUTPUT\nYou receive the last 3–5 messages. Classify ONLY the LATEST Prospect line.\n\nReturn __INTEREST__ ONLY if ANY of these is true in the latest line:\n1) Explicit intent to call/meet/book/schedule or calendar/availability:\n   (book, schedule, call, demo, meeting, video call, send calendar, invite, slot, \"I’m available\", \"tomorrow 3pm\", \"next week\", \"let’s talk\", \"let’s do it\", picks a time)\n2) WhatsApp is explicitly provided or requested:\n   (mentions “WhatsApp/WA/whatsapp”, WA link, or says “WhatsApp me”)\n3) Neutral info request (no commitment), including:\n   (\"send info\", \"proof\", \"case\", \"testimonial\", \"review\", \"video\", \"price\", \"how much\", \"cost\", \"info\")\n\nOtherwise return __NO_INTEREST__.\n\nHard NO (must be __NO_INTEREST__): stop/unsubscribe/do not contact, explicit declines, out-of-office/auto-replies.\n\nOUTPUT: exactly one token, either __INTEREST__ or __NO_INTEREST__. No other text."
         }
       },
       "type": "@n8n/n8n-nodes-langchain.agent",
       "typeVersion": 1.7,
       "position": [
-        1540,
+        1920,
         300
       ],
       "id": "99d842f4-fe15-48fa-b1aa-318cb2798d9a",
@@ -1879,7 +1919,7 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 2.2,
       "position": [
-        1900,
+        2280,
         300
       ],
       "id": "20f9619f-e1ef-4ed3-90b7-e9acff656fa8",
@@ -1888,7 +1928,7 @@
     {
       "parameters": {
         "chatId": "477076152",
-        "text": "Новый лид в инсте!",
+        "text": "={{  (() => {   const key = $node[\"Set SessionKey\"].json.conversation_key || '';   const last = ($node[\"Set Text\"].json.text || '').slice(-280);   return `IG lead alert!\\nThread: ${key}\\nLast: “${last}”`; })() }}",
         "additionalFields": {
           "appendAttribution": false
         }
@@ -1896,7 +1936,7 @@
       "type": "n8n-nodes-base.telegram",
       "typeVersion": 1.2,
       "position": [
-        2100,
+        2480,
         300
       ],
       "id": "8237016a-f1fe-4b4c-abc3-adc2336d67df",
@@ -1917,7 +1957,7 @@
       "type": "n8n-nodes-base.googleDocsTool",
       "typeVersion": 2,
       "position": [
-        1200,
+        1640,
         320
       ],
       "id": "dde10220-ac17-4feb-acb3-930d9a4c5218",
@@ -1989,7 +2029,7 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        640,
+        1160,
         100
       ],
       "id": "41a875cc-30ce-43ed-a2dd-2514c73382f0",
@@ -2028,6 +2068,362 @@
       ],
       "id": "97ddd502-5f32-4f3e-82d9-349579702f80",
       "name": "IF: Blocked?"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "7c216d28-9ea5-41a1-9163-dfe8a9271a5e",
+              "leftValue": "={{ $node[\"BotDetector\"].json.output === \"__STOP__\" }}",
+              "rightValue": "",
+              "operator": {
+                "type": "boolean",
+                "operation": "true",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        500,
+        100
+      ],
+      "id": "b5c9d116-553e-4f85-a3d2-806d6c1c9eca",
+      "name": "If_Stop"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://the-dms-factory.onrender.com/api/v1/chats/send",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            }
+          ]
+        },
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "sender_id",
+              "value": "={{ String($node[\"Webhook\"].json.body.business_account_id) }}"
+            },
+            {
+              "name": "recipient_id",
+              "value": "={{ String($node[\"Webhook\"].json.body.client_account_id) }}"
+            },
+            {
+              "name": "message",
+              "value": "Understood — I’ll stop here. If you ever need help, just message anytime."
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        500,
+        -100
+      ],
+      "id": "e63e7113-8345-4872-8acd-8e4e4cb1505e",
+      "name": "HTTP Request3",
+      "retryOnFail": true,
+      "waitBetweenTries": 5000,
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "documentId": {
+          "__rl": true,
+          "value": "1t_P-OJ8s_vnvNYM9dm2q-CDKnHv-coagoc6V7ZnEGAQ",
+          "mode": "list",
+          "cachedResultName": "inst Aarav",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1t_P-OJ8s_vnvNYM9dm2q-CDKnHv-coagoc6V7ZnEGAQ/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "Лист1",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1t_P-OJ8s_vnvNYM9dm2q-CDKnHv-coagoc6V7ZnEGAQ/edit#gid=0"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "conversation_key": "={{ $node[\"Set SessionKey\"].json.conversation_key }}",
+            "blocked": "TRUE"
+          },
+          "matchingColumns": [
+            "conversation_key"
+          ],
+          "schema": [
+            {
+              "id": "conversation_key",
+              "displayName": "conversation_key",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "last_activity_ts",
+              "displayName": "last_activity_ts",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "last_msg_preview",
+              "displayName": "last_msg_preview",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "blocked",
+              "displayName": "blocked",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "last_followup_at",
+              "displayName": "last_followup_at",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "fu_count",
+              "displayName": "fu_count",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "appointment_ts",
+              "displayName": "appointment_ts",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "auto_notice_sent",
+              "displayName": "auto_notice_sent",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "row_number",
+              "displayName": "row_number",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "readOnly": true,
+              "removed": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.5,
+      "position": [
+        660,
+        -100
+      ],
+      "id": "d039c083-be76-4d5b-8052-6ada6ae637a5",
+      "name": "Google Sheets (Block)",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "CrfB9fg9PEmwDf6p",
+          "name": "Google Sheets account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "documentId": {
+          "__rl": true,
+          "value": "1t_P-OJ8s_vnvNYM9dm2q-CDKnHv-coagoc6V7ZnEGAQ",
+          "mode": "list",
+          "cachedResultName": "inst Aarav",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1t_P-OJ8s_vnvNYM9dm2q-CDKnHv-coagoc6V7ZnEGAQ/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "Лист1",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1t_P-OJ8s_vnvNYM9dm2q-CDKnHv-coagoc6V7ZnEGAQ/edit#gid=0"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "conversation_key": "={{ $node[\"Set SessionKey\"].json.conversation_key }}",
+            "auto_notice_sent": "FALSE"
+          },
+          "matchingColumns": [
+            "conversation_key"
+          ],
+          "schema": [
+            {
+              "id": "conversation_key",
+              "displayName": "conversation_key",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "last_activity_ts",
+              "displayName": "last_activity_ts",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "last_msg_preview",
+              "displayName": "last_msg_preview",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "blocked",
+              "displayName": "blocked",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "last_followup_at",
+              "displayName": "last_followup_at",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "fu_count",
+              "displayName": "fu_count",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "appointment_ts",
+              "displayName": "appointment_ts",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "auto_notice_sent",
+              "displayName": "auto_notice_sent",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "row_number",
+              "displayName": "row_number",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "readOnly": true,
+              "removed": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.5,
+      "position": [
+        980,
+        100
+      ],
+      "id": "fcd3bc2d-6eeb-4e1a-a290-0564c95875bd",
+      "name": "Google Sheets (Reset AutoNotice)",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "CrfB9fg9PEmwDf6p",
+          "name": "Google Sheets account"
+        }
+      }
     }
   ],
   "pinData": {},
@@ -2039,6 +2435,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 1,
-  "updatedAt": "2025-09-28T19:56:35.000Z",
-  "versionId": "c6028089-d1a8-4913-a85e-82d389dca86f"
+  "updatedAt": "2025-09-29T14:58:04.000Z",
+  "versionId": "6eb93f6c-11e7-4ddc-9bcb-b97f13396f85"
 }
