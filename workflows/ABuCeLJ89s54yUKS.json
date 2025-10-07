@@ -1,5 +1,5 @@
 {
-  "active": false,
+  "active": true,
   "connections": {
     "Switch": {
       "main": [
@@ -874,6 +874,28 @@
           }
         ]
       ]
+    },
+    "Evolution API18": {
+      "main": [
+        [
+          {
+            "node": "Evolution API19",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Evolution API17": {
+      "main": [
+        [
+          {
+            "node": "Evolution API20",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
     }
   },
   "createdAt": "2025-09-01T18:48:30.216Z",
@@ -1182,7 +1204,7 @@
     {
       "parameters": {
         "method": "POST",
-        "url": "=https://evolution-api-production-9e6a.up.railway.app/chat/getBase64FromMediaMessage/{{ $json.body.instance || 'wa-01' }}\n",
+        "url": "=https://evolution-api-production-9e6a.up.railway.app/chat/getBase64FromMediaMessage/{{ $json.body.instance || 'VEPPERS' }}\n",
         "sendHeaders": true,
         "headerParameters": {
           "parameters": [
@@ -1237,7 +1259,7 @@
     {
       "parameters": {
         "resource": "messages-api",
-        "instanceName": "wa-01",
+        "instanceName": "VEPPERS",
         "remoteJid": "={{ $('Switch').item.json.body.contact_id }}",
         "messageText": "Доброго дня )  \nМеня зовут Анастасия Веперс - я руководитель проекта,  дипломированный нутрициолог.   \n\nПодскажите пожалуйста раньше пробовали работать в программах с нутрициологом ?💐",
         "options_message": {}
@@ -1263,7 +1285,7 @@
     {
       "parameters": {
         "method": "POST",
-        "url": "https://evolution-api-production-9e6a.up.railway.app/chat/sendPresence/wa-01",
+        "url": "https://evolution-api-production-9e6a.up.railway.app/chat/sendPresence/VEPPERS",
         "authentication": "genericCredentialType",
         "genericAuthType": "httpHeaderAuth",
         "sendHeaders": true,
@@ -1690,7 +1712,7 @@
     {
       "parameters": {
         "resource": "messages-api",
-        "instanceName": "wa-01",
+        "instanceName": "VEPPERS",
         "remoteJid": "={{ $('Switch1').item.json.contact_id }}",
         "messageText": "Я поняла Вас 🙌 😉 \nСкажите пожалуйста вес , рост,  хронические заболевания и какой вес хотите ?💐",
         "options_message": {}
@@ -1714,7 +1736,7 @@
     {
       "parameters": {
         "method": "POST",
-        "url": "https://evolution-api-production-9e6a.up.railway.app/chat/sendPresence/wa-01",
+        "url": "https://evolution-api-production-9e6a.up.railway.app/chat/sendPresence/VEPPERS",
         "authentication": "genericCredentialType",
         "genericAuthType": "httpHeaderAuth",
         "sendHeaders": true,
@@ -1774,7 +1796,6 @@
             "step": "2",
             "contact_id": "={{ $json.contact_id }}",
             "name": "={{ $('Switch').item.json.body.name }}",
-            "FirstAt": "={{ $json.FirstAt || $items(\"Edit Fields1\")[0].json.date }}",
             "LastAt": "={{ $items(\"Edit Fields1\")[0].json.date }}",
             "2 этап": "={{ $json[\"2 этап\"] || $items(\"Edit Fields1\")[0].json.date }}"
           },
@@ -1829,7 +1850,7 @@
               "display": true,
               "type": "string",
               "canBeUsedToMatch": true,
-              "removed": false
+              "removed": true
             },
             {
               "id": "LastAt",
@@ -1937,7 +1958,7 @@
       "parameters": {
         "resource": "messages-api",
         "operation": "send-audio",
-        "instanceName": "wa-01",
+        "instanceName": "VEPPERS",
         "remoteJid": "={{ $('Edit Fields1').item.json.contact_id }}",
         "media": "https://drive.google.com/uc?export=download&id=1_ljlE_2GNdp0RMHFeOwlwEEX8m-BmxZC",
         "options_message": {}
@@ -1981,7 +2002,6 @@
             "step": "3",
             "contact_id": "={{ $('Switch').item.json.body.contact_id }}",
             "weight_kg": "={{ $('Code').item.json.weight_kg }}",
-            "FirstAt": "={{ $json.FirstAt || $items(\"Edit Fields1\")[0].json.date }}",
             "LastAt": "={{ $items(\"Edit Fields1\")[0].json.date }}",
             "3 этап": "={{ $json[\"3 этап\"] || $items(\"Edit Fields1\")[0].json.date }}"
           },
@@ -2035,7 +2055,7 @@
               "display": true,
               "type": "string",
               "canBeUsedToMatch": true,
-              "removed": false
+              "removed": true
             },
             {
               "id": "LastAt",
@@ -2227,7 +2247,7 @@
       "parameters": {
         "resource": "messages-api",
         "operation": "send-audio",
-        "instanceName": "wa-01",
+        "instanceName": "VEPPERS",
         "remoteJid": "={{ $('Edit Fields1').item.json.contact_id }}",
         "media": "https://drive.google.com/uc?export=download&id=1HFjYmgGa8UbJhwRY2xY6UD-f52wEwS7s",
         "options_message": {}
@@ -2271,7 +2291,6 @@
             "step": "3",
             "contact_id": "={{ $('Switch1').item.json.contact_id }}",
             "weight_kg": "={{ $('Code').item.json.weight_kg }}",
-            "FirstAt": "={{ $json.FirstAt || $items(\"Edit Fields1\")[0].json.date }}",
             "LastAt": "={{ $items(\"Edit Fields1\")[0].json.date }}",
             "3 этап": "={{ $json[\"3 этап\"] || $items(\"Edit Fields1\")[0].json.date }}"
           },
@@ -2325,7 +2344,7 @@
               "display": true,
               "type": "string",
               "canBeUsedToMatch": true,
-              "removed": false
+              "removed": true
             },
             {
               "id": "LastAt",
@@ -2433,7 +2452,7 @@
       "parameters": {
         "resource": "messages-api",
         "operation": "send-audio",
-        "instanceName": "wa-01",
+        "instanceName": "VEPPERS",
         "remoteJid": "={{ $('Edit Fields1').item.json.contact_id }}",
         "media": "https://drive.google.com/uc?export=download&id=1HFjYmgGa8UbJhwRY2xY6UD-f52wEwS7s",
         "options_message": {}
@@ -2477,7 +2496,6 @@
             "step": "3",
             "contact_id": "={{ $('Switch').item.json.body.contact_id }}",
             "weight_kg": "={{ $('Code').item.json.weight_kg }}",
-            "FirstAt": "={{ $json.FirstAt || $items(\"Edit Fields1\")[0].json.date }}",
             "LastAt": "={{ $items(\"Edit Fields1\")[0].json.date }}",
             "3 этап": "={{ $json[\"3 этап\"] || $items(\"Edit Fields1\")[0].json.date }}"
           },
@@ -2531,7 +2549,7 @@
               "display": true,
               "type": "string",
               "canBeUsedToMatch": true,
-              "removed": false
+              "removed": true
             },
             {
               "id": "LastAt",
@@ -2715,7 +2733,7 @@
       "parameters": {
         "resource": "messages-api",
         "operation": "send-audio",
-        "instanceName": "wa-01",
+        "instanceName": "VEPPERS",
         "remoteJid": "={{ $('Edit Fields1').item.json.contact_id }}",
         "media": "https://drive.google.com/uc?export=download&id=1BGfJkWlQDQCHD2UPUz47IcCpSSbiWaJZ",
         "options_message": {}
@@ -2759,7 +2777,6 @@
             "step": "4",
             "contact_id": "={{ $json.contact_id }}",
             "name": "={{ $json.name }}",
-            "FirstAt": "={{ $json.FirstAt || $items(\"Edit Fields1\")[0].json.date }}",
             "LastAt": "={{ $items(\"Edit Fields1\")[0].json.date }}",
             "4 этап": "={{ $json[\"4 этап\"] || $items(\"Edit Fields1\")[0].json.date }}"
           },
@@ -2814,7 +2831,7 @@
               "display": true,
               "type": "string",
               "canBeUsedToMatch": true,
-              "removed": false
+              "removed": true
             },
             {
               "id": "LastAt",
@@ -2921,7 +2938,7 @@
     {
       "parameters": {
         "resource": "messages-api",
-        "instanceName": "wa-01",
+        "instanceName": "VEPPERS",
         "remoteJid": "={{ $('Edit Fields1').item.json.contact_id }}",
         "messageText": "Пара слов обо мне 🩷   \n\nМеня зовут Анастасия Веперс, я дипломированный нутрициолог, психолог, коуч ICF, психосамотолог, в непрерывной практике нахожусь 8 лет  \n\n☝️💯Со мной похудело более 3800 человек. Снимаю диагнозы: сахарный диабет, резистентность, ожирение, бесплодие, гипертония.    💪Помогаю сбросить вес и восстановить здоровье. Со мной работает команда из 30 кураторов. 🤝  \n\nКак мы помогаем похудеть: \n✅Работа происходит в группе в Ватсап в сопровождении куратора.  \n❤️Комфортные группы по 15-20 человек. \n✍️В группе веде‌тся ежедневная работа, фиксируется и анализируется Ваше питание.  \n🤝Психологическое, коучинговое и информационное сопровождение. \n👉Выдается меню.  \n📃Ежедневная(!) обратная связь по всем вопросам.  \n✍️Мы веде‌м за Вами пищевые дневники.  \n✅считать калории не нужно. Все уже просчитано за Вас. \n🌟конструктор меню 👍👉взаимозаменяемые продукты  (т.е. всегда есть выбор на Ваш вкус). \n💥доступные продукты питания (продаются в обычных магазинах). \n🎉очень простая в приготовлении еда.  \n\nПрограмма🌟Поможет раз и навсегда комфортно справиться с лишним весом и очень скоро обновить гардероб 👗👠 )  \n\nТакже улучшить здоровье, снять диагнозы: СД2, резистентность к инсулину, гипертония, ожирение, жировой гепотоз и тд.",
         "options_message": {}
@@ -2945,7 +2962,7 @@
     {
       "parameters": {
         "method": "POST",
-        "url": "=https://evolution-api-production-9e6a.up.railway.app/chat/sendPresence/{{ $node[\"Webhook\"].json.body.instance || 'wa-01' }}",
+        "url": "=https://evolution-api-production-9e6a.up.railway.app/chat/sendPresence/{{ $node[\"Webhook\"].json.body.instance || 'VEPPERS' }}",
         "authentication": "genericCredentialType",
         "genericAuthType": "httpHeaderAuth",
         "sendHeaders": true,
@@ -2985,7 +3002,7 @@
     {
       "parameters": {
         "resource": "messages-api",
-        "instanceName": "wa-01",
+        "instanceName": "VEPPERS",
         "remoteJid": "={{ $('Edit Fields1').item.json.contact_id }}",
         "messageText": "=💸Стоимость   \n\n7100 руб.  (возможна рассрочка!) \n🔵Если оплачиваете СЕГОДНЯ в \n🔺течении суток, то (!)👉 \n🔺6200 руб. - подключение к Группе и работа в первый месяц (возможна оплата в 2 этапа по 3100 руб) \nПролонгация на следующий месяц (по необходимости) - 4000 руб в месяц.   \n\n🟢Дата старта: {{ $json['Дата старта'] }}   \n\n🔴Наши результаты можно посмотреть в Инстаграмм👇   \n\nhttps://instagram.com/a.vepers?utm_medium=copy_link   \n\nТелеграм https://t.me/+9oiL-YbTotY0MTdi  \n\nТелеграмм \"Самое интересное \" https://t.me/+evDmVWbiMcRiOGYy   \n\nСайт https://anastasiavepers.ru/   \n\nЕсли есть вопросы,  спрашивайте, я с удовольствием на них отвечу  💋🤝 ",
         "options_message": {
@@ -3044,7 +3061,7 @@
     {
       "parameters": {
         "resource": "messages-api",
-        "instanceName": "wa-01",
+        "instanceName": "VEPPERS",
         "remoteJid": "={{ $('Edit Fields1').item.json.contact_id }}",
         "messageText": "={{ $node[\"OpenAI\"].json.message.content }}",
         "options_message": {}
@@ -3068,7 +3085,7 @@
     {
       "parameters": {
         "method": "POST",
-        "url": "https://evolution-api-production-9e6a.up.railway.app/chat/sendPresence/wa-01",
+        "url": "https://evolution-api-production-9e6a.up.railway.app/chat/sendPresence/VEPPERS",
         "authentication": "genericCredentialType",
         "genericAuthType": "httpHeaderAuth",
         "sendHeaders": true,
@@ -3144,7 +3161,7 @@
     {
       "parameters": {
         "resource": "messages-api",
-        "instanceName": "wa-01",
+        "instanceName": "VEPPERS",
         "remoteJid": "={{ $('Edit Fields1').item.json.contact_id }}",
         "messageText": "={{ $node[\"OpenAI1\"].json.message.content }}",
         "options_message": {}
@@ -3168,7 +3185,7 @@
     {
       "parameters": {
         "method": "POST",
-        "url": "https://evolution-api-production-9e6a.up.railway.app/chat/sendPresence/wa-01",
+        "url": "https://evolution-api-production-9e6a.up.railway.app/chat/sendPresence/VEPPERS",
         "authentication": "genericCredentialType",
         "genericAuthType": "httpHeaderAuth",
         "sendHeaders": true,
@@ -3244,7 +3261,7 @@
     {
       "parameters": {
         "resource": "messages-api",
-        "instanceName": "wa-01",
+        "instanceName": "VEPPERS",
         "remoteJid": "={{ $('Edit Fields1').item.json.contact_id }}",
         "messageText": "={{ $node[\"OpenAI2\"].json.message.content }}",
         "options_message": {}
@@ -3268,7 +3285,7 @@
     {
       "parameters": {
         "method": "POST",
-        "url": "https://evolution-api-production-9e6a.up.railway.app/chat/sendPresence/wa-01",
+        "url": "https://evolution-api-production-9e6a.up.railway.app/chat/sendPresence/VEPPERS",
         "authentication": "genericCredentialType",
         "genericAuthType": "httpHeaderAuth",
         "sendHeaders": true,
@@ -3345,7 +3362,7 @@
     {
       "parameters": {
         "resource": "messages-api",
-        "instanceName": "wa-01",
+        "instanceName": "VEPPERS",
         "remoteJid": "={{ $('Edit Fields1').item.json.contact_id }}",
         "messageText": "Здорово снова видеть вас рядом! 💚 Вы знаете наш подход — мягко, по делу и с результатом. Ниже — актуальные условия и ближайший старт 👇",
         "options_message": {}
@@ -3369,7 +3386,7 @@
     {
       "parameters": {
         "method": "POST",
-        "url": "https://evolution-api-production-9e6a.up.railway.app/chat/sendPresence/wa-01",
+        "url": "https://evolution-api-production-9e6a.up.railway.app/chat/sendPresence/VEPPERS",
         "authentication": "genericCredentialType",
         "genericAuthType": "httpHeaderAuth",
         "sendHeaders": true,
@@ -3409,7 +3426,7 @@
     {
       "parameters": {
         "resource": "messages-api",
-        "instanceName": "wa-01",
+        "instanceName": "VEPPERS",
         "remoteJid": "={{ $('Edit Fields1').item.json.contact_id }}",
         "messageText": "=💸Стоимость   \n\n7100 руб.  (возможна рассрочка!) \n🔵Если оплачиваете СЕГОДНЯ в \n🔺течении суток, то (!)👉 \n🔺6200 руб. - подключение к Группе и работа в первый месяц (возможна оплата в 2 этапа по 3100 руб) \nПролонгация на следующий месяц (по необходимости) - 4000 руб в месяц.   \n\n🟢Дата старта: {{ $json['Дата старта'] }}   \n\n🔴Наши результаты можно посмотреть в Инстаграмм👇   \n\nhttps://instagram.com/a.vepers?utm_medium=copy_link   \n\nТелеграм https://t.me/+9oiL-YbTotY0MTdi  \n\nТелеграмм \"Самое интересное \" https://t.me/+evDmVWbiMcRiOGYy   \n\nСайт https://anastasiavepers.ru/   \n\nЕсли есть вопросы,  спрашивайте, я с удовольствием на них отвечу  💋🤝 ",
         "options_message": {
@@ -3489,7 +3506,6 @@
             "contact_id": "={{ $json.contact_id }}",
             "name": "={{ $json.name }}",
             "FirstAt": "={{ $json.FirstAt || $items(\"Edit Fields1\")[0].json.date }}",
-            "LastAt": "={{ $items(\"Edit Fields1\")[0].json.date }}",
             "4 этап": "={{ $json[\"4 этап\"] || $items(\"Edit Fields1\")[0].json.date }}"
           },
           "matchingColumns": [
@@ -3553,7 +3569,7 @@
               "display": true,
               "type": "string",
               "canBeUsedToMatch": true,
-              "removed": false
+              "removed": true
             },
             {
               "id": "1 этап",
@@ -3772,7 +3788,7 @@
     {
       "parameters": {
         "resource": "messages-api",
-        "instanceName": "={{ $node[\"Webhook\"].json.body.instance || 'wa-01' }}",
+        "instanceName": "={{ $node[\"Webhook\"].json.body.instance || 'VEPPERS' }}",
         "remoteJid": "={{ $('Edit Fields1').item.json.contact_id }}",
         "messageText": "Оплатить можете по ссылке удобным для вас способом через Робокассу👇\n\nhttps://auth.robokassa.ru/merchant/Invoice/i0FzQfluCUKk2MhP85XfQw\n\n6200 рублей, будем очень признательны за оплату по СБП🙏\nНапишите как сделаете оплату и пришлите скриншот, я сразу же передам ваш контакт главному куратору и добавим вас в группу",
         "options_message": {}
@@ -3796,7 +3812,7 @@
     {
       "parameters": {
         "method": "POST",
-        "url": "https://evolution-api-production-9e6a.up.railway.app/chat/sendPresence/wa-01",
+        "url": "https://evolution-api-production-9e6a.up.railway.app/chat/sendPresence/VEPPERS",
         "authentication": "genericCredentialType",
         "genericAuthType": "httpHeaderAuth",
         "sendHeaders": true,
@@ -3836,7 +3852,7 @@
     {
       "parameters": {
         "resource": "messages-api",
-        "instanceName": "={{ $node[\"Webhook\"].json.body.instance || 'wa-01' }}",
+        "instanceName": "={{ $node[\"Webhook\"].json.body.instance || 'VEPPERS' }}",
         "remoteJid": "={{ $('Edit Fields1').item.json.contact_id }}",
         "messageText": "Оплатить можете по ссылке удобным для вас способом через Робокассу👇\n\nhttps://auth.robokassa.ru/merchant/Invoice/27bnWwf_UU6s3_PlSwAexg\n\n3100 рублей, будем очень признательны за оплату по СБП🙏\nНапишите как сделаете оплату и пришлите скриншот, я сразу же передам ваш контакт главному куратору и добавим вас в группу",
         "options_message": {}
@@ -3860,7 +3876,7 @@
     {
       "parameters": {
         "method": "POST",
-        "url": "https://evolution-api-production-9e6a.up.railway.app/chat/sendPresence/wa-01",
+        "url": "https://evolution-api-production-9e6a.up.railway.app/chat/sendPresence/VEPPERS",
         "authentication": "genericCredentialType",
         "genericAuthType": "httpHeaderAuth",
         "sendHeaders": true,
@@ -3900,7 +3916,7 @@
     {
       "parameters": {
         "resource": "messages-api",
-        "instanceName": "={{ $node[\"Webhook\"].json.body.instance || 'wa-01' }}",
+        "instanceName": "={{ $node[\"Webhook\"].json.body.instance || 'VEPPERS' }}",
         "remoteJid": "=79181357871@s.whatsapp.net",
         "messageText": "={{ (() => {\n  const j = $json;\n\n  // Имя: сначала то, что кладёт Switch (BAD.NAME / NAME),\n  // затем корневые/агрегаторные места, в конце — из Edit Fields1.\n  const name = (\n    j.BAD?.NAME\n    ?? j.NAME\n    ?? j.name\n    ?? j.body?.name\n    ?? j.body?.pushName\n    ?? j.body?.data?.pushName\n    ?? $items(\"Edit Fields1\")[0]?.json?.name\n    ?? ''\n  ).toString().trim() || '—';\n\n  // Номер: сначала из Switch (BAD.FON / phone), затем contact_id и т.д.\n  const digits = String(\n    j.BAD?.FON\n    ?? j.phone\n    ?? j.FON\n    ?? j.contact_id\n    ?? j.body?.contact_id\n    ?? j.body?.from\n    ?? $items(\"Edit Fields1\")[0]?.json?.contact_id\n    ?? ''\n  ).split('@')[0].replace(/\\D/g,'');\n\n  // Текст клиента: финальный, с безопасными фолбэками\n  const text =\n    $items(\"Set Text (final)\")[0]?.json?.text\n    ?? j.text\n    ?? j.body?.text\n    ?? j.body?.data?.message?.conversation\n    ?? '[нет текста]';\n\n  return [\n    'Лид — новое сообщение',\n    '',\n    `Имя: ${name}`,\n    digits ? `Телефон: +${digits}` : 'Телефон: —',\n    `Текст клиента: ${text}`,\n  ].join('\\n');\n})() }}",
         "options_message": {}
@@ -3943,7 +3959,6 @@
           "value": {
             "step": "5",
             "contact_id": "={{ $('Switch1').item.json.contact_id }}",
-            "FirstAt": "={{ $json.FirstAt || $items(\"Edit Fields1\")[0].json.date }}",
             "LastAt": "={{ $items(\"Edit Fields1\")[0].json.date }}",
             "5 этап": "={{ $json[\"5 этап\"] || $items(\"Edit Fields1\")[0].json.date }}"
           },
@@ -3998,7 +4013,7 @@
               "display": true,
               "type": "string",
               "canBeUsedToMatch": true,
-              "removed": false
+              "removed": true
             },
             {
               "id": "LastAt",
@@ -4124,7 +4139,6 @@
           "value": {
             "step": "5",
             "contact_id": "={{ $('Switch1').item.json.contact_id }}",
-            "FirstAt": "={{ $json.FirstAt || $items(\"Edit Fields1\")[0].json.date }}",
             "LastAt": "={{ $items(\"Edit Fields1\")[0].json.date }}",
             "5 этап": "={{ $json[\"5 этап\"] || $items(\"Edit Fields1\")[0].json.date }}"
           },
@@ -4179,7 +4193,7 @@
               "display": true,
               "type": "string",
               "canBeUsedToMatch": true,
-              "removed": false
+              "removed": true
             },
             {
               "id": "LastAt",
@@ -4316,7 +4330,7 @@
     {
       "parameters": {
         "method": "POST",
-        "url": "=https://evolution-api-production-9e6a.up.railway.app/chat/getBase64FromMediaMessage/{{ $node[\"Webhook\"].json.body.instance || 'wa-01' }}",
+        "url": "=https://evolution-api-production-9e6a.up.railway.app/chat/getBase64FromMediaMessage/{{ $node[\"Webhook\"].json.body.instance || 'VEPPERS' }}",
         "sendHeaders": true,
         "headerParameters": {
           "parameters": [
@@ -4457,7 +4471,7 @@
     {
       "parameters": {
         "resource": "messages-api",
-        "instanceName": "={{ $node[\"Webhook\"].json.body.instance || 'wa-01' }}",
+        "instanceName": "={{ $node[\"Webhook\"].json.body.instance || 'VEPPERS' }}",
         "remoteJid": "=79134438532@s.whatsapp.net",
         "messageText": "=✅ Клиент оплатил\nИмя: {{ $('If1').item.json.name }}\nТелефон: +{{ $('If1').item.json.phone }}\nСумма: {{ $('OpenAI5').item.json.message.content.amount }}\nМетод: {{ $('OpenAI5').item.json.message.content.method }}",
         "options_message": {}
@@ -4481,7 +4495,7 @@
     {
       "parameters": {
         "resource": "messages-api",
-        "instanceName": "={{ $node[\"Webhook\"].json.body.instance || 'wa-01' }}",
+        "instanceName": "={{ $node[\"Webhook\"].json.body.instance || 'VEPPERS' }}",
         "remoteJid": "=79134438532@s.whatsapp.net",
         "messageText": "=⚠️ лид прислал скриншот оплаты, но система не распознала оплату\n\nИмя: {{ $('If1').item.json.name }}\nТелефон: +{{ $('If1').item.json.phone }}",
         "options_message": {}
@@ -4524,9 +4538,8 @@
           "value": {
             "step": "оплачено",
             "contact_id": "={{ $('Webhook').item.json.body.data.key.remoteJid }}",
-            "FirstAt": "={{ $json.FirstAt || $items(\"Edit Fields1\")[0].json.date }}",
-            "LastAt": "={{ $items(\"Edit Fields1\")[0].json.date }}",
-            "6 этап": "={{ $json[\"6 этап\"] || $items(\"Edit Fields1\")[0].json.date }}"
+            "LastAt": "={{ $json.LastAt || $json.date || new Date().toISOString() }}}",
+            "6 этап": "={{ $json[\"6 этап\"] || $json.offerSentAt || $json.date || new Date().toISOString() }}"
           },
           "matchingColumns": [
             "contact_id"
@@ -4579,7 +4592,7 @@
               "display": true,
               "type": "string",
               "canBeUsedToMatch": true,
-              "removed": false
+              "removed": true
             },
             {
               "id": "LastAt",
@@ -4687,7 +4700,7 @@
       "parameters": {
         "resource": "messages-api",
         "operation": "send-image",
-        "instanceName": "={{ $node[\"Webhook\"].json.body.instance || 'wa-01' }}",
+        "instanceName": "={{ $node[\"Webhook\"].json.body.instance || 'VEPPERS' }}",
         "remoteJid": "=79134438532@s.whatsapp.net",
         "media": "={{ $('If1').item.json.base64 }}",
         "caption": "=",
@@ -5255,6 +5268,54 @@
       ],
       "id": "c413f3b4-4a06-4dc6-a15c-a6f05898ed0e",
       "name": "If3"
+    },
+    {
+      "parameters": {
+        "resource": "messages-api",
+        "instanceName": "={{ $node[\"Webhook\"].json.body.instance || 'VEPPERS' }}",
+        "remoteJid": "={{ $('Webhook').item.json.body.data.key.remoteJid }}",
+        "messageText": "=Оплата прошла успешно! \n\nПередаю ваш контакт главному куратору проекта, она свяжется с вами в ближайшее время 💬",
+        "options_message": {}
+      },
+      "type": "n8n-nodes-evolution-api-eng.evolutionApi",
+      "typeVersion": 1,
+      "position": [
+        200,
+        1060
+      ],
+      "id": "098b2d42-37b6-4cfd-81f9-70fb651215a4",
+      "name": "Evolution API19",
+      "credentials": {
+        "evolutionApi": {
+          "id": "YF67B9nMmE69vgvN",
+          "name": "Evolution account 2"
+        }
+      },
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "resource": "messages-api",
+        "instanceName": "={{ $node[\"Webhook\"].json.body.instance || 'VEPPERS' }}",
+        "remoteJid": "={{ $('Webhook').item.json.body.data.key.remoteJid }}",
+        "messageText": "=Передаю ваш контакт главному куратору проекта, она свяжется с вами в ближайшее время 💬",
+        "options_message": {}
+      },
+      "type": "n8n-nodes-evolution-api-eng.evolutionApi",
+      "typeVersion": 1,
+      "position": [
+        680,
+        860
+      ],
+      "id": "7afe2ac4-ffb2-429b-8469-e83fcfd13c7c",
+      "name": "Evolution API20",
+      "credentials": {
+        "evolutionApi": {
+          "id": "YF67B9nMmE69vgvN",
+          "name": "Evolution account 2"
+        }
+      },
+      "onError": "continueErrorOutput"
     }
   ],
   "pinData": {},
@@ -5266,6 +5327,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 1,
-  "updatedAt": "2025-09-26T20:02:51.000Z",
-  "versionId": "a4a42e4d-c330-4774-9da7-032639dd67d6"
+  "updatedAt": "2025-10-06T21:12:57.000Z",
+  "versionId": "231afd48-7088-457f-8134-7ccab01dd803"
 }
