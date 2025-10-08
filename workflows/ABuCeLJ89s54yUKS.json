@@ -121,7 +121,7 @@
       "main": [
         [
           {
-            "node": "If3",
+            "node": "OpenAI6",
             "type": "main",
             "index": 0
           }
@@ -814,14 +814,14 @@
       "main": [
         [
           {
-            "node": "Switch",
+            "node": "FunnelRouter",
             "type": "main",
             "index": 0
           }
         ],
         [
           {
-            "node": "Google Sheets13",
+            "node": "Google Sheets16",
             "type": "main",
             "index": 0
           }
@@ -879,7 +879,7 @@
       "main": [
         [
           {
-            "node": "Evolution API19",
+            "node": "Evolution API21",
             "type": "main",
             "index": 0
           }
@@ -891,6 +891,169 @@
         [
           {
             "node": "Evolution API20",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Sheets16": {
+      "main": [
+        [
+          {
+            "node": "If4",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If4": {
+      "main": [
+        [],
+        [
+          {
+            "node": "Google Sheets13",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI6": {
+      "main": [
+        [
+          {
+            "node": "Switch5",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Switch5": {
+      "main": [
+        [],
+        [
+          {
+            "node": "If3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Switch6": {
+      "main": [
+        [
+          {
+            "node": "Switch",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "БИЗНЕС АССИСТЕНТ",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Docs": {
+      "ai_tool": [
+        [
+          {
+            "node": "БИЗНЕС АССИСТЕНТ",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "БИЗНЕС АССИСТЕНТ",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Simple Memory": {
+      "ai_memory": [
+        [
+          {
+            "node": "БИЗНЕС АССИСТЕНТ",
+            "type": "ai_memory",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Sheets17": {
+      "ai_tool": [
+        [
+          {
+            "node": "БИЗНЕС АССИСТЕНТ",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "HTTP Request (Typing On)9": {
+      "main": [
+        [
+          {
+            "node": "Evolution API19",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "БИЗНЕС АССИСТЕНТ": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request (Typing On)9",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI Chat Model2": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "FunnelRouter",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Simple Memory1": {
+      "ai_memory": [
+        [
+          {
+            "node": "FunnelRouter",
+            "type": "ai_memory",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "FunnelRouter": {
+      "main": [
+        [
+          {
+            "node": "Switch6",
             "type": "main",
             "index": 0
           }
@@ -1194,7 +1357,7 @@
       "type": "n8n-nodes-base.webhook",
       "typeVersion": 2,
       "position": [
-        -2400,
+        -3560,
         100
       ],
       "id": "3d0d5298-0a33-40d5-8a89-625938ff7ce6",
@@ -3004,7 +3167,7 @@
         "resource": "messages-api",
         "instanceName": "VEPPERS",
         "remoteJid": "={{ $('Edit Fields1').item.json.contact_id }}",
-        "messageText": "=💸Стоимость   \n\n7100 руб.  (возможна рассрочка!) \n🔵Если оплачиваете СЕГОДНЯ в \n🔺течении суток, то (!)👉 \n🔺6200 руб. - подключение к Группе и работа в первый месяц (возможна оплата в 2 этапа по 3100 руб) \nПролонгация на следующий месяц (по необходимости) - 4000 руб в месяц.   \n\n🟢Дата старта: {{ $json['Дата старта'] }}   \n\n🔴Наши результаты можно посмотреть в Инстаграмм👇   \n\nhttps://instagram.com/a.vepers?utm_medium=copy_link   \n\nТелеграм https://t.me/+9oiL-YbTotY0MTdi  \n\nТелеграмм \"Самое интересное \" https://t.me/+evDmVWbiMcRiOGYy   \n\nСайт https://anastasiavepers.ru/   \n\nЕсли есть вопросы,  спрашивайте, я с удовольствием на них отвечу  💋🤝 ",
+        "messageText": "=💸Стоимость   \n\n7500 руб.  (возможна рассрочка!) \n🔵Если оплачиваете СЕГОДНЯ в \n🔺течении суток, то (!)👉 \n🔺6500 руб. - подключение к Группе и работа в первый месяц (возможна оплата в 2 этапа по 3250 руб) \nПролонгация на следующий месяц (по необходимости) - 4000 руб в месяц.   \n\n🟢Дата старта: {{ $json['Дата старта'] }}   \n\n🔴Наши результаты можно посмотреть в Инстаграмм👇   \n\nhttps://instagram.com/a.vepers?utm_medium=copy_link   \n\nТелеграм https://t.me/+9oiL-YbTotY0MTdi  \n\nТелеграмм \"Самое интересное \" https://t.me/+evDmVWbiMcRiOGYy   \n\nСайт https://anastasiavepers.ru/   \n\nЕсли есть вопросы,  спрашивайте, я с удовольствием на них отвечу  💋🤝 ",
         "options_message": {
           "delay": 10000
         }
@@ -3428,7 +3591,7 @@
         "resource": "messages-api",
         "instanceName": "VEPPERS",
         "remoteJid": "={{ $('Edit Fields1').item.json.contact_id }}",
-        "messageText": "=💸Стоимость   \n\n7100 руб.  (возможна рассрочка!) \n🔵Если оплачиваете СЕГОДНЯ в \n🔺течении суток, то (!)👉 \n🔺6200 руб. - подключение к Группе и работа в первый месяц (возможна оплата в 2 этапа по 3100 руб) \nПролонгация на следующий месяц (по необходимости) - 4000 руб в месяц.   \n\n🟢Дата старта: {{ $json['Дата старта'] }}   \n\n🔴Наши результаты можно посмотреть в Инстаграмм👇   \n\nhttps://instagram.com/a.vepers?utm_medium=copy_link   \n\nТелеграм https://t.me/+9oiL-YbTotY0MTdi  \n\nТелеграмм \"Самое интересное \" https://t.me/+evDmVWbiMcRiOGYy   \n\nСайт https://anastasiavepers.ru/   \n\nЕсли есть вопросы,  спрашивайте, я с удовольствием на них отвечу  💋🤝 ",
+        "messageText": "=💸Стоимость   \n\n7500 руб.  (возможна рассрочка!) \n🔵Если оплачиваете СЕГОДНЯ в \n🔺течении суток, то (!)👉 \n🔺6500 руб. - подключение к Группе и работа в первый месяц (возможна оплата в 2 этапа по 3250 руб) \nПролонгация на следующий месяц (по необходимости) - 4000 руб в месяц.   \n\n🟢Дата старта: {{ $json['Дата старта'] }}   \n\n🔴Наши результаты можно посмотреть в Инстаграмм👇   \n\nhttps://instagram.com/a.vepers?utm_medium=copy_link   \n\nТелеграм https://t.me/+9oiL-YbTotY0MTdi  \n\nТелеграмм \"Самое интересное \" https://t.me/+evDmVWbiMcRiOGYy   \n\nСайт https://anastasiavepers.ru/   \n\nЕсли есть вопросы,  спрашивайте, я с удовольствием на них отвечу  💋🤝 ",
         "options_message": {
           "delay": 10000
         }
@@ -3760,7 +3923,7 @@
         "messages": {
           "values": [
             {
-              "content": "Ты — классификатор ответа клиента по способу оплаты.\nВерни СТРОГО один JSON-объект БЕЗ пояснений и текста вокруг ровно в таком виде:\n\n{\n  \"answer\": \"full\" | \"split\" | \"other\",\n  \"full_amount\": number | null,\n  \"part_amount\": number | null\n}\n\nПравила:\n1) \"full\" — если человек явно согласен оплатить полностью сейчас/сегодня/ ИЛИ упоминает 6200 (например: «перевожу 6200», «оплачу полностью», «готов оплатить целиком»).\n2) \"split\" — если человек хочет оплатить в 2 этапа/в рассрочку/частями, упоминает «по 3100», «двумя платежами», «в два платежа», «50/50», «частями», «рассрочка».\n3) \"other\" — любой другой ответ: уточняющие вопросы, «подумаю», «позже», обсуждение не про способ оплаты, упоминание 4000 (это цена пролонгации, НЕ первый платёж), молчание по сути и т.д.\n\nНормализация чисел:\n- Считай 6200 независимо от пробелов/знаков («6 200», «6,200», «6200р», «6200 руб» и т.п.).\n- Считай 3100 аналогично («3 100», «3,100» и т.п.).\n- Игнорируй числа не относящиеся к первому платежу (например «4000» — это не первый платеж, не повод для \"split\" или \"full\").\n\nПоля в ответе:\n- \"answer\": только одно из \"full\" | \"split\" | \"other\".\n- \"full_amount\": 6200 если answer=\"full\", иначе null.\n- \"part_amount\": 3100 если answer=\"split\" (2 платежа), иначе null.\n\nВерни ТОЛЬКО JSON-объект, без комментариев и без текста вокруг.",
+              "content": "Ты — классификатор ответа клиента по способу оплаты.\nВерни СТРОГО один JSON-объект БЕЗ пояснений и текста вокруг ровно в таком виде:\n\n{\n  \"answer\": \"full\" | \"split\" | \"other\",\n  \"full_amount\": number | null,\n  \"part_amount\": number | null\n}\n\nПравила:\n1) \"full\" — если человек явно согласен оплатить полностью сейчас/сегодня/ ИЛИ упоминает 6500 (например: «перевожу 6500», «оплачу полностью», «готов оплатить целиком»).\n2) \"split\" — если человек хочет оплатить в 2 этапа/в рассрочку/частями, упоминает «по 3250», «двумя платежами», «в два платежа», «50/50», «частями», «рассрочка».\n3) \"other\" — любой другой ответ: уточняющие вопросы, «подумаю», «позже», обсуждение не про способ оплаты, упоминание 4000 (это цена пролонгации, НЕ первый платёж), молчание по сути и т.д.\n\nНормализация чисел:\n- Считай 6500 независимо от пробелов/знаков («6 500», «6,500», «6500р», «6500 руб» и т.п.).\n- Считай 3250 аналогично («3 250», «3,250» и т.п.).\n- Игнорируй числа не относящиеся к первому платежу (например «4000» — это не первый платеж, не повод для \"split\" или \"full\").\n\nПоля в ответе:\n- \"answer\": только одно из \"full\" | \"split\" | \"other\".\n- \"full_amount\": 6500 если answer=\"full\", иначе null.\n- \"part_amount\": 3250 если answer=\"split\" (2 платежа), иначе null.\n\nВерни ТОЛЬКО JSON-объект, без комментариев и без текста вокруг.",
               "role": "system"
             },
             {
@@ -3790,7 +3953,7 @@
         "resource": "messages-api",
         "instanceName": "={{ $node[\"Webhook\"].json.body.instance || 'VEPPERS' }}",
         "remoteJid": "={{ $('Edit Fields1').item.json.contact_id }}",
-        "messageText": "Оплатить можете по ссылке удобным для вас способом через Робокассу👇\n\nhttps://auth.robokassa.ru/merchant/Invoice/i0FzQfluCUKk2MhP85XfQw\n\n6200 рублей, будем очень признательны за оплату по СБП🙏\nНапишите как сделаете оплату и пришлите скриншот, я сразу же передам ваш контакт главному куратору и добавим вас в группу",
+        "messageText": "Оплатить можете по ссылке удобным для вас способом через Робокассу👇\n\nhttps://auth.robokassa.ru/merchant/Invoice/ac1LPG8h9kqRWGd1OoLuvQ\n\n6500 рублей, будем очень признательны за оплату по СБП🙏\nНапишите как сделаете оплату и пришлите скриншот, я сразу же передам ваш контакт главному куратору и добавим вас в группу",
         "options_message": {}
       },
       "type": "n8n-nodes-evolution-api-eng.evolutionApi",
@@ -3854,7 +4017,7 @@
         "resource": "messages-api",
         "instanceName": "={{ $node[\"Webhook\"].json.body.instance || 'VEPPERS' }}",
         "remoteJid": "={{ $('Edit Fields1').item.json.contact_id }}",
-        "messageText": "Оплатить можете по ссылке удобным для вас способом через Робокассу👇\n\nhttps://auth.robokassa.ru/merchant/Invoice/27bnWwf_UU6s3_PlSwAexg\n\n3100 рублей, будем очень признательны за оплату по СБП🙏\nНапишите как сделаете оплату и пришлите скриншот, я сразу же передам ваш контакт главному куратору и добавим вас в группу",
+        "messageText": "Оплатить можете по ссылке удобным для вас способом через Робокассу👇\n\nhttps://auth.robokassa.ru/merchant/Invoice/d2To3yQFxU-ayotyPuULWQ\n\n3250 рублей, будем очень признательны за оплату по СБП🙏\nНапишите как сделаете оплату и пришлите скриншот, я сразу же передам ваш контакт главному куратору и добавим вас в группу",
         "options_message": {}
       },
       "type": "n8n-nodes-evolution-api-eng.evolutionApi",
@@ -4836,7 +4999,7 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        -2060,
+        -2620,
         100
       ],
       "id": "130a97f5-c15e-45bd-8c23-ca5d98e1bc4f",
@@ -4871,8 +5034,8 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.5,
       "position": [
-        -1880,
-        260
+        -2440,
+        340
       ],
       "id": "4a5df8ca-0d5d-4c39-8ded-3a2431a779d8",
       "name": "Google Sheets13",
@@ -4886,13 +5049,13 @@
     },
     {
       "parameters": {
-        "jsCode": "// Источник: пытаемся взять данные из Edit Fields1, иначе из текущего $json\nconst src = ($items(\"Edit Fields1\")[0]?.json) || $json || {};\n\n// Функции-помощники\nconst onlyDigits = v => String(v || '').split('@')[0].replace(/\\D/g, '');\nconst pick = (...xs) => xs.find(v => v !== undefined && v !== null && String(v).trim() !== '');\n\n// Достаём цифры (приоритет: remoteJid контакта, затем sender/from и т.п.)\nlet digits = onlyDigits(\n  pick(\n    src.contact_id,\n    src.phone,\n    src.body?.data?.key?.remoteJid,\n    src.body?.sender,\n    src.body?.from,\n    src.from,\n    src.sender,\n    src.data?.key?.remoteJid,\n    (src.key || '').split(':')[0] // на крайний случай — префикс key до ':'\n  )\n);\n\n// Базовые поля\nconst stage = src.stage || 'bmi';\nconst now   = Number.isFinite(+src.now) ? +src.now : Date.now();\n\n// Ключ: формируем из digits:stage, если digits нет — как минимум :stage\nconst key = digits ? `${digits}:${stage}` : (src.key || `:${stage}`);\n\n// Текст входящего куска (если Edit Fields1 его не дал — тянем из webhook)\nconst text = pick(\n  src.text,\n  src.body?.data?.message?.conversation,\n  src.body?.text,\n  ''\n).toString().trim();\n\n// Имя: учитываем pushName в body.data\nconst name = pick(\n  src.name,\n  src.pushName,\n  src.body?.data?.pushName,\n  src.body?.pushName,\n  ''\n).toString().trim();\n\n// Стартовый буфер\nconst bufferArr = text ? [{ text, ts: now }] : [];\n\nreturn [{\n  json: {\n    key,\n    phone: digits,         // только цифры\n    stage,\n    firstAt: now,\n    lastAt:  now,\n    buffer: JSON.stringify(bufferArr),\n    name,                  // колонка name — опционально, но полезно\n  }\n}];\n"
+        "jsCode": "// ==== Универсальный источник: поддерживает как \"обёртку вебхука\", так и \"голый\" body ====\nconst root = $json || {};\nconst body = root.body || root;         // { event, instance, data, sender, ... } ИЛИ сразу data-объект\nconst data = body.data || body;         // { key, pushName, message, ... } — здесь лежат нужные поля\n\n// ==== Хелперы ====\nconst onlyDigits = (v) => String(v || '').split('@')[0].replace(/\\D/g, '');\nconst pick = (...xs) => xs.find(v => v !== undefined && v !== null && String(v).trim() !== '');\n\n// ==== Идентификатор контакта (телефон только цифры) ====\n// 1) remoteJid из data.key.remoteJid — это главный источник\n// 2) резерв — body.sender (есть в твоём payload)\n// 3) ещё резервы — body.from / data.sender / data.from\nconst jid = pick(\n  data.key?.remoteJid,\n  body.sender,\n  body.from,\n  data.sender,\n  data.from,\n  ''\n);\nconst digits = onlyDigits(jid);\n\n// ==== Stage (если не прокинут — по умолчанию 'bmi') ====\nconst stage = root.stage || body.stage || data.stage || 'bmi';\nconst now = Date.now();\n\n// ==== Ключ (как у тебя было: \"<digits>:<stage>\") ====\nconst key = digits ? `${digits}:${stage}` : `:${stage}`;\n\n// ==== Текст сообщения ====\n// Из твоего примера: data.message.conversation = \"привет\"\n// Плюс поддержка extendedTextMessage и fallback-слотов\nconst text = String(pick(\n  root.text,\n  body.text,\n  data.message?.conversation,\n  data.message?.extendedTextMessage?.text,\n  data.message?.message?.conversation,   // на всякий случай\n  ''\n) || '').trim();\n\n// ==== Имя отправителя ====\n// Из примера: data.pushName = \"Василий Пугачев\"\nconst name = String(pick(\n  data.pushName,\n  body.pushName,\n  root.pushName,\n  ''\n) || '').trim();\n\n// ==== Стартовый буфер (только если есть текст) ====\nconst bufferArr = text ? [{ text, ts: now }] : [];\n\n// ==== Возврат ====\nreturn [{\n  json: {\n    key,               // \"79898517307:bmi\" и т.п.\n    phone: digits,     // \"79898517307\"\n    stage,             // 'bmi' или что прокинулось\n    firstAt: now,\n    lastAt:  now,\n    buffer: JSON.stringify(bufferArr),\n    name,              // \"Василий Пугачев\"\n    // (опционально для дебага можно оставить исходные пути)\n    // _src: { hasBody: !!root.body, hasData: !!body.data }\n  }\n}];"
       },
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [
-        -2040,
-        600
+        -2600,
+        700
       ],
       "id": "e1272e2d-3277-42bb-b652-e63435a96fb7",
       "name": "Code2"
@@ -5003,8 +5166,8 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.5,
       "position": [
-        -1880,
-        600
+        -2440,
+        700
       ],
       "id": "88ef4840-c949-4238-bfd5-288571186f88",
       "name": "Google Sheets14",
@@ -5017,13 +5180,13 @@
     },
     {
       "parameters": {
-        "jsCode": "// Источники\nconst src = ($items(\"Edit Fields1\")[0]?.json) || $json || {};\nconst row = $items(\"Google Sheets13\")[0]?.json || {};\n\n// Хелперы\nconst onlyDigits = v => String(v || '').split('@')[0].replace(/\\D/g, '');\nconst pick = (...xs) => xs.find(v => v !== undefined && v !== null && String(v).trim() !== '');\n\n// Время/этап\nconst now   = Number.isFinite(+src.now) ? +src.now : Date.now();\nconst stage = row.stage || src.stage || 'bmi';\n\n// Номер: сперва из строки (надежнее), затем из входа, затем из key\nlet digits = onlyDigits(\n  pick(\n    row.phone,\n    src.contact_id,\n    src.phone,\n    src.body?.data?.key?.remoteJid,\n    src.body?.sender,\n    src.body?.from,\n    src.from,\n    src.sender,\n    src.data?.key?.remoteJid,\n    (row.key || src.key || '').split(':')[0]\n  )\n);\n\n// Ключ оставляем прежний, если есть; иначе собираем из digits:stage\nconst key = row.key || (digits ? `${digits}:${stage}` : (src.key || `:${stage}`));\n\n// Текст куска\nconst text = pick(\n  src.text,\n  src.body?.data?.message?.conversation,\n  src.body?.text,\n  ''\n).toString().trim();\n\n// Текущий буфер из строки\nlet arr = [];\ntry { arr = row.buffer ? JSON.parse(row.buffer) : []; } catch (_) { arr = []; }\n\n// Антидубль по паре (ts, text)\n// Примечание: если опасаешься коллизий по ts, можно добавить хэш текста.\nconst chunk   = { text, ts: now };\nconst exists  = arr.some(x => String(x.ts) === String(chunk.ts) && (x.text || '') === chunk.text);\nconst nextArr = text ? (exists ? arr : [...arr, chunk]) : arr;\n\n// Имя: берём из строки, иначе из webhook (учитываем body.data.pushName)\nconst name = pick(\n  row.name,\n  src.name,\n  src.pushName,\n  src.body?.data?.pushName,\n  src.body?.pushName,\n  ''\n).toString().trim();\n\nreturn [{\n  json: {\n    key,\n    phone: digits,\n    stage,\n    firstAt: row.firstAt || now,\n    lastAt:  now,                        // важно: обновляем на каждый чанк\n    buffer: JSON.stringify(nextArr),\n    name,\n  }\n}];\n"
+        "jsCode": "// ==== Источники ====\nconst src = ($items(\"Edit Fields1\")[0]?.json) || $json || {};\nconst row = $items(\"Google Sheets13\")[0]?.json || {};   // строка, которую нашли (If Row exists? → TRUE)\n\n// ==== Хелперы ====\nconst onlyDigits = (v) => String(v || '').split('@')[0].replace(/\\D/g, '');\nconst pick = (...xs) => xs.find(v => v !== undefined && v !== null && String(v).trim() !== '');\n\n// ==== Время/этап ====\nconst now   = Number.isFinite(+src.now) ? +src.now : Date.now();\nconst stage = row.stage || src.stage || 'bmi';\n\n// ==== Контакт ====\nconst jid = pick(\n  row.key ? String(row.key).split(':')[0] : '',\n  src.contact_id,\n  src.phone,\n  src.body?.data?.key?.remoteJid,\n  src.body?.sender,\n  src.body?.from,\n  src.from,\n  src.sender,\n  src.data?.key?.remoteJid,\n  ''\n);\nconst digits = onlyDigits(jid);\n\n// ==== Ключ ====\n// Если строка уже есть — лучше довериться row.key, чтобы не переобозначать ключ.\n// Иначе безопасно сформируем новый.\nconst key = row.key || (digits ? `${digits}:${stage}` : (src.key || `:${stage}`));\n\n// ==== Текст входящего куска ====\nconst text = String(pick(\n  src.text,\n  src.body?.data?.message?.conversation,\n  src.body?.text,\n  src.body?.data?.message?.extendedTextMessage?.text,\n  src.body?.message?.conversation,\n  ''\n) || '').trim();\n\n// ==== Текущий буфер из строки ====\nlet arr = [];\ntry { arr = row.buffer ? JSON.parse(row.buffer) : []; } catch (_) { arr = []; }\n\n// ==== Антидубль по паре (ts, text) ====\nconst chunk  = { text, ts: now };\nconst exists = text\n  ? arr.some(x => String(x?.ts) === String(chunk.ts) && String(x?.text || '') === chunk.text)\n  : false;\n\n// ==== Новый буфер ====\nconst nextArr = text ? (exists ? arr : [...arr, chunk]) : arr;\n\n// ==== Имя ====\nconst name = String(pick(\n  row.name,\n  src.name,\n  src.pushName,\n  src.body?.data?.pushName,\n  src.body?.pushName,\n  ''\n) || '').trim();\n\n// ==== Возврат ====\nreturn [{\n  json: {\n    key,                   // неизменный ключ строки\n    phone: digits,         // только цифры\n    stage,                 // прежний или 'bmi'\n    firstAt: row.firstAt || now,\n    lastAt:  now,          // на каждый новый кусок обновляем\n    buffer: JSON.stringify(nextArr),\n    name,                  // обновляем, если появилось более свежее имя\n  }\n}];"
       },
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [
-        -2040,
-        440
+        -2600,
+        540
       ],
       "id": "b626f9c6-fc6b-4f01-a7ba-f02f5c55880c",
       "name": "Code3"
@@ -5135,8 +5298,8 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.5,
       "position": [
-        -1880,
-        440
+        -2440,
+        540
       ],
       "id": "e36f882c-630b-425a-9dde-bf185a1f011d",
       "name": "Google Sheets15",
@@ -5175,7 +5338,7 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 2.2,
       "position": [
-        -1880,
+        -2440,
         100
       ],
       "id": "ef9f054a-1a4d-402b-888b-81897e604cdb",
@@ -5208,8 +5371,8 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 2.2,
       "position": [
-        -2200,
-        600
+        -2760,
+        700
       ],
       "id": "9c6d863b-1a43-4093-85df-1751f84cde9f",
       "name": "If (Row exists?)"
@@ -5263,35 +5426,11 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 2.2,
       "position": [
-        -2240,
+        -2800,
         100
       ],
       "id": "c413f3b4-4a06-4dc6-a15c-a6f05898ed0e",
       "name": "If3"
-    },
-    {
-      "parameters": {
-        "resource": "messages-api",
-        "instanceName": "={{ $node[\"Webhook\"].json.body.instance || 'VEPPERS' }}",
-        "remoteJid": "={{ $('Webhook').item.json.body.data.key.remoteJid }}",
-        "messageText": "=Оплата прошла успешно! \n\nПередаю ваш контакт главному куратору проекта, она свяжется с вами в ближайшее время 💬",
-        "options_message": {}
-      },
-      "type": "n8n-nodes-evolution-api-eng.evolutionApi",
-      "typeVersion": 1,
-      "position": [
-        200,
-        1060
-      ],
-      "id": "098b2d42-37b6-4cfd-81f9-70fb651215a4",
-      "name": "Evolution API19",
-      "credentials": {
-        "evolutionApi": {
-          "id": "YF67B9nMmE69vgvN",
-          "name": "Evolution account 2"
-        }
-      },
-      "onError": "continueErrorOutput"
     },
     {
       "parameters": {
@@ -5316,6 +5455,500 @@
         }
       },
       "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "resource": "messages-api",
+        "operation": "send-audio",
+        "instanceName": "VEPPERS",
+        "remoteJid": "={{ $('Webhook').item.json.body.data.key.remoteJid }}",
+        "media": "https://drive.google.com/uc?export=download&id=1MVVGwWHZ9uQ8vXhr0RZm6lhSYqKl6Go8",
+        "options_message": {}
+      },
+      "type": "n8n-nodes-evolution-api-eng.evolutionApi",
+      "typeVersion": 1,
+      "position": [
+        200,
+        1040
+      ],
+      "id": "3b550e8d-28b9-4881-bc3b-adba75cd3dee",
+      "name": "Evolution API21",
+      "credentials": {
+        "evolutionApi": {
+          "id": "YF67B9nMmE69vgvN",
+          "name": "Evolution account 2"
+        }
+      },
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "documentId": {
+          "__rl": true,
+          "value": "1WOCQBIfJEhzbwSSK1dOF26JMQBO0JAwpuLLVHWnIWUc",
+          "mode": "list",
+          "cachedResultName": "Диалоги",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1WOCQBIfJEhzbwSSK1dOF26JMQBO0JAwpuLLVHWnIWUc/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "Вотсап",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1WOCQBIfJEhzbwSSK1dOF26JMQBO0JAwpuLLVHWnIWUc/edit#gid=0"
+        },
+        "filtersUI": {
+          "values": [
+            {
+              "lookupColumn": "contact_id",
+              "lookupValue": "={{    $json.contact_id    || $node[\"Webhook\"].json.body.data.key.remoteJid    || $node[\"Webhook\"].json.body.sender    || $node[\"Webhook\"].json.body.from  }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.5,
+      "position": [
+        -2940,
+        340
+      ],
+      "id": "9202389d-dd09-4b56-a911-42837d790655",
+      "name": "Google Sheets16",
+      "alwaysOutputData": true,
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "NntUkzuHFVYVN8l6",
+          "name": "veppers2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "99235f3b-a0e7-4ec8-b75a-edfd607ee5f2",
+              "leftValue": "={{\n  (\n    $items(\"Google Sheets16\")[0]?.json?.status\n    || $items(\"Google Sheets16\")[0]?.json?.Status\n    || ''\n  ).toString().trim().toLowerCase()\n}}",
+              "rightValue": "stop",
+              "operator": {
+                "type": "string",
+                "operation": "equals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        -2740,
+        340
+      ],
+      "id": "66d6fc9c-acfa-4da9-b0e8-834dc2ca77d0",
+      "name": "If4"
+    },
+    {
+      "parameters": {
+        "modelId": {
+          "__rl": true,
+          "value": "gpt-4o-mini",
+          "mode": "list",
+          "cachedResultName": "GPT-4O-MINI"
+        },
+        "messages": {
+          "values": [
+            {
+              "content": "=Ты — детерминированный роутер WhatsApp-сообщений. По входному тексту классифицируй отправителя как «Куратор» (команда управления) или «Клиент» (обычное сообщение).\n\nКРИТЕРИИ:\n- route=\"curator\" — если в тексте есть явная команда управления автответчиком: старт/start или стоп//stop (RU/EN, регистр/пробелы/эмодзи игнорируй). Также в сообщении присутствует номер телефона в каком-либо формате.\n- route=\"client\" — всё остальное: вопросы/упоминания без команды («когда старт?», «что значит stop»), приветствия и любой иной текст.\n\nТРЕБОВАНИЯ:\n- Верни строго ОДНУ строку JSON без лишнего текста:\n{\"route\":\"curator\"} или {\"route\":\"client\"}\n- Никаких других полей. Работай детерминированно (temperature=0).\n",
+              "role": "system"
+            },
+            {
+              "content": "={{ \n  $json.body?.data?.message?.conversation\n  || $json.body?.data?.message?.extendedTextMessage?.text\n  || $json.body?.text\n  || $json.text           // вдруг уже есть наверху\n  || ''\n}}"
+            }
+          ]
+        },
+        "options": {
+          "temperature": 0.1
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "typeVersion": 1.8,
+      "position": [
+        -3400,
+        100
+      ],
+      "id": "c3d1c3f1-81ef-4411-8998-2b16a296d767",
+      "name": "OpenAI6",
+      "credentials": {
+        "openAiApi": {
+          "id": "T10Aj8URpRIqIm4V",
+          "name": "OpenAi account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "rules": {
+          "values": [
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "leftValue": "={{ JSON.parse($json.message.content).route || 'client' }}",
+                    "rightValue": "curator",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals"
+                    },
+                    "id": "63d2e081-426e-4447-9d9d-9726533178ab"
+                  }
+                ],
+                "combinator": "and"
+              }
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "3c8610eb-d26e-498e-9318-2037e36afea5",
+                    "leftValue": "={{ JSON.parse($json.message.content).route || 'client' }}",
+                    "rightValue": "client",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              }
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 3.2,
+      "position": [
+        -3040,
+        100
+      ],
+      "id": "998fb72f-f23b-44e2-8207-ea256990b132",
+      "name": "Switch5"
+    },
+    {
+      "parameters": {
+        "rules": {
+          "values": [
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "leftValue": "={{ JSON.parse($json.message.content).route || 'funnel' }}",
+                    "rightValue": "funnel",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals"
+                    },
+                    "id": "63d2e081-426e-4447-9d9d-9726533178ab"
+                  }
+                ],
+                "combinator": "and"
+              }
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "3c8610eb-d26e-498e-9318-2037e36afea5",
+                    "leftValue": "={{ JSON.parse($json.message.content).route || 'funnel' }}",
+                    "rightValue": "detour",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              }
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 3.2,
+      "position": [
+        -1680,
+        -40
+      ],
+      "id": "3750cac0-ee1d-4d16-be27-45db1a24c5da",
+      "name": "Switch6"
+    },
+    {
+      "parameters": {
+        "operation": "get",
+        "documentURL": "https://docs.google.com/document/d/1q_-8reALZA8dOQdRsB7b4ZEGN7YbFo0uTYGnXlqMJdI/edit?tab=t.0#heading=h.mec6ff2thts"
+      },
+      "type": "n8n-nodes-base.googleDocsTool",
+      "typeVersion": 2,
+      "position": [
+        -1740,
+        420
+      ],
+      "id": "0fc322f8-6960-4995-8f98-cfe94d76b7b6",
+      "name": "Google Docs",
+      "credentials": {
+        "googleDocsOAuth2Api": {
+          "id": "bo3ZJink1vMtDt75",
+          "name": "VEPPERS 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "value": "gpt-5-mini-2025-08-07",
+          "mode": "list",
+          "cachedResultName": "gpt-5-mini-2025-08-07"
+        },
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.2,
+      "position": [
+        -2040,
+        420
+      ],
+      "id": "a3782a95-dd74-4c5e-b059-333a03108328",
+      "name": "OpenAI Chat Model",
+      "credentials": {
+        "openAiApi": {
+          "id": "T10Aj8URpRIqIm4V",
+          "name": "OpenAi account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "sessionIdType": "customKey",
+        "sessionKey": "={{\n  // 1) то, что уже есть в текущем item\n  $json.contact_id\n  // 2) то, что посчитано в Edit Fields1 (берём первый item того узла)\n  || $items(\"Edit Fields1\")[0]?.json?.contact_id\n  // 3) прямой вебхук Evolution\n  || $json.body?.data?.key?.remoteJid\n  || $json.body?.sender\n  || $json.body?.from\n  // 4) если есть номер, собираем jid\n  || (()=>{\n        const phone = $json.phone || $items(\"Edit Fields1\")[0]?.json?.phone;\n        if (phone) return String(phone).replace(/\\D/g,'') + '@s.whatsapp.net';\n        return '';\n     })()\n  // 5) последний фолбэк\n  || 'unknown@s.whatsapp.net'\n}}",
+        "contextWindowLength": 50
+      },
+      "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
+      "typeVersion": 1.3,
+      "position": [
+        -1940,
+        420
+      ],
+      "id": "1a349958-40c1-458a-90d4-f93dd67f5825",
+      "name": "Simple Memory"
+    },
+    {
+      "parameters": {
+        "documentId": {
+          "__rl": true,
+          "value": "1aVsjAorVhubrACj_YNSLy3t-rQYfBwjL1IQ_aBKRpEI",
+          "mode": "list",
+          "cachedResultName": "Активная база данных",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1aVsjAorVhubrACj_YNSLy3t-rQYfBwjL1IQ_aBKRpEI/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "переменные",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1aVsjAorVhubrACj_YNSLy3t-rQYfBwjL1IQ_aBKRpEI/edit#gid=0"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheetsTool",
+      "typeVersion": 4.5,
+      "position": [
+        -1840,
+        420
+      ],
+      "id": "710236c7-14b9-4bd0-bf52-2900358d8c07",
+      "name": "Google Sheets17",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "NntUkzuHFVYVN8l6",
+          "name": "veppers2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "={{ \n  $json.text\n  || $json.body?.text\n  || $json.body?.data?.message?.conversation\n  || $json.body?.data?.message?.extendedTextMessage?.text\n  || $json.body?.message?.conversation\n  || $node[\"Transcribe\"]?.json?.text\n  || ''\n}}",
+        "options": {
+          "systemMessage": "=Ты — Business Assistant (продажник) проекта о питании. Ты входишь в работу ТОЛЬКО когда клиент отклонился от воронки. Твоя цель: (1) вежливо и коротко ответить на вопрос по делу; (2) мягко вернуть клиента в сценарий, задав ровно тот вопрос, который нужен для продолжения текущего шага.\n\nМаршрутизация (что считать «возвратом в воронку» на каждом шаге):\n• Шаг 1 — ждём по сути: «да/нет/кратко про опыт с нутрициологом». После ответа поблагодари и задай следующий нужный вопрос шага 2: «Скажите, пожалуйста, ваш текущий вес и рост?».\n• Шаг 2 — ОБЯЗАТЕЛЬНО нужны ДВА значения: текущий вес И рост. Если дали одно — поблагодари и аккуратно запроси второе. Как только обе цифры есть — кратко подтверждай и мостиком переводи к шагу 3: «Подскажите, вы знакомы с нашими условиями проекта?».\n• Шаг 3 — ждём «знаком/не знаком». Если «не знаком» — кратко анонсируй, что сейчас пришлём условия и стоимость, и задавай контрольный вопрос готовности. Если «знаком» — мягко спроси, готов ли оплатить/нужна ли ссылка: «Готовы перейти к оплате? Пришлать ссылку?» (это подготовка к шагу 4).\n• Шаг 4 — ждём позитивный сигнал к оплате («дайте ссылку», «оплачу», «готов платить», «как оплатить»). Подтверди и мостиком верни к оплате: «Супер, сейчас пришлю ссылку. Когда оплатите — напишите, пожалуйста.»\n• Шаг 5 — если клиент пишет «оплатил/оплатила» БЕЗ скриншота — это отдельный кейс: поблагодари, дай позитивную обратную связь и ПРЯМО попроси скриншот («Пришлите, пожалуйста, скриншот оплаты — передам куратору»). Когда придёт скрин — дальше работает менеджер (куратор).\n\nПравила ответа:\n1) Ничего не выдумывай: опирайся только на данные из Google Sheets/Docs (цены, условия, ссылки). Если данных не хватает — вежливо уточни у клиента недостающее.\n2) Стиль: спокойно, уверенно, дружелюбно; короткие абзацы без воды; вежливые связки («Понимаю», «Благодарю», «Верно»); чёткие вопросы.\n3) Структура каждого ответа:\n   — Коротко ответь на вопрос клиента по делу (1–2 абзаца максимум).\n   — Заверши «мостиком» к нужному действию текущего шага (см. маршрутизацию выше): один конкретный вопрос или подтверждение следующего шага.\n4) Не меняй шаг самостоятельно и не давай технических команд. Твоё средство управления — только текст ответа и правильный «мостик».\n5) Формат вывода: обычный текст (без JSON, без разметки и списков).\n\nОсобые ситуации:\n• Нет ответа по сути → мягко переформулируй и повтори нужный вопрос шага.\n• Частичный ответ → поблагодари за полученное и запроси ровно недостающую часть.\n• Вопросы про оплату до шага 4 → кратко проясни и верни к обязательным данным текущего шага.\n• Сообщение «оплатил» без скрина на шаге 5 → похвали, попроси скрин. Со скрином — передача куратору."
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 1.7,
+      "position": [
+        -2000,
+        280
+      ],
+      "id": "3ba011cd-c164-4497-b986-8b9fa38b93e2",
+      "name": "БИЗНЕС АССИСТЕНТ"
+    },
+    {
+      "parameters": {
+        "resource": "messages-api",
+        "instanceName": "={{ $node[\"Webhook\"].json.body.instance || 'VEPPERS' }}",
+        "remoteJid": "={{ $('Edit Fields1').item.json.contact_id }}",
+        "messageText": "={{ $node[\"БИЗНЕС АССИСТЕНТ\"].json?.message?.content     || $json.message?.content     || '' }}",
+        "options_message": {}
+      },
+      "type": "n8n-nodes-evolution-api-eng.evolutionApi",
+      "typeVersion": 1,
+      "position": [
+        -1440,
+        280
+      ],
+      "id": "ec8e7c30-c2a8-4d8f-8cc8-f9bffb4ec82d",
+      "name": "Evolution API19",
+      "credentials": {
+        "evolutionApi": {
+          "id": "YF67B9nMmE69vgvN",
+          "name": "Evolution account 2"
+        }
+      },
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://evolution-api-production-9e6a.up.railway.app/chat/sendPresence/VEPPERS",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "apikey",
+              "value": "sdvsdgs37e4jgfvuh2g24rsdfsf"
+            },
+            {
+              "name": "content-type",
+              "value": "application/json"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ ({\n  number: String(\n    $('Edit Fields1').item.json.contact_id\n    || $json.contact_id\n    || $json.number\n    || $json.remoteJid\n    || $json.body?.data?.key?.remoteJid\n    || $json.body?.data?.key?.participant\n    || $json.body?.sender\n    || $json.from\n    || ''\n  ).split('@')[0].replace(/\\D/g,''),\n  presence: $json.presence || 'composing',   // 'composing' | 'recording'\n  delay: $json.PresenceComposingDelay ?? $json.typingDelayMs ?? 20000\n}) }}",
+        "options": {}
+      },
+      "id": "283d7652-1af7-4cdb-8985-f54026201a6c",
+      "name": "HTTP Request (Typing On)9",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4,
+      "position": [
+        -1620,
+        280
+      ],
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "G6YhkSorlbr3ZIxC",
+          "name": "Header Auth account"
+        }
+      },
+      "notes": "Имитация набора (typing). Требует, чтобы в текущем item было поле remoteJid, иначе замените выражение на путь к JID из вашего вебхука."
+    },
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "mode": "list",
+          "value": "gpt-4o-mini"
+        },
+        "options": {
+          "temperature": 0.2
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.2,
+      "position": [
+        -2020,
+        100
+      ],
+      "id": "483b4937-a64d-469a-8d00-7721bc783174",
+      "name": "OpenAI Chat Model2",
+      "credentials": {
+        "openAiApi": {
+          "id": "T10Aj8URpRIqIm4V",
+          "name": "OpenAi account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "sessionIdType": "customKey",
+        "sessionKey": "={{\n  // 1) то, что уже есть в текущем item\n  $json.contact_id\n  // 2) то, что посчитано в Edit Fields1 (берём первый item того узла)\n  || $items(\"Edit Fields1\")[0]?.json?.contact_id\n  // 3) прямой вебхук Evolution\n  || $json.body?.data?.key?.remoteJid\n  || $json.body?.sender\n  || $json.body?.from\n  // 4) если есть номер, собираем jid\n  || (()=>{\n        const phone = $json.phone || $items(\"Edit Fields1\")[0]?.json?.phone;\n        if (phone) return String(phone).replace(/\\D/g,'') + '@s.whatsapp.net';\n        return '';\n     })()\n  // 5) последний фолбэк\n  || 'unknown@s.whatsapp.net'\n}}",
+        "contextWindowLength": 50
+      },
+      "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
+      "typeVersion": 1.3,
+      "position": [
+        -1920,
+        100
+      ],
+      "id": "35e81c04-3599-46e6-9735-19eb9849619b",
+      "name": "Simple Memory1"
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "=current_step: {{ $items('Google Sheets')[0]?.json?.step || 1 }}\nuser_message: {{ \n  $json.text\n  || $json.body?.text\n  || $json.body?.data?.message?.conversation\n  || $json.body?.data?.message?.extendedTextMessage?.text\n  || $json.body?.message?.conversation\n  || $node[\"Transcribe\"]?.json?.text\n  || ''\n}}",
+        "options": {
+          "systemMessage": "Ты — детерминированный классификатор “funnel vs detour”.\nВерни СТРОГО одну строку JSON без пояснений: {\"route\":\"funnel\"} или {\"route\":\"detour\"}.\n\nПравила по шагам (шаг берём из контекста):\n1) Ждём: “да/нет/кратко про опыт работы с нутрициологом”.\n   • есть по сути ответ → funnel; иначе → detour.\n2) Ждём ОБЯЗАТЕЛЬНО ДВЕ СУЩНОСТИ: и ВЕС, и РОСТ (текущие значения).\n   • есть и вес, и рост (остальное опционально: хроника, целевой вес) → funnel;\n   • нет хотя бы одной из пары вес+рост → detour.\n3) Ждём: “знаком/незнаком с условиями проекта”.\n   • по сути ответ → funnel; иначе → detour.\n4) Ждём позитивный сигнал к оплате: “дайте ссылку / оплачу / готов платить / как оплатить”.\n   • есть явное намерение оплатить → funnel; иначе → detour.\n5) Если клиент пишет “оплатил/оплатила/я оплатил” — это detour (ответь потом менеджерским тоном и запроси скриншот).\n   • Любые сообщения об оплате без скриншота → detour.\n\nНикаких других полей. Игнорируй регистр, эмодзи и лишние пробелы. "
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 1.7,
+      "position": [
+        -2020,
+        -40
+      ],
+      "id": "0fc6e9d8-aa2b-4ba2-b180-6dd5241a4354",
+      "name": "FunnelRouter"
     }
   ],
   "pinData": {},
@@ -5327,6 +5960,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 1,
-  "updatedAt": "2025-10-06T21:12:57.000Z",
-  "versionId": "231afd48-7088-457f-8134-7ccab01dd803"
+  "updatedAt": "2025-10-07T19:25:14.000Z",
+  "versionId": "ce6feb50-9ca1-4802-9269-3f3d0ed7195c"
 }
