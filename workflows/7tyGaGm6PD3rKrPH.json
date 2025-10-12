@@ -1,0 +1,150 @@
+{
+  "active": true,
+  "connections": {
+    "Zoom Webhook - Transcript Files Ready": {
+      "main": [
+        [
+          {
+            "node": "Crypto",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Crypto": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Edit Fields": {
+      "main": [
+        [
+          {
+            "node": "Respond to Webhook",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2025-10-11T10:53:16.307Z",
+  "id": "7tyGaGm6PD3rKrPH",
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "zoom FlowChat",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "zoom-meeting-ende",
+        "authentication": "basicAuth",
+        "responseMode": "responseNode",
+        "options": {}
+      },
+      "id": "6fbfd4f9-cc4c-434e-ba25-d49b305975ec",
+      "name": "Zoom Webhook - Transcript Files Ready",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 1,
+      "position": [
+        -620,
+        980
+      ],
+      "webhookId": "zoom-webhook-disc",
+      "credentials": {
+        "httpBasicAuth": {
+          "id": "B2xCpigZNc4rOhHF",
+          "name": "zoom"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "action": "hmac",
+        "type": "SHA256",
+        "value": "={{$node[\"Zoom Webhook - Transcript Files Ready\"].json.body.payload.plainToken}}",
+        "dataPropertyName": "encryptedToken",
+        "secret": "yH21hfOrQSqFSXeOXU0cVw"
+      },
+      "type": "n8n-nodes-base.crypto",
+      "typeVersion": 1,
+      "position": [
+        -440,
+        980
+      ],
+      "id": "b0d5875f-a643-4080-b11e-93b6a767ed5a",
+      "name": "Crypto"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "51a07065-7d2e-429b-9ed5-53c8457eab57",
+              "name": "plainToken",
+              "value": "={{ $('Zoom Webhook - Transcript Files Ready').item.json.body.payload.plainToken }}",
+              "type": "string"
+            },
+            {
+              "id": "5e020113-b81f-4add-9ea1-f068d9d91953",
+              "name": "encryptedToken",
+              "value": "={{$node[\"Crypto\"].json.encryptedToken}}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -220,
+        980
+      ],
+      "id": "6ee9b6d5-fc67-489e-b7fe-1acb522a55f9",
+      "name": "Edit Fields"
+    },
+    {
+      "parameters": {
+        "options": {
+          "responseCode": 200,
+          "responseHeaders": {
+            "entries": [
+              {
+                "name": "Content-Type",
+                "value": "application/json"
+              }
+            ]
+          }
+        }
+      },
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.1,
+      "position": [
+        0,
+        980
+      ],
+      "id": "e44fe875-cff5-41a0-b73b-1524df61ac24",
+      "name": "Respond to Webhook"
+    }
+  ],
+  "pinData": {},
+  "settings": {
+    "executionOrder": "v1",
+    "saveDataErrorExecution": "all",
+    "callerPolicy": "workflowsFromSameOwner"
+  },
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 1,
+  "updatedAt": "2025-10-11T12:20:40.000Z",
+  "versionId": "0095d937-c9c9-4510-8a0a-5c6b5519e51c"
+}
