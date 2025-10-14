@@ -1070,6 +1070,17 @@
           }
         ]
       ]
+    },
+    "Evolution API21": {
+      "main": [
+        [
+          {
+            "node": "Evolution API22",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
     }
   },
   "createdAt": "2025-09-01T18:48:30.216Z",
@@ -4091,7 +4102,7 @@
       "parameters": {
         "resource": "messages-api",
         "instanceName": "={{ $node[\"Webhook\"].json.body.instance || 'VEPPERS' }}",
-        "remoteJid": "=79181357871@s.whatsapp.net",
+        "remoteJid": "=79933244832@s.whatsapp.net",
         "messageText": "={{ (() => {\n  const j = $json;\n\n  // Имя: сначала то, что кладёт Switch (BAD.NAME / NAME),\n  // затем корневые/агрегаторные места, в конце — из Edit Fields1.\n  const name = (\n    j.BAD?.NAME\n    ?? j.NAME\n    ?? j.name\n    ?? j.body?.name\n    ?? j.body?.pushName\n    ?? j.body?.data?.pushName\n    ?? $items(\"Edit Fields1\")[0]?.json?.name\n    ?? ''\n  ).toString().trim() || '—';\n\n  // Номер: сначала из Switch (BAD.FON / phone), затем contact_id и т.д.\n  const digits = String(\n    j.BAD?.FON\n    ?? j.phone\n    ?? j.FON\n    ?? j.contact_id\n    ?? j.body?.contact_id\n    ?? j.body?.from\n    ?? $items(\"Edit Fields1\")[0]?.json?.contact_id\n    ?? ''\n  ).split('@')[0].replace(/\\D/g,'');\n\n  // Текст клиента: финальный, с безопасными фолбэками\n  const text =\n    $items(\"Set Text (final)\")[0]?.json?.text\n    ?? j.text\n    ?? j.body?.text\n    ?? j.body?.data?.message?.conversation\n    ?? '[нет текста]';\n\n  return [\n    'Лид — новое сообщение',\n    '',\n    `Имя: ${name}`,\n    digits ? `Телефон: +${digits}` : 'Телефон: —',\n    `Текст клиента: ${text}`,\n  ].join('\\n');\n})() }}",
         "options_message": {}
       },
@@ -4646,7 +4657,7 @@
       "parameters": {
         "resource": "messages-api",
         "instanceName": "={{ $node[\"Webhook\"].json.body.instance || 'VEPPERS' }}",
-        "remoteJid": "=79134438532@s.whatsapp.net",
+        "remoteJid": "=79933244832@s.whatsapp.net",
         "messageText": "=✅ Клиент оплатил\nИмя: {{ $('If1').item.json.name }}\nТелефон: +{{ $('If1').item.json.phone }}\nСумма: {{ $('OpenAI5').item.json.message.content.amount }}\nМетод: {{ $('OpenAI5').item.json.message.content.method }}",
         "options_message": {}
       },
@@ -4670,7 +4681,7 @@
       "parameters": {
         "resource": "messages-api",
         "instanceName": "={{ $node[\"Webhook\"].json.body.instance || 'VEPPERS' }}",
-        "remoteJid": "=79134438532@s.whatsapp.net",
+        "remoteJid": "=79933244832@s.whatsapp.net",
         "messageText": "=⚠️ лид прислал скриншот оплаты, но система не распознала оплату\n\nИмя: {{ $('If1').item.json.name }}\nТелефон: +{{ $('If1').item.json.phone }}",
         "options_message": {}
       },
@@ -4875,7 +4886,7 @@
         "resource": "messages-api",
         "operation": "send-image",
         "instanceName": "={{ $node[\"Webhook\"].json.body.instance || 'VEPPERS' }}",
-        "remoteJid": "=79134438532@s.whatsapp.net",
+        "remoteJid": "=79933244832@s.whatsapp.net",
         "media": "={{ $('If1').item.json.base64 }}",
         "caption": "=",
         "options_message": {}
@@ -5479,7 +5490,7 @@
       "type": "n8n-nodes-evolution-api-eng.evolutionApi",
       "typeVersion": 1,
       "position": [
-        200,
+        -80,
         1040
       ],
       "id": "3b550e8d-28b9-4881-bc3b-adba75cd3dee",
@@ -5974,7 +5985,7 @@
             {
               "id": "3c2ac651-3698-46a2-95af-c89165d8828f",
               "name": "name",
-              "value": "={{ $json.name || $json.body?.data?.pushName || $json.body?.pushName || '' }}",
+              "value": "={{ \n  // 1) уже посчитанное имя (если кто-то положил раньше)\n  $json.name\n  // 2) прямой вебхук\n  || $json.body?.name\n  || $json.body?.data?.pushName\n  || $json.body?.pushName\n  // 3) редкие варианты\n  || $json.pushName\n  || $json.body?.senderName\n  // 4) фолбэк из Edit Fields1 (если ты там уже вычисляешь имя)\n  || $items('Edit Fields1')[0]?.json?.name\n  // 5) пустая строка\n  || ''\n}}",
               "type": "string"
             },
             {
@@ -5995,6 +6006,30 @@
       ],
       "id": "54975f7c-3ab5-4602-aa53-e3c93cd4cedf",
       "name": "Set CoreFields"
+    },
+    {
+      "parameters": {
+        "resource": "messages-api",
+        "instanceName": "={{ $node[\"Webhook\"].json.body.instance || 'VEPPERS' }}",
+        "remoteJid": "={{ $('Webhook').item.json.body.data.key.remoteJid }}",
+        "messageText": "Здравствуйте! 🤗 Вижу, что вы присоединились к программе. Мы очень рады, что вы решились на качественные изменения в своей жизни ❤️  \n\nПоэтому приглашаю вас в мой Telegram-бот 🤖 — там собраны бесплатные материалы, которые уже помогают девочкам: \n✅ моя СТАТЬЯ «5 шагов, чтобы похудеть без срывов» \n✅ тест «Ваши триггеры переедания» \n✅ гайд по продуктам для стройности и энергии  \n\n📲 Забирайте материалы прямо сейчас — перейдите в бот по ссылке https://t.me/VepersAnastasia_bot",
+        "options_message": {}
+      },
+      "type": "n8n-nodes-evolution-api-eng.evolutionApi",
+      "typeVersion": 1,
+      "position": [
+        60,
+        1040
+      ],
+      "id": "06f9f361-b3cf-460b-81a0-ab6bfbb37907",
+      "name": "Evolution API22",
+      "credentials": {
+        "evolutionApi": {
+          "id": "YF67B9nMmE69vgvN",
+          "name": "Evolution account 2"
+        }
+      },
+      "onError": "continueErrorOutput"
     }
   ],
   "pinData": {},
@@ -6006,6 +6041,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 1,
-  "updatedAt": "2025-10-12T15:16:38.000Z",
-  "versionId": "af47aea3-1f49-4849-b1b3-fc17028fcdb4"
+  "updatedAt": "2025-10-13T18:55:14.000Z",
+  "versionId": "517d5a40-aed2-4d65-b2c0-9e4393259883"
 }
