@@ -1,5 +1,5 @@
 {
-  "active": true,
+  "active": false,
   "connections": {
     "Zoom Webhook - Transcript Files Ready": {
       "main": [
@@ -45,7 +45,7 @@
     {
       "parameters": {
         "httpMethod": "POST",
-        "path": "zoom-meeting-ende",
+        "path": "zoom-meeting-endedd",
         "authentication": "basicAuth",
         "responseMode": "responseNode",
         "options": {}
@@ -145,6 +145,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 1,
-  "updatedAt": "2025-10-11T12:20:40.000Z",
-  "versionId": "0095d937-c9c9-4510-8a0a-5c6b5519e51c"
+  "updatedAt": "2025-10-18T09:51:28.000Z",
+  "versionId": "7d941d28-cfef-40a7-9d15-18b0b61219da"
 }
