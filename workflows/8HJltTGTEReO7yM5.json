@@ -1,0 +1,750 @@
+{
+  "active": false,
+  "connections": {
+    "IF not meeting.ended?": {
+      "main": [
+        [
+          {
+            "node": "Extract sales email3",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Extract sales email",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Download transcript (Zoom OAuth)": {
+      "main": [
+        [
+          {
+            "node": "Normalize transcript",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Normalize transcript": {
+      "main": [
+        [
+          {
+            "node": "Compose transcript URL",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Compose transcript URL": {
+      "main": [
+        [
+          {
+            "node": "DISC AI Analysis2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Zoom Webhook2": {
+      "main": [
+        [
+          {
+            "node": "IF not meeting.ended?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Extract sales email3": {
+      "main": [
+        [
+          {
+            "node": "AI Agent1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Pick transcript file1": {
+      "main": [
+        [
+          {
+            "node": "Download transcript (Zoom OAuth)",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI Chat Model1": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "AI Agent1",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Sales ": {
+      "ai_tool": [
+        [
+          {
+            "node": "AI Agent1",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "AI Agent1": {
+      "main": [
+        [
+          {
+            "node": "Wait",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Wait": {
+      "main": [
+        [
+          {
+            "node": "If1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Extract Transcript URL1": {
+      "main": [
+        [
+          {
+            "node": "Download Transcript1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Download Transcript1": {
+      "main": [
+        [
+          {
+            "node": "DISC AI Analysis1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "DISC AI Analysis1": {
+      "main": [
+        [
+          {
+            "node": "Update GHL Contact1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If1": {
+      "main": [
+        [
+          {
+            "node": "Extract Transcript URL1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "DISC AI Analysis2": {
+      "main": [
+        [
+          {
+            "node": "Update GHL Contact2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Extract sales email": {
+      "main": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Sales 1": {
+      "ai_tool": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "AI Agent": {
+      "main": [
+        [
+          {
+            "node": "Pick transcript file1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Update GHL Contact1": {
+      "main": [
+        [
+          {
+            "node": "Create a row",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Update GHL Contact2": {
+      "main": [
+        [
+          {
+            "node": "Create a row1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2025-10-29T17:37:34.284Z",
+  "id": "8HJltTGTEReO7yM5",
+  "meta": null,
+  "name": "My workflow 9",
+  "nodes": [
+    {
+      "parameters": {
+        "content": "## 🔧 Setup Steps: Zoom Sales Call → Transcript → AI → GHL\nThis workflow automatically pulls Zoom call recordings and transcripts, analyzes them with AI, and updates the contact in GoHighLevel (GHL).\n\n## 1. Zoom App\n-Go to Zoom App Marketplace → Develop → Build App.\n-Choose OAuth User-Managed App.\n-Copy Client ID + Secret into n8n Zoom credentials.\n-Add Redirect URL from n8n.\n-Under Scopes, enable:\n \"meeting:read:participant\", \"meeting:read:meeting\", \"cloud_recording:read:recording\", \"cloud_recording:read:meeting_transcript\"\n-Enable Event Subscription → Recording transcript files have complete.\n-Paste your Zoom Webhook URL (1st node) from this workflow.\n\n## 2. n8n Zoom Connection\n-In n8n, create new Zoom OAuth2 credential.\n-Paste the Client ID + Secret from Zoom.\n-Test connection.\n\n## 3. Workflow Logic\n-Zoom Webhook → Trigger on recording.transcript_files_completed.\n-Extract Transcript URL → Pull transcript file path directly.\n-Download Transcript → Fetch transcript text file.\n-AI Analysis (OpenAI) → Summarize transcript + DISC breakdown.\n-Parse JSON → Extract AI output.\n-Update GHL Contact → Push AI insights + transcript into contact.\n\n## 4. GHL Connection\n-In n8n, create GHL OAuth credential.\n-Paste GHL API key or OAuth details.\n-Map AI output fields to contact notes or custom fields.\n\n## 5. Confirm & Test\n-End a test Zoom call with recording enabled.\n-Confirm n8n triggers → grabs transcript → pushes AI notes to GHL.",
+        "height": 880,
+        "width": 992
+      },
+      "id": "e365662e-3321-4287-ae2c-4801686ad418",
+      "name": "Setup Instructions",
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        0,
+        0
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "string": [
+            {
+              "value1": "={{$json.body?.event || $json.event}}",
+              "operation": "notEqual",
+              "value2": "meeting.ended"
+            }
+          ]
+        }
+      },
+      "id": "a89c2a65-53c9-4db3-aa74-8994ac434018",
+      "name": "IF not meeting.ended?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 1,
+      "position": [
+        2000,
+        1560
+      ]
+    },
+    {
+      "parameters": {
+        "url": "={{$json.download_url}}",
+        "options": {}
+      },
+      "id": "7aa5794e-3d69-459a-b2cb-9cd931e3db84",
+      "name": "Download transcript (Zoom OAuth)",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4,
+      "position": [
+        3040,
+        1800
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "const raw=typeof $json==='string' ? $json : ($json.body||''); const noTags=String(raw).replace(/<[^>]+>/g,' ');\nconst noTime=noTags.replace(/\\d{2}:\\d{2}:\\d{2}\\.\\d{3}\\s*-->\\s*\\d{2}:\\d{2}:\\d{2}\\.\\d{3}.*/g,'').replace(/\\d{2}:\\d{2}:\\d{2}\\s*-->\\s*\\d{2}:\\d{2}:\\d{2}.*/g,'').replace(/^\\d+\\s*$/gm,'');\nconst text=noTime.replace(/\\s+/g,' ').trim(); return { json:{ TranscriptPlain:text } };"
+      },
+      "id": "1b8b28c1-503f-44e1-b0b4-4564bc351330",
+      "name": "Normalize transcript",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        3240,
+        1800
+      ]
+    },
+    {
+      "parameters": {
+        "values": {
+          "string": [
+            {
+              "name": "TranscriptURL",
+              "value": "={{$node['Pick transcript file1'].json['download_url'] || ''}}"
+            }
+          ]
+        },
+        "options": {
+          "dotNotation": true
+        }
+      },
+      "id": "c80d4ff8-522d-48ef-9a6e-63b0ee152135",
+      "name": "Compose transcript URL",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 2,
+      "position": [
+        3500,
+        1800
+      ]
+    },
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "zoom-flow-b-only",
+        "authentication": "basicAuth",
+        "options": {}
+      },
+      "id": "69b087d6-d9d1-4609-ada4-792781c288a9",
+      "name": "Zoom Webhook2",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 1,
+      "position": [
+        1820,
+        1560
+      ],
+      "webhookId": "e0bf917b-f7c2-4ccb-9ef4-48604f1b027d"
+    },
+    {
+      "parameters": {
+        "jsCode": "// ExtractSalesEmail (Code)\n// Input: full Zoom webhook payload (meeting.ended или recording.*)\n// Output: { SalesEmail, EventDateISO, ZoomUUID, ZoomMeetingId, HostId }\n\nconst body = $json.body ?? $json;\nconst payload = body.payload ?? body;\nconst obj = payload.object ?? {};\n\nconst hostId = obj.host_id || '';\nconst hostMap = {\n  '7IZxT0MRR_SfnL-m8QLO-A': 'jacob@flowchat.com',   // Jacob Letourneau\n  'SE1OkKqERCO4TPqkpFzMAg': 'april@flowchat.com',   // April Corbett\n  'E-b4seZ8T1uWeoIeyZ_epw': 'sean@flowchat.com',    // Sean Malone\n  '65vrIXbzTfuoAvh1vMcWdw': 'chris@flowchat.com',   // Chris Baden\n  'MPzffuiGTx6EZADs28Uurw': 'mishi@flowchat.com',   // Mishi George\n  'pSji5mMnRlu2dlsDLcTSRw': 'martin@flowchat.com',  // Martin Villafuerte\n};\n\nconst salesEmail = hostMap[hostId] || '';\n\n// предпочтительно end_time; если нет — start_time\nconst rawTime = obj.end_time || obj.start_time || null;\nlet eventDateISO = null;\nif (rawTime) {\n  const d = new Date(rawTime);\n  if (!isNaN(d)) eventDateISO = d.toISOString();\n}\n\nreturn {\n  json: {\n    SalesEmail: salesEmail,\n    EventDateISO: eventDateISO,\n    ZoomUUID: obj.uuid ?? null,\n    ZoomMeetingId: obj.id ?? null,\n    HostId: hostId,\n  }\n};"
+      },
+      "id": "c52c3139-7864-47b3-988c-cd851d212a93",
+      "name": "Extract sales email3",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        2240,
+        1440
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "const files=$json?.body?.payload?.object?.recording_files ?? $json?.payload?.object?.recording_files ?? [];\nconst order=['TRANSCRIPT','TRANSCRIPT_VTT','CC']; let f=null; for(const t of order){ f=files.find(x=>((x.file_type||x.recording_type||'').toUpperCase().includes(t))); if(f) break; }\nreturn { json:{ hasTranscript:!!f, download_url:f?.download_url||null, uuid:$json.body?.payload?.object?.uuid || $json.payload?.object?.uuid || null } };"
+      },
+      "id": "ba155415-a274-4bb3-96d6-91d5e49e927d",
+      "name": "Pick transcript file1",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        2840,
+        1800
+      ]
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "=SalesEmail: \"{{$json['SalesEmail']}}\",\nEventDateISO: \"{{$json['EventDateISO']}}\"",
+        "options": {
+          "systemMessage": "You are an assistant that retrieves the lead's email from a seller's calendar event.\n\nContext you will receive:\n- SalesEmail: the seller’s email address (string).\n- EventDateISO: an ISO 8601 timestamp (UTC) of when the Zoom meeting ended (or started).\n\nTools available:\n- Sales 1\n  - Returns a JSON array of events for the seller’s calendar (name: \"Sales 1\").\n  - Each event may include:\n    - start (ISO), end (ISO)\n    - attendees: array of { email, organizer?: boolean, resource?: boolean, self?: boolean, responseStatus?: string }\n    - organizer: { email }\n    - description: string (may contain HTML with an email)\n    - summary (optional), id (optional)\n\nYour task:\n1) Find the single calendar event that matches the meeting time.\n   - Use a narrow time window around EventDateISO:\n     - time_min = EventDateISO minus 15 minutes\n     - time_max = EventDateISO plus 15 minutes\n   - If the tool returns more events, choose the one with the smallest absolute time difference to EventDateISO (compare to start/end).\n\n2) Extract the lead’s email:\n   A) Prefer attendees:\n      - Exclude: the seller’s email (SalesEmail), the organizer email, any attendee with resource/self == true, and service/no-reply/calendar addresses.\n      - Prefer responseStatus in [\"accepted\",\"needsAction\"]. If multiple remain, pick the first non-internal domain.\n   B) Fallback if no valid attendee:\n      - Parse event.description (plain text or HTML) and extract the first valid email using a standard email regex.\n      - Exclude the seller’s email and service/no-reply/calendar addresses.\n\n3) Output ONLY the lead’s email address as plain text. No extra words, no JSON, no quotes.\n\nEdge cases:\n- If no events match the time window, output an empty string.\n- If an event is found but no valid email is found after both steps (attendees + description), output an empty string.\n"
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 1.8,
+      "position": [
+        2460,
+        1440
+      ],
+      "id": "0d0f67db-514a-4c69-aca3-87ca38675398",
+      "name": "AI Agent1"
+    },
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "value": "gpt-5-mini-2025-08-07",
+          "mode": "list",
+          "cachedResultName": "gpt-5-mini-2025-08-07"
+        },
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.2,
+      "position": [
+        2460,
+        1580
+      ],
+      "id": "6737838a-0c4b-4311-bdce-fd3dd41dc866",
+      "name": "OpenAI Chat Model1"
+    },
+    {
+      "parameters": {
+        "operation": "getAll",
+        "calendar": {
+          "__rl": true,
+          "value": "bfirstgang@gmail.com",
+          "mode": "list",
+          "cachedResultName": "Вася"
+        },
+        "returnAll": true,
+        "timeMin": "={{ $now.minus({ day: 1 }) }}",
+        "timeMax": "={{ $now.plus({ day: 1 }) }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleCalendarTool",
+      "typeVersion": 1.3,
+      "position": [
+        2600,
+        1620
+      ],
+      "id": "6299056d-c5f5-4aa1-ad38-1d7d7b46ab9d",
+      "name": "Sales "
+    },
+    {
+      "parameters": {
+        "amount": 30,
+        "unit": "minutes"
+      },
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1.1,
+      "position": [
+        2780,
+        1440
+      ],
+      "id": "4c92fbc0-1a48-42f5-87d7-3f1d4ff2d82a",
+      "name": "Wait",
+      "webhookId": "466db55d-9f62-4615-a69d-e7eab8b53a84"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "63471589-b316-41af-aad8-684d97ffcb12",
+              "leftValue": "",
+              "rightValue": "",
+              "operator": {
+                "type": "string",
+                "operation": "equals",
+                "name": "filter.operator.equals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        3000,
+        1440
+      ],
+      "id": "403cceb6-a4b4-446a-b0a7-d771e699986e",
+      "name": "If1"
+    },
+    {
+      "parameters": {
+        "jsCode": "// Extract transcript file (handles multiple naming variations)\nconst files = $json.recording_files || [];\n\n// Look for transcript files (Zoom can call them TRANSCRIPT, audio_transcript, closed_caption, etc.)\nconst transcript = files.find(f =>\n  f.recording_type?.toLowerCase().includes(\"transcript\")\n);\n\n// Return structured output\nreturn {\n  json: {\n    meeting_id: $json.id || null,\n    transcript_url: transcript?.download_url || \"NO_TRANSCRIPT_FOUND\",\n    file_type: transcript?.recording_type || \"not_found\"\n  }\n};\n"
+      },
+      "id": "5f5085d4-bbb2-4024-9c24-059f37ae6f74",
+      "name": "Extract Transcript URL1",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        3200,
+        1320
+      ]
+    },
+    {
+      "parameters": {
+        "url": "={{$json.transcript_url !== 'NO_TRANSCRIPT_FOUND' ? $json.transcript_url : ''}}\n",
+        "options": {}
+      },
+      "id": "411c3cb0-703e-4a41-b72c-8894296b8fd8",
+      "name": "Download Transcript1",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4,
+      "position": [
+        3440,
+        1320
+      ],
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "resource": "chat",
+        "model": "gpt-5-mini-2025-08-07",
+        "prompt": {
+          "messages": [
+            {
+              "role": "system",
+              "content": "=This GPT is a sales follow-up assistant designed to help the user (Me) write personalized follow-up emails after sales calls. It follows a relaxed, human-sounding four-step process, and keeps the language simple — clear enough for a 6th grader to understand, but never dumbed down.\n\nStep 1: Ask the user if they’re ready to get started, and request the call transcript and the prospect’s name.\n\nStep 2: Once the transcript is received, figure out who’s Mishi and who’s the prospect (even though transcripts just say “Speaker 1” and “Speaker 2\"). Use clues from the conversation to label each speaker, then show it back to the user for confirmation.\n\nStep 3: When the user says “GO,” read between the lines. Pick up on the prospect’s DISC personality type and main communication style — Visual, Auditory, or Kinesthetic — based on how they express themselves. Also pull out 3–5 of their main business pain points, even the ones they don’t say directly.\n\nStep 4: Once the user says “Yes,” write a short, warm follow-up email that sounds human and real. \n\nThe email should:\n- Start with a personal touch from the call\n- Show real thanks and recap key takeaways\n- Focus on what matters most to the prospect\n- Clearly explain next steps\n- Match the prospect’s tone and language\n- Use Mishi’s proven email voice and examples from “Emails.docx”, the emails shared.\n-Use everyday language — no fluff, no jargon, and no stiff corporate speak.\n-Mirror Mishi’s proven email voice: friendly, encouraging, slightly informal, and direct (see examples in “Emails.docx”).\n-Always start with a genuine personal touch based on what was shared in the call.\n-Recap the top 3–5 insights, goals, or pain points the prospect shared.\n-Explain how Mishi’s system solves their unique challenge, with bullet points if helpful.\n-Include clear instructions for next steps (including payment links, if relevant).\n-End with a warm, specific P.S. that ties back to something personal from the conversation.\nThis GPT now also incorporates call voice and real-time tone patterns from my live conversations, using insights from actual call transcripts (e.g., “auto_generated_captions.vtt”) to better reflect their pacing, energy, phrasing, and natural transitions.\nDon’t skip steps. Always confirm key details. Avoid stiff, robotic language. No graphs or visuals — but bullet points are fine if helpful.\nThe tone should always be: friendly, warm, real, confident, and upbeat — just like Mishi. Always ask at the end if the user wants to tweak or personalize anything."
+            },
+            {
+              "content": "={{ JSON.stringify($json) }}"
+            }
+          ]
+        },
+        "options": {},
+        "requestOptions": {}
+      },
+      "id": "95cd0e45-687a-412a-a422-29203096edee",
+      "name": "DISC AI Analysis1",
+      "type": "n8n-nodes-base.openAi",
+      "typeVersion": 1,
+      "position": [
+        3640,
+        1320
+      ]
+    },
+    {
+      "parameters": {
+        "additionalFields": {
+          "notes": ""
+        },
+        "requestOptions": {}
+      },
+      "id": "9cb7f64b-fca7-4642-9873-f77184ea6d3e",
+      "name": "Update GHL Contact1",
+      "type": "n8n-nodes-base.highLevel",
+      "typeVersion": 2,
+      "position": [
+        3880,
+        1320
+      ]
+    },
+    {
+      "parameters": {
+        "additionalFields": {
+          "notes": ""
+        },
+        "requestOptions": {}
+      },
+      "id": "31cf109b-9429-4324-8944-61e0a5662101",
+      "name": "Update GHL Contact2",
+      "type": "n8n-nodes-base.highLevel",
+      "typeVersion": 2,
+      "position": [
+        3960,
+        1800
+      ]
+    },
+    {
+      "parameters": {
+        "resource": "chat",
+        "model": "gpt-5-mini-2025-08-07",
+        "prompt": {
+          "messages": [
+            {
+              "role": "system",
+              "content": "=This GPT is a sales follow-up assistant designed to help the user (Me) write personalized follow-up emails after sales calls. It follows a relaxed, human-sounding four-step process, and keeps the language simple — clear enough for a 6th grader to understand, but never dumbed down.\n\nStep 1: Ask the user if they’re ready to get started, and request the call transcript and the prospect’s name.\n\nStep 2: Once the transcript is received, figure out who’s Mishi and who’s the prospect (even though transcripts just say “Speaker 1” and “Speaker 2\"). Use clues from the conversation to label each speaker, then show it back to the user for confirmation.\n\nStep 3: When the user says “GO,” read between the lines. Pick up on the prospect’s DISC personality type and main communication style — Visual, Auditory, or Kinesthetic — based on how they express themselves. Also pull out 3–5 of their main business pain points, even the ones they don’t say directly.\n\nStep 4: Once the user says “Yes,” write a short, warm follow-up email that sounds human and real. \n\nThe email should:\n- Start with a personal touch from the call\n- Show real thanks and recap key takeaways\n- Focus on what matters most to the prospect\n- Clearly explain next steps\n- Match the prospect’s tone and language\n- Use Mishi’s proven email voice and examples from “Emails.docx”, the emails shared.\n-Use everyday language — no fluff, no jargon, and no stiff corporate speak.\n-Mirror Mishi’s proven email voice: friendly, encouraging, slightly informal, and direct (see examples in “Emails.docx”).\n-Always start with a genuine personal touch based on what was shared in the call.\n-Recap the top 3–5 insights, goals, or pain points the prospect shared.\n-Explain how Mishi’s system solves their unique challenge, with bullet points if helpful.\n-Include clear instructions for next steps (including payment links, if relevant).\n-End with a warm, specific P.S. that ties back to something personal from the conversation.\nThis GPT now also incorporates call voice and real-time tone patterns from my live conversations, using insights from actual call transcripts (e.g., “auto_generated_captions.vtt”) to better reflect their pacing, energy, phrasing, and natural transitions.\nDon’t skip steps. Always confirm key details. Avoid stiff, robotic language. No graphs or visuals — but bullet points are fine if helpful.\nThe tone should always be: friendly, warm, real, confident, and upbeat — just like Mishi. Always ask at the end if the user wants to tweak or personalize anything."
+            },
+            {
+              "content": "={{ JSON.stringify($json) }}"
+            }
+          ]
+        },
+        "options": {},
+        "requestOptions": {}
+      },
+      "id": "650ace6f-d007-49e5-8faa-85ddabb6cfb8",
+      "name": "DISC AI Analysis2",
+      "type": "n8n-nodes-base.openAi",
+      "typeVersion": 1,
+      "position": [
+        3740,
+        1800
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "// ExtractSalesEmail (Code)\n// Input: full Zoom webhook payload (meeting.ended или recording.*)\n// Output: { SalesEmail, EventDateISO, ZoomUUID, ZoomMeetingId, HostId }\n\nconst body = $json.body ?? $json;\nconst payload = body.payload ?? body;\nconst obj = payload.object ?? {};\n\nconst hostId = obj.host_id || '';\nconst hostMap = {\n  '7IZxT0MRR_SfnL-m8QLO-A': 'jacob@flowchat.com',   // Jacob Letourneau\n  'SE1OkKqERCO4TPqkpFzMAg': 'april@flowchat.com',   // April Corbett\n  'E-b4seZ8T1uWeoIeyZ_epw': 'sean@flowchat.com',    // Sean Malone\n  '65vrIXbzTfuoAvh1vMcWdw': 'chris@flowchat.com',   // Chris Baden\n  'MPzffuiGTx6EZADs28Uurw': 'mishi@flowchat.com',   // Mishi George\n  'pSji5mMnRlu2dlsDLcTSRw': 'martin@flowchat.com',  // Martin Villafuerte\n};\n\nconst salesEmail = hostMap[hostId] || '';\n\n// предпочтительно end_time; если нет — start_time\nconst rawTime = obj.end_time || obj.start_time || null;\nlet eventDateISO = null;\nif (rawTime) {\n  const d = new Date(rawTime);\n  if (!isNaN(d)) eventDateISO = d.toISOString();\n}\n\nreturn {\n  json: {\n    SalesEmail: salesEmail,\n    EventDateISO: eventDateISO,\n    ZoomUUID: obj.uuid ?? null,\n    ZoomMeetingId: obj.id ?? null,\n    HostId: hostId,\n  }\n};"
+      },
+      "id": "d556799d-773d-443d-9198-68fe7a5f45bb",
+      "name": "Extract sales email",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        2240,
+        1800
+      ]
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "=SalesEmail: \"{{$json['SalesEmail']}}\",\nEventDateISO: \"{{$json['EventDateISO']}}\"",
+        "options": {
+          "systemMessage": "You are an assistant that retrieves the lead's email from a seller's calendar event.\n\nContext you will receive:\n- SalesEmail: the seller’s email address (string).\n- EventDateISO: an ISO 8601 timestamp (UTC) of when the Zoom meeting ended (or started).\n\nTools available:\n- Sales 1\n  - Returns a JSON array of events for the seller’s calendar (name: \"Sales 1\").\n  - Each event may include:\n    - start (ISO), end (ISO)\n    - attendees: array of { email, organizer?: boolean, resource?: boolean, self?: boolean, responseStatus?: string }\n    - organizer: { email }\n    - description: string (may contain HTML with an email)\n    - summary (optional), id (optional)\n\nYour task:\n1) Find the single calendar event that matches the meeting time.\n   - Use a narrow time window around EventDateISO:\n     - time_min = EventDateISO minus 15 minutes\n     - time_max = EventDateISO plus 15 minutes\n   - If the tool returns more events, choose the one with the smallest absolute time difference to EventDateISO (compare to start/end).\n\n2) Extract the lead’s email:\n   A) Prefer attendees:\n      - Exclude: the seller’s email (SalesEmail), the organizer email, any attendee with resource/self == true, and service/no-reply/calendar addresses.\n      - Prefer responseStatus in [\"accepted\",\"needsAction\"]. If multiple remain, pick the first non-internal domain.\n   B) Fallback if no valid attendee:\n      - Parse event.description (plain text or HTML) and extract the first valid email using a standard email regex.\n      - Exclude the seller’s email and service/no-reply/calendar addresses.\n\n3) Output ONLY the lead’s email address as plain text. No extra words, no JSON, no quotes.\n\nEdge cases:\n- If no events match the time window, output an empty string.\n- If an event is found but no valid email is found after both steps (attendees + description), output an empty string.\n"
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 1.8,
+      "position": [
+        2460,
+        1800
+      ],
+      "id": "9e7a72b2-ce86-4c12-8f34-1f2e1a4cb32b",
+      "name": "AI Agent"
+    },
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "value": "gpt-5-mini-2025-08-07",
+          "mode": "list",
+          "cachedResultName": "gpt-5-mini-2025-08-07"
+        },
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.2,
+      "position": [
+        2460,
+        1920
+      ],
+      "id": "df950546-97c8-4252-aa8b-859af4e9a9a0",
+      "name": "OpenAI Chat Model"
+    },
+    {
+      "parameters": {
+        "operation": "getAll",
+        "calendar": {
+          "__rl": true,
+          "value": "bfirstgang@gmail.com",
+          "mode": "list",
+          "cachedResultName": "Вася"
+        },
+        "returnAll": true,
+        "timeMin": "={{ $now.minus({ day: 1 }) }}",
+        "timeMax": "={{ $now.plus({ day: 1 }) }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleCalendarTool",
+      "typeVersion": 1.3,
+      "position": [
+        2600,
+        1960
+      ],
+      "id": "61c8a1f5-0e2a-49fc-815f-c9fb3a607e0a",
+      "name": "Sales 1"
+    },
+    {
+      "parameters": {
+        "tableId": "calls_overview_master",
+        "fieldsUi": {
+          "fieldValues": [
+            {
+              "fieldId": "client_name"
+            },
+            {
+              "fieldId": "transcript"
+            },
+            {
+              "fieldId": "fathom_url"
+            },
+            {
+              "fieldId": "email"
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.supabase",
+      "typeVersion": 1,
+      "position": [
+        4080,
+        1320
+      ],
+      "id": "0eda8730-10cb-40c7-bb90-0e9fd3b48930",
+      "name": "Create a row"
+    },
+    {
+      "parameters": {
+        "tableId": "calls_overview_master",
+        "fieldsUi": {
+          "fieldValues": [
+            {
+              "fieldId": "client_name"
+            },
+            {
+              "fieldId": "transcript"
+            },
+            {
+              "fieldId": "fathom_url"
+            },
+            {
+              "fieldId": "email"
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.supabase",
+      "typeVersion": 1,
+      "position": [
+        4120,
+        1800
+      ],
+      "id": "8eb78086-ed74-4aa4-8e80-5bfaa7d1a6d5",
+      "name": "Create a row1"
+    }
+  ],
+  "pinData": {},
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2025-10-29T17:37:34.284Z",
+  "versionId": "d271b5ef-5b48-432c-afa4-ca93c80df7f9"
+}
