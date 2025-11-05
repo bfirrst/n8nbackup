@@ -1,5 +1,5 @@
 {
-  "active": false,
+  "active": true,
   "connections": {
     "Zoom Webhook - Transcript Files Ready": {
       "main": [
@@ -45,8 +45,7 @@
     {
       "parameters": {
         "httpMethod": "POST",
-        "path": "zoom-meeting-endedd",
-        "authentication": "basicAuth",
+        "path": "zoom-meeting-two",
         "responseMode": "responseNode",
         "options": {}
       },
@@ -58,13 +57,7 @@
         -620,
         980
       ],
-      "webhookId": "zoom-webhook-disc",
-      "credentials": {
-        "httpBasicAuth": {
-          "id": "B2xCpigZNc4rOhHF",
-          "name": "zoom"
-        }
-      }
+      "webhookId": "zoom-webhook-disc"
     },
     {
       "parameters": {
@@ -72,7 +65,7 @@
         "type": "SHA256",
         "value": "={{$node[\"Zoom Webhook - Transcript Files Ready\"].json.body.payload.plainToken}}",
         "dataPropertyName": "encryptedToken",
-        "secret": "yH21hfOrQSqFSXeOXU0cVw"
+        "secret": "BUHtcteySe6pcpGrLTi3Ng"
       },
       "type": "n8n-nodes-base.crypto",
       "typeVersion": 1,
@@ -145,6 +138,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 1,
-  "updatedAt": "2025-10-22T13:49:27.000Z",
-  "versionId": "7d941d28-cfef-40a7-9d15-18b0b61219da"
+  "updatedAt": "2025-11-04T11:30:26.000Z",
+  "versionId": "99f00a49-9025-4397-8a72-e59949528af8"
 }
